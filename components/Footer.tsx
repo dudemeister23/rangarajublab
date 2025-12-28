@@ -9,14 +9,16 @@ const Footer: React.FC = () => {
 
           {/* Lab Brand */}
           <div className="flex items-center gap-5">
-            <img
-              src={LAB_LOGO}
-              alt="The Rangaraju Lab"
-              className="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://fav.farm/🧠'; // Fun fallback
-              }}
-            />
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden border border-slate-800 p-1">
+              <img
+                src={LAB_LOGO}
+                alt="The Rangaraju Lab"
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://fav.farm/🧠'; // Fun fallback
+                }}
+              />
+            </div>
             <div className="flex flex-col border-l border-slate-800 pl-5">
               <span className="text-white font-bold tracking-tight text-xl">The Rangaraju Lab</span>
               <span className="text-xs uppercase tracking-[0.2em] text-neuro-500 font-semibold">Neuroenergetics</span>

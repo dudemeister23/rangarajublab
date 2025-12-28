@@ -25,3 +25,14 @@ export interface SocialLink {
   url: string;
   label: string;
 }
+
+export interface NewsItem {
+  id: string;
+  title: string;
+  date: string;
+  image: string;
+  content: string;
+  category?: string;
+  audioUrl?: string;
+  externalLink?: string;
+}
