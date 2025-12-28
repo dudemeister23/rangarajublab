@@ -21,28 +21,28 @@ const Publications: React.FC = () => {
     <section id="publications" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6 md:px-12">
         {/* Preprints Section */}
-        <div className="mb-20 border-b border-slate-200 pb-12">
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold text-slate-900 mt-1">Preprints</h3>
+        <div className="mb-20">
+          <div className="mb-12 border-b border-slate-200 pb-4">
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-1">Preprints</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="flex flex-wrap justify-center gap-8">
             {PREPRINTS.map(preprint => (
               <a
                 key={preprint.id}
                 href={preprint.link}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white p-4 rounded-xl border border-slate-100 hover:border-neuro-200 hover:shadow-md transition-all duration-300 flex items-start gap-4 group h-full"
+                className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-neuro-200 hover:shadow-xl transition-all duration-300 flex items-start gap-6 group w-full md:w-[calc(33.333%-1.5rem)]"
               >
-                <div className="w-12 h-12 flex-shrink-0 bg-slate-50 rounded-lg p-1 border border-slate-100 flex items-center justify-center">
+                <div className="w-20 h-20 flex-shrink-0 bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
                   <img src={preprint.coverImage} alt="Preprint Source" className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="flex-grow min-w-0">
-                  <h4 className="text-xs font-bold text-slate-800 leading-tight mb-1 line-clamp-3 group-hover:text-neuro-600 transition-colors">
+                  <h4 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors">
                     {preprint.title}
                   </h4>
-                  <p className="text-[10px] text-slate-500 line-clamp-2 mt-1 italic">
+                  <p className="text-sm text-slate-500 italic leading-relaxed">
                     {preprint.citation}
                   </p>
                 </div>
