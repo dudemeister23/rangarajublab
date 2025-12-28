@@ -1,17 +1,18 @@
 import React from 'react';
+import { DR_RANGARAJU_PHOTO } from '../constants';
 
 const Bio: React.FC = () => {
   return (
     <section id="bio" className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
-          
+
           {/* Image Column */}
           <div className="w-full lg:w-1/3">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-neuro-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
               <img
-                src="https://picsum.photos/600/800" // Placeholder: Insert Vidhya Rangaraju photo here
+                src={DR_RANGARAJU_PHOTO}
                 alt="Dr. Vidhya Rangaraju"
                 className="relative rounded-2xl shadow-xl w-full object-cover aspect-[3/4]"
               />
@@ -20,17 +21,17 @@ const Bio: React.FC = () => {
                 <p className="text-sm text-neuro-600 font-medium">Research Group Leader</p>
               </div>
             </div>
-            
+
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div className="p-4 bg-slate-50 rounded-lg border border-slate-100 text-center">
-                 <i className="fa-solid fa-building-columns text-neuro-500 text-2xl mb-2"></i>
-                 <p className="text-xs font-bold uppercase text-slate-400">PhD</p>
-                 <p className="text-sm font-semibold text-slate-800">Weill Cornell Medicine</p>
+                <i className="fa-solid fa-building-columns text-neuro-500 text-2xl mb-2"></i>
+                <p className="text-xs font-bold uppercase text-slate-400">PhD</p>
+                <p className="text-sm font-semibold text-slate-800">Weill Cornell Medicine</p>
               </div>
               <div className="p-4 bg-slate-50 rounded-lg border border-slate-100 text-center">
-                 <i className="fa-solid fa-flask text-neuro-500 text-2xl mb-2"></i>
-                 <p className="text-xs font-bold uppercase text-slate-400">Postdoc</p>
-                 <p className="text-sm font-semibold text-slate-800">MPI Brain Research</p>
+                <i className="fa-solid fa-flask text-neuro-500 text-2xl mb-2"></i>
+                <p className="text-xs font-bold uppercase text-slate-400">Postdoc</p>
+                <p className="text-sm font-semibold text-slate-800">MPI Brain Research</p>
               </div>
             </div>
           </div>
@@ -39,7 +40,7 @@ const Bio: React.FC = () => {
           <div className="w-full lg:w-2/3">
             <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm mb-2 block">Principal Investigator</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">About Dr. Rangaraju</h2>
-            
+
             <div className="prose prose-lg text-slate-600 leading-relaxed text-justify">
               <p className="mb-4">
                 Dr. Vidhya Rangaraju started her Research Group Leader position at the <strong>Max Planck Florida Institute for Neuroscience</strong> in January 2020. The overarching goal of the Rangaraju group is to investigate the energy use and supply of biological processes in neurons.
@@ -55,17 +56,17 @@ const Bio: React.FC = () => {
               </p>
 
               <div className="flex flex-wrap gap-2 mt-4">
-                 <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">NIH Innovator Award</span>
-                 <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">SfN Gruber Award</span>
-                 <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">CZI Ben Barres Award</span>
-                 <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">EMBO Fellow</span>
+                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">NIH Innovator Award</span>
+                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">SfN Gruber Award</span>
+                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">CZI Ben Barres Award</span>
+                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">EMBO Fellow</span>
               </div>
             </div>
-            
+
             <div className="mt-8 pt-8 border-t border-slate-200">
-               <a href="https://www.mpfi.org" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2">
-                 Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
-               </a>
+              <a href="https://www.mpfi.org" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2">
+                Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
+              </a>
             </div>
           </div>
 

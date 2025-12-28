@@ -2,7 +2,7 @@ import React from 'react';
 import { PUBLICATIONS } from '../constants';
 
 const Publications: React.FC = () => {
-  
+
   // Helper to bold specific author name
   const formatCitation = (text: string) => {
     // Regex to find Rangaraju, V. or V. Rangaraju and bold it
@@ -10,7 +10,7 @@ const Publications: React.FC = () => {
     const parts = text.split(/(Rangaraju, V\.|V\. Rangaraju)/g);
     return (
       <span>
-        {parts.map((part, i) => 
+        {parts.map((part, i) =>
           part.match(/(Rangaraju, V\.|V\. Rangaraju)/) ? <strong key={i} className="text-slate-900 font-bold underline decoration-neuro-500 decoration-2 underline-offset-2">{part}</strong> : part
         )}
       </span>
@@ -21,44 +21,92 @@ const Publications: React.FC = () => {
     <section id="publications" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 pb-4">
-           <div>
-             <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm">Scientific Output</span>
-             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Selected Publications</h2>
-           </div>
-           <a href="https://scholar.google.com" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center text-sm font-semibold text-slate-500 hover:text-neuro-600 transition-colors mt-4 md:mt-0">
-             View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
-           </a>
+          <div>
+            <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm">Scientific Output</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Selected Publications</h2>
+          </div>
+          <a href="https://scholar.google.com" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center text-sm font-semibold text-slate-500 hover:text-neuro-600 transition-colors mt-4 md:mt-0">
+            View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+          </a>
         </div>
 
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 gap-12">
           {PUBLICATIONS.map((pub) => (
-            <div key={pub.id} className="bg-white p-6 rounded-lg shadow-sm border border-slate-100 hover:border-neuro-200 transition-colors">
-              <div className="flex flex-col sm:flex-row gap-4">
-                 <div className="sm:w-16 flex-shrink-0">
-                    <span className="inline-block px-3 py-1 bg-neuro-50 text-neuro-700 text-sm font-bold rounded">
+            <div key={pub.id} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-neuro-200 transition-all duration-300 group">
+              <div className="flex flex-col md:flex-row gap-10 items-start">
+                {/* Magazine Cover / Figure Preview */}
+                <a
+                  href={pub.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full md:w-48 lg:w-56 flex-shrink-0 block"
+                >
+                  <div className="relative aspect-[3/4] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-sm group-hover:shadow-lg transition-all duration-500">
+                    {pub.coverImage ? (
+                      <img
+                        src={pub.coverImage}
+                        alt={`Cover for ${pub.title}`}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-slate-200 bg-slate-50">
+                        <i className="fa-solid fa-book-open text-5xl"></i>
+                      </div>
+                    )}
+                    <div className="absolute top-3 left-3">
+                      <span className="inline-block px-3 py-1 bg-neuro-600 text-white text-xs font-bold rounded-lg shadow-lg">
                         {pub.year}
-                    </span>
-                 </div>
-                 <div>
-                    <p className="text-slate-700 leading-relaxed">
-                        {formatCitation(pub.citation)}
-                    </p>
-                    <div className="mt-2">
-                        <a href={pub.link} className="text-xs font-bold text-slate-400 hover:text-neuro-600 uppercase tracking-wide">
-                            <i className="fa-solid fa-link mr-1"></i> Link to Paper
-                        </a>
+                      </span>
                     </div>
-                 </div>
+                    <div className="absolute inset-0 bg-neuro-900/0 group-hover:bg-neuro-900/10 transition-colors duration-300 flex items-center justify-center">
+                      <i className="fa-solid fa-arrow-up-right-from-square text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-2xl"></i>
+                    </div>
+                  </div>
+                </a>
+
+                {/* Publication Details */}
+                <div className="flex-grow">
+                  <a href={pub.link} target="_blank" rel="noreferrer" className="block group/link">
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-snug group-hover/link:text-neuro-600 transition-colors">
+                      {pub.title}
+                    </h3>
+                  </a>
+                  <div className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                    {formatCitation(pub.citation)}
+                  </div>
+
+                  {pub.link && pub.link !== '#' && (
+                    <div className="flex flex-wrap gap-4">
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center px-6 py-3 bg-neuro-600 text-white text-sm font-bold rounded-xl shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group/btn"
+                      >
+                        Read Article
+                        <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-[10px] transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
+                      </a>
+                      <a
+                        href={pub.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center px-6 py-3 border border-slate-200 text-slate-600 text-sm font-bold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all duration-300"
+                      >
+                        DOI <i className="fa-solid fa-link ml-2 text-[10px]"></i>
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
-        
-         <div className="mt-8 md:hidden text-center">
-             <a href="https://scholar.google.com" target="_blank" rel="noreferrer" className="text-sm font-semibold text-neuro-600">
-             View all on Google Scholar
-           </a>
-         </div>
+
+        <div className="mt-8 md:hidden text-center">
+          <a href="https://scholar.google.com" target="_blank" rel="noreferrer" className="text-sm font-semibold text-neuro-600">
+            View all on Google Scholar
+          </a>
+        </div>
       </div>
     </section>
   );

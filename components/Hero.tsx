@@ -1,4 +1,5 @@
 import React from 'react';
+import { HERO_BACKGROUND } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -6,8 +7,7 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          // Placeholder for actual microscopy image from lab
-          src="https://picsum.photos/1920/1080?grayscale&blur=2"
+          src={HERO_BACKGROUND}
           alt="Neural Network Background"
           className="w-full h-full object-cover"
         />
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
             Max Planck Florida Institute for Neuroscience
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-            Deciphering <br/>
+            Deciphering <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300">
               Neural Energetics
             </span>

@@ -14,8 +14,10 @@ export interface TeamMember {
 export interface Publication {
   id: string;
   year: number;
+  title: string;
   citation: string;
   link?: string;
+  coverImage?: string; // Image of the publication/magazine cover
 }
 
 export interface SocialLink {
