@@ -20,7 +20,7 @@ const Team: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">The Lab Team</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-20 max-w-5xl mx-auto">
           {TEAM_MEMBERS.map((member) => (
             <div key={member.id} className="flex flex-col items-center text-center group">
               <div className="relative mb-4 w-32 h-32 md:w-40 md:h-40">

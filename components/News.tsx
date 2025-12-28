@@ -57,12 +57,12 @@ const News: React.FC = () => {
                         {/* Scrollable Content Container */}
                         <div className="relative z-10 h-full overflow-y-auto custom-scrollbar p-10 pr-6">
                             <div className="max-w-none">
-                                {/* Featured Image - Frame wraps image tightly */}
-                                <div className="w-fit mx-auto rounded-3xl overflow-hidden shadow-2xl mb-12 border-4 border-white bg-white transform transition-transform duration-700 hover:scale-[1.01]">
+                                {/* Featured Image - Floated Left with Text Wrap */}
+                                <div className="float-left w-80 mr-8 mb-6 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white transform transition-transform duration-700 hover:scale-[1.01]">
                                     <img
                                         src={activeNews.image}
                                         alt={activeNews.title}
-                                        className="h-auto max-h-[600px] w-auto block"
+                                        className="w-full h-auto object-cover block"
                                     />
                                 </div>
 

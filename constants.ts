@@ -39,6 +39,7 @@ export const MPFI_LOGO = 'assets/mpfi-logo.png';
 export const LAB_TEAM_PHOTO = 'assets/lab-team-group.jpg';
 export const DR_RANGARAJU_PHOTO = 'assets/dr-vidhya-rangaraju.jpg';
 export const HERO_BACKGROUND = 'assets/hero-bg.png';
+export const LAB_BUILDING_IMAGE = 'assets/lab-building.jpg';
 
 export const TEAM_REEL = [
   { url: LAB_TEAM_PHOTO },

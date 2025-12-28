@@ -30,16 +30,16 @@ const Publications: React.FC = () => {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PUBLICATIONS.map((pub) => (
-            <div key={pub.id} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-neuro-200 transition-all duration-300 group">
-              <div className="flex flex-col md:flex-row gap-10 items-start">
+            <div key={pub.id} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-neuro-200 transition-all duration-300 group flex flex-col h-full">
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
                 {/* Magazine Cover / Figure Preview */}
                 <a
                   href={pub.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full md:w-48 lg:w-56 flex-shrink-0 block"
+                  className="w-full sm:w-48 flex-shrink-0 block mx-auto sm:mx-0"
                 >
                   <div className="relative aspect-[3/4] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-sm group-hover:shadow-lg transition-all duration-500">
                     {pub.coverImage ? (
@@ -67,32 +67,24 @@ const Publications: React.FC = () => {
                 {/* Publication Details */}
                 <div className="flex-grow">
                   <a href={pub.link} target="_blank" rel="noreferrer" className="block group/link">
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 leading-snug group-hover/link:text-neuro-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors line-clamp-3">
                       {pub.title}
                     </h3>
                   </a>
-                  <div className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                  <div className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-4">
                     {formatCitation(pub.citation)}
                   </div>
 
                   {pub.link && pub.link !== '#' && (
-                    <div className="flex flex-wrap gap-4">
+                    <div className="flex flex-wrap gap-3 mt-auto">
                       <a
                         href={pub.link}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-neuro-600 text-white text-sm font-bold rounded-xl shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group/btn"
+                        className="inline-flex items-center px-4 py-2 bg-neuro-600 text-white text-xs font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group/btn"
                       >
                         Read Article
                         <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-[10px] transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
-                      </a>
-                      <a
-                        href={pub.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center px-6 py-3 border border-slate-200 text-slate-600 text-sm font-bold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all duration-300"
-                      >
-                        DOI <i className="fa-solid fa-link ml-2 text-[10px]"></i>
                       </a>
                     </div>
                   )}
