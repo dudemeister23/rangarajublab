@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
             Deciphering <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300">
-              Neural Energetics
+              Neuroenergetics
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">

@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-slate-900 gap-8">
           <div className="text-sm font-medium tracking-wide">
-            &copy; {new Date().getFullYear()} The Rangaraju Lab. Investigating neural energy landscapes.
+            &copy; {new Date().getFullYear()} The Rangaraju Lab. Investigating neuroenergetics.
           </div>
 
           <div className="flex gap-10 text-sm">
