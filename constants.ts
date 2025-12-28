@@ -57,11 +57,11 @@ export const TEAM_REEL = [
 export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't1', name: 'Dr. Vidhya Rangaraju', role: 'Group Leader / PI', image: DR_RANGARAJU_PHOTO },
   { id: 't2', name: 'Debalina Acharyya', role: 'Postdoctoral Fellow', image: 'assets/team/debalina-acharyya.jpg' },
-  { id: 't3', name: 'Ojasee Bapat', role: 'PhD Student', image: 'assets/team/ojasee-bapat.jpg' },
-  { id: 't4', name: 'Ruolin Fan', role: 'Research Associate', image: 'assets/team/ruolin-fan.jpeg' },
-  { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg' },
+  { id: 't3', name: 'Ojasee Bapat', role: 'PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'] },
+  { id: 't4', name: 'Ruolin Fan', role: 'Research Associate', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pp3', 'pp4', 'pp5', 'pub1', 'pub4'] },
+  { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'] },
   { id: 't6', name: 'Juan Patarroyo', role: 'Research Assistant', image: 'assets/team/juan-patarroyo.jpg' },
-  { id: 't7', name: 'Monil Shah', role: 'PhD Student', image: 'assets/team/monil-shah.jpeg' },
+  { id: 't7', name: 'Monil Shah', role: 'PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'] },
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg' },
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg' },
 ];
@@ -146,6 +146,50 @@ export const PUBLICATIONS: Publication[] = [
     citation: 'Rangaraju, V., Calloway, N., and Ryan, T.A. (2014). Activity-driven local ATP synthesis is required for synaptic function. Cell 156, 825-835.',
     link: 'https://www.sciencedirect.com/science/article/pii/S0092867414000130?via%3Dihub',
     coverImage: 'assets/publications/pub10-cover.jpg'
+  }
+];
+
+
+export const PREPRINTS: Publication[] = [
+  {
+    id: 'pp1',
+    year: 2025,
+    title: 'Mitochondria structurally remodel near synapses to fuel the sustained energy demands of plasticity',
+    citation: 'Shah, M., Ghosh, I., Pishos, L., Villani, V., Pancani, T., Yasuda, R., Sun, C., Kamasawa, N., & Rangaraju, V. (2025). bioRxiv.',
+    link: 'https://doi.org/10.1101/2025.08.27.672715',
+    coverImage: 'assets/preprints/biorxiv-logo.jpg'
+  },
+  {
+    id: 'pp2',
+    year: 2025,
+    title: 'Activity-Regulated circSamm50 Modulates Mitochondrial Dynamics and Spine Structural Plasticity',
+    citation: 'Chanda, K., Bapat, O., Wingfield, J., Avchalumov, Y., Kazantzis, M., Carter, J., Sharma, N., Davis, R. L., Yuan, J. X.-J., Rangaraju, V., & Puthanveettil, S. (2025). SSRN.',
+    link: 'https://doi.org/10.2139/ssrn.5396301',
+    coverImage: 'assets/preprints/ssrn-logo.png'
+  },
+  {
+    id: 'pp3',
+    year: 2025,
+    title: 'Synapses drive local mitochondrial ATP synthesis to fuel plasticity',
+    citation: 'Ghosh, I., Fan, R., Shah, M., Bapat, O., & Rangaraju, V. (2025). bioRxiv.',
+    link: 'https://doi.org/10.1101/2025.04.09.648032',
+    coverImage: 'assets/preprints/biorxiv-logo.jpg'
+  },
+  {
+    id: 'pp4',
+    year: 2025,
+    title: 'An expanded palette of bright and photostable organellar Ca2+ sensors',
+    citation: 'Moret, A., Farrants, H., Fan, R., Zingg, K. G., Silva, B., Roselli, C., Oertner, T. G., Gee, C. E., Hadjieconomou, D., Rangaraju, V., Schreiter, E. R., & Juan-Sanz, J. de. (2025). eLife.',
+    link: 'https://elifesciences.org/reviewed-preprints/107845/',
+    coverImage: 'assets/preprints/elife-logo.png'
+  },
+  {
+    id: 'pp5',
+    year: 2024,
+    title: 'Mitochondrial Ca2+ efflux controls neuronal metabolism and long-term memory across species',
+    citation: 'Vishwanath, A. A., Comyn, T., Chintaluri, C., Ramon-Duaso, C., Fan, R., Sivakumar, R., Lopez-Manzaneda, M., Preat, T., Vogels, T. P., Rangaraju, V., Busquets-Garcia, A., Placais, P.-Y., Pavlowsky, A., & Juan-Sanz, J. de. (2024). bioRxiv.',
+    link: 'https://doi.org/10.1101/2024.02.01.578153',
+    coverImage: 'assets/preprints/biorxiv-logo.jpg'
   }
 ];
 

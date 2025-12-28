@@ -1,5 +1,5 @@
 import React from 'react';
-import { PUBLICATIONS } from '../constants';
+import { PUBLICATIONS, PREPRINTS } from '../constants';
 
 const Publications: React.FC = () => {
 
@@ -20,12 +20,42 @@ const Publications: React.FC = () => {
   return (
     <section id="publications" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6 md:px-12">
+        {/* Preprints Section */}
+        <div className="mb-20 border-b border-slate-200 pb-12">
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold text-slate-900 mt-1">Preprints</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {PREPRINTS.map(preprint => (
+              <a
+                key={preprint.id}
+                href={preprint.link}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white p-4 rounded-xl border border-slate-100 hover:border-neuro-200 hover:shadow-md transition-all duration-300 flex items-start gap-4 group h-full"
+              >
+                <div className="w-12 h-12 flex-shrink-0 bg-slate-50 rounded-lg p-1 border border-slate-100 flex items-center justify-center">
+                  <img src={preprint.coverImage} alt="Preprint Source" className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <div className="flex-grow min-w-0">
+                  <h4 className="text-xs font-bold text-slate-800 leading-tight mb-1 line-clamp-3 group-hover:text-neuro-600 transition-colors">
+                    {preprint.title}
+                  </h4>
+                  <p className="text-[10px] text-slate-500 line-clamp-2 mt-1 italic">
+                    {preprint.citation}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 pb-4">
           <div>
-            <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm">Scientific Output</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Selected Publications</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Publications</h2>
           </div>
-          <a href="https://scholar.google.com" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center text-sm font-semibold text-slate-500 hover:text-neuro-600 transition-colors mt-4 md:mt-0">
+          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center text-sm font-semibold text-slate-500 hover:text-neuro-600 transition-colors mt-4 md:mt-0">
             View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
           </a>
         </div>
@@ -95,7 +125,7 @@ const Publications: React.FC = () => {
         </div>
 
         <div className="mt-8 md:hidden text-center">
-          <a href="https://scholar.google.com" target="_blank" rel="noreferrer" className="text-sm font-semibold text-neuro-600">
+          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="text-sm font-semibold text-neuro-600">
             View all on Google Scholar
           </a>
         </div>
