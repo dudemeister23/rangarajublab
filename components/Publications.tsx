@@ -28,26 +28,35 @@ const Publications: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-8">
             {PREPRINTS.map(preprint => (
-              <a
+              <div
                 key={preprint.id}
-                href={preprint.link}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-neuro-200 hover:shadow-xl transition-all duration-300 flex items-start gap-6 group w-full md:w-[calc(33.333%-1.5rem)]"
+                className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-neuro-200 hover:shadow-xl transition-all duration-300 flex gap-6 group w-full md:w-[calc(33.333%-1.5rem)]"
               >
-                <div className="w-20 h-20 flex-shrink-0 bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
-                  <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
+                {/* Left column: Logo + Button */}
+                <div className="flex flex-col gap-3 flex-shrink-0">
+                  <div className="w-20 h-20 bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
+                    <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
+                  </div>
+                  <a
+                    href={preprint.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex flex-col items-center justify-center w-20 h-14 bg-neuro-600 text-white text-[10px] font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-center leading-tight"
+                  >
+                    <span>Read</span>
+                    <span>Article <i className="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></span>
+                  </a>
                 </div>
+                {/* Right column: Title + Citation */}
                 <div className="flex-grow min-w-0">
-                  <h4 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors flex items-center gap-2">
+                  <h4 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors">
                     {preprint.title}
-                    <i className="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-neuro-500 transition-colors"></i>
                   </h4>
                   <p className="text-sm text-slate-500 italic leading-relaxed">
                     {preprint.citation}
                   </p>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>

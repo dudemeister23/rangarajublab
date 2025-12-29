@@ -146,7 +146,7 @@ const Team: React.FC = () => {
         </div>
 
         {/* Full Team Photo Gallery Section */}
-        <div className="mt-20 pt-20 border-t border-slate-100">
+        <div className="mt-20 pt-20">
           <div className="text-center mb-10">
             <h3 className="text-2xl font-bold text-slate-900">Life at The Rangaraju Lab</h3>
             <p className="text-slate-500 mt-2">Connecting science, community, and innovation</p>

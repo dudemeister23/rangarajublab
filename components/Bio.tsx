@@ -5,7 +5,7 @@ const Bio: React.FC = () => {
   return (
     <section id="bio" className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
+        <div className="flex flex-col lg:flex-row gap-12 items-start justify-center">
 
           {/* Image Column */}
           <div className="w-full lg:w-1/3">
@@ -24,9 +24,14 @@ const Bio: React.FC = () => {
           </div>
 
           {/* Text Column */}
-          <div className="w-full lg:w-2/3">
+          <div className="w-full lg:w-2/5">
             <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm mb-2 block">Principal Investigator</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">About Dr. Rangaraju</h2>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">About Dr. Rangaraju</h2>
+              <a href="https://mpfi.org/science/our-labs/rangaraju-lab/" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2 text-sm">
+                Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
+              </a>
+            </div>
 
             <div className="prose prose-lg text-slate-600 leading-relaxed text-justify">
               <p className="mb-4">
@@ -39,7 +44,7 @@ const Bio: React.FC = () => {
                 Rangaraju completed her Ph.D. in the lab of Dr. Timothy Ryan at Weill Cornell Medicine in New York. There she developed a novel optical reporter of synaptic ATP to measure dynamic changes in ATP concentrations and elucidated the link between neuronal activity and ATP synthesis.
               </p>
               <p className="mb-6">
-                She is the recipient of numerous awards, including the Vincent du Vigneaud Award of Excellence, Lindau Nobel Laureate Meeting Award, the SfN Peter and Patricia Gruber International Research Award, and the NIH Director’s New Innovator Award.
+                She is the recipient of numerous awards, including the Vincent du Vigneaud Award of Excellence, Lindau Nobel Laureate Meeting Award, the SfN Peter and Patricia Gruber International Research Award, and the NIH Director's New Innovator Award.
               </p>
 
               <div className="flex flex-wrap gap-2 mt-4">
@@ -48,12 +53,6 @@ const Bio: React.FC = () => {
                 <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">CZI Ben Barres Award</span>
                 <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">EMBO Fellow</span>
               </div>
-            </div>
-
-            <div className="mt-8 pt-8 border-t border-slate-200">
-              <a href="https://mpfi.org/science/our-labs/rangaraju-lab/" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2">
-                Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
-              </a>
             </div>
           </div>
 

@@ -74,11 +74,14 @@ const Contact: React.FC = () => {
 
             {/* Join Our Team CTA */}
             <div className="p-10 bg-neuro-900 text-white">
-              <h3 className="font-bold text-lg mb-2">Join Our Team</h3>
-              <p className="text-sm text-neuro-100 mb-6 leading-relaxed">We are always looking for motivated Postdocs and PhD students interested in mitochondrial biology.</p>
-              <a href={`mailto:${CONTACT_INFO.email}?subject=Lab Application`} className="inline-block text-xs font-bold uppercase tracking-wider border-b border-neuro-400 pb-1 text-neuro-400 hover:text-white hover:border-white transition-colors">
-                Apply Now
+              <a
+                href={`mailto:${CONTACT_INFO.email}?subject=Lab Application`}
+                className="inline-flex items-center gap-3 px-6 py-3 bg-neuro-600 hover:bg-neuro-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mb-4"
+              >
+                <i className="fa-solid fa-user-plus"></i>
+                Join Our Team
               </a>
+              <p className="text-sm text-neuro-100 leading-relaxed">We are always looking for motivated Postdocs and PhD students interested in mitochondrial biology.</p>
             </div>
           </div>
 
