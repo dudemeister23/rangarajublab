@@ -1,0 +1,5 @@
+# Robots.txt for Rangaraju Lab
+User-agent: *
+Allow: /
+
+Sitemap: https://rangarajulab.com/sitemap.xml

@@ -19,16 +19,19 @@ const News: React.FC = () => {
                     {/* Left Side: Scrollable List with Thumbnails */}
                     <div className="col-span-4 h-full overflow-y-auto pr-6 space-y-4 custom-scrollbar">
                         {NEWS_ITEMS.map((item) => (
-                            <button
+                            <article
                                 key={item.id}
+                                role="button"
+                                tabIndex={0}
                                 onClick={() => setActiveNewsId(item.id)}
-                                className={`w-full text-left p-4 rounded-2xl transition-all duration-500 border flex items-center gap-5 ${activeNewsId === item.id
+                                onKeyDown={(e) => e.key === 'Enter' && setActiveNewsId(item.id)}
+                                className={`w-full text-left p-4 rounded-2xl transition-all duration-500 border flex items-center gap-5 cursor-pointer ${activeNewsId === item.id
                                     ? 'bg-neuro-50 border-neuro-200 shadow-sm'
                                     : 'bg-white border-transparent hover:bg-slate-50 hover:border-slate-100'
                                     }`}
                             >
                                 <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 shadow-sm border border-slate-100 bg-white">
-                                    <img src={item.image} alt="" className="w-full h-full object-cover" />
+                                    <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
                                 </div>
                                 <div className="flex-grow min-w-0">
                                     <span className="text-[10px] font-bold text-neuro-600 uppercase tracking-widest mb-1 block">
@@ -37,9 +40,9 @@ const News: React.FC = () => {
                                     <h3 className={`font-bold text-sm mb-1 leading-tight line-clamp-2 ${activeNewsId === item.id ? 'text-slate-900' : 'text-slate-700'}`}>
                                         {item.title}
                                     </h3>
-                                    <p className="text-[10px] text-slate-400 font-medium">{item.date}</p>
+                                    <time dateTime={new Date(item.date).toISOString().split('T')[0]} className="text-[10px] text-slate-400 font-medium">{item.date}</time>
                                 </div>
-                            </button>
+                            </article>
                         ))}
                     </div>
 
@@ -71,7 +74,7 @@ const News: React.FC = () => {
                                     <span className="px-4 py-1.5 bg-neuro-600 text-white text-xs font-bold rounded-full shadow-lg shadow-neuro-200">
                                         {activeNews.category || 'News'}
                                     </span>
-                                    <span className="text-slate-400 font-semibold text-sm">{activeNews.date}</span>
+                                    <time dateTime={new Date(activeNews.date).toISOString().split('T')[0]} className="text-slate-400 font-semibold text-sm">{activeNews.date}</time>
                                 </div>
 
                                 <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">

@@ -36,7 +36,7 @@ const Publications: React.FC = () => {
                 className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-neuro-200 hover:shadow-xl transition-all duration-300 flex items-start gap-6 group w-full md:w-[calc(33.333%-1.5rem)]"
               >
                 <div className="w-20 h-20 flex-shrink-0 bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
-                  <img src={preprint.coverImage} alt="Preprint Source" className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" />
+                  <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
                 </div>
                 <div className="flex-grow min-w-0">
                   <h4 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors flex items-center gap-2">
@@ -63,7 +63,8 @@ const Publications: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PUBLICATIONS.map((pub) => (
-            <div key={pub.id} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-neuro-200 transition-all duration-300 group flex flex-col h-full">
+            <article key={pub.id} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-neuro-200 transition-all duration-300 group flex flex-col h-full" itemScope itemType="https://schema.org/ScholarlyArticle">
+              <meta itemProp="datePublished" content={pub.year.toString()} />
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 {/* Magazine Cover / Figure Preview */}
                 <a
@@ -76,8 +77,10 @@ const Publications: React.FC = () => {
                     {pub.coverImage ? (
                       <img
                         src={pub.coverImage}
-                        alt={`Cover for ${pub.title}`}
+                        alt={`Journal cover for ${pub.title}`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                        itemProp="image"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-slate-200 bg-slate-50">
@@ -98,11 +101,11 @@ const Publications: React.FC = () => {
                 {/* Publication Details */}
                 <div className="flex-grow">
                   <a href={pub.link} target="_blank" rel="noreferrer" className="block group/link">
-                    <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors" itemProp="headline">
                       {pub.title}
                     </h3>
                   </a>
-                  <div className="text-slate-600 text-sm leading-relaxed mb-4">
+                  <div className="text-slate-600 text-sm leading-relaxed mb-4" itemProp="description">
                     {formatCitation(pub.citation)}
                   </div>
 
@@ -121,7 +124,7 @@ const Publications: React.FC = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
