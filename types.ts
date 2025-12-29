@@ -10,6 +10,7 @@ export interface TeamMember {
   role: string;
   image?: string; // Optional custom image URL
   publicationIds?: string[]; // IDs of associated publications/preprints
+  email?: string; // Contact email
 }
 
 export interface Publication {
