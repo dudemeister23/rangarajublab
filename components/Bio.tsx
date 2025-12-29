@@ -51,7 +51,7 @@ const Bio: React.FC = () => {
             </div>
 
             <div className="mt-8 pt-8 border-t border-slate-200">
-              <a href="https://www.mpfi.org" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2">
+              <a href="https://mpfi.org/science/our-labs/rangaraju-lab/" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2">
                 Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
               </a>
             </div>
