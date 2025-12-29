@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { HERO_BACKGROUND } from '../constants';
 
 const Hero: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section id="home" className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -46,8 +56,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+      {/* Scroll Down Indicator - Hidden after scroll */}
+      <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce transition-opacity duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <a href="#bio" className="text-white/50 hover:text-white transition-colors">
           <i className="fa-solid fa-chevron-down text-2xl"></i>
         </a>

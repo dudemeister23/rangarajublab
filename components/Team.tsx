@@ -28,7 +28,7 @@ const Team: React.FC = () => {
   };
 
   return (
-    <section id="team" className="py-20 bg-white">
+    <section id="team" className="pt-20 pb-12 bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm">Our People</span>
@@ -145,8 +145,15 @@ const Team: React.FC = () => {
           </div>
         </div>
 
+        {/* Join Lab Button */}
+        <div className="mt-12 text-center">
+          <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-neuro-600 text-white font-bold rounded-xl shadow-lg shadow-neuro-200 hover:bg-neuro-700 hover:-translate-y-0.5 transition-all duration-300">
+            Join Our Lab <i className="fa-solid fa-paper-plane text-xs"></i>
+          </a>
+        </div>
+
         {/* Full Team Photo Gallery Section */}
-        <div className="mt-20 pt-20">
+        <div className="mt-12">
           <div className="text-center mb-10">
             <h3 className="text-2xl font-bold text-slate-900">Life at The Rangaraju Lab</h3>
             <p className="text-slate-500 mt-2">Connecting science, community, and innovation</p>
@@ -201,12 +208,6 @@ const Team: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-neuro-600 text-white font-bold rounded-xl shadow-lg shadow-neuro-200 hover:bg-neuro-700 hover:-translate-y-0.5 transition-all duration-300">
-            Join Our Lab <i className="fa-solid fa-paper-plane text-xs"></i>
-          </a>
         </div>
       </div>
     </section>

@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                   <h4 className="text-white font-semibold mb-1">Address</h4>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-400 text-base leading-relaxed">
                     <span itemProp="name">{CONTACT_INFO.address}</span><br />
                     <span itemProp="streetAddress">1 Max Planck Way</span>, <span itemProp="addressLocality">Jupiter</span>, <span itemProp="addressRegion">FL</span> <span itemProp="postalCode">33458</span>
                   </p>
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-1">Email</h4>
-                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-slate-400 text-sm hover:text-white transition-colors" itemProp="email">
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-slate-400 text-base hover:text-white transition-colors" itemProp="email">
                     {CONTACT_INFO.email}
                   </a>
                 </div>
@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-1">Phone</h4>
-                  <p className="text-slate-400 text-sm" itemProp="telephone">
+                  <p className="text-slate-400 text-base" itemProp="telephone">
                     {CONTACT_INFO.phone}
                   </p>
                 </div>
@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
 
             <div className="mt-10 flex gap-4">
               {CONTACT_INFO.socials.map(social => (
-                <a key={social.label} href={social.url} className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-neuro-600 transition-colors" title={social.label} aria-label={social.label} rel="noopener">
+                <a key={social.label} href={social.url} className="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-white text-xl hover:bg-neuro-600 transition-colors" title={social.label} aria-label={social.label} rel="noopener">
                   <i className={social.icon}></i>
                 </a>
               ))}
