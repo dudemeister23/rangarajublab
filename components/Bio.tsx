@@ -21,19 +21,6 @@ const Bio: React.FC = () => {
                 <p className="text-sm text-neuro-600 font-medium">Research Group Leader</p>
               </div>
             </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="p-4 bg-slate-50 rounded-lg border border-slate-100 text-center">
-                <i className="fa-solid fa-building-columns text-neuro-500 text-2xl mb-2"></i>
-                <p className="text-xs font-bold uppercase text-slate-400">PhD</p>
-                <p className="text-sm font-semibold text-slate-800">Weill Cornell Medicine</p>
-              </div>
-              <div className="p-4 bg-slate-50 rounded-lg border border-slate-100 text-center">
-                <i className="fa-solid fa-flask text-neuro-500 text-2xl mb-2"></i>
-                <p className="text-xs font-bold uppercase text-slate-400">Postdoc</p>
-                <p className="text-sm font-semibold text-slate-800">MPI Brain Research</p>
-              </div>
-            </div>
           </div>
 
           {/* Text Column */}

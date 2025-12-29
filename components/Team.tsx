@@ -205,7 +205,7 @@ const Team: React.FC = () => {
 
         <div className="mt-12 text-center">
           <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-neuro-600 text-white font-bold rounded-xl shadow-lg shadow-neuro-200 hover:bg-neuro-700 hover:-translate-y-0.5 transition-all duration-300">
-            Join the Lab <i className="fa-solid fa-paper-plane text-xs"></i>
+            Join Our Lab <i className="fa-solid fa-paper-plane text-xs"></i>
           </a>
         </div>
       </div>

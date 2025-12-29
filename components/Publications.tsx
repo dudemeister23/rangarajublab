@@ -39,8 +39,9 @@ const Publications: React.FC = () => {
                   <img src={preprint.coverImage} alt="Preprint Source" className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="flex-grow min-w-0">
-                  <h4 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors">
+                  <h4 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors flex items-center gap-2">
                     {preprint.title}
+                    <i className="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-neuro-500 transition-colors"></i>
                   </h4>
                   <p className="text-sm text-slate-500 italic leading-relaxed">
                     {preprint.citation}
@@ -97,11 +98,11 @@ const Publications: React.FC = () => {
                 {/* Publication Details */}
                 <div className="flex-grow">
                   <a href={pub.link} target="_blank" rel="noreferrer" className="block group/link">
-                    <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors line-clamp-3">
+                    <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors">
                       {pub.title}
                     </h3>
                   </a>
-                  <div className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-4">
+                  <div className="text-slate-600 text-sm leading-relaxed mb-4">
                     {formatCitation(pub.citation)}
                   </div>
 

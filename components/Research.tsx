@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
 
 const Research: React.FC = () => {
-  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+  const [activeProjectId, setActiveProjectId] = useState<string | null>('p1');
   const activeProject = PROJECTS.find(p => p.id === activeProjectId);
 
   return (
@@ -32,7 +32,7 @@ const Research: React.FC = () => {
                 ? 'bg-white/20'
                 : 'bg-neuro-50 group-hover:bg-neuro-100 group-hover:scale-110'
                 }`}>
-                <i className={`fa-solid ${index === 0 ? 'fa-dna' :
+                <i className={`fa-solid ${index === 0 ? 'fa-anchor' :
                   index === 1 ? 'fa-bolt' :
                     index === 2 ? 'fa-microscope' : 'fa-network-wired'
                   } text-2xl ${activeProjectId === project.id ? 'text-white' : 'text-neuro-600'}`}></i>
@@ -54,7 +54,7 @@ const Research: React.FC = () => {
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 transition-all duration-500 animate-in fade-in zoom-in-95 slide-in-from-bottom-4">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-16 h-16 bg-neuro-50 rounded-2xl flex items-center justify-center text-neuro-600 shrink-0">
-                <i className={`fa-solid ${PROJECTS.findIndex(p => p.id === activeProjectId) === 0 ? 'fa-dna' :
+                <i className={`fa-solid ${PROJECTS.findIndex(p => p.id === activeProjectId) === 0 ? 'fa-anchor' :
                   PROJECTS.findIndex(p => p.id === activeProjectId) === 1 ? 'fa-bolt' :
                     PROJECTS.findIndex(p => p.id === activeProjectId) === 2 ? 'fa-microscope' : 'fa-network-wired'
                   } text-3xl`}></i>

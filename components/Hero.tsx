@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
           alt="Neural Network Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/80 to-neuro-900/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/60 to-neuro-900/30"></div>
       </div>
 
       {/* Content */}
