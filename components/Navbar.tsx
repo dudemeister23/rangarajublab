@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
             <img
               src={LAB_LOGO}
               alt="Rangaraju Lab Logo"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain p-1"
             />
           </div>
           <span className={`text-3xl font-bold tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
