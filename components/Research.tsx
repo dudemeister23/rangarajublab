@@ -51,7 +51,7 @@ const Research: React.FC = () => {
 
         {/* Project Detail Area */}
         {activeProject && (
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 transition-all duration-500 animate-in fade-in zoom-in-95 slide-in-from-bottom-4">
+          <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[320px] transition-all duration-500 animate-in fade-in zoom-in-95 slide-in-from-bottom-4">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="w-16 h-16 bg-neuro-50 rounded-2xl flex items-center justify-center text-neuro-600 shrink-0">
                 <i className={`fa-solid ${PROJECTS.findIndex(p => p.id === activeProjectId) === 0 ? 'fa-anchor' :
