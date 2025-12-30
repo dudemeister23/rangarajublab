@@ -16,17 +16,14 @@ const Bio: React.FC = () => {
                 alt="Dr. Vidhya Rangaraju"
                 className="relative rounded-2xl shadow-xl w-full object-cover aspect-[3/4]"
               />
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur px-4 py-3 rounded-xl shadow-lg">
-                <h3 className="text-xl font-bold text-slate-900">Dr. Vidhya Rangaraju</h3>
-                <p className="text-sm text-neuro-600 font-medium">Research Group Leader</p>
-              </div>
+
             </div>
           </div>
 
           {/* Text Column */}
           <div className="w-full lg:w-2/5">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Principal Investigator <br /> Dr. Rangaraju</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Research Group Leader <br /> Dr. Vidhya Rangaraju</h2>
               <a href="https://mpfi.org/science/our-labs/rangaraju-lab/" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2 text-sm">
                 Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
               </a>
@@ -46,12 +43,7 @@ const Bio: React.FC = () => {
                 She is the recipient of numerous awards, including the Vincent du Vigneaud Award of Excellence, Lindau Nobel Laureate Meeting Award, the SfN Peter and Patricia Gruber International Research Award, and the NIH Director's New Innovator Award.
               </p>
 
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">NIH Innovator Award</span>
-                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">SfN Gruber Award</span>
-                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">CZI Ben Barres Award</span>
-                <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs rounded-full font-medium">EMBO Fellow</span>
-              </div>
+
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CONTACT_INFO, LAB_BUILDING_IMAGE } from '../constants';
+import { CONTACT_INFO, CONTACT_IMAGE } from '../constants';
 
 const Contact: React.FC = () => {
   return (
@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
             {/* Lab Building Image */}
             <div className="flex-grow relative min-h-[250px]">
               <img
-                src={LAB_BUILDING_IMAGE}
+                src={CONTACT_IMAGE}
                 alt="MPFI Building"
                 className="w-full h-full object-cover"
               />

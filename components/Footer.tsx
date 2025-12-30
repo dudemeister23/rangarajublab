@@ -1,5 +1,5 @@
 import React from 'react';
-import { LAB_LOGO, MPFI_LOGO } from '../constants';
+import { LAB_LOGO, MPFI_LOGO, NIH_LOGO, CZI_LOGO } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
 
           {/* Lab Brand */}
           <div className="flex items-center gap-6">
-            <div className="h-14 w-14 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden">
+            <div className="h-16 w-auto flex items-center justify-center">
               <img
                 src={LAB_LOGO}
                 alt="The Rangaraju Lab"
-                className="h-full w-full object-contain"
+                className="h-full w-auto object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://fav.farm/🧠'; // Fun fallback
                 }}
@@ -25,25 +25,53 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* MPFI Brand - Directly Clickable Image */}
-          <a
-            href="https://mpfi.org"
-            target="_blank"
-            rel="noreferrer"
-            className="group relative transition-all duration-500 flex items-center p-4 rounded-full"
-          >
-            {/* Hover Ring/Glow Effect */}
-            <div className="absolute inset-0 rounded-full border border-neuro-500/0 group-hover:border-neuro-500/30 group-hover:bg-neuro-500/5 transition-all duration-500 scale-90 group-hover:scale-100 opacity-0 group-hover:opacity-100"></div>
+          {/* Partner Logos */}
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {/* MPFI Brand */}
+            <a
+              href="https://mpfi.org"
+              target="_blank"
+              rel="noreferrer"
+              className="group transition-all duration-300 hover:scale-105"
+            >
+              <img
+                src={MPFI_LOGO}
+                alt="Max Planck Florida Institute"
+                className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity bg-white/90 rounded-lg"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://mpfi.org/wp-content/themes/mpfi-child-2023/assets/img/logo.svg';
+                }}
+              />
+            </a>
 
-            <img
-              src={MPFI_LOGO}
-              alt="Max Planck Florida Institute"
-              className="h-20 w-auto opacity-100 transition-all duration-500 relative z-10"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = 'https://mpfi.org/wp-content/themes/mpfi-child-2023/assets/img/logo-white.svg';
-              }}
-            />
-          </a>
+            {/* NIH Brand */}
+            <a
+              href="https://www.nih.gov"
+              target="_blank"
+              rel="noreferrer"
+              className="group transition-all duration-300 hover:scale-105"
+            >
+              <img
+                src={NIH_LOGO}
+                alt="National Institutes of Health"
+                className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity bg-white/90 rounded-lg px-3 py-2"
+              />
+            </a>
+
+            {/* CZI Brand */}
+            <a
+              href="https://chanzuckerberg.com"
+              target="_blank"
+              rel="noreferrer"
+              className="group transition-all duration-300 hover:scale-105"
+            >
+              <img
+                src={CZI_LOGO}
+                alt="Chan Zuckerberg Initiative"
+                className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity bg-white/90 rounded-lg px-3 py-2"
+              />
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-slate-900 gap-8">
@@ -52,8 +80,6 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex gap-10 text-sm">
-            <a href="#" className="hover:text-neuro-400 transition-colors uppercase tracking-widest text-[10px] font-bold">Privacy</a>
-            <a href="#contact" className="hover:text-neuro-400 transition-colors uppercase tracking-widest text-[10px] font-bold">Contact</a>
             <a href="#home" className="text-slate-800 hover:text-neuro-600 transition-colors">
               <i className="fa-solid fa-arrow-up"></i>
             </a>

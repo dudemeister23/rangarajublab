@@ -34,12 +34,15 @@ export const PROJECTS: Project[] = [
 ];
 
 // Image paths - These point to the public/assets folder
-export const LAB_LOGO = 'assets/logo-final.png';
+export const LAB_LOGO = 'assets/logo-brain-bulb.png';
 export const MPFI_LOGO = 'assets/mpfi-logo.png';
+export const NIH_LOGO = 'assets/nih-logo.png';
+export const CZI_LOGO = 'assets/czi-logo.png';
 export const LAB_TEAM_PHOTO = 'assets/lab-team-group.jpg';
 export const DR_RANGARAJU_PHOTO = 'assets/dr-vidhya-rangaraju.jpg';
 export const HERO_BACKGROUND = 'assets/hero-bg.png';
 export const LAB_BUILDING_IMAGE = 'assets/lab-building.jpg';
+export const CONTACT_IMAGE = 'assets/team-reel/photo10.jpg';
 
 export const TEAM_REEL = [
   { url: LAB_TEAM_PHOTO },
@@ -51,7 +54,7 @@ export const TEAM_REEL = [
   { url: 'assets/team-reel/photo7.jpg' },
   { url: 'assets/team-reel/photo8.jpg' },
   { url: 'assets/team-reel/photo9.jpg' },
-  { url: 'assets/team-reel/photo10.jpg' },
+
 ];
 
 export const TEAM_MEMBERS: TeamMember[] = [

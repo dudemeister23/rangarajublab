@@ -21,11 +21,11 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-4 group">
-          <div className={`h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 ${isScrolled ? 'bg-transparent' : 'bg-white shadow-sm'}`}>
+          <div className="h-14 w-auto flex items-center justify-center transition-all duration-300">
             <img
               src={LAB_LOGO}
               alt="Rangaraju Lab Logo"
-              className="h-11 w-11 object-contain"
+              className="h-14 w-auto object-contain drop-shadow-sm"
             />
           </div>
           <span className={`text-3xl font-bold tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
