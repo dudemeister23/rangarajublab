@@ -142,7 +142,7 @@ const Team: React.FC = () => {
                           <img
                             src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0fdfa&color=0d9488&size=256`}
                             alt={member.name}
-                            className={`w-full h-full object-cover ${member.id === 't1' ? 'scale-110' : ''}`}
+                            className={`w-full h-full object-cover ${member.id === 't1' ? 'scale-[1.35] translate-y-3' : ''}`}
                           />
                         </div>
                       </div>
