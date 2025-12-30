@@ -43,21 +43,33 @@ const Bio: React.FC = () => {
 
 
 
-              <div className="flex flex-wrap justify-center gap-2 mt-8">
+              <div className="grid grid-cols-2 gap-4 mt-8">
+                {/* Top Item - Centered across 2 columns */}
+                <div className="col-span-2 flex justify-center">
+                  <span
+                    className="w-[calc(50%-0.5rem)] h-[52px] px-2 py-1 bg-neuro-100 text-neuro-900 text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-200 hover:scale-105 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
+                  >
+                    <span className="block">NIH Director’s</span>
+                    <span className="block">New Innovator Award</span>
+                  </span>
+                </div>
+
+                {/* Remaining Items */}
                 {[
-                  "NIH Director’s New Innovator Award",
-                  "SfN Peter and Patricia Gruber International Research Award",
-                  "CZI Ben Barres Early Career Acceleration Award",
-                  "SfN Janett Rosenberg Trubatch Career Development Award",
-                  "Lindau Nobel Laureate Meeting Award",
-                  "Vincent du Vigneaud Award of Excellence",
-                  "MPIBR Scientific Discovery of the Year Award"
-                ].map((award, index) => (
+                  ["SfN Peter and Patricia Gruber", "International Research Award"],
+                  ["CZI Ben Barres", "Early Career Acceleration Award"],
+                  ["SfN Janett Rosenberg Trubatch", "Career Development Award"],
+                  ["Lindau Nobel", "Laureate Meeting Award"],
+                  ["Vincent du Vigneaud", "Award of Excellence"],
+                  ["MPIBR Scientific Discovery", "of the Year Award"]
+                ].map((lines, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 text-amber-900 text-sm font-bold rounded-full border border-yellow-400 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                    className="w-full h-[52px] px-2 py-1 bg-neuro-100 text-neuro-900 text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-200 hover:scale-105 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
                   >
-                    {award}
+                    {lines.map((line, i) => (
+                      <span key={i} className="block">{line}</span>
+                    ))}
                   </span>
                 ))}
               </div>

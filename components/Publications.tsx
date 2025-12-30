@@ -17,6 +17,14 @@ const Publications: React.FC = () => {
     );
   };
 
+  // Determine font size based on citation length
+  const getCitationClass = (text: string) => {
+    // Thresholds relaxed to prioritize readability while fitting the card
+    if (text.length > 550) return "text-xs leading-snug"; // 12px
+    if (text.length > 400) return "text-[13px] leading-snug"; // 13px
+    return "text-sm leading-relaxed"; // 14px
+  };
+
   return (
     <section id="publications" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6 md:px-12">
@@ -94,7 +102,7 @@ const Publications: React.FC = () => {
                         <i className="fa-solid fa-book-open text-5xl"></i>
                       </div>
                     )}
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute bottom-3 left-3">
                       <span className="inline-block px-3 py-1 bg-neuro-600 text-white text-xs font-bold rounded-lg shadow-lg">
                         {pub.year}
                       </span>
@@ -106,18 +114,20 @@ const Publications: React.FC = () => {
                 </a>
 
                 {/* Publication Details */}
-                <div className="flex-grow">
-                  <a href={pub.link} target="_blank" rel="noreferrer" className="block group/link">
-                    <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors" itemProp="headline">
-                      {pub.title}
-                    </h3>
-                  </a>
-                  <div className="text-slate-600 text-sm leading-relaxed mb-4" itemProp="description">
-                    {formatCitation(pub.citation)}
+                <div className="flex-grow flex flex-col sm:h-64">
+                  <div className="flex-1 min-h-0">
+                    <a href={pub.link} target="_blank" rel="noreferrer" className="block group/link">
+                      <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors" itemProp="headline">
+                        {pub.title}
+                      </h3>
+                    </a>
+                    <div className={`text-slate-600 mb-4 ${getCitationClass(pub.citation)}`} itemProp="description">
+                      {formatCitation(pub.citation)}
+                    </div>
                   </div>
 
                   {pub.link && pub.link !== '#' && (
-                    <div className="flex flex-wrap gap-3 mt-auto">
+                    <div className="flex flex-wrap gap-3 mt-auto pt-4">
                       <a
                         href={pub.link}
                         target="_blank"

@@ -34,12 +34,12 @@ const Navbar: React.FC = () => {
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-6">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-neuro-500 ${isScrolled ? 'text-slate-600' : 'text-slate-100'
+              className={`text-lg font-medium transition-colors hover:text-neuro-500 ${isScrolled ? 'text-slate-600' : 'text-slate-100'
                 }`}
             >
               {link.label}
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-6 py-3 text-slate-700 hover:bg-slate-50 hover:text-neuro-600 font-medium"
+                className="px-6 py-3 text-xl text-slate-700 hover:bg-slate-50 hover:text-neuro-600 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}

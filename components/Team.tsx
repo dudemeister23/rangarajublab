@@ -122,7 +122,7 @@ const Team: React.FC = () => {
                     }
                   }}
                 >
-                  <div className={`relative mb-4 w-28 h-28 md:w-32 md:h-32 transition-transform duration-300 ${isActive ? 'scale-105' : ''}`}>
+                  <div className={`relative mb-4 w-36 h-36 md:w-40 md:h-40 transition-transform duration-300 ${isActive ? 'scale-105' : ''}`}>
                     <div className={`absolute inset-0 rounded-full border-2 transition-colors duration-300 ${isActive ? 'border-neuro-600' : (member.publicationIds?.length ? 'border-neuro-400 group-hover:border-neuro-600' : 'border-neuro-100 group-hover:border-neuro-300')}`}></div>
 
                     {/* Visual Indicator for Publications */}
