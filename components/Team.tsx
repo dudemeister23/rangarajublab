@@ -4,9 +4,9 @@ import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS 
 const Team: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [hoveredMemberId, setHoveredMemberId] = useState<string | null>(null);
-  const [lockedMemberId, setLockedMemberId] = useState<string | null>(null);
-  const [lockedContentId, setLockedContentId] = useState<string>('');
-  const [panelMode, setPanelMode] = useState<'publications' | 'awards' | 'contact'>('publications');
+  const [lockedMemberId, setLockedMemberId] = useState<string | null>('t1');
+  const [lockedContentId, setLockedContentId] = useState<string>('t1');
+  const [panelMode, setPanelMode] = useState<'publications' | 'awards' | 'contact'>('contact');
 
   // Touch state for swipe detection
   const [touchStart, setTouchStart] = useState<number | null>(null);

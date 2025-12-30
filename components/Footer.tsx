@@ -34,11 +34,7 @@ const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} The Rangaraju Lab. Investigating neuroenergetics.
           </div>
 
-          <div className="flex gap-10 text-sm">
-            <a href="#home" className="text-slate-600 hover:text-neuro-500 transition-colors p-3 bg-slate-900 rounded-full w-12 h-12 flex items-center justify-center hover:bg-slate-800 border border-slate-800">
-              <i className="fa-solid fa-arrow-up"></i>
-            </a>
-          </div>
+
         </div>
       </div>
     </footer>
