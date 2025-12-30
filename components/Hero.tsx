@@ -45,10 +45,16 @@ const Hero: React.FC = () => {
               Explore Research <i className="fa-solid fa-arrow-right text-sm"></i>
             </a>
             <a
-              href="#publications"
-              className="px-8 py-3.5 bg-transparent border border-white/20 hover:bg-white/10 text-white font-semibold rounded-lg transition-all duration-300 backdrop-blur-sm"
+              href="#team"
+              className="px-8 py-3.5 bg-amber-600 hover:bg-amber-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 hover:shadow-amber-600/40 flex items-center justify-center gap-2"
             >
-              View Publications
+              Meet the Team <i className="fa-solid fa-users text-sm"></i>
+            </a>
+            <a
+              href="#publications"
+              className="px-8 py-3.5 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-sky-900/20 hover:shadow-sky-600/40 flex items-center justify-center gap-2"
+            >
+              View Publications <i className="fa-solid fa-book-open text-sm"></i>
             </a>
           </div>
         </div>

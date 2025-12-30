@@ -2,11 +2,12 @@ import { Project, TeamMember, Publication, SocialLink, NewsItem, Award } from '.
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#bio' },
+  { label: 'PI Profile', href: '#bio' },
   { label: 'Research', href: '#research' },
   { label: 'News', href: '#news' },
   { label: 'Team', href: '#team' },
   { label: 'Publications', href: '#publications' },
+  { label: 'Funding / Collaborators', href: '#funding' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -61,15 +62,15 @@ export const TEAM_REEL = [
 ];
 
 export const TEAM_MEMBERS: TeamMember[] = [
-  { id: 't1', name: 'Dr. Vidhya Rangaraju', role: 'Group Leader / PI', image: DR_RANGARAJU_PHOTO, email: 'Vidhya.Rangaraju@mpfi.org' },
-  { id: 't2', name: 'Debalina Acharyya', role: 'Postdoctoral Fellow', image: 'assets/team/debalina-acharyya.jpg', email: 'debalina.acharyya@mpfi.org' },
-  { id: 't3', name: 'Ojasee Bapat', role: 'PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org' },
-  { id: 't4', name: 'Ruolin Fan', role: 'Research Associate', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pp3', 'pp4', 'pp5', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org' },
-  { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'], awardIds: ['a1', 'a6', 'a8', 'a9', 'a11', 'a16', 'a17'], email: 'ilika.ghosh@mpfi.org' },
-  { id: 't6', name: 'Juan Patarroyo', role: 'Research Assistant', image: 'assets/team/juan-patarroyo.jpg', email: 'juan.patarroyo@mpfi.org' },
-  { id: 't7', name: 'Monil Shah', role: 'PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org' },
-  { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org' },
-  { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org' },
+  { id: 't1', name: 'Dr. Vidhya Rangaraju', role: 'Group Leader / PI', image: DR_RANGARAJU_PHOTO, email: 'Vidhya.Rangaraju@mpfi.org', joinedYear: '2020' },
+  { id: 't2', name: 'Debalina Acharyya', role: 'Postdoctoral Fellow', image: 'assets/team/debalina-acharyya.jpg', email: 'debalina.acharyya@mpfi.org', joinedYear: '2024' },
+  { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'], awardIds: ['a1', 'a6', 'a8', 'a9', 'a11', 'a16', 'a17'], email: 'ilika.ghosh@mpfi.org', joinedYear: '2020' },
+  { id: 't6', name: 'Juan Patarroyo', role: 'Lab Manager', image: 'assets/team/juan-patarroyo.jpg', email: 'juan.patarroyo@mpfi.org', joinedYear: '2025' },
+  { id: 't7', name: 'Monil Shah', role: 'PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
+  { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org', joinedYear: '2024' },
+  { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
+  { id: 't3', name: 'Ojasee Bapat', role: 'PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
+  { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pp3', 'pp4', 'pp5', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
 ];
 
 export const AWARDS: Award[] = [
@@ -81,7 +82,7 @@ export const AWARDS: Award[] = [
   { id: 'a6', title: 'Carl Angus DeSantis Award', recipient: 'Ilika Ghosh', date: '07/2024', endDate: '12/2027', type: 'award' },
   { id: 'a7', title: 'Selected for EMBO Intensive Course in Electron Microscopy for Cell Biology', recipient: 'Monil Shah', date: '06/2024', type: 'honor' },
   { id: 'a8', title: 'Invited Speaker, CHINTA, TCG Crest', recipient: 'Ilika Ghosh', date: '05/2024', type: 'honor' },
-  { id: 'a9', title: 'Teaching Assistants, MPFI Imaging Course', recipient: 'Ilika Ghosh, Monil Shah', date: '02/2024', type: 'honor' },
+  { id: 'a9', title: 'Teaching Assistant, MPFI Imaging Course', recipient: 'Ilika Ghosh, Monil Shah', date: '02/2024', type: 'honor' },
   { id: 'a10', title: 'Best Poster Award, MPFI Retreat', recipient: 'Monil Shah', date: '10/2023', type: 'award' },
   { id: 'a11', title: 'Invited Speaker & Best Oral Presentation Award, UF Scripps Research Fest', recipient: 'Ilika Ghosh', date: '05/2023', type: 'award' },
   { id: 'a12', title: 'Travel Grant, NeuroNex Workshop', recipient: 'Monil Shah', date: '05/2023', type: 'award' },
@@ -366,7 +367,7 @@ export const COLLABORATORS = [
   { name: 'Puthanveettil Lab, UF Scripps', url: 'https://puthanveettil.scripps.ufl.edu/' },
   { name: 'Ryan Lab, Weill Cornell', url: 'https://sites.google.com/site/ryanlab1/Home' },
   { name: 'Sun Lab, Aarhus University', url: 'https://synaptic-logistics-lab.com/' },
-  { name: 'ThermoFisher Scientific', url: 'https://www.thermofisher.com/' },
+  { name: 'ThermoFisher Scientific', url: 'https://www.thermofisher.com/us/en/home/electron-microscopy/products/transmission-electron-microscopes/techniques/life-sciences.html' },
   { name: 'Yasuda Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/yasuda-lab/' }
 ];
 

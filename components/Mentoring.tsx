@@ -14,7 +14,7 @@ const Mentoring: React.FC = () => {
         { text: "Resilience and Growth", className: "bg-emerald-50 text-emerald-700 border-emerald-200 hover:border-emerald-300 ring-emerald-100 hover:bg-emerald-100" },
         { text: "Adaptability and Commitment", className: "bg-teal-50 text-teal-700 border-teal-200 hover:border-teal-300 ring-teal-100 hover:bg-teal-100" },
         { text: "Receptiveness to Feedback", className: "bg-violet-50 text-violet-700 border-violet-200 hover:border-violet-300 ring-violet-100 hover:bg-violet-100" },
-        { text: "Collaborative and Supportive", className: "bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-300 ring-blue-100 hover:bg-blue-100" }
+        { text: "Collaboration and Support", className: "bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-300 ring-blue-100 hover:bg-blue-100" }
     ];
 
     return (
@@ -74,7 +74,7 @@ const Mentoring: React.FC = () => {
                     {/* Right Column: Lab Expectations */}
                     <div className="flex flex-col h-full">
                         <div className="text-center mb-8">
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Lab Expectations</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Team Expectations</h2>
                         </div>
 
                         <div className="bg-slate-50/50 rounded-2xl p-8 border border-slate-100 flex-grow flex items-center justify-center">

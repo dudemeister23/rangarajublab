@@ -12,6 +12,7 @@ export interface TeamMember {
   publicationIds?: string[]; // IDs of associated publications/preprints
   awardIds?: string[]; // IDs of associated awards and honors
   email?: string; // Contact email
+  joinedYear?: string; // Year joined the lab
 }
 
 export interface Award {

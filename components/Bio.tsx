@@ -5,7 +5,7 @@ const Bio: React.FC = () => {
   return (
     <section id="bio" className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row gap-12 items-start justify-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-center justify-center">
 
           {/* Image Column */}
           <div className="w-full lg:w-1/3">
@@ -22,10 +22,10 @@ const Bio: React.FC = () => {
 
           {/* Text Column */}
           <div className="w-full lg:w-2/5">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+            <div className="flex flex-col gap-2 mb-6">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Research Group Leader <br /> Dr. Vidhya Rangaraju</h2>
-              <a href="https://mpfi.org/science/our-labs/rangaraju-lab/" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2 text-sm">
-                Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
+              <a href="mailto:Vidhya.Rangaraju@mpfi.org" className="text-neuro-600 font-semibold hover:text-neuro-700 text-lg">
+                Vidhya.Rangaraju@mpfi.org
               </a>
             </div>
 
@@ -39,11 +39,28 @@ const Bio: React.FC = () => {
               <p className="mb-4">
                 Rangaraju completed her Ph.D. in the lab of Dr. Timothy Ryan at Weill Cornell Medicine in New York. There she developed a novel optical reporter of synaptic ATP to measure dynamic changes in ATP concentrations and elucidated the link between neuronal activity and ATP synthesis.
               </p>
-              <p className="mb-6">
-                She is the recipient of numerous awards, including the Vincent du Vigneaud Award of Excellence, Lindau Nobel Laureate Meeting Award, the SfN Peter and Patricia Gruber International Research Award, and the NIH Director's New Innovator Award.
-              </p>
 
 
+
+
+              <div className="flex flex-wrap justify-center gap-2 mt-8">
+                {[
+                  "NIH Director’s New Innovator Award",
+                  "SfN Peter and Patricia Gruber International Research Award",
+                  "CZI Ben Barres Early Career Acceleration Award",
+                  "SfN Janett Rosenberg Trubatch Career Development Award",
+                  "Lindau Nobel Laureate Meeting Award",
+                  "Vincent du Vigneaud Award of Excellence",
+                  "MPIBR Scientific Discovery of the Year Award"
+                ].map((award, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 text-amber-900 text-sm font-bold rounded-full border border-yellow-400 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  >
+                    {award}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

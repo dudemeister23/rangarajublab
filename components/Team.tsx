@@ -6,7 +6,7 @@ const Team: React.FC = () => {
   const [hoveredMemberId, setHoveredMemberId] = useState<string | null>(null);
   const [lockedMemberId, setLockedMemberId] = useState<string | null>(null);
   const [lockedContentId, setLockedContentId] = useState<string>('');
-  const [panelMode, setPanelMode] = useState<'publications' | 'awards'>('publications');
+  const [panelMode, setPanelMode] = useState<'publications' | 'awards' | 'contact'>('publications');
 
   // Touch state for swipe detection
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -67,9 +67,10 @@ const Team: React.FC = () => {
       setLockedContentId(id);
       setPanelMode('awards');
     } else {
-      // Clicking on a member without publications or awards hides the panel
-      setLockedMemberId(null);
-      setLockedContentId('');
+      // Member has neither -> show contact info
+      setLockedMemberId(prev => prev === id ? null : id);
+      setLockedContentId(id);
+      setPanelMode('contact');
     }
   };
 
@@ -126,7 +127,7 @@ const Team: React.FC = () => {
 
                     {/* Visual Indicator for Publications */}
                     {member.publicationIds && member.publicationIds.length > 0 && (
-                      <div className={`absolute top-1/2 -translate-y-1/2 -right-3 w-7 h-7 rounded-full flex items-center justify-center text-white shadow-lg z-10 transition-transform duration-300 scale-100 ${isLocked ? 'bg-neuro-700' : 'bg-neuro-600'}`}>
+                      <div className={`absolute bottom-0 right-1 w-7 h-7 rounded-full flex items-center justify-center text-white shadow-lg z-10 transition-transform duration-300 scale-100 ${isLocked ? 'bg-neuro-700' : 'bg-neuro-600'}`}>
                         <i className="fa-solid fa-book-open text-[10px]"></i>
                       </div>
                     )}
@@ -148,6 +149,28 @@ const Team: React.FC = () => {
                       </div>
                     )}
 
+                    {/* Dr. Vidhya Rangaraju (t1) Special Buttons */}
+                    {member.id === 't1' && (
+                      <>
+                        <a
+                          href="#bio"
+                          className="absolute bottom-0 left-1 w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-lg z-20 hover:scale-110 hover:bg-amber-600 transition-all duration-200"
+                          title="View Awards & Honors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <i className="fa-solid fa-trophy text-xs"></i>
+                        </a>
+                        <a
+                          href="#publications"
+                          className="absolute bottom-0 right-1 w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg z-20 hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
+                          title="View Publications"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <i className="fa-solid fa-book-open text-[10px]"></i>
+                        </a>
+                      </>
+                    )}
+
                     {/* Email Icon - Bottom Right */}
                     {member.email && (
                       <a
@@ -163,7 +186,7 @@ const Team: React.FC = () => {
                     {/* Awards Trophy Icon - Bottom Center */}
                     {member.awardIds && member.awardIds.length > 0 && (
                       <button
-                        className={`absolute top-1/2 -translate-y-1/2 -left-3 w-7 h-7 rounded-full flex items-center justify-center shadow-lg z-20 hover:scale-110 transition-all duration-200 ${panelMode === 'awards' && lockedContentId === member.id ? 'bg-amber-600 text-white' : 'bg-amber-500 text-white hover:bg-amber-600'}`}
+                        className={`absolute bottom-0 left-1 w-7 h-7 rounded-full flex items-center justify-center shadow-lg z-20 hover:scale-110 transition-all duration-200 ${panelMode === 'awards' && lockedContentId === member.id ? 'bg-amber-600 text-white' : 'bg-amber-500 text-white hover:bg-amber-600'}`}
                         title={`View ${member.name}'s Awards & Honors`}
                         onClick={(e) => handleAwardsClick(member.id, e)}
                       >
@@ -173,6 +196,9 @@ const Team: React.FC = () => {
                   </div>
                   <h3 className={`text-base font-bold transition-colors ${isActive ? 'text-neuro-700' : 'text-slate-900'}`}>{member.name}</h3>
                   <p className="text-[12px] text-neuro-600 font-medium leading-tight">{member.role}</p>
+                  {member.joinedYear && (
+                    <p className="text-[11px] text-slate-500 font-medium mt-1">Joined {member.joinedYear}</p>
+                  )}
                 </div>
               );
             })}
@@ -184,6 +210,32 @@ const Team: React.FC = () => {
                 {memberToDisplayId ? (
                   (() => {
                     const member = TEAM_MEMBERS.find(m => m.id === memberToDisplayId);
+
+                    // Show Contact Panel
+                    if (panelMode === 'contact' && member?.email) {
+                      return (
+                        <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col items-center justify-center text-center p-8">
+                          <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-slate-100 shadow-sm">
+                            <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                          </div>
+                          <h4 className="font-bold text-2xl text-slate-900 mb-2">{member.name}</h4>
+                          <p className="text-neuro-600 font-medium mb-8">{member.role}</p>
+
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="group flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl hover:border-neuro-300 hover:shadow-md transition-all duration-300"
+                          >
+                            <div className="w-10 h-10 rounded-full bg-neuro-100 text-neuro-600 flex items-center justify-center group-hover:bg-neuro-600 group-hover:text-white transition-colors">
+                              <i className="fa-solid fa-envelope"></i>
+                            </div>
+                            <div className="text-left">
+                              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Contact</p>
+                              <p className="text-sm font-semibold text-slate-700">{member.email}</p>
+                            </div>
+                          </a>
+                        </div>
+                      );
+                    }
 
                     // Show Awards Panel
                     if (panelMode === 'awards') {
