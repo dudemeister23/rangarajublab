@@ -8,12 +8,39 @@ const Team: React.FC = () => {
   const [lockedContentId, setLockedContentId] = useState<string>('');
   const [panelMode, setPanelMode] = useState<'publications' | 'awards'>('publications');
 
+  // Touch state for swipe detection
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
   const nextSlide = () => {
     setCurrentIdx((prev) => (prev === TEAM_REEL.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
     setCurrentIdx((prev) => (prev === 0 ? TEAM_REEL.length - 1 : prev - 1));
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
   };
 
   const activeMemberId = hoveredMemberId || lockedMemberId;
@@ -71,7 +98,7 @@ const Team: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 max-w-7xl mx-auto items-stretch">
           {/* Team Grid */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+          <div className="lg:col-span-8 flex flex-wrap justify-center gap-x-6 gap-y-12 content-start">
             {[...TEAM_MEMBERS,
             { id: 'placeholder-1', name: 'Open Position', role: 'Postdoctoral Fellow', image: null },
             { id: 'placeholder-2', name: 'Open Position', role: 'PhD Student', image: null }
@@ -83,7 +110,7 @@ const Team: React.FC = () => {
               return (
                 <div
                   key={member.id}
-                  className={`flex flex-col items-center text-center group relative cursor-pointer`}
+                  className={`flex flex-col items-center text-center group relative cursor-pointer w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]`}
                   onMouseEnter={() => handleMouseEnter(member.id)}
                   onMouseLeave={() => setHoveredMemberId(null)}
                   onClick={() => {
@@ -125,7 +152,7 @@ const Team: React.FC = () => {
                     {member.email && (
                       <a
                         href={`mailto:${member.email}`}
-                        className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-neuro-600 shadow-sm hover:shadow-md hover:scale-110 hover:text-neuro-700 transition-all duration-200 z-20"
+                        className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-neuro-600 shadow-sm hover:shadow-md hover:scale-110 hover:text-neuro-700 transition-all duration-200 z-20"
                         title={`Email ${member.name}`}
                         onClick={(e) => e.stopPropagation()}
                       >
@@ -136,7 +163,7 @@ const Team: React.FC = () => {
                     {/* Awards Trophy Icon - Bottom Center */}
                     {member.awardIds && member.awardIds.length > 0 && (
                       <button
-                        className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full flex items-center justify-center shadow-lg z-20 hover:scale-110 transition-all duration-200 ${panelMode === 'awards' && lockedContentId === member.id ? 'bg-amber-600 text-white' : 'bg-amber-500 text-white hover:bg-amber-600'}`}
+                        className={`absolute top-1/2 -translate-y-1/2 -left-3 w-7 h-7 rounded-full flex items-center justify-center shadow-lg z-20 hover:scale-110 transition-all duration-200 ${panelMode === 'awards' && lockedContentId === member.id ? 'bg-amber-600 text-white' : 'bg-amber-500 text-white hover:bg-amber-600'}`}
                         title={`View ${member.name}'s Awards & Honors`}
                         onClick={(e) => handleAwardsClick(member.id, e)}
                       >
@@ -313,7 +340,12 @@ const Team: React.FC = () => {
           <div className="relative group max-w-5xl mx-auto">
             <div className="absolute -inset-2 bg-gradient-to-r from-neuro-600 to-teal-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
 
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-100 aspect-[4/3] md:aspect-[3/2]">
+            <div
+              className="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-100 aspect-[4/3] md:aspect-[3/2] touch-pan-y"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               {/* Slides */}
               <div className="w-full h-full relative">
                 {TEAM_REEL.map((photo, index) => (

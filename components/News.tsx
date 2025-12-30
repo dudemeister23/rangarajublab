@@ -16,12 +16,12 @@ const News: React.FC = () => {
                 </div>
 
                 {/* Card Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="flex flex-wrap justify-center gap-6">
                     {NEWS_ITEMS.map((item) => (
                         <article
                             key={item.id}
                             onClick={() => setSelectedNews(item.id)}
-                            className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-neuro-200 hover:scale-[1.03] group"
+                            className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-neuro-200 hover:scale-[1.03] group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(25%-1.125rem)]"
                         >
                             <div className="aspect-[4/3] overflow-hidden bg-slate-100">
                                 <img

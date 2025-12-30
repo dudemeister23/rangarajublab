@@ -23,7 +23,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p3',
-    title: 'Ultrastructural Remodeling',
+    title: 'Mitochondrial Remodeling',
     description: 'Using a correlative light and electron microscopy (CLEM) pipeline combining functional imaging with Cryo-ET and DNA-PAINT to characterize mitochondrial ultrastructure and ribosome recruitment during neuronal plasticity.'
   },
   {
@@ -37,6 +37,9 @@ export const PROJECTS: Project[] = [
 export const LAB_LOGO = 'assets/logo-brain-bulb.png';
 export const MPFI_LOGO = 'assets/mpfi-logo.png';
 export const NIH_LOGO = 'assets/nih-logo.png';
+export const NIH_INNOVATOR_LOGO = 'assets/funding/nih-innovator-logo.png';
+export const DESANTIS_LOGO = 'assets/funding/desantis-foundation-logo.png';
+export const GRUBER_LOGO = 'assets/funding/gruber-foundation-logo.png';
 export const CZI_LOGO = 'assets/czi-logo.png';
 export const LAB_TEAM_PHOTO = 'assets/lab-team-group.jpg';
 export const DR_RANGARAJU_PHOTO = 'assets/dr-vidhya-rangaraju.jpg';
@@ -74,7 +77,7 @@ export const AWARDS: Award[] = [
   { id: 'a2', title: 'Poster Presenter, CZI Imaging the Future', recipient: 'Monil Shah', date: '09/2025', type: 'honor' },
   { id: 'a3', title: 'Invited Speaker, ThermoFisher Beyond the Beam Seminar Series on Electron Tomography', recipient: 'Monil Shah', date: '10/2024', type: 'honor' },
   { id: 'a4', title: 'Selected Speaker, Japan-MPFI Multi-D Analysis of Memory Mechanisms Retreat', recipient: 'Monil Shah', date: '09/2024', type: 'honor' },
-  { id: 'a5', title: 'Janelia Visiting Scientists, Lippincott-Schwarz Lab', recipient: 'Ojasee Bapat and Monil Shah', date: '09/2024', type: 'honor' },
+  { id: 'a5', title: 'Janelia Visiting Scientist, Lippincott-Schwarz Lab', recipient: 'Ojasee Bapat and Monil Shah', date: '09/2024', type: 'honor' },
   { id: 'a6', title: 'Carl Angus DeSantis Award', recipient: 'Ilika Ghosh', date: '07/2024', endDate: '12/2027', type: 'award' },
   { id: 'a7', title: 'Selected for EMBO Intensive Course in Electron Microscopy for Cell Biology', recipient: 'Monil Shah', date: '06/2024', type: 'honor' },
   { id: 'a8', title: 'Invited Speaker, CHINTA, TCG Crest', recipient: 'Ilika Ghosh', date: '05/2024', type: 'honor' },
@@ -350,3 +353,28 @@ export const NEWS_ITEMS: NewsItem[] = [
     content: 'We sat down with Vidhya to learn more about her science, and her path to becoming a neuroscientist.\n\nOur brain consumes a lot of energy to carry out cognitive functions like walking, talking, thinking, learning, and memory formation. The power required to fuel these functions comes from trillions of tiny organelles spread throughout the neurons, called mitochondria. When mitochondria fail to work, it dramatically affects the brain’s ability to control movements as seen in patients with Parkinson’s disease. Vidhya Rangaraju was recently recruited by the Max Planck Florida Institute for Neuroscience (MPFI) to study these energy-producing organelles within the brain. Understanding their molecular impact could help us unravel devastating brain disorders like Parkinson’s disease.\n\nThe Rangaraju lab will focus on the hippocampus, a brain region that is special in many respects. Memories are created and stored in the hippocampus in the form of complex protein molecules that are newly made at especially high rates. This process is energy-dependent. Us still being able to access any memory, even as far back as our childhood, is possible only because mitochondria provided the energy necessary to form proteins in our brain right when we experienced them. She and her research team want to understand how mitochondria promote memory formation at the molecular scale.\n\nWhat is the main focus of your lab?\n\nOur overarching goal is to understand how the brain is powered. Neurons carry out a multitude of functions that consume a lot of energy. We would like to know how these energy demands are met. How is energy distributed to the remote corners of neurons far away from the cell body?\n\nHow do you study this question?\n\nWe focus on organelles called mitochondria -the powerhouses of cells. We want to understand how mitochondria make the energy molecule ATP in response to the neuronal energy demands of learning and memory. We use state-of-the-art light microscopy to measure ATP levels and other signaling molecules like calcium; electron and super-resolution microscopy to study mitochondrial structures and their interactions; mass spectrometry to measure the protein composition and regulation of mitochondria in different neuronal regions; RNA sequencing and approaches to measure protein synthesis to study how mitochondrial RNA are translated to make new mitochondrial proteins and how these organelles are replenished over time.\n\nWhat made you decide to go into science?\n\nI cannot pinpoint the specific time at which I made that decision. Right from my school days, I enjoyed science and mathematics and just followed my interests. I do, however, vividly remember when I first saw fluorescently labeled vesicles moving inside a cell under a microscope during my undergraduate research. That got me hooked and I learned microscopy through which I viewed the scientific world from then on.\n\nWhat are your goals as a new PI?\n\nTo push the boundaries of our existing scientific knowledge on how the brain’s energy supplies are controlled. My immediate goals are to hire the best talent to join our research team and set up the equipment and workflow. At the same time, it is important to create and sustain long-lasting collaborations in the field. Of special importance to me is mentoring the young minds of our next generation and helping them achieve their full potential.\n\nWhat has been the biggest challenge in your career and how did you overcome it?\n\nScience does present one with challenges. Over the years I have learned to face them with patience and perseverance. During my PhD, we once had a totally unexpected flood, caused by a pipe leak in the microscope room where I had custom-built a microscope for the ATP measurements required for my thesis work. This incident set my PhD back by at least 6 months. However, with grit, hard work and my supportive colleagues I was able to overcome this setback. Surrounding myself with the right people has also been essential when facing challenges.\n\nHow has the Max Planck Society helped with your research and career?\n\nThe Max Planck Society has been integral for my scientific career. I did my postdoctoral research at the Max Planck Institute for Brain Research in Frankfurt before starting my current position at the MPFI. I was given the opportunity to work with and learn from some of the top scientists in the field. Its generous research funding has allowed me to take on ambitious projects.\n\nHow do you see your research benefiting people?\n\nWith the growing body of evidence on mitochondrial dysfunction in neurodegenerative diseases, we are at a tipping point where finding novel methods to understand the molecular rules of these energy supply machinery has become paramount. I strongly believe that our scientific contributions will help determine how precisely these rules are broken in neurological disorders and will result in novel therapeutic interventions.'
   }
 ];
+
+export const COLLABORATORS = [
+  { name: 'CCET, UC Boulder', url: 'https://ccet.colorado.edu' },
+  { name: 'de Juan-Sanz Lab, Paris Brain Inst.', url: 'https://dejuansanzlab.org/' },
+  { name: 'EM core, MPFI', url: 'https://mpfi.org/science/scientific-cores/imaging-center-2/about-2/electron-microscopy/' },
+  { name: 'Hacisuleyman Lab, UF Scripps', url: 'https://wertheim.scripps.ufl.edu/research/faculty/hacisuleyman/' },
+  { name: 'Inagaki Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/inagaki-lab/' },
+  { name: 'Kaasik Lab, U Tartu', url: 'https://biomeditsiin.ut.ee/en/content/laboratory-mitochondrial-medicine' },
+  { name: 'Lippincott-Schwarz Lab, Janelia', url: 'https://www.janelia.org/lab/lippincott-schwartz-lab' },
+  { name: 'Lu Lab, Indiana U', url: 'https://lulaboratory.com/' },
+  { name: 'Puthanveettil Lab, UF Scripps', url: 'https://puthanveettil.scripps.ufl.edu/' },
+  { name: 'Ryan Lab, Weill Cornell', url: 'https://sites.google.com/site/ryanlab1/Home' },
+  { name: 'Sun Lab, Aarhus University', url: 'https://synaptic-logistics-lab.com/' },
+  { name: 'ThermoFisher Scientific', url: 'https://www.thermofisher.com/' },
+  { name: 'Yasuda Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/yasuda-lab/' }
+];
+
+export const FUNDING_URLS = {
+  MPFI: 'https://mpfi.org',
+  NIH: 'https://www.nih.gov',
+  CZI: 'https://chanzuckerberg.com',
+  NIH_INNOVATOR: 'https://commonfund.nih.gov/newinnovator',
+  DESANTIS: 'https://carldesantis.org/',
+  GRUBER: 'https://gruber.yale.edu',
+};

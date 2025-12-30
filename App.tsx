@@ -5,7 +5,9 @@ import Bio from './components/Bio';
 import Research from './components/Research';
 import News from './components/News';
 import Team from './components/Team';
+import Mentoring from './components/Mentoring';
 import Publications from './components/Publications';
+import Funding from './components/Funding';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -19,7 +21,9 @@ const App: React.FC = () => {
         <Research />
         <News />
         <Team />
+        <Mentoring />
         <Publications />
+        <Funding />
         <Contact />
       </main>
       <Footer />

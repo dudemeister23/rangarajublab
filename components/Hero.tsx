@@ -27,9 +27,7 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 text-center text-white">
         <div className="animate-fade-in-up">
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-widest text-neuro-100 uppercase bg-neuro-600/30 rounded-full border border-neuro-500/50 backdrop-blur-sm">
-            Max Planck Florida Institute for Neuroscience
-          </span>
+
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
             Deciphering <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300">

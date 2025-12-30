@@ -1,5 +1,5 @@
 import React from 'react';
-import { LAB_LOGO, MPFI_LOGO, NIH_LOGO, CZI_LOGO } from '../constants';
+import { LAB_LOGO } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -26,52 +26,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Partner Logos */}
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {/* MPFI Brand */}
-            <a
-              href="https://mpfi.org"
-              target="_blank"
-              rel="noreferrer"
-              className="group transition-all duration-300 hover:scale-105"
-            >
-              <img
-                src={MPFI_LOGO}
-                alt="Max Planck Florida Institute"
-                className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity bg-white/90 rounded-lg"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://mpfi.org/wp-content/themes/mpfi-child-2023/assets/img/logo.svg';
-                }}
-              />
-            </a>
 
-            {/* NIH Brand */}
-            <a
-              href="https://www.nih.gov"
-              target="_blank"
-              rel="noreferrer"
-              className="group transition-all duration-300 hover:scale-105"
-            >
-              <img
-                src={NIH_LOGO}
-                alt="National Institutes of Health"
-                className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity bg-white/90 rounded-lg px-3 py-2"
-              />
-            </a>
-
-            {/* CZI Brand */}
-            <a
-              href="https://chanzuckerberg.com"
-              target="_blank"
-              rel="noreferrer"
-              className="group transition-all duration-300 hover:scale-105"
-            >
-              <img
-                src={CZI_LOGO}
-                alt="Chan Zuckerberg Initiative"
-                className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity bg-white/90 rounded-lg px-3 py-2"
-              />
-            </a>
-          </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-slate-900 gap-8">

@@ -22,7 +22,7 @@ const Publications: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12">
         {/* Preprints Section */}
         <div className="mb-20">
-          <div className="mb-12 border-b border-slate-200 pb-4">
+          <div className="mb-12 border-b border-slate-200 pb-4 text-center">
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-1">Preprints</h3>
           </div>
 
@@ -61,11 +61,9 @@ const Publications: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 pb-4">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Publications</h2>
-          </div>
-          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="hidden md:inline-flex items-center text-sm font-semibold text-slate-500 hover:text-neuro-600 transition-colors mt-4 md:mt-0">
+        <div className="relative mb-12 border-b border-slate-200 pb-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Publications</h2>
+          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="hidden md:inline-flex absolute right-0 bottom-4 items-center text-sm font-semibold text-slate-500 hover:text-neuro-600 transition-colors">
             View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
           </a>
         </div>
