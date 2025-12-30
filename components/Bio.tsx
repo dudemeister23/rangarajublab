@@ -25,9 +25,8 @@ const Bio: React.FC = () => {
 
           {/* Text Column */}
           <div className="w-full lg:w-2/5">
-            <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm mb-2 block">Principal Investigator</span>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">About Dr. Rangaraju</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Principal Investigator <br /> Dr. Rangaraju</h2>
               <a href="https://mpfi.org/science/our-labs/rangaraju-lab/" target="_blank" rel="noreferrer" className="text-neuro-600 font-semibold hover:text-neuro-700 inline-flex items-center gap-2 text-sm">
                 Visit MPFI Profile <i className="fa-solid fa-external-link-alt text-xs"></i>
               </a>

@@ -8,12 +8,12 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-10 mb-8 text-center md:text-left">
 
           {/* Lab Brand */}
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden border border-slate-800 p-1">
+          <div className="flex items-center gap-6">
+            <div className="h-14 w-14 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden">
               <img
                 src={LAB_LOGO}
                 alt="The Rangaraju Lab"
-                className="w-full h-full object-contain"
+                className="h-full w-full object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = 'https://fav.farm/🧠'; // Fun fallback
                 }}

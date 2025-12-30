@@ -10,7 +10,17 @@ export interface TeamMember {
   role: string;
   image?: string; // Optional custom image URL
   publicationIds?: string[]; // IDs of associated publications/preprints
+  awardIds?: string[]; // IDs of associated awards and honors
   email?: string; // Contact email
+}
+
+export interface Award {
+  id: string;
+  title: string;
+  recipient: string;
+  date: string;
+  endDate?: string; // For awards with a duration (e.g., fellowships)
+  type: 'award' | 'honor';
 }
 
 export interface Publication {

@@ -12,7 +12,6 @@ const News: React.FC = () => {
         <section id="news" className="pt-24 pb-16 bg-white overflow-hidden">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="mb-16 text-center">
-                    <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm">Latest Updates</span>
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2">News & Events</h2>
                 </div>
 

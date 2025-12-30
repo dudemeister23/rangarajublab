@@ -9,8 +9,7 @@ const Research: React.FC = () => {
     <section id="research" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-neuro-600 font-bold tracking-wider uppercase text-sm">Research Focus</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Scientific Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Research Projects</h2>
           <p className="text-slate-600 text-lg">
             The Neuroenergetics Lab is interested in how neurons manage their energy landscapes.
             Mitochondria represent a hugely underexplored organellar system in neurons with consequences for human health.

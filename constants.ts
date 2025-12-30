@@ -1,4 +1,4 @@
-import { Project, TeamMember, Publication, SocialLink, NewsItem } from './types';
+import { Project, TeamMember, Publication, SocialLink, NewsItem, Award } from './types';
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
 ];
 
 // Image paths - These point to the public/assets folder
-export const LAB_LOGO = 'assets/logo.png';
+export const LAB_LOGO = 'assets/logo-final.png';
 export const MPFI_LOGO = 'assets/mpfi-logo.png';
 export const LAB_TEAM_PHOTO = 'assets/lab-team-group.jpg';
 export const DR_RANGARAJU_PHOTO = 'assets/dr-vidhya-rangaraju.jpg';
@@ -57,13 +57,32 @@ export const TEAM_REEL = [
 export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't1', name: 'Dr. Vidhya Rangaraju', role: 'Group Leader / PI', image: DR_RANGARAJU_PHOTO, email: 'Vidhya.Rangaraju@mpfi.org' },
   { id: 't2', name: 'Debalina Acharyya', role: 'Postdoctoral Fellow', image: 'assets/team/debalina-acharyya.jpg', email: 'debalina.acharyya@mpfi.org' },
-  { id: 't3', name: 'Ojasee Bapat', role: 'PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], email: 'ojasee.bapat@mpfi.org' },
-  { id: 't4', name: 'Ruolin Fan', role: 'Research Associate', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pp3', 'pp4', 'pp5', 'pub1', 'pub4'], email: 'ruolin.fan@mpfi.org' },
-  { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'], email: 'ilika.ghosh@mpfi.org' },
+  { id: 't3', name: 'Ojasee Bapat', role: 'PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org' },
+  { id: 't4', name: 'Ruolin Fan', role: 'Research Associate', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pp3', 'pp4', 'pp5', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org' },
+  { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'], awardIds: ['a1', 'a6', 'a8', 'a9', 'a11', 'a16', 'a17'], email: 'ilika.ghosh@mpfi.org' },
   { id: 't6', name: 'Juan Patarroyo', role: 'Research Assistant', image: 'assets/team/juan-patarroyo.jpg', email: 'juan.patarroyo@mpfi.org' },
-  { id: 't7', name: 'Monil Shah', role: 'PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], email: 'monil.shah@mpfi.org' },
+  { id: 't7', name: 'Monil Shah', role: 'PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org' },
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org' },
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org' },
+];
+
+export const AWARDS: Award[] = [
+  { id: 'a1', title: 'Minisymposia Speaker, Travel Grant Awardee, American Society for Cell Biology 2025', recipient: 'Ilika Ghosh', date: '12/2025', type: 'award' },
+  { id: 'a2', title: 'Poster Presenter, CZI Imaging the Future', recipient: 'Monil Shah', date: '09/2025', type: 'honor' },
+  { id: 'a3', title: 'Invited Speaker, ThermoFisher Beyond the Beam Seminar Series on Electron Tomography', recipient: 'Monil Shah', date: '10/2024', type: 'honor' },
+  { id: 'a4', title: 'Selected Speaker, Japan-MPFI Multi-D Analysis of Memory Mechanisms Retreat', recipient: 'Monil Shah', date: '09/2024', type: 'honor' },
+  { id: 'a5', title: 'Janelia Visiting Scientists, Lippincott-Schwarz Lab', recipient: 'Ojasee Bapat and Monil Shah', date: '09/2024', type: 'honor' },
+  { id: 'a6', title: 'Carl Angus DeSantis Award', recipient: 'Ilika Ghosh', date: '07/2024', endDate: '12/2027', type: 'award' },
+  { id: 'a7', title: 'Selected for EMBO Intensive Course in Electron Microscopy for Cell Biology', recipient: 'Monil Shah', date: '06/2024', type: 'honor' },
+  { id: 'a8', title: 'Invited Speaker, CHINTA, TCG Crest', recipient: 'Ilika Ghosh', date: '05/2024', type: 'honor' },
+  { id: 'a9', title: 'Teaching Assistants, MPFI Imaging Course', recipient: 'Ilika Ghosh, Monil Shah', date: '02/2024', type: 'honor' },
+  { id: 'a10', title: 'Best Poster Award, MPFI Retreat', recipient: 'Monil Shah', date: '10/2023', type: 'award' },
+  { id: 'a11', title: 'Invited Speaker & Best Oral Presentation Award, UF Scripps Research Fest', recipient: 'Ilika Ghosh', date: '05/2023', type: 'award' },
+  { id: 'a12', title: 'Travel Grant, NeuroNex Workshop', recipient: 'Monil Shah', date: '05/2023', type: 'award' },
+  { id: 'a13', title: 'Best Poster Award, Zeiss Imaging Applications for Neuroscience Summit', recipient: 'Monil Shah', date: '05/2023', type: 'award' },
+  { id: 'a14', title: 'Invited Speaker & Best Question Award, Florida Consortium on the Neurobiology of Cognition', recipient: 'Ruolin Fan', date: '05/2023', type: 'award' },
+  { id: 'a16', title: 'Society for Neuroscience Trainee Professional Development Award', recipient: 'Ilika Ghosh', date: '11/2022', type: 'award' },
+  { id: 'a17', title: 'Society for Neuroscience Invited Nanosymposium Speaker', recipient: 'Ilika Ghosh', date: '11/2022', type: 'honor' },
 ];
 
 export const PUBLICATIONS: Publication[] = [

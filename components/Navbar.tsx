@@ -20,12 +20,12 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-3 group">
-          <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm overflow-hidden border border-white/20">
+        <a href="#home" className="flex items-center gap-4 group">
+          <div className={`h-12 w-12 flex items-center justify-center rounded-full transition-all duration-300 ${isScrolled ? 'bg-transparent' : 'bg-white shadow-sm'}`}>
             <img
               src={LAB_LOGO}
               alt="Rangaraju Lab Logo"
-              className="w-full h-full object-contain p-1"
+              className="h-11 w-11 object-contain"
             />
           </div>
           <span className={`text-3xl font-bold tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}>

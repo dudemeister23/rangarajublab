@@ -9,7 +9,6 @@ const Contact: React.FC = () => {
 
           {/* Info Side */}
           <div className="p-10 md:p-16 w-full md:w-1/2 flex flex-col justify-center">
-            <span className="text-neuro-500 font-bold tracking-wider uppercase text-sm mb-2">Get in Touch</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Contact the Lab</h2>
 
             <address className="space-y-6 not-italic" itemScope itemType="https://schema.org/Organization">
