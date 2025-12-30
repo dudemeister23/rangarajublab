@@ -100,7 +100,7 @@ const Team: React.FC = () => {
                     {/* Visual Indicator for Publications */}
                     {member.publicationIds && member.publicationIds.length > 0 && (
                       <div className={`absolute top-1/2 -translate-y-1/2 -right-3 w-7 h-7 rounded-full flex items-center justify-center text-white shadow-lg z-10 transition-transform duration-300 scale-100 ${isLocked ? 'bg-neuro-700' : 'bg-neuro-600'}`}>
-                        <i className={`fa-solid ${isLocked ? 'fa-arrow-right' : 'fa-book-open'} text-[10px]`}></i>
+                        <i className="fa-solid fa-book-open text-[10px]"></i>
                       </div>
                     )}
 
