@@ -59,7 +59,27 @@ const Research: React.FC = () => {
                 <div className="flex flex-col lg:flex-row gap-10 items-start">
                   <div className="flex-1">
                     <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                      {activeProject.description}
+                      {(() => {
+                        if (!activeProject.linkUrl) return activeProject.description;
+                        const splitIndex = activeProject.description.indexOf('. ');
+                        if (splitIndex === -1) {
+                          return (
+                            <a href={activeProject.linkUrl} target="_blank" rel="noreferrer" className="text-neuro-600 hover:text-neuro-700 hover:underline font-medium transition-colors">
+                              {activeProject.description} <i className="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-70"></i>
+                            </a>
+                          );
+                        }
+                        const firstSentence = activeProject.description.substring(0, splitIndex + 1);
+                        const rest = activeProject.description.substring(splitIndex + 1);
+                        return (
+                          <>
+                            <a href={activeProject.linkUrl} target="_blank" rel="noreferrer" className="text-neuro-600 hover:text-neuro-700 hover:underline font-medium transition-colors inline-block">
+                              {firstSentence} <i className="fa-solid fa-arrow-up-right-from-square text-xs ml-0.5 opacity-70"></i>
+                            </a>
+                            {' '}{rest}
+                          </>
+                        );
+                      })()}
                     </p>
                   </div>
 

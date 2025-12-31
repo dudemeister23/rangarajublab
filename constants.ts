@@ -15,20 +15,23 @@ export const PROJECTS: Project[] = [
   {
     id: 'p1',
     title: 'Spatial Stabilization Mechanisms',
-    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of these identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders using animal and human disease models.',
-    image: 'assets/research/spatial-stabilization-v2.png'
+    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of these identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders, using animal and human disease models.',
+    image: 'assets/research/spatial-stabilization-v2.png',
+    linkUrl: 'https://doi.org/10.1038/s41467-023-44233-8'
   },
   {
     id: 'p2',
     title: 'Local Mitochondrial ATP Production',
-    description: 'We developed novel spine- and mitochondrial-ATP reporters to image ATP within single spines. We dissect molecular mechanisms driving mitochondrial ATP synthesis in response to plasticity and identify novel temporal regulators of ATP synthesis.',
-    image: 'assets/research/local-mitochondrial-atp.png'
+    description: 'We developed novel spine- and mitochondrial-ATP reporters to image ATP within single spines and mitochondria and showed that mitochondria generate ATP instantaneously and locally near dendritic spines to support synaptic plasticity. We are currently dissecting the molecular mechanisms driving mitochondrial ATP synthesis in response to plasticity and identifying novel spatiotemporal regulators of ATP synthesis.',
+    image: 'assets/research/local-mitochondrial-atp.png',
+    linkUrl: 'https://doi.org/10.1101/2025.04.09.648032'
   },
   {
     id: 'p3',
-    title: 'Mitochondrial Remodeling',
-    description: 'Using a correlative light and electron microscopy (CLEM) pipeline combining functional imaging with Cryo-ET and DNA-PAINT to characterize mitochondrial ultrastructure and ribosome recruitment during neuronal plasticity.',
-    image: 'assets/research/mitochondrial-remodeling.png'
+    title: 'Mitochondrial Structural Remodelling',
+    description: 'We developed a correlative light and electron microscopy pipeline with deep-learning-based data analysis algorithms to quantify remodeling of mitochondrial inner structure, their ATP synthesis machinery, and their association with the endoplasmic reticulum and ribosomes near dendritic spines during neuronal plasticity. We are currently investigating the molecular mechanisms that drive mitochondrial structural remodeling near spines and their link to ATP production during neuronal plasticity.',
+    image: 'assets/research/mitochondrial-remodeling.png',
+    linkUrl: 'https://doi.org/10.1101/2025.08.27.672715'
   },
   {
     id: 'p4',
@@ -94,7 +97,8 @@ export const AWARDS: Award[] = [
   { id: 'a14', title: 'Invited Speaker & Best Question Award, Florida Consortium on the Neurobiology of Cognition', recipient: 'Ruolin Fan', date: '05/2023', type: 'award' },
   { id: 'a16', title: 'Society for Neuroscience Trainee Professional Development Award', recipient: 'Ilika Ghosh', date: '11/2022', type: 'award' },
   { id: 'a17', title: 'Society for Neuroscience Invited Nanosymposium Speaker', recipient: 'Ilika Ghosh', date: '11/2022', type: 'honor' },
-  { id: 'a18', title: 'Outstanding OWL Award and Outstanding Thesis Award', recipient: 'Tejas Purimetla', date: '05/2023', type: 'award' },
+  { id: 'a18', title: 'Outstanding OWL Award', recipient: 'Tejas Purimetla', date: '05/2023', type: 'award' },
+  { id: 'a20', title: 'Outstanding Thesis Award', recipient: 'Tejas Purimetla', date: '05/2023', type: 'award' },
   { id: 'a19', title: 'Nambu Memorial Summer Research Experience Program', recipient: 'Tejas Purimetla', date: '05/2022', endDate: '08/2022', type: 'award' },
 ];
 
@@ -406,12 +410,12 @@ export const ALUMNI_DATA: AlumniGroup[] = [
   {
     category: "Undergraduate & High School Alumni",
     members: [
-      { id: 'al12', name: 'Jean-Manuel Mena', labRole: 'Undergraduate Student', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg', email: 'jm2337@cornell.edu' },
-      { id: 'al13', name: 'Tejas Purimetla', labRole: 'Undergraduate Student', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg', awardIds: ['a18', 'a19'], email: 'Tejas.Purimetla.MED@dartmouth.edu' },
+      { id: 'al12', name: 'Jean-Manuel Mena', labRole: 'Undergraduate Student', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg', email: 'jm2337@cornell.edu', scale: 1.2 },
+      { id: 'al13', name: 'Tejas Purimetla', labRole: 'Undergraduate Student', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg', awardIds: ['a18', 'a20', 'a19'], email: 'Tejas.Purimetla.MED@dartmouth.edu' },
       { id: 'al16', name: 'Mohan Peddada', labRole: 'Undergraduate Student', details: 'BS at Johns Hopkins', image: 'assets/alumni/mohan_peddada.jpg', email: 'mpeddad1@jhu.edu' },
       { id: 'al18', name: 'Luca Pishos', labRole: 'High School Student', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg', email: 'lucapishos@ufl.edu' },
       { id: 'al19', name: 'Gayatri Sathyanarayan', labRole: 'High School Student', details: 'BE at Cornell', image: 'assets/alumni/gayatri_sathyanarayan.jpg', email: 'gs778@cornell.edu' },
-      { id: 'al20', name: 'Jake Zur', labRole: 'High School Student', details: 'BE at U Michigan', image: 'assets/alumni/jake_zur.jpg' }
+      { id: 'al20', name: 'Jake Zur', labRole: 'High School Student', details: 'BE at U Michigan', image: 'assets/alumni/jake_zur.jpg', scale: 1.2 }
     ]
   },
   {
