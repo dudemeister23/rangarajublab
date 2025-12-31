@@ -14,7 +14,7 @@ const Mentoring: React.FC = () => {
         { text: "Resilience and Growth", className: "bg-emerald-50 text-emerald-700 border-emerald-200 hover:border-emerald-300 ring-emerald-100 hover:bg-emerald-100" },
         { text: "Adaptability and Commitment", className: "bg-teal-50 text-teal-700 border-teal-200 hover:border-teal-300 ring-teal-100 hover:bg-teal-100" },
         { text: "Receptiveness to Feedback", className: "bg-violet-50 text-violet-700 border-violet-200 hover:border-violet-300 ring-violet-100 hover:bg-violet-100" },
-        { text: "Collaboration and Support", className: "bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-300 ring-blue-100 hover:bg-blue-100" }
+        { text: "Collaboration and Team Spirit", className: "bg-blue-50 text-blue-700 border-blue-200 hover:border-blue-300 ring-blue-100 hover:bg-blue-100" }
     ];
 
     return (
@@ -35,7 +35,7 @@ const Mentoring: React.FC = () => {
                                     <i className="fa-solid fa-rocket text-neuro-600 text-3xl"></i>
                                 </div>
                                 <p className="text-xl text-slate-700 leading-relaxed">
-                                    We want you to <span className="font-bold text-slate-900">SUCCEED</span> and have a <span className="font-bold text-slate-900">POSITIVE IMPACT</span> on your career
+                                    I want you to <span className="font-bold text-slate-900">SUCCEED</span> and have a <span className="font-bold text-slate-900">POSITIVE IMPACT</span> on your career
                                 </p>
                             </div>
 
@@ -45,7 +45,7 @@ const Mentoring: React.FC = () => {
                                     <i className="fa-solid fa-seedling text-neuro-600 text-3xl"></i>
                                 </div>
                                 <p className="text-xl text-slate-700 leading-relaxed">
-                                    We will provide the <span className="font-bold text-slate-900">SUPPORT - training, opportunities, and resources</span> - to help you excel, to the <span className="italic">best of our abilities</span>
+                                    I will provide the <span className="font-bold text-slate-900">SUPPORT - training, opportunities, and resources</span> - to help you excel, to the <span className="italic">best of my abilities</span>
                                 </p>
                             </div>
 
@@ -55,7 +55,7 @@ const Mentoring: React.FC = () => {
                                     <i className="fa-solid fa-user-shield text-neuro-600 text-3xl"></i>
                                 </div>
                                 <p className="text-xl text-slate-700 leading-relaxed">
-                                    We will provide a <span className="font-bold text-slate-900">SAFE ENVIRONMENT</span> to embrace and learn from <span className="italic">mistakes</span>, explore <span className="italic">alternative solutions</span> to problems, and challenge perspectives
+                                    I will provide a <span className="font-bold text-slate-900">SAFE ENVIRONMENT</span> to embrace and learn from <span className="italic">mistakes</span>, explore <span className="italic">alternative solutions</span> to problems, and challenge perspectives
                                 </p>
                             </div>
 
@@ -65,7 +65,7 @@ const Mentoring: React.FC = () => {
                                     <i className="fa-solid fa-handshake-simple text-neuro-600 text-3xl"></i>
                                 </div>
                                 <p className="text-xl text-slate-700 leading-relaxed">
-                                    <span className="font-bold text-slate-900">TRUST</span> is fundamental in our relationship; We are here to guide you through your professional journey
+                                    <span className="font-bold text-slate-900">TRUST</span> is fundamental in our relationship; I am here to guide you through your professional journey
                                 </p>
                             </div>
                         </div>

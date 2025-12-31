@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS, ALUMNI_DATA } from '../constants';
+import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS } from '../constants';
 
 const Team: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [hoveredMemberId, setHoveredMemberId] = useState<string | null>(null);
   const [lockedMemberId, setLockedMemberId] = useState<string | null>('t1');
   const [lockedContentId, setLockedContentId] = useState<string>('t1');
-  const [panelMode, setPanelMode] = useState<'publications' | 'awards' | 'contact'>('contact');
+  const [panelMode, setPanelMode] = useState<'publications' | 'awards' | 'contact' | 'job'>('contact');
 
   // Touch state for swipe detection
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -116,7 +116,9 @@ const Team: React.FC = () => {
                   onMouseLeave={() => setHoveredMemberId(null)}
                   onClick={() => {
                     if (isPlaceholder) {
-                      window.location.href = `mailto:${CONTACT_INFO.email}?subject=Lab Application`;
+                      setLockedMemberId(member.id);
+                      setLockedContentId(member.id);
+                      setPanelMode('job');
                     } else {
                       handleMemberClick(member.id);
                     }
@@ -125,12 +127,7 @@ const Team: React.FC = () => {
                   <div className={`relative mb-4 w-36 h-36 md:w-40 md:h-40 transition-transform duration-300 ${isActive ? 'scale-105' : ''}`}>
                     <div className={`absolute inset-0 rounded-full border-2 transition-colors duration-300 ${isActive ? 'border-neuro-600' : (member.publicationIds?.length ? 'border-neuro-400 group-hover:border-neuro-600' : 'border-neuro-100 group-hover:border-neuro-300')}`}></div>
 
-                    {/* Visual Indicator for Publications */}
-                    {member.publicationIds && member.publicationIds.length > 0 && (
-                      <div className={`absolute bottom-0 right-1 w-7 h-7 rounded-full flex items-center justify-center text-white shadow-lg z-10 transition-transform duration-300 scale-100 ${isLocked ? 'bg-neuro-700' : 'bg-neuro-600'}`}>
-                        <i className="fa-solid fa-book-open text-[10px]"></i>
-                      </div>
-                    )}
+
 
                     {isPlaceholder ? (
                       <div className="w-full h-full rounded-full bg-neuro-50 flex flex-col items-center justify-center p-2 border-2 border-dashed border-neuro-200 group-hover:border-neuro-400 group-hover:bg-neuro-100 transition-all duration-300">
@@ -149,50 +146,70 @@ const Team: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Dr. Vidhya Rangaraju (t1) Special Buttons */}
-                    {member.id === 't1' && (
-                      <>
+
+
+                    {/* Unified Icons Container - Bottom Center */}
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 z-20">
+
+                      {/* 1. Email (Left) */}
+                      {member.email && (
                         <a
-                          href="#bio"
-                          className="absolute bottom-0 left-1 w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-lg z-20 hover:scale-110 hover:bg-amber-600 transition-all duration-200"
-                          title="View Awards & Honors"
+                          href={`mailto:${member.email}`}
+                          className="w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
+                          title={`Email ${member.name}`}
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <i className="fa-solid fa-trophy text-xs"></i>
+                          <i className="fa-solid fa-envelope text-xs"></i>
                         </a>
-                        <a
-                          href="#publications"
-                          className="absolute bottom-0 right-1 w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg z-20 hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
-                          title="View Publications"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <i className="fa-solid fa-book-open text-[10px]"></i>
-                        </a>
-                      </>
-                    )}
+                      )}
 
-                    {/* Email Icon - Bottom Right */}
-                    {member.email && (
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-neuro-600 shadow-sm hover:shadow-md hover:scale-110 hover:text-neuro-700 transition-all duration-200 z-20"
-                        title={`Email ${member.name}`}
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <i className="fa-solid fa-envelope text-xs"></i>
-                      </a>
-                    )}
+                      {/* 2. Publications (Middle) */}
+                      {(member.id === 't1' || (member.publicationIds && member.publicationIds.length > 0)) && (
+                        member.id === 't1' ? (
+                          <a
+                            href="#publications"
+                            className="w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
+                            title="View Publications"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <i className="fa-solid fa-book-open text-[10px]"></i>
+                          </a>
+                        ) : (
+                          <button
+                            className={`w-7 h-7 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-200 hover:scale-110 ${isLocked && panelMode === 'publications' ? 'bg-neuro-700' : 'bg-neuro-600 hover:bg-neuro-700'}`}
+                            title={`View ${member.name}'s Publications`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (handleMemberClick) handleMemberClick(member.id);
+                            }}
+                          >
+                            <i className="fa-solid fa-book-open text-[10px]"></i>
+                          </button>
+                        )
+                      )}
 
-                    {/* Awards Trophy Icon - Bottom Center */}
-                    {member.awardIds && member.awardIds.length > 0 && (
-                      <button
-                        className={`absolute bottom-0 left-1 w-7 h-7 rounded-full flex items-center justify-center shadow-lg z-20 hover:scale-110 transition-all duration-200 ${panelMode === 'awards' && lockedContentId === member.id ? 'bg-amber-600 text-white' : 'bg-amber-500 text-white hover:bg-amber-600'}`}
-                        title={`View ${member.name}'s Awards & Honors`}
-                        onClick={(e) => handleAwardsClick(member.id, e)}
-                      >
-                        <i className="fa-solid fa-trophy text-xs"></i>
-                      </button>
-                    )}
+                      {/* 3. Awards (Right) */}
+                      {(member.id === 't1' || (member.awardIds && member.awardIds.length > 0)) && (
+                        member.id === 't1' ? (
+                          <a
+                            href="#bio"
+                            className="w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
+                            title="View Awards & Honors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <i className="fa-solid fa-trophy text-xs"></i>
+                          </a>
+                        ) : (
+                          <button
+                            className={`w-7 h-7 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-200 ${panelMode === 'awards' && lockedContentId === member.id ? 'bg-neuro-700 text-white' : 'bg-neuro-600 text-white hover:bg-neuro-700'}`}
+                            title={`View ${member.name}'s Awards & Honors`}
+                            onClick={(e) => handleAwardsClick(member.id, e)}
+                          >
+                            <i className="fa-solid fa-trophy text-xs"></i>
+                          </button>
+                        )
+                      )}
+                    </div>
                   </div>
                   <h3 className={`text-base font-bold transition-colors ${isActive ? 'text-neuro-700' : 'text-slate-900'}`}>{member.name}</h3>
                   <p className="text-[12px] text-neuro-600 font-medium leading-tight">{member.role}</p>
@@ -209,6 +226,89 @@ const Team: React.FC = () => {
               <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 h-full shadow-inner relative overflow-hidden">
                 {memberToDisplayId ? (
                   (() => {
+                    if (panelMode === 'job' && memberToDisplayId === 'placeholder-1') {
+                      return (
+                        <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col">
+                          <div className="flex-shrink-0 flex items-center gap-4 mb-6 pb-6 border-b border-slate-200">
+                            <div className="w-16 h-16 rounded-full bg-neuro-50 flex items-center justify-center border-2 border-dashed border-neuro-200">
+                              <i className="fa-solid fa-user-plus text-neuro-600 text-2xl"></i>
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-slate-900 text-lg">Open Position</h4>
+                              <p className="text-neuro-600 font-bold uppercase tracking-wider text-sm">Postdoctoral Fellow</p>
+                            </div>
+                          </div>
+
+                          <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar min-h-0">
+                            <div className="prose prose-sm prose-slate max-w-none">
+                              <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
+                              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
+                                <p className="text-sm text-slate-600 mb-2">
+                                  Please send the following information to Dr. Vidhya Rangaraju:
+                                </p>
+                                <a href="mailto:Vidhya.Rangaraju@mpfi.org" className="text-neuro-600 font-bold hover:underline mb-4 block">
+                                  Vidhya.Rangaraju@mpfi.org
+                                </a>
+                                <ul className="list-disc pl-5 space-y-1 text-sm text-slate-600">
+                                  <li>CV</li>
+                                  <li>Statement of research experience and future research interests (1-2 pages)</li>
+                                  <li>Names and complete contact information of three references</li>
+                                </ul>
+                              </div>
+
+                              <p className="text-slate-600 mb-4">
+                                The postdoctoral fellow will pursue our research questions and their independent ideas. We will employ state-of-the-art imaging, including ATP measurements, 2p glutamate uncaging, super-resolution and electron microscopy, advanced proteomics and translatomic methods, and develop novel molecular tools when required.
+                              </p>
+
+                              <h5 className="font-bold text-slate-900 mt-6 mb-2">Qualifications</h5>
+                              <p className="text-slate-600 mb-4">
+                                The ideal candidate should have or is in the process of completing their PhD in Neuroscience or a related scientific discipline. A strong background in imaging, proteomics, ribosome profiling, or molecular and cell biology is preferred. Strong analytical and communication skills, as well as the ability to fit in well with a team, are required.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    if (panelMode === 'job' && memberToDisplayId === 'placeholder-2') {
+                      return (
+                        <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col">
+                          <div className="flex-shrink-0 flex items-center gap-4 mb-6 pb-6 border-b border-slate-200">
+                            <div className="w-16 h-16 rounded-full bg-neuro-50 flex items-center justify-center border-2 border-dashed border-neuro-200">
+                              <i className="fa-solid fa-graduation-cap text-neuro-600 text-2xl"></i>
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-slate-900 text-lg">Open Position</h4>
+                              <p className="text-neuro-600 font-bold uppercase tracking-wider text-sm">PhD Student</p>
+                            </div>
+                          </div>
+
+                          <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar min-h-0">
+                            <div className="prose prose-sm prose-slate max-w-none">
+                              <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
+                              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
+                                <p className="text-sm text-slate-600 mb-2">
+                                  We recruit PhD students through the MPFI IMPRS Program.
+                                </p>
+                                <a href="https://mpfi.org/training/imprs-sc/" target="_blank" rel="noreferrer" className="text-neuro-600 font-bold hover:underline block break-all">
+                                  https://mpfi.org/training/imprs-sc/
+                                </a>
+                              </div>
+
+                              <p className="text-slate-600 mb-4">
+                                The PhD student will pursue our research questions and their independent ideas. We will employ state-of-the-art imaging, including ATP measurements, 2p glutamate uncaging, super-resolution and electron microscopy, advanced proteomics and translatomic methods, and develop novel molecular tools when required.
+                              </p>
+
+                              <h5 className="font-bold text-slate-900 mt-6 mb-2">Qualifications</h5>
+                              <p className="text-slate-600 mb-4">
+                                The ideal candidate should have or is in the process of completing their Bachelor's or Master's degree in Neuroscience or a related scientific discipline. A strong background in imaging, proteomics, ribosome profiling, or molecular and cell biology is preferred. Strong analytical and communication skills, as well as the ability to fit in well with a team, are required.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+
                     const member = TEAM_MEMBERS.find(m => m.id === memberToDisplayId);
 
                     // Show Contact Panel
@@ -398,7 +498,7 @@ const Team: React.FC = () => {
         <div className="mt-8">
           <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Life at The Rangaraju Lab</h3>
-            <p className="text-slate-500 mt-2">Connecting science, community, and innovation</p>
+            <p className="text-slate-500 mt-2">Connecting science, innovation, and community</p>
           </div>
 
           <div className="relative group max-w-5xl mx-auto">
@@ -421,6 +521,7 @@ const Team: React.FC = () => {
                       src={photo.url}
                       alt={`Lab photo ${index + 1}`}
                       className="w-full h-full object-cover"
+                      style={{ objectPosition: (photo as any).objectPosition || 'center' }}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=2000';
                       }}
@@ -457,61 +558,7 @@ const Team: React.FC = () => {
           </div>
         </div>
 
-        {/* Alumni Section */}
-        <div className="mt-24 pt-20">
-          <div className="text-center mb-20">
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">Lab Alumni</h3>
-            <p className="text-slate-500 mt-2">Celebrating the current positions and achievements of our former lab members</p>
-          </div>
 
-          <div className="space-y-10 max-w-7xl mx-auto">
-            {ALUMNI_DATA.map((group, idx) => (
-              <div key={idx} className="flex flex-col">
-                {/* Horizontal Band Header */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-2.5 h-2.5 rounded-full bg-neuro-500 flex-shrink-0"></div>
-                  <h4 className="text-xs md:text-sm font-bold text-neuro-700 uppercase tracking-[0.15em] whitespace-nowrap">{group.category}</h4>
-                  <div className="h-px bg-neuro-100 flex-grow"></div>
-                </div>
-
-                {/* 4-Column Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {group.members.map((member) => (
-                    <div
-                      key={member.id}
-                      className="group p-5 bg-white border border-slate-100 rounded-xl hover:border-neuro-200 hover:shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-300 flex gap-5 cursor-default"
-                    >
-                      <div className="w-24 h-24 rounded-xl bg-slate-50 flex flex-shrink-0 items-center justify-center text-slate-400 group-hover:bg-neuro-50 group-hover:text-neuro-500 transition-colors overflow-hidden border border-slate-100 shadow-sm">
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover scale-105"
-                            style={{
-                              objectPosition: member.objectPosition || 'center',
-                              transform: member.scale ? `scale(${member.scale})` : undefined
-                            }}
-                          />
-                        ) : (
-                          <i className="fa-solid fa-user-graduate text-4xl"></i>
-                        )}
-                      </div>
-                      <div className="flex flex-col justify-center flex-grow py-1">
-                        <h5 className="text-xl font-bold text-slate-900 group-hover:text-neuro-700 transition-colors leading-tight mb-1">{member.name}</h5>
-                        {member.details && (
-                          <div className="flex items-center gap-2">
-                            <i className="fa-solid fa-location-dot text-xs text-neuro-500"></i>
-                            <p className="text-sm text-neuro-600 font-bold leading-tight">{member.details}</p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

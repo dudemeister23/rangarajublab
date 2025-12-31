@@ -2,6 +2,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  image?: string;
 }
 
 export interface TeamMember {
@@ -53,6 +54,7 @@ export interface NewsItem {
 export interface AlumniMember {
   id: string;
   name: string;
+  labRole?: string;
   details?: string; // e.g., "PhD at MPFI"
   image?: string;
   objectPosition?: string;

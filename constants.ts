@@ -15,22 +15,26 @@ export const PROJECTS: Project[] = [
   {
     id: 'p1',
     title: 'Spatial Stabilization Mechanisms',
-    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions. We discovered a distinct role for the ALS-linked protein VAP in stabilizing mitochondria within dendrites for long durations of plasticity, fueling learning and memory.'
+    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions. We discovered a distinct role for the ALS-linked protein VAP in stabilizing mitochondria within dendrites for long durations of plasticity, fueling learning and memory.',
+    image: 'assets/research/spatial-stabilization-v2.png'
   },
   {
     id: 'p2',
     title: 'Local Mitochondrial ATP Production',
-    description: 'We developed novel spine- and mitochondrial-ATP reporters to image ATP within single spines. We dissect molecular mechanisms driving mitochondrial ATP synthesis in response to plasticity and identify novel temporal regulators of ATP synthesis.'
+    description: 'We developed novel spine- and mitochondrial-ATP reporters to image ATP within single spines. We dissect molecular mechanisms driving mitochondrial ATP synthesis in response to plasticity and identify novel temporal regulators of ATP synthesis.',
+    image: 'assets/research/local-mitochondrial-atp.png'
   },
   {
     id: 'p3',
     title: 'Mitochondrial Remodeling',
-    description: 'Using a correlative light and electron microscopy (CLEM) pipeline combining functional imaging with Cryo-ET and DNA-PAINT to characterize mitochondrial ultrastructure and ribosome recruitment during neuronal plasticity.'
+    description: 'Using a correlative light and electron microscopy (CLEM) pipeline combining functional imaging with Cryo-ET and DNA-PAINT to characterize mitochondrial ultrastructure and ribosome recruitment during neuronal plasticity.',
+    image: 'assets/research/mitochondrial-remodeling.png'
   },
   {
     id: 'p4',
     title: 'Mitochondrial Biogenesis',
-    description: 'Investigating how neuronal compartments manage local mitochondrial biogenesis. We employ ribosome profiling, RNA sequencing, and metabolic labeling to identify locally translated mitochondrial transcripts.'
+    description: 'Investigating how neuronal compartments manage local mitochondrial biogenesis. We employ ribosome profiling, RNA sequencing, and metabolic labeling to identify locally translated mitochondrial transcripts.',
+    image: 'assets/research/mitochondrial-biogenesis.png'
   }
 ];
 
@@ -49,13 +53,13 @@ export const LAB_BUILDING_IMAGE = 'assets/lab-building.jpg';
 export const CONTACT_IMAGE = 'assets/team-reel/photo10.jpg';
 
 export const TEAM_REEL = [
+  { url: 'assets/team-reel/photo7.jpg', objectPosition: 'center 80%' },
   { url: LAB_TEAM_PHOTO },
   { url: 'assets/team-reel/photo2.jpg' },
   { url: 'assets/team-reel/photo3.jpg' },
   { url: 'assets/team-reel/photo4.jpg' },
   { url: 'assets/team-reel/photo5.jpg' },
   { url: 'assets/team-reel/photo6.jpg' },
-  { url: 'assets/team-reel/photo7.jpg' },
   { url: 'assets/team-reel/photo8.jpg' },
   { url: 'assets/team-reel/photo9.jpg' },
 
@@ -382,40 +386,37 @@ export const FUNDING_URLS = {
 
 export const ALUMNI_DATA: AlumniGroup[] = [
   {
-    category: "Graduate Alumni (Rotation, Masters, & Postbaccs)",
+    category: "Graduate Alumni",
     members: [
-      { id: 'al1', name: 'Suhas Sunke', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg' },
-      { id: 'al2', name: 'Aidan McDonald', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%' },
-      { id: 'al3', name: 'Rasya Bhat', details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2 },
-      { id: 'al4', name: 'Riya Sivakumar', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2 },
-      { id: 'al5', name: 'Danyu Luo', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%' },
-      { id: 'al7', name: 'Jacob LaMar', details: 'MS at FAU', image: 'assets/alumni/jacob_lamar.jpg' },
+      { id: 'al1', name: 'Suhas Sunke', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg' },
+      { id: 'al2', name: 'Aidan McDonald', labRole: 'Rotation Student', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%' },
+      { id: 'al3', name: 'Rasya Bhat', labRole: "Master's Student", details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2 },
+      { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2 },
+      { id: 'al5', name: 'Danyu Luo', labRole: 'Postbaccalaureate', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%' },
+      { id: 'al7', name: 'Jacob LaMar', labRole: 'Postbaccalaureate', details: 'MS at FAU', image: 'assets/alumni/jacob_lamar.jpg' },
 
-      { id: 'al9', name: 'Devahuti Bhuyan', details: 'PhD at U Alabama', image: 'assets/alumni/devahuti_bhuyan.jpg' },
-      { id: 'al10', name: 'Sabrina Perez', details: 'Northrop Grumman', image: 'assets/alumni/sabrina_perez.jpg' },
-      { id: 'al11', name: 'Shaun Foutch', details: 'MS at MPFI', image: 'assets/alumni/shaun_foutch.jpg', objectPosition: 'center 10%' }
+      { id: 'al9', name: 'Devahuti Bhuyan', labRole: 'Research Technician', details: 'PhD at U Alabama', image: 'assets/alumni/devahuti_bhuyan.jpg' },
+      { id: 'al10', name: 'Sabrina Perez', labRole: 'Research Technician', details: 'Northrop Grumman', image: 'assets/alumni/sabrina_perez.jpg' },
+      { id: 'al11', name: 'Shaun Foutch', labRole: 'Research Technician', details: 'MS at MPFI', image: 'assets/alumni/shaun_foutch.jpg', objectPosition: 'center 10%' }
     ]
   },
   {
     category: "Undergraduate & High School Alumni",
     members: [
-      { id: 'al12', name: 'Jean-Manuel Mena', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg' },
-      { id: 'al13', name: 'Tejas Purimetla', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg' },
-      { id: 'al14', name: 'Nicholas Moy', details: 'BS at FAU', image: 'assets/alumni/nicholas_moy.jpg', objectPosition: 'center 10%' },
-      { id: 'al15', name: 'Neha Anand', details: 'BE at IIT', image: 'assets/alumni/neha_anand.jpg' },
-      { id: 'al16', name: 'Mohan Peddada', details: 'BS at Johns Hopkins', image: 'assets/alumni/mohan_peddada.jpg' },
-      { id: 'al17', name: 'Kevin Pena', details: 'ZimVie', image: 'assets/alumni/kevin_pena.jpg' },
-      { id: 'al18', name: 'Luca Pishos', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg' },
-      { id: 'al19', name: 'Gayatri Sathyanarayan', details: 'BE at Cornell', image: 'assets/alumni/gayatri_sathyanarayan.jpg' },
-      { id: 'al20', name: 'Jake Zur', details: 'BE at U Michigan', image: 'assets/alumni/jake_zur.jpg' }
+      { id: 'al12', name: 'Jean-Manuel Mena', labRole: 'Undergraduate Student', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg' },
+      { id: 'al13', name: 'Tejas Purimetla', labRole: 'Undergraduate Student', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg' },
+      { id: 'al16', name: 'Mohan Peddada', labRole: 'Undergraduate Student', details: 'BS at Johns Hopkins', image: 'assets/alumni/mohan_peddada.jpg' },
+      { id: 'al18', name: 'Luca Pishos', labRole: 'High School Student', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg' },
+      { id: 'al19', name: 'Gayatri Sathyanarayan', labRole: 'High School Student', details: 'BE at Cornell', image: 'assets/alumni/gayatri_sathyanarayan.jpg' },
+      { id: 'al20', name: 'Jake Zur', labRole: 'High School Student', details: 'BE at U Michigan', image: 'assets/alumni/jake_zur.jpg' }
     ]
   },
   {
     category: "Visiting Scientists",
     members: [
-      { id: 'al21', name: 'Sen Yang', details: 'Indiana U', image: 'assets/alumni/sen_yang.jpg' },
-      { id: 'al22', name: 'Jenna Wingfield', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg' },
-      { id: 'al23', name: 'Ken Kunugitani', details: 'Kyoto University', image: 'assets/alumni/ken_kunugitani.jpg' }
+      { id: 'al21', name: 'Sen Yang', labRole: 'PhD Student', details: 'Brown U', image: 'assets/alumni/sen_yang.jpg' },
+      { id: 'al22', name: 'Jenna Wingfield', labRole: 'Postdoctoral Fellow', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg' },
+      { id: 'al23', name: 'Ken Kunugitani', labRole: 'MD PhD', details: 'Kyoto University', image: 'assets/alumni/ken_kunugitani.jpg' }
     ]
   }
 ];

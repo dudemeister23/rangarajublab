@@ -50,19 +50,29 @@ const Research: React.FC = () => {
 
         {/* Project Detail Area */}
         {activeProject && (
-          <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[320px] transition-all duration-500 animate-in fade-in zoom-in-95 slide-in-from-bottom-4">
+          <div className="max-w-6xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[320px] transition-all duration-500 animate-in fade-in zoom-in-95 slide-in-from-bottom-4">
             <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="w-16 h-16 bg-neuro-50 rounded-2xl flex items-center justify-center text-neuro-600 shrink-0">
-                <i className={`fa-solid ${PROJECTS.findIndex(p => p.id === activeProjectId) === 0 ? 'fa-anchor' :
-                  PROJECTS.findIndex(p => p.id === activeProjectId) === 1 ? 'fa-bolt' :
-                    PROJECTS.findIndex(p => p.id === activeProjectId) === 2 ? 'fa-microscope' : 'fa-network-wired'
-                  } text-3xl`}></i>
-              </div>
-              <div className="flex-grow">
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">{activeProject.title}</h3>
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  {activeProject.description}
-                </p>
+
+              <div className="flex-grow w-full">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">{activeProject.title}</h3>
+
+                <div className="flex flex-col lg:flex-row gap-10 items-start">
+                  <div className="flex-1">
+                    <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                      {activeProject.description}
+                    </p>
+                  </div>
+
+                  {activeProject.image && (
+                    <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-md border border-slate-100 shrink-0">
+                      <img
+                        src={activeProject.image}
+                        alt={activeProject.title}
+                        className="w-full h-auto object-contain bg-white"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

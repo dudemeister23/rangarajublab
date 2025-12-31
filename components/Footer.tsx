@@ -29,13 +29,16 @@ const Footer: React.FC = () => {
 
         </div>
 
-        <div className="flex flex-col items-center justify-center pt-6 border-t border-slate-900 gap-6 text-center">
+        <div className="flex flex-col items-center justify-center pt-6 border-t border-slate-900 gap-4 text-center">
+          <div className="text-base text-slate-500 mb-2">
+            Website created by <a href="https://fabianbresan.com" target="_blank" rel="noopener noreferrer" className="font-bold text-white hover:text-neuro-400 underline underline-offset-4 decoration-slate-700 hover:decoration-neuro-400 transition-all">Fabian Bresan</a>
+          </div>
           <div className="text-sm font-medium tracking-wide">
             &copy; {new Date().getFullYear()} The Rangaraju Lab. Investigating neuroenergetics.
           </div>
-
-
         </div>
+
+
       </div>
     </footer>
   );

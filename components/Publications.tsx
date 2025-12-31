@@ -30,8 +30,13 @@ const Publications: React.FC = () => {
       <div className="container mx-auto px-6 md:px-12">
         {/* Preprints Section */}
         <div className="mb-20">
-          <div className="mb-12 border-b border-slate-200 pb-4 text-center">
+          <div className="relative flex justify-center items-center mb-12 border-b border-slate-200 pb-4">
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-1">Preprints</h3>
+            <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2">
+              <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-2.5 bg-neuro-600 text-white text-sm font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+                View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+              </a>
+            </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
@@ -69,11 +74,13 @@ const Publications: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative mb-12 border-b border-slate-200 pb-4 text-center">
+        <div className="relative flex justify-center items-center mb-12 border-b border-slate-200 pb-4">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Publications</h2>
-          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="hidden md:inline-flex absolute right-0 bottom-4 items-center text-sm font-semibold text-slate-500 hover:text-neuro-600 transition-colors">
-            View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2"></i>
-          </a>
+          <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2">
+            <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-2.5 bg-neuro-600 text-white text-sm font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+              View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -146,8 +153,8 @@ const Publications: React.FC = () => {
         </div>
 
         <div className="mt-8 md:hidden text-center">
-          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="text-sm font-semibold text-neuro-600">
-            View all on Google Scholar
+          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-3 bg-neuro-600 text-white font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+            View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
           </a>
         </div>
       </div>

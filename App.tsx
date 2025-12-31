@@ -7,6 +7,7 @@ import News from './components/News';
 import Media from './components/Media';
 import Team from './components/Team';
 import Mentoring from './components/Mentoring';
+import Alumni from './components/Alumni';
 import Publications from './components/Publications';
 import Funding from './components/Funding';
 import Contact from './components/Contact';
@@ -22,8 +23,9 @@ const App: React.FC = () => {
         <Research />
         <News />
         <Media />
-        <Team />
         <Mentoring />
+        <Team />
+        <Alumni />
         <Publications />
         <Funding />
         <Contact />
