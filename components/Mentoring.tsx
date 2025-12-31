@@ -5,16 +5,16 @@ import React from 'react';
 const Mentoring: React.FC = () => {
 
     const EXPECTATIONS = [
-        { text: "Passion for Research and Success", className: "bg-neuro-50 text-neuro-700 border-neuro-200 hover:border-neuro-300 ring-neuro-100 hover:bg-neuro-100" },
-        { text: "Transparency in Career Goals", className: "bg-yellow-50 text-yellow-700 border-yellow-200 hover:border-yellow-300 ring-yellow-100 hover:bg-yellow-100" },
-        { text: "Alignment of Goals", className: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-300 ring-purple-100 hover:bg-purple-100" },
-        { text: "Initiative and Ownership", className: "bg-neuro-50 text-neuro-700 border-neuro-200 hover:border-neuro-300 ring-neuro-100 hover:bg-neuro-100" },
-        { text: "Creativity and Productivity", className: "bg-yellow-50 text-yellow-700 border-yellow-200 hover:border-yellow-300 ring-yellow-100 hover:bg-yellow-100" },
-        { text: "Scientific Integrity", className: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-300 ring-purple-100 hover:bg-purple-100" },
-        { text: "Resilience and Growth", className: "bg-neuro-50 text-neuro-700 border-neuro-200 hover:border-neuro-300 ring-neuro-100 hover:bg-neuro-100" },
-        { text: "Commitment and Adaptability", className: "bg-yellow-50 text-yellow-700 border-yellow-200 hover:border-yellow-300 ring-yellow-100 hover:bg-yellow-100" },
-        { text: "Receptiveness to Feedback", className: "bg-purple-50 text-purple-700 border-purple-200 hover:border-purple-300 ring-purple-100 hover:bg-purple-100" },
-        { text: "Collaboration and Team Spirit", className: "bg-neuro-50 text-neuro-700 border-neuro-200 hover:border-neuro-300 ring-neuro-100 hover:bg-neuro-100" }
+        { text: "Passion for Research and Success", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Transparency in Career Goals", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Alignment of Goals", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Initiative and Ownership", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Creativity and Productivity", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Scientific Integrity", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Resilience and Growth", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Commitment and Adaptability", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Receptiveness to Feedback", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
+        { text: "Collaboration and Team Spirit", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" }
     ];
 
     return (

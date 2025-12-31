@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p1',
     title: 'Spatial Stabilization Mechanisms',
-    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of these identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders, using animal and human disease models.',
+    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of the identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders, using animal and human disease models.',
     image: 'assets/research/spatial-stabilization-v2.png',
     linkUrl: 'https://doi.org/10.1038/s41467-023-44233-8'
   },

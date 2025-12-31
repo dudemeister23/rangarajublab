@@ -58,7 +58,7 @@ const Research: React.FC = () => {
 
                 <div className="flex flex-col lg:flex-row gap-10 items-start">
                   <div className="flex-1">
-                    <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                    <p className="text-slate-600 text-lg leading-relaxed mb-6 text-justify">
                       {(() => {
                         if (!activeProject.linkUrl) return activeProject.description;
                         const splitIndex = activeProject.description.indexOf('. ');
