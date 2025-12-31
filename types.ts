@@ -60,6 +60,8 @@ export interface AlumniMember {
   objectPosition?: string;
   scale?: number;
   link?: string;
+  awardIds?: string[]; // IDs of associated awards and honors
+  email?: string;
 }
 
 export interface AlumniGroup {

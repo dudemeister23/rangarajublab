@@ -151,19 +151,7 @@ const Team: React.FC = () => {
                     {/* Unified Icons Container - Bottom Center */}
                     <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 z-20">
 
-                      {/* 1. Email (Left) */}
-                      {member.email && (
-                        <a
-                          href={`mailto:${member.email}`}
-                          className="w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
-                          title={`Email ${member.name}`}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <i className="fa-solid fa-envelope text-xs"></i>
-                        </a>
-                      )}
-
-                      {/* 2. Publications (Middle) */}
+                      {/* 1. Publications */}
                       {(member.id === 't1' || (member.publicationIds && member.publicationIds.length > 0)) && (
                         member.id === 't1' ? (
                           <a
@@ -186,6 +174,18 @@ const Team: React.FC = () => {
                             <i className="fa-solid fa-book-open text-[10px]"></i>
                           </button>
                         )
+                      )}
+
+                      {/* 2. Email */}
+                      {member.email && (
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
+                          title={`Email ${member.name}`}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <i className="fa-solid fa-envelope text-xs"></i>
+                        </a>
                       )}
 
                       {/* 3. Awards (Right) */}
@@ -349,19 +349,19 @@ const Team: React.FC = () => {
 
                         return (
                           <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col">
-                            <div className="flex-shrink-0 flex items-center gap-4 mb-6 pb-6 border-b border-amber-200">
+                            <div className="flex-shrink-0 flex items-center gap-4 mb-6 pb-6 border-b border-neuro-200">
                               <div className="w-12 h-12 rounded-full overflow-hidden">
                                 <img src={member?.image} alt={member?.name} className="w-full h-full object-cover" />
                               </div>
                               <div>
                                 <h4 className="font-bold text-slate-900">{member?.name}'s Awards & Honors</h4>
-                                <p className="text-xs text-amber-600 font-bold uppercase tracking-wider">
+                                <p className="text-xs text-neuro-600 font-bold uppercase tracking-wider">
                                   {awardCount > 0 && `${awardCount} Award${awardCount !== 1 ? 's' : ''}`}
                                   {awardCount > 0 && honorCount > 0 && ' • '}
                                   {honorCount > 0 && `${honorCount} Honor${honorCount !== 1 ? 's' : ''}`}
                                 </p>
                                 {member?.email && (
-                                  <a href={`mailto:${member.email}`} className="text-xs text-slate-500 hover:text-amber-600 flex items-center gap-1.5 mt-1.5 transition-colors font-medium">
+                                  <a href={`mailto:${member.email}`} className="text-xs text-slate-500 hover:text-neuro-600 flex items-center gap-1.5 mt-1.5 transition-colors font-medium">
                                     <i className="fa-solid fa-envelope"></i>
                                     {member.email}
                                   </a>
@@ -374,14 +374,18 @@ const Team: React.FC = () => {
                                 {memberAwards.map((award, idx) => (
                                   <div
                                     key={idx}
-                                    className="bg-white p-4 rounded-xl border border-amber-100 hover:border-amber-300 hover:shadow-md transition-all"
+                                    className="bg-white p-4 rounded-xl border border-neuro-100 hover:border-neuro-300 hover:shadow-md transition-all"
                                   >
-                                    <div className="flex gap-3">
-                                      <div className="w-10 h-10 bg-amber-100 rounded-full flex-shrink-0 flex items-center justify-center">
-                                        <i className={`fa-solid ${award?.type === 'honor' ? 'fa-medal' : 'fa-trophy'} text-amber-600`}></i>
+                                    <div className="flex gap-3 items-center">
+                                      <div className="w-10 h-10 bg-neuro-100 rounded-full flex-shrink-0 flex items-center justify-center">
+                                        {award?.type === 'honor' ? (
+                                          <img src="assets/icons/laurel-wreath.png" alt="Honor" className="w-9 h-9 object-contain opacity-80" />
+                                        ) : (
+                                          <i className="fa-solid fa-trophy text-neuro-600 text-xl"></i>
+                                        )}
                                       </div>
                                       <div>
-                                        <span className="text-[10px] font-bold text-amber-500 uppercase">
+                                        <span className="text-[10px] font-bold text-neuro-500 uppercase">
                                           {award?.date}{award?.endDate ? ` – ${award.endDate}` : ''}
                                         </span>
                                         <h5 className="text-sm font-bold text-slate-800 leading-tight mb-1">{award?.title}</h5>
@@ -444,7 +448,7 @@ const Team: React.FC = () => {
                                   rel="noreferrer"
                                   className="block bg-white p-4 rounded-xl border border-slate-200 hover:border-neuro-300 hover:shadow-md transition-all group/pub"
                                 >
-                                  <div className="flex gap-3">
+                                  <div className="flex gap-3 items-center">
                                     {pub?.coverImage && (
                                       <div className="w-12 h-16 bg-slate-100 rounded flex-shrink-0 overflow-hidden border border-slate-100 p-1">
                                         <img src={pub.coverImage} className="w-full h-full object-contain" alt="" />
@@ -466,7 +470,7 @@ const Team: React.FC = () => {
                             <div className="flex-shrink-0 mt-4 pt-4 border-t border-slate-100">
                               <button
                                 onClick={() => setPanelMode('awards')}
-                                className="w-full py-2 px-4 bg-amber-100 text-amber-700 rounded-lg text-sm font-medium hover:bg-amber-200 transition-colors flex items-center justify-center gap-2"
+                                className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-lg text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
                               >
                                 <i className="fa-solid fa-trophy"></i>
                                 View Awards & Honors ({member.awardIds.length})

@@ -47,7 +47,7 @@ const Bio: React.FC = () => {
                 {/* Top Item - Centered across 2 columns */}
                 <div className="col-span-2 flex justify-center">
                   <span
-                    className="w-[calc(50%-0.5rem)] h-[52px] px-2 py-1 bg-neuro-100 text-neuro-900 text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-200 hover:scale-105 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
+                    className="w-[calc(50%-0.5rem)] h-[52px] px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 hover:scale-105 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
                   >
                     <span className="block">NIH Director’s</span>
                     <span className="block">New Innovator Award</span>
@@ -65,7 +65,7 @@ const Bio: React.FC = () => {
                 ].map((lines, index) => (
                   <span
                     key={index}
-                    className="w-full h-[52px] px-2 py-1 bg-neuro-100 text-neuro-900 text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-200 hover:scale-105 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
+                    className="w-full h-[52px] px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 hover:scale-105 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
                   >
                     {lines.map((line, i) => (
                       <span key={i} className="block">{line}</span>

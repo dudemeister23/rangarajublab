@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p1',
     title: 'Spatial Stabilization Mechanisms',
-    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions. We discovered a distinct role for the ALS-linked protein VAP in stabilizing mitochondria within dendrites for long durations of plasticity, fueling learning and memory.',
+    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of these identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders using animal and human disease models.',
     image: 'assets/research/spatial-stabilization-v2.png'
   },
   {
@@ -78,12 +78,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
 ];
 
 export const AWARDS: Award[] = [
-  { id: 'a1', title: 'Minisymposia Speaker, Travel Grant Awardee, American Society for Cell Biology 2025', recipient: 'Ilika Ghosh', date: '12/2025', type: 'award' },
+  { id: 'a1', title: 'Minisymposia Speaker, Travel Grant Awardee, Elevator Pitch 2nd Place at American Society for Cell Biology 2025', recipient: 'Ilika Ghosh', date: '12/2025', type: 'award' },
   { id: 'a2', title: 'Poster Presenter, CZI Imaging the Future', recipient: 'Monil Shah', date: '09/2025', type: 'honor' },
   { id: 'a3', title: 'Invited Speaker, ThermoFisher Beyond the Beam Seminar Series on Electron Tomography', recipient: 'Monil Shah', date: '10/2024', type: 'honor' },
   { id: 'a4', title: 'Selected Speaker, Japan-MPFI Multi-D Analysis of Memory Mechanisms Retreat', recipient: 'Monil Shah', date: '09/2024', type: 'honor' },
   { id: 'a5', title: 'Janelia Visiting Scientist, Lippincott-Schwarz Lab', recipient: 'Ojasee Bapat and Monil Shah', date: '09/2024', type: 'honor' },
-  { id: 'a6', title: 'Carl Angus DeSantis Award', recipient: 'Ilika Ghosh', date: '07/2024', endDate: '12/2027', type: 'award' },
+  { id: 'a6', title: 'Carl Angus DeSantis Postdoctoral Fellowship', recipient: 'Ilika Ghosh', date: '07/2024', endDate: '12/2027', type: 'award' },
   { id: 'a7', title: 'Selected for EMBO Intensive Course in Electron Microscopy for Cell Biology', recipient: 'Monil Shah', date: '06/2024', type: 'honor' },
   { id: 'a8', title: 'Invited Speaker, CHINTA, TCG Crest', recipient: 'Ilika Ghosh', date: '05/2024', type: 'honor' },
   { id: 'a9', title: 'Teaching Assistant, MPFI Imaging Course', recipient: 'Ilika Ghosh, Monil Shah', date: '02/2024', type: 'honor' },
@@ -94,6 +94,8 @@ export const AWARDS: Award[] = [
   { id: 'a14', title: 'Invited Speaker & Best Question Award, Florida Consortium on the Neurobiology of Cognition', recipient: 'Ruolin Fan', date: '05/2023', type: 'award' },
   { id: 'a16', title: 'Society for Neuroscience Trainee Professional Development Award', recipient: 'Ilika Ghosh', date: '11/2022', type: 'award' },
   { id: 'a17', title: 'Society for Neuroscience Invited Nanosymposium Speaker', recipient: 'Ilika Ghosh', date: '11/2022', type: 'honor' },
+  { id: 'a18', title: 'Outstanding OWL Award and Outstanding Thesis Award', recipient: 'Tejas Purimetla', date: '05/2023', type: 'award' },
+  { id: 'a19', title: 'Nambu Memorial Summer Research Experience Program', recipient: 'Tejas Purimetla', date: '05/2022', endDate: '08/2022', type: 'award' },
 ];
 
 export const PUBLICATIONS: Publication[] = [
@@ -229,6 +231,7 @@ export const CONTACT_INFO = {
   address: 'Max Planck Florida Institute for Neuroscience',
   socials: [
     { icon: 'fa-brands fa-x-twitter', url: 'https://x.com/RangarajuVidhya', label: 'X' },
+    { icon: 'fa-brands fa-bluesky', url: 'https://bsky.app/profile/rangarajuvidhya.bsky.social', label: 'Bluesky' },
     { icon: 'fa-brands fa-linkedin', url: 'https://www.linkedin.com/in/vidhyarangarajuphd/', label: 'LinkedIn' },
     { icon: 'fa-solid fa-graduation-cap', url: 'https://scholar.google.com/citations?user=uudWngwAAAAJ&hl=en', label: 'Google Scholar' },
   ] as SocialLink[]
@@ -388,11 +391,11 @@ export const ALUMNI_DATA: AlumniGroup[] = [
   {
     category: "Graduate Alumni",
     members: [
-      { id: 'al1', name: 'Suhas Sunke', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg' },
-      { id: 'al2', name: 'Aidan McDonald', labRole: 'Rotation Student', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%' },
-      { id: 'al3', name: 'Rasya Bhat', labRole: "Master's Student", details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2 },
-      { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2 },
-      { id: 'al5', name: 'Danyu Luo', labRole: 'Postbaccalaureate', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%' },
+      { id: 'al1', name: 'Suhas Sunke', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg', email: 'Suhas.Sunke@mpfi.org' },
+      { id: 'al2', name: 'Aidan McDonald', labRole: 'Rotation Student', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%', email: 'aidanmcdonal2024@fau.edu' },
+      { id: 'al3', name: 'Rasya Bhat', labRole: "Master's Student", details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2, email: 'rasya.bhat@student.uni-tuebingen.de' },
+      { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2, email: 'riya_sivakumar@fas.harvard.edu' },
+      { id: 'al5', name: 'Danyu Luo', labRole: 'Postbaccalaureate', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%', email: 'Danyu.luo@northwestern.edu' },
       { id: 'al7', name: 'Jacob LaMar', labRole: 'Postbaccalaureate', details: 'MS at FAU', image: 'assets/alumni/jacob_lamar.jpg' },
 
       { id: 'al9', name: 'Devahuti Bhuyan', labRole: 'Research Technician', details: 'PhD at U Alabama', image: 'assets/alumni/devahuti_bhuyan.jpg' },
@@ -403,11 +406,11 @@ export const ALUMNI_DATA: AlumniGroup[] = [
   {
     category: "Undergraduate & High School Alumni",
     members: [
-      { id: 'al12', name: 'Jean-Manuel Mena', labRole: 'Undergraduate Student', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg' },
-      { id: 'al13', name: 'Tejas Purimetla', labRole: 'Undergraduate Student', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg' },
-      { id: 'al16', name: 'Mohan Peddada', labRole: 'Undergraduate Student', details: 'BS at Johns Hopkins', image: 'assets/alumni/mohan_peddada.jpg' },
-      { id: 'al18', name: 'Luca Pishos', labRole: 'High School Student', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg' },
-      { id: 'al19', name: 'Gayatri Sathyanarayan', labRole: 'High School Student', details: 'BE at Cornell', image: 'assets/alumni/gayatri_sathyanarayan.jpg' },
+      { id: 'al12', name: 'Jean-Manuel Mena', labRole: 'Undergraduate Student', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg', email: 'jm2337@cornell.edu' },
+      { id: 'al13', name: 'Tejas Purimetla', labRole: 'Undergraduate Student', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg', awardIds: ['a18', 'a19'], email: 'Tejas.Purimetla.MED@dartmouth.edu' },
+      { id: 'al16', name: 'Mohan Peddada', labRole: 'Undergraduate Student', details: 'BS at Johns Hopkins', image: 'assets/alumni/mohan_peddada.jpg', email: 'mpeddad1@jhu.edu' },
+      { id: 'al18', name: 'Luca Pishos', labRole: 'High School Student', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg', email: 'lucapishos@ufl.edu' },
+      { id: 'al19', name: 'Gayatri Sathyanarayan', labRole: 'High School Student', details: 'BE at Cornell', image: 'assets/alumni/gayatri_sathyanarayan.jpg', email: 'gs778@cornell.edu' },
       { id: 'al20', name: 'Jake Zur', labRole: 'High School Student', details: 'BE at U Michigan', image: 'assets/alumni/jake_zur.jpg' }
     ]
   },
@@ -415,7 +418,7 @@ export const ALUMNI_DATA: AlumniGroup[] = [
     category: "Visiting Scientists",
     members: [
       { id: 'al21', name: 'Sen Yang', labRole: 'PhD Student', details: 'Brown U', image: 'assets/alumni/sen_yang.jpg' },
-      { id: 'al22', name: 'Jenna Wingfield', labRole: 'Postdoctoral Fellow', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg' },
+      { id: 'al22', name: 'Jenna Wingfield', labRole: 'Postdoctoral Fellow', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg', email: 'wingfield.j@ufl.edu' },
       { id: 'al23', name: 'Ken Kunugitani', labRole: 'MD PhD', details: 'Kyoto University', image: 'assets/alumni/ken_kunugitani.jpg' }
     ]
   }

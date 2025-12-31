@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
 
             <div className="mt-10 flex gap-4">
               {CONTACT_INFO.socials.map(social => (
-                <a key={social.label} href={social.url} className="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-white text-xl hover:bg-neuro-600 transition-colors" title={social.label} aria-label={social.label} rel="noopener">
+                <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center text-white text-xl hover:bg-neuro-600 transition-colors" title={social.label} aria-label={social.label}>
                   <i className={social.icon}></i>
                 </a>
               ))}
