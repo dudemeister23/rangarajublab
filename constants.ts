@@ -1,4 +1,4 @@
-import { Project, TeamMember, Publication, SocialLink, NewsItem, Award } from './types';
+import { Project, TeamMember, Publication, SocialLink, NewsItem, Award, AlumniGroup } from './types';
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -379,3 +379,43 @@ export const FUNDING_URLS = {
   DESANTIS: 'https://carldesantis.org/',
   GRUBER: 'https://gruber.yale.edu',
 };
+
+export const ALUMNI_DATA: AlumniGroup[] = [
+  {
+    category: "Graduate Alumni (Rotation, Masters, & Postbaccs)",
+    members: [
+      { id: 'al1', name: 'Suhas Sunke', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg' },
+      { id: 'al2', name: 'Aidan McDonald', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%' },
+      { id: 'al3', name: 'Rasya Bhat', details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2 },
+      { id: 'al4', name: 'Riya Sivakumar', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2 },
+      { id: 'al5', name: 'Danyu Luo', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%' },
+      { id: 'al7', name: 'Jacob LaMar', details: 'MS at FAU', image: 'assets/alumni/jacob_lamar.jpg' },
+
+      { id: 'al9', name: 'Devahuti Bhuyan', details: 'PhD at U Alabama', image: 'assets/alumni/devahuti_bhuyan.jpg' },
+      { id: 'al10', name: 'Sabrina Perez', details: 'Northrop Grumman', image: 'assets/alumni/sabrina_perez.jpg' },
+      { id: 'al11', name: 'Shaun Foutch', details: 'MS at MPFI', image: 'assets/alumni/shaun_foutch.jpg', objectPosition: 'center 10%' }
+    ]
+  },
+  {
+    category: "Undergraduate & High School Alumni",
+    members: [
+      { id: 'al12', name: 'Jean-Manuel Mena', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg' },
+      { id: 'al13', name: 'Tejas Purimetla', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg' },
+      { id: 'al14', name: 'Nicholas Moy', details: 'BS at FAU', image: 'assets/alumni/nicholas_moy.jpg', objectPosition: 'center 10%' },
+      { id: 'al15', name: 'Neha Anand', details: 'BE at IIT', image: 'assets/alumni/neha_anand.jpg' },
+      { id: 'al16', name: 'Mohan Peddada', details: 'BS at Johns Hopkins', image: 'assets/alumni/mohan_peddada.jpg' },
+      { id: 'al17', name: 'Kevin Pena', details: 'ZimVie', image: 'assets/alumni/kevin_pena.jpg' },
+      { id: 'al18', name: 'Luca Pishos', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg' },
+      { id: 'al19', name: 'Gayatri Sathyanarayan', details: 'BE at Cornell', image: 'assets/alumni/gayatri_sathyanarayan.jpg' },
+      { id: 'al20', name: 'Jake Zur', details: 'BE at U Michigan', image: 'assets/alumni/jake_zur.jpg' }
+    ]
+  },
+  {
+    category: "Visiting Scientists",
+    members: [
+      { id: 'al21', name: 'Sen Yang', details: 'Indiana U', image: 'assets/alumni/sen_yang.jpg' },
+      { id: 'al22', name: 'Jenna Wingfield', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg' },
+      { id: 'al23', name: 'Ken Kunugitani', details: 'Kyoto University', image: 'assets/alumni/ken_kunugitani.jpg' }
+    ]
+  }
+];

@@ -49,3 +49,18 @@ export interface NewsItem {
   audioUrl?: string;
   externalLink?: string;
 }
+
+export interface AlumniMember {
+  id: string;
+  name: string;
+  details?: string; // e.g., "PhD at MPFI"
+  image?: string;
+  objectPosition?: string;
+  scale?: number;
+  link?: string;
+}
+
+export interface AlumniGroup {
+  category: string;
+  members: AlumniMember[];
+}
