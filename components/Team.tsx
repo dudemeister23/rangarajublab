@@ -260,6 +260,12 @@ const Team: React.FC = () => {
                                   {awardCount > 0 && honorCount > 0 && ' • '}
                                   {honorCount > 0 && `${honorCount} Honor${honorCount !== 1 ? 's' : ''}`}
                                 </p>
+                                {member?.email && (
+                                  <a href={`mailto:${member.email}`} className="text-xs text-slate-500 hover:text-amber-600 flex items-center gap-1.5 mt-1.5 transition-colors font-medium">
+                                    <i className="fa-solid fa-envelope"></i>
+                                    {member.email}
+                                  </a>
+                                )}
                               </div>
                             </div>
 
@@ -319,6 +325,12 @@ const Team: React.FC = () => {
                             <div>
                               <h4 className="font-bold text-slate-900">{member?.name}'s Contributions</h4>
                               <p className="text-xs text-neuro-600 font-bold uppercase tracking-wider">{memberPubs.length} {memberPubs.length === 1 ? 'Publication' : 'Publications'}</p>
+                              {member?.email && (
+                                <a href={`mailto:${member.email}`} className="text-xs text-slate-500 hover:text-neuro-600 flex items-center gap-1.5 mt-1.5 transition-colors font-medium">
+                                  <i className="fa-solid fa-envelope"></i>
+                                  {member.email}
+                                </a>
+                              )}
                             </div>
                           </div>
 

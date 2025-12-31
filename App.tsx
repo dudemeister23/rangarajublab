@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Bio from './components/Bio';
 import Research from './components/Research';
 import News from './components/News';
+import Media from './components/Media';
 import Team from './components/Team';
 import Mentoring from './components/Mentoring';
 import Publications from './components/Publications';
@@ -20,6 +21,7 @@ const App: React.FC = () => {
         <Bio />
         <Research />
         <News />
+        <Media />
         <Team />
         <Mentoring />
         <Publications />

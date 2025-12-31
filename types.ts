@@ -64,3 +64,10 @@ export interface AlumniGroup {
   category: string;
   members: AlumniMember[];
 }
+
+export interface MediaItem {
+  id: string;
+  title: string;
+  youtubeId: string;
+  thumbnail?: string;
+}

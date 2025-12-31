@@ -1,4 +1,4 @@
-import { Project, TeamMember, Publication, SocialLink, NewsItem, Award, AlumniGroup } from './types';
+import { Project, TeamMember, Publication, SocialLink, NewsItem, Award, AlumniGroup, MediaItem } from './types';
 
 export const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -417,5 +417,28 @@ export const ALUMNI_DATA: AlumniGroup[] = [
       { id: 'al22', name: 'Jenna Wingfield', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg' },
       { id: 'al23', name: 'Ken Kunugitani', details: 'Kyoto University', image: 'assets/alumni/ken_kunugitani.jpg' }
     ]
+  }
+];
+
+export const MEDIA_ITEMS: MediaItem[] = [
+  {
+    id: 'm1',
+    title: 'ALS-linked protein VAP stabilizes mitochondria to support memory formation',
+    youtubeId: 'To1CNYl39kY'
+  },
+  {
+    id: 'm2',
+    title: 'How are Memories Powered?',
+    youtubeId: 'j3irri5LIQc'
+  },
+  {
+    id: 'm3',
+    title: 'Research Highlight: Mitochondria and Memory',
+    youtubeId: 'X5cndm5inOU'
+  },
+  {
+    id: 'm4',
+    title: 'Molecular Adaptations of Brain Energy',
+    youtubeId: 'vMN_A8uzlMo'
   }
 ];
