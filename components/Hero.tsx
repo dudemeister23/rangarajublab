@@ -21,20 +21,20 @@ const Hero: React.FC = () => {
           alt="Neural Network Background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/60 to-neuro-900/30"></div>
+
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 text-center text-white">
-        <div className="animate-fade-in-up">
+        <div className="animate-fade-in-up max-w-4xl mx-auto bg-slate-900/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight drop-shadow-md">
             Deciphering <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300 drop-shadow-none">
               Neuroenergetics
             </span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-medium drop-shadow">
             Investigating how neurons manage their complex energy landscapes to fuel biological processes, plasticity, and health.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
