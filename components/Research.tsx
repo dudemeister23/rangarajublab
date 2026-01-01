@@ -48,55 +48,65 @@ const Research: React.FC = () => {
           ))}
         </div>
 
-        {/* Project Detail Area */}
-        {activeProject && (
-          <div className="max-w-6xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[320px] transition-all duration-500 animate-in fade-in zoom-in-95 slide-in-from-bottom-4">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
+        {/* Project Detail Area - CSS Grid Stack for Stable Height */}
+        <div className="max-w-6xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[320px]">
+          <div className="grid grid-cols-1">
+            {PROJECTS.map((project) => (
+              <div
+                key={project.id}
+                className={`col-start-1 row-start-1 transition-all duration-500 ease-in-out ${activeProjectId === project.id
+                    ? 'opacity-100 visible z-10'
+                    : 'opacity-0 invisible z-0'
+                  }`}
+                aria-hidden={activeProjectId !== project.id}
+              >
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="flex-grow w-full">
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">{project.title}</h3>
 
-              <div className="flex-grow w-full">
-                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center">{activeProject.title}</h3>
+                    <div className="flex flex-col lg:flex-row gap-10 items-start">
+                      <div className="flex-1">
+                        <p className="text-slate-600 text-lg leading-relaxed mb-6 text-justify">
+                          {(() => {
+                            if (!project.linkUrl) return project.description;
+                            const splitIndex = project.description.indexOf('. ');
+                            if (splitIndex === -1) {
+                              return (
+                                <a href={project.linkUrl} target="_blank" rel="noreferrer" className="text-neuro-600 hover:text-neuro-700 hover:underline font-medium transition-colors">
+                                  {project.description} <i className="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-70"></i>
+                                </a>
+                              );
+                            }
+                            const firstSentence = project.description.substring(0, splitIndex + 1);
+                            const rest = project.description.substring(splitIndex + 1);
+                            return (
+                              <>
+                                <a href={project.linkUrl} target="_blank" rel="noreferrer" className="text-neuro-600 hover:text-neuro-700 hover:underline font-medium transition-colors inline-block">
+                                  {firstSentence} <i className="fa-solid fa-arrow-up-right-from-square text-xs ml-0.5 opacity-70"></i>
+                                </a>
+                                {' '}{rest}
+                              </>
+                            );
+                          })()}
+                        </p>
+                      </div>
 
-                <div className="flex flex-col lg:flex-row gap-10 items-start">
-                  <div className="flex-1">
-                    <p className="text-slate-600 text-lg leading-relaxed mb-6 text-justify">
-                      {(() => {
-                        if (!activeProject.linkUrl) return activeProject.description;
-                        const splitIndex = activeProject.description.indexOf('. ');
-                        if (splitIndex === -1) {
-                          return (
-                            <a href={activeProject.linkUrl} target="_blank" rel="noreferrer" className="text-neuro-600 hover:text-neuro-700 hover:underline font-medium transition-colors">
-                              {activeProject.description} <i className="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-70"></i>
-                            </a>
-                          );
-                        }
-                        const firstSentence = activeProject.description.substring(0, splitIndex + 1);
-                        const rest = activeProject.description.substring(splitIndex + 1);
-                        return (
-                          <>
-                            <a href={activeProject.linkUrl} target="_blank" rel="noreferrer" className="text-neuro-600 hover:text-neuro-700 hover:underline font-medium transition-colors inline-block">
-                              {firstSentence} <i className="fa-solid fa-arrow-up-right-from-square text-xs ml-0.5 opacity-70"></i>
-                            </a>
-                            {' '}{rest}
-                          </>
-                        );
-                      })()}
-                    </p>
-                  </div>
-
-                  {activeProject.image && (
-                    <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-md border border-slate-100 shrink-0">
-                      <img
-                        src={activeProject.image}
-                        alt={activeProject.title}
-                        className="w-full h-auto object-contain bg-white"
-                      />
+                      {project.image && (
+                        <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-md border border-slate-100 shrink-0">
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-auto object-contain bg-white"
+                          />
+                        </div>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

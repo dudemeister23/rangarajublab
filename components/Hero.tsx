@@ -46,13 +46,13 @@ const Hero: React.FC = () => {
             </a>
             <a
               href="#team"
-              className="px-8 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-yellow-900/20 hover:shadow-yellow-600/40 flex items-center justify-center gap-2"
+              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
               Meet the Team <i className="fa-solid fa-users text-sm"></i>
             </a>
             <a
               href="#publications"
-              className="px-8 py-3.5 bg-purple-500 hover:bg-purple-400 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-purple-900/20 hover:shadow-purple-600/40 flex items-center justify-center gap-2"
+              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
               View Publications <i className="fa-solid fa-book-open text-sm"></i>
             </a>

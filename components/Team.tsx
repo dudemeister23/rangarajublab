@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS } from '../constants';
 
 const Team: React.FC = () => {
@@ -13,11 +13,16 @@ const Team: React.FC = () => {
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const minSwipeDistance = 50;
 
+  // Auto-cycle pause state
+  const [autoCyclePaused, setAutoCyclePaused] = useState(false);
+
   const nextSlide = () => {
+    setAutoCyclePaused(true);
     setCurrentIdx((prev) => (prev === TEAM_REEL.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
+    setAutoCyclePaused(true);
     setCurrentIdx((prev) => (prev === 0 ? TEAM_REEL.length - 1 : prev - 1));
   };
 
@@ -42,6 +47,15 @@ const Team: React.FC = () => {
       prevSlide();
     }
   };
+
+  // Auto-cycle the photo reel every 6 seconds (unless paused by user interaction)
+  useEffect(() => {
+    if (autoCyclePaused) return;
+    const interval = setInterval(() => {
+      setCurrentIdx((prev) => (prev === TEAM_REEL.length - 1 ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [autoCyclePaused]);
 
   const activeMemberId = hoveredMemberId || lockedMemberId;
 
@@ -125,14 +139,12 @@ const Team: React.FC = () => {
                   }}
                 >
                   <div className={`relative mb-4 w-36 h-36 md:w-40 md:h-40 transition-transform duration-300 ${isActive ? 'scale-105' : ''}`}>
-                    <div className={`absolute inset-0 rounded-full border-2 transition-colors duration-300 ${isActive ? 'border-neuro-600' : (member.publicationIds?.length ? 'border-neuro-400 group-hover:border-neuro-600' : 'border-neuro-100 group-hover:border-neuro-300')}`}></div>
-
-
-
                     {isPlaceholder ? (
-                      <div className="w-full h-full rounded-full bg-neuro-50 flex flex-col items-center justify-center p-2 border-2 border-dashed border-neuro-200 group-hover:border-neuro-400 group-hover:bg-neuro-100 transition-all duration-300">
-                        <i className="fa-solid fa-user-plus text-neuro-600 text-3xl mb-1"></i>
-                        <span className="text-xs font-bold text-neuro-600 uppercase tracking-tighter leading-tight">Join Our Team</span>
+                      <div className="w-full h-full p-1">
+                        <div className="w-full h-full rounded-full bg-neuro-50 flex flex-col items-center justify-center group-hover:bg-neuro-100 transition-all duration-300">
+                          <i className="fa-solid fa-user-plus text-neuro-600 text-3xl mb-1"></i>
+                          <span className="text-xs font-bold text-neuro-600 uppercase tracking-tighter leading-tight">Join Our Team</span>
+                        </div>
                       </div>
                     ) : (
                       <div className="w-full h-full p-1">
@@ -145,6 +157,7 @@ const Team: React.FC = () => {
                         </div>
                       </div>
                     )}
+                    <div className={`absolute inset-0 rounded-full pointer-events-none transition-all duration-300 ${isActive ? 'ring-4 ring-neuro-600' : 'ring-2 ring-neuro-100 group-hover:ring-neuro-300'}`}></div>
 
 
 
@@ -559,7 +572,7 @@ const Team: React.FC = () => {
                 {TEAM_REEL.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentIdx(index)}
+                    onClick={() => { setAutoCyclePaused(true); setCurrentIdx(index); }}
                     className={`h-1.5 transition-all duration-300 rounded-full ${index === currentIdx ? 'w-8 bg-white' : 'w-2 bg-white/50'}`}
                   ></button>
                 ))}

@@ -5,16 +5,16 @@ import React from 'react';
 const Mentoring: React.FC = () => {
 
     const EXPECTATIONS = [
-        { text: "Passion for Research and Success", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Transparency in Career Goals", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Alignment of Goals", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Initiative and Ownership", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Creativity and Productivity", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Scientific Integrity", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Resilience and Growth", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Commitment and Adaptability", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Receptiveness to Feedback", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" },
-        { text: "Collaboration and Team Spirit", className: "bg-neuro-600 text-white border-neuro-600 hover:bg-neuro-500 hover:border-neuro-500" }
+        { text: "Passion for Research and Success", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Transparency in Career Goals", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Alignment of Goals", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Initiative and Ownership", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Creativity and Productivity", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Scientific Integrity", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Resilience and Growth", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Commitment and Adaptability", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Receptiveness to Feedback", className: "bg-neuro-600 text-white border-neuro-600" },
+        { text: "Collaboration and Team Spirit", className: "bg-neuro-600 text-white border-neuro-600" }
     ];
 
     return (
@@ -82,7 +82,7 @@ const Mentoring: React.FC = () => {
                                 {EXPECTATIONS.map((item, index) => (
                                     <span
                                         key={index}
-                                        className={`px-5 py-3 rounded-full text-lg font-bold border shadow-sm cursor-default transition-all duration-300 hover:scale-110 hover:-rotate-2 hover:shadow-md ${item.className}`}
+                                        className={`px-5 py-3 rounded-full text-lg font-bold border shadow-sm cursor-default transition-all duration-300 hover:scale-110 hover:shadow-md ${item.className}`}
                                     >
                                         {item.text}
                                     </span>
