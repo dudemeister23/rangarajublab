@@ -29,13 +29,13 @@ const Hero: React.FC = () => {
         <div className="animate-fade-in-up w-fit max-w-4xl mx-auto bg-slate-900/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight drop-shadow-md">
-            Deciphering <br />
+            Unlocking <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300 drop-shadow-none">
               Neuroenergetics
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-medium drop-shadow">
-            Investigating how neurons manage their complex energy landscapes to fuel biological processes, plasticity, and health.
+            We investigate how neurons manage their complex energy landscapes to fuel biological processes, plasticity, and health.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
