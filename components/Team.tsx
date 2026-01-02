@@ -368,7 +368,7 @@ const Team: React.FC = () => {
 
                         return (
                           <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col">
-                            <div className="flex-shrink-0 flex items-center gap-4 mb-6 pb-6 border-b border-neuro-200">
+                            <div className="flex-shrink-0 flex items-center gap-4 mb-4 pb-4 border-b border-neuro-200">
                               <div className="w-12 h-12 rounded-full overflow-hidden">
                                 <img src={member?.image} alt={member?.name} className="w-full h-full object-cover" />
                               </div>
@@ -387,6 +387,19 @@ const Team: React.FC = () => {
                                 )}
                               </div>
                             </div>
+
+                            {/* Switch to Publications button - positioned below header */}
+                            {member?.publicationIds && member.publicationIds.length > 0 && (
+                              <div className="flex-shrink-0 mb-4 pb-4 border-b border-slate-100">
+                                <button
+                                  onClick={() => setPanelMode('publications')}
+                                  className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-lg text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
+                                >
+                                  <i className="fa-solid fa-book-open"></i>
+                                  View Publications ({member.publicationIds.length})
+                                </button>
+                              </div>
+                            )}
 
                             <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar min-h-0">
                               <div className="space-y-3">
@@ -414,19 +427,6 @@ const Team: React.FC = () => {
                                 ))}
                               </div>
                             </div>
-
-                            {/* Switch to Publications button if member has publications */}
-                            {member?.publicationIds && member.publicationIds.length > 0 && (
-                              <div className="flex-shrink-0 mt-4 pt-4 border-t border-slate-100">
-                                <button
-                                  onClick={() => setPanelMode('publications')}
-                                  className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-lg text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
-                                >
-                                  <i className="fa-solid fa-book-open"></i>
-                                  View Publications ({member.publicationIds.length})
-                                </button>
-                              </div>
-                            )}
                           </div>
                         );
                       }
@@ -441,7 +441,7 @@ const Team: React.FC = () => {
                     if (memberPubs && memberPubs.length > 0) {
                       return (
                         <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col">
-                          <div className="flex-shrink-0 flex items-center gap-4 mb-6 pb-6 border-b border-slate-200">
+                          <div className="flex-shrink-0 flex items-center gap-4 mb-4 pb-4 border-b border-slate-200">
                             <div className="w-12 h-12 rounded-full overflow-hidden">
                               <img src={member?.image} alt={member?.name} className="w-full h-full object-cover" />
                             </div>
@@ -456,6 +456,19 @@ const Team: React.FC = () => {
                               )}
                             </div>
                           </div>
+
+                          {/* Switch to Awards button - positioned below header */}
+                          {member?.awardIds && member.awardIds.length > 0 && (
+                            <div className="flex-shrink-0 mb-4 pb-4 border-b border-slate-100">
+                              <button
+                                onClick={() => setPanelMode('awards')}
+                                className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-lg text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
+                              >
+                                <i className="fa-solid fa-trophy"></i>
+                                View Awards & Honors ({member.awardIds.length})
+                              </button>
+                            </div>
+                          )}
 
                           <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar min-h-0">
                             <div className="space-y-4">
@@ -483,19 +496,6 @@ const Team: React.FC = () => {
                               ))}
                             </div>
                           </div>
-
-                          {/* Switch to Awards button if member has awards */}
-                          {member?.awardIds && member.awardIds.length > 0 && (
-                            <div className="flex-shrink-0 mt-4 pt-4 border-t border-slate-100">
-                              <button
-                                onClick={() => setPanelMode('awards')}
-                                className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-lg text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
-                              >
-                                <i className="fa-solid fa-trophy"></i>
-                                View Awards & Honors ({member.awardIds.length})
-                              </button>
-                            </div>
-                          )}
                         </div>
                       );
                     } else {
