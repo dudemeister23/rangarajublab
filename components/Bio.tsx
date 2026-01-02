@@ -43,14 +43,14 @@ const Bio: React.FC = () => {
 
 
 
-              <div className="grid grid-cols-2 gap-4 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-4 mt-8">
                 {/* Top Item - Centered across 2 columns */}
-                <div className="col-span-2 flex justify-center">
+                <div className="col-span-1 md:col-span-2 lg:col-span-1 2xl:col-span-2 flex justify-center">
                   <span
-                    className="w-[calc(50%-0.5rem)] h-[52px] px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
+                    className="w-full md:w-[calc(50%-0.5rem)] lg:w-full 2xl:w-[calc(50%-0.5rem)] min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
                   >
-                    <span className="block">NIH Director’s</span>
-                    <span className="block">New Innovator Award</span>
+                    <span className="block whitespace-nowrap">NIH Director’s</span>
+                    <span className="block whitespace-nowrap">New Innovator Award</span>
                   </span>
                 </div>
 
@@ -65,10 +65,10 @@ const Bio: React.FC = () => {
                 ].map((lines, index) => (
                   <span
                     key={index}
-                    className="w-full h-[52px] px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
+                    className="w-full min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
                   >
                     {lines.map((line, i) => (
-                      <span key={i} className="block">{line}</span>
+                      <span key={i} className="block whitespace-nowrap">{line}</span>
                     ))}
                   </span>
                 ))}
