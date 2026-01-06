@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p1',
     title: 'Spatial Stabilization Mechanisms',
-    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of the identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders, using animal and human disease models.',
+    description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of the identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders, using rodent and human disease models.',
     image: 'assets/research/spatial-stabilization-v2.png',
     linkUrl: 'https://doi.org/10.1038/s41467-023-44233-8'
   },
@@ -242,6 +242,15 @@ export const CONTACT_INFO = {
 };
 export const NEWS_ITEMS: NewsItem[] = [
   {
+    id: 'n16',
+    title: 'Preprint Featured on preLights: "Synapses drive local mitochondrial ATP synthesis to fuel plasticity"',
+    date: 'May 2, 2025',
+    image: 'assets/news/prelights-feature-2025-v2.png',
+    category: 'Publication',
+    externalLink: 'https://prelights.biologists.com/highlights/synapses-drive-local-mitochondrial-atp-synthesis-to-fuel-plasticity/',
+    content: 'We are excited to share that our recent preprint, "Synapses drive local mitochondrial ATP synthesis to fuel plasticity," has been selected for a highlight on preLights. The piece, written by Felipe Del Valle Batalla, provides an excellent overview of our work, which utilizes newly engineered spine- and mitochondria-targeted ATP reporters to show how synaptic activity triggers rapid, local mitochondrial ATP synthesis.'
+  },
+  {
     id: 'n1',
     title: 'Dr. Vidhya Rangaraju Speaks at “Music and the Mind”',
     date: 'January 24, 2025',
@@ -323,6 +332,15 @@ export const NEWS_ITEMS: NewsItem[] = [
     image: 'assets/news/czi-award-2023.jpg',
     category: 'Award',
     content: 'Dr. Vidhya Rangaraju has been named a recipient of the Chan Zuckerberg Initiative’s “Ben Barres Early Career Acceleration Award,” which will provide her lab with $1.2 million over four years to study dysfunctions of brain energy supply.\n\nDr. Rangaraju is a Research Group Leader at the Max Planck Florida Institute for Neuroscience (MPFI). With this award, her lab will investigate the causes of disrupted energy supply in neurons that lead to motor and cognitive impairments in amyotrophic lateral sclerosis (ALS). Dr. Rangaraju and her research team will use super-resolution microscopy to visualize the energy-producing mitochondria within neurons and determine if ALS-disease-linked mutations disrupt their stabilization. They will combine this approach with their newly developed biosensors to measure neuronal energy levels and investigate the metabolic disruptions that impair learning and memory in ALS.\n\nThe Ben Barres Early Career Acceleration Awards are part of the CZI Neurodegeneration Challenge Network (NCDN), launched in 2018 to bring researchers from diverse disciplines and expertise to create an open collaboration and better understand neurodegenerative diseases.\n\n“We are thrilled to receive the generous support of the Chan Zuckerberg Initiative. This grant allows my lab to expand our research program into risky, new directions of in vivo behavior models and human iPSC neuron models of ALS, allowing us to tackle neuronal cell biology from a new perspective. Understanding what happens in the brain when mitochondrial energy is disrupted has tremendous potential to find common mechanisms across many neurodegenerative diseases, such as ALS, Parkinson’s, and Alzheimer’s,” said Dr. Rangaraju.\n\nThe Rangaraju Lab utilizes state-of-the-art technologies to measure mitochondrial structure and function in health and disease. Many neurodegenerative disorders are characterized by mitochondrial dysfunction; however, the underlying causes of this dysfunction are mostly unknown.'
+  },
+  {
+    id: 'n15',
+    title: 'Preprint Featured on preLights: "VAP spatially stabilizes dendritic mitochondria to locally fuel synaptic plasticity"',
+    date: 'January 18, 2023',
+    image: 'assets/news/prelights-feature-2023.png',
+    category: 'Publication',
+    externalLink: 'https://prelights.biologists.com/highlights/vap-spatially-stabilizes-dendritic-mitochondria-to-locally-fuel-synaptic-plasticity/',
+    content: 'We are excited to share that our recent preprint, "VAP spatially stabilizes dendritic mitochondria to locally fuel synaptic plasticity," has been selected for a highlight on preLights. The piece, written by Kritika Mehta, provides an excellent overview of our work identifying VAP as a key player in tethering mitochondria within dendrites to support synaptic energy demands.'
   },
   {
     id: 'n8',

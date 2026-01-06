@@ -3,6 +3,7 @@ import { NEWS_ITEMS } from '../constants';
 
 const News: React.FC = () => {
     const [selectedNews, setSelectedNews] = useState<string | null>(null);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     const activeNews = NEWS_ITEMS.find(item => item.id === selectedNews);
 
@@ -15,9 +16,9 @@ const News: React.FC = () => {
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2">News & Events</h2>
                 </div>
 
-                {/* Card Grid */}
+                {/* Initial News Items (First 12) */}
                 <div className="flex flex-wrap justify-center gap-6">
-                    {NEWS_ITEMS.map((item) => (
+                    {NEWS_ITEMS.slice(0, 12).map((item) => (
                         <article
                             key={item.id}
                             onClick={() => setSelectedNews(item.id)}
@@ -47,6 +48,56 @@ const News: React.FC = () => {
                         </article>
                     ))}
                 </div>
+
+                {/* Expandable News Items (Rest) */}
+                <div className={`grid transition-[grid-template-rows,opacity] duration-700 ease-in-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className="overflow-hidden">
+                        <div className="flex flex-wrap justify-center gap-6 pt-6">
+                            {NEWS_ITEMS.slice(12).map((item) => (
+                                <article
+                                    key={item.id}
+                                    onClick={() => setSelectedNews(item.id)}
+                                    className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-neuro-200 hover:scale-[1.03] group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(25%-1.125rem)]"
+                                >
+                                    <div className="aspect-[4/3] overflow-hidden bg-slate-100">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <div className="p-5">
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <span className="px-2 py-0.5 bg-neuro-50 text-neuro-600 text-[10px] font-bold rounded-full uppercase tracking-wider">
+                                                {item.category || 'News'}
+                                            </span>
+                                            <time dateTime={new Date(item.date).toISOString().split('T')[0]} className="text-[10px] text-slate-400 font-medium">
+                                                {item.date}
+                                            </time>
+                                        </div>
+                                        <h3 className="font-bold text-slate-900 leading-snug line-clamp-2 group-hover:text-neuro-600 transition-colors">
+                                            {item.title}
+                                        </h3>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* View More/Less Button */}
+                {NEWS_ITEMS.length > 12 && (
+                    <div className="mt-12 flex justify-center">
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="w-full py-4 bg-neuro-600 text-white rounded-xl hover:bg-neuro-700 hover:scale-[1.01] shadow-md hover:shadow-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 group"
+                        >
+                            <span className="text-lg">{isExpanded ? 'View Less' : 'View More News & Events'}</span>
+                            <i className={`fa-solid ${isExpanded ? 'fa-chevron-up' : 'fa-chevron-down'} group-hover:translate-y-0.5 transition-transform`}></i>
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/* Modal Popup */}
