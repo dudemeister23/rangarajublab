@@ -5,11 +5,11 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+        <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl flex flex-col md:flex-row">
 
           {/* Info Side */}
           <div className="p-10 md:p-16 w-full md:w-1/2 flex flex-col justify-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Contact Us</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">Contact Us</h2>
 
             <address className="space-y-6 not-italic" itemScope itemType="https://schema.org/Organization">
               <meta itemProp="name" content="Rangaraju Lab" />
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
             <div className="p-10 bg-neuro-900 text-white">
               <a
                 href={`mailto:${CONTACT_INFO.email}?subject=Lab Application`}
-                className="inline-flex items-center gap-3 px-6 py-3 bg-neuro-600 hover:bg-neuro-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mb-4"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-neuro-600 hover:bg-neuro-500 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mb-4"
               >
                 <i className="fa-solid fa-user-plus"></i>
                 Join Our Team

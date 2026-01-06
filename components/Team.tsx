@@ -108,7 +108,7 @@ const Team: React.FC = () => {
     <section id="team" className="pt-14 pb-12 bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">The Team</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2">The Team</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 max-w-7xl mx-auto items-stretch">
@@ -142,8 +142,8 @@ const Team: React.FC = () => {
                     {isPlaceholder ? (
                       <div className="w-full h-full p-1">
                         <div className="w-full h-full rounded-full bg-neuro-50 flex flex-col items-center justify-center group-hover:bg-neuro-100 transition-all duration-300">
-                          <i className="fa-solid fa-user-plus text-neuro-600 text-3xl mb-1"></i>
-                          <span className="text-xs font-bold text-neuro-600 uppercase tracking-tighter leading-tight">Join Our Team</span>
+                          <i className="fa-solid fa-user-plus text-neuro-600 text-6xl mb-2"></i>
+                          <span className="text-lg font-bold text-neuro-600 tracking-tighter leading-tight">Join Our Team</span>
                         </div>
                       </div>
                     ) : (
@@ -236,7 +236,7 @@ const Team: React.FC = () => {
           {/* Publications/Awards Panel - Always rendered to prevent layout shifts */}
           <div className="hidden lg:block lg:col-span-4 relative pl-4">
             <div className="absolute inset-0 pl-4">
-              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 h-full shadow-inner relative overflow-hidden">
+              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 h-full shadow-inner relative overflow-hidden">
                 {memberToDisplayId ? (
                   (() => {
                     if (panelMode === 'job' && memberToDisplayId === 'placeholder-1') {
@@ -302,7 +302,7 @@ const Team: React.FC = () => {
                           <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar min-h-0">
                             <div className="prose prose-sm prose-slate max-w-none">
                               <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
-                              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
+                              <div className="bg-slate-50 p-4 rounded-3xl border border-slate-200 mb-6">
                                 <p className="text-sm text-slate-600 mb-2">
                                   We recruit PhD students through the MPFI IMPRS Program.
                                 </p>
@@ -342,7 +342,7 @@ const Team: React.FC = () => {
 
                           <a
                             href={`mailto:${member.email}`}
-                            className="group flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-xl hover:border-neuro-300 hover:shadow-md transition-all duration-300"
+                            className="group flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-full hover:border-neuro-300 hover:shadow-md transition-all duration-300"
                           >
                             <div className="w-10 h-10 rounded-full bg-neuro-100 text-neuro-600 flex items-center justify-center group-hover:bg-neuro-600 group-hover:text-white transition-colors">
                               <i className="fa-solid fa-envelope"></i>
@@ -393,7 +393,7 @@ const Team: React.FC = () => {
                               <div className="flex-shrink-0 mb-4 pb-4 border-b border-slate-100">
                                 <button
                                   onClick={() => setPanelMode('publications')}
-                                  className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-lg text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
+                                  className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-full text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
                                 >
                                   <i className="fa-solid fa-book-open"></i>
                                   View Publications ({member.publicationIds.length})
@@ -406,7 +406,7 @@ const Team: React.FC = () => {
                                 {memberAwards.map((award, idx) => (
                                   <div
                                     key={idx}
-                                    className="bg-white p-4 rounded-xl border border-neuro-100 hover:border-neuro-300 hover:shadow-md transition-all"
+                                    className="bg-white p-4 rounded-2xl border border-neuro-100 hover:border-neuro-300 hover:shadow-md transition-all"
                                   >
                                     <div className="flex gap-3 items-center">
                                       <div className="w-10 h-10 bg-neuro-100 rounded-full flex-shrink-0 flex items-center justify-center">
@@ -462,7 +462,7 @@ const Team: React.FC = () => {
                             <div className="flex-shrink-0 mb-4 pb-4 border-b border-slate-100">
                               <button
                                 onClick={() => setPanelMode('awards')}
-                                className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-lg text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
+                                className="w-full py-2 px-4 bg-neuro-100 text-neuro-700 rounded-full text-sm font-medium hover:bg-neuro-200 transition-colors flex items-center justify-center gap-2"
                               >
                                 <i className="fa-solid fa-trophy"></i>
                                 View Awards & Honors ({member.awardIds.length})
@@ -478,11 +478,11 @@ const Team: React.FC = () => {
                                   href={pub?.link}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="block bg-white p-4 rounded-xl border border-slate-200 hover:border-neuro-300 hover:shadow-md transition-all group/pub"
+                                  className="block bg-white p-4 rounded-2xl border border-slate-200 hover:border-neuro-300 hover:shadow-md transition-all group/pub"
                                 >
                                   <div className="flex gap-3 items-center">
                                     {pub?.coverImage && (
-                                      <div className="w-12 h-16 bg-slate-100 rounded flex-shrink-0 overflow-hidden border border-slate-100 p-1">
+                                      <div className="w-12 h-16 bg-slate-100 rounded-lg flex-shrink-0 overflow-hidden border border-slate-100 p-1">
                                         <img src={pub.coverImage} className="w-full h-full object-contain" alt="" />
                                       </div>
                                     )}
@@ -525,10 +525,10 @@ const Team: React.FC = () => {
           </div>
 
           <div className="relative group max-w-5xl mx-auto">
-            <div className="absolute -inset-2 bg-gradient-to-r from-neuro-600 to-teal-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+
 
             <div
-              className="relative overflow-hidden rounded-2xl shadow-2xl bg-slate-100 aspect-[4/3] md:aspect-[3/2] touch-pan-y"
+              className="relative overflow-hidden rounded-3xl shadow-2xl bg-slate-100 aspect-[4/3] md:aspect-[3/2] touch-pan-y"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
@@ -556,15 +556,15 @@ const Team: React.FC = () => {
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white/40 transition-all z-10 opacity-0 group-hover:opacity-100"
+                className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white/40 transition-all z-10 opacity-0 group-hover:opacity-100"
               >
-                <i className="fa-solid fa-chevron-left text-xl"></i>
+                <i className="fa-solid fa-chevron-left text-3xl"></i>
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white/40 transition-all z-10 opacity-0 group-hover:opacity-100"
+                className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white/40 transition-all z-10 opacity-0 group-hover:opacity-100"
               >
-                <i className="fa-solid fa-chevron-right text-xl"></i>
+                <i className="fa-solid fa-chevron-right text-3xl"></i>
               </button>
 
               {/* Indicators */}

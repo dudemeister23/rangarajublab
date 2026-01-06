@@ -7,9 +7,9 @@ const Research: React.FC = () => {
 
   return (
     <section id="research" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12 mt-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Research Projects</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Research Projects</h2>
           <p className="text-slate-600 text-lg">
             The Neuroenergetics Lab is interested in how neurons manage their energy landscapes.
             Mitochondria represent a hugely underexplored organellar system in neurons with consequences for human health.
@@ -22,12 +22,12 @@ const Research: React.FC = () => {
             <button
               key={project.id}
               onClick={() => setActiveProjectId(project.id)}
-              className={`flex flex-col items-center justify-center p-6 rounded-xl transition-all duration-300 border group h-full cursor-pointer ${activeProjectId === project.id
+              className={`flex flex-col items-center justify-center p-6 rounded-3xl transition-all duration-300 border group h-full cursor-pointer ${activeProjectId === project.id
                 ? 'bg-neuro-600 border-neuro-600 text-white shadow-lg transform -translate-y-1'
-                : 'bg-white border-slate-100 text-slate-600 hover:border-neuro-500 hover:text-neuro-600 hover:shadow-xl hover:-translate-y-2'
+                : 'bg-white border-slate-300 text-slate-600 hover:border-neuro-500 hover:text-neuro-600 hover:shadow-xl hover:-translate-y-2'
                 }`}
             >
-              <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-all duration-300 ${activeProjectId === project.id
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${activeProjectId === project.id
                 ? 'bg-white/20'
                 : 'bg-neuro-50 group-hover:bg-neuro-100 group-hover:scale-110'
                 }`}>
@@ -49,14 +49,14 @@ const Research: React.FC = () => {
         </div>
 
         {/* Project Detail Area - CSS Grid Stack for Stable Height */}
-        <div className="max-w-6xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[320px]">
+        <div className="max-w-6xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[320px]">
           <div className="grid grid-cols-1">
             {PROJECTS.map((project) => (
               <div
                 key={project.id}
                 className={`col-start-1 row-start-1 transition-all duration-500 ease-in-out ${activeProjectId === project.id
-                    ? 'opacity-100 visible z-10'
-                    : 'opacity-0 invisible z-0'
+                  ? 'opacity-100 visible z-10'
+                  : 'opacity-0 invisible z-0'
                   }`}
                 aria-hidden={activeProjectId !== project.id}
               >
@@ -92,7 +92,7 @@ const Research: React.FC = () => {
                       </div>
 
                       {project.image && (
-                        <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-md border border-slate-100 shrink-0">
+                        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden shadow-md border border-slate-100 shrink-0">
                           <img
                             src={project.image}
                             alt={project.title}

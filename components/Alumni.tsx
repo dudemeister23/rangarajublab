@@ -30,10 +30,10 @@ const Alumni: React.FC = () => {
                                         <div
                                             key={member.id}
                                             onClick={() => hasAwards && setSelectedAlumni(member)}
-                                            className={`group p-5 bg-white border border-slate-100 rounded-xl hover:border-neuro-200 hover:shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-300 flex gap-5 ${hasAwards ? 'cursor-pointer' : 'cursor-default'}`}
+                                            className={`group p-5 bg-white border border-slate-100 rounded-3xl hover:border-neuro-200 hover:shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-300 flex gap-5 ${hasAwards ? 'cursor-pointer' : 'cursor-default'}`}
                                         >
                                             <div className="relative w-24 h-24 flex-shrink-0">
-                                                <div className="w-full h-full rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-neuro-50 group-hover:text-neuro-500 transition-colors overflow-hidden border border-slate-100 shadow-sm">
+                                                <div className="w-full h-full rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-neuro-50 group-hover:text-neuro-500 transition-colors overflow-hidden border border-slate-100 shadow-sm">
                                                     {member.image ? (
                                                         <img
                                                             src={member.image}
@@ -113,7 +113,7 @@ const Alumni: React.FC = () => {
             {/* Awards Modal */}
             {selectedAlumni && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setSelectedAlumni(null)}>
-                    <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden animate-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
+                    <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden animate-in zoom-in-95 duration-200" onClick={e => e.stopPropagation()}>
                         <div className="p-6 border-b border-neuro-100 flex items-center justify-between bg-neuro-50/50">
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
@@ -137,7 +137,7 @@ const Alumni: React.FC = () => {
                         <div className="p-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
                             <div className="space-y-3">
                                 {selectedAlumni.awardIds?.map(aid => AWARDS.find(a => a.id === aid)).filter(Boolean).map((award, idx) => (
-                                    <div key={idx} className="bg-white p-4 rounded-xl border border-neuro-100 hover:border-neuro-300 hover:shadow-md transition-all">
+                                    <div key={idx} className="bg-white p-4 rounded-2xl border border-neuro-100 hover:border-neuro-300 hover:shadow-md transition-all">
                                         <div className="flex gap-3 items-center">
                                             <div className="w-10 h-10 bg-neuro-100 rounded-full flex-shrink-0 flex items-center justify-center">
                                                 {award?.type === 'honor' ? (

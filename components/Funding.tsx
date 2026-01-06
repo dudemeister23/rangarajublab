@@ -8,7 +8,7 @@ const Funding: React.FC = () => {
                 {/* Funding Category */}
                 <div className="mb-20">
                     <div className="mb-12 border-b border-slate-200 pb-4 text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-1">Funding</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-1">Funding</h2>
                     </div>
 
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
@@ -22,7 +22,7 @@ const Funding: React.FC = () => {
                             <img
                                 src={MPFI_LOGO}
                                 alt="Max Planck Florida Institute"
-                                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                                className="h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                                 onError={(e) => {
                                     (e.target as HTMLImageElement).src = 'https://mpfi.org/wp-content/themes/mpfi-child-2023/assets/img/logo.svg';
                                 }}
@@ -100,14 +100,14 @@ const Funding: React.FC = () => {
                         </a>
 
                         {/* Srybnik */}
-                        <div className="h-24 px-6 flex items-center justify-center bg-white rounded-xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
+                        <div className="h-24 px-6 flex items-center justify-center bg-white rounded-3xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
                             <span className="text-lg font-bold text-slate-700 text-center leading-tight group-hover:text-neuro-700 transition-colors">
                                 Louis D. Srybnik<br />Foundation
                             </span>
                         </div>
 
                         {/* Fore */}
-                        <div className="h-24 px-6 flex items-center justify-center bg-white rounded-xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
+                        <div className="h-24 px-6 flex items-center justify-center bg-white rounded-3xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
                             <span className="text-lg font-bold text-slate-700 text-center leading-tight group-hover:text-neuro-700 transition-colors">
                                 F.O.R.E.<br />Foundation
                             </span>
@@ -118,7 +118,7 @@ const Funding: React.FC = () => {
                 {/* Collaborators Category */}
                 <div>
                     <div className="mb-12 border-b border-slate-200 pb-4 text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-1">Past and Present Collaborators</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-1">Past and Present Collaborators</h2>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-4">
@@ -128,7 +128,7 @@ const Funding: React.FC = () => {
                                 href={collaborator.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="group px-5 py-3 bg-neuro-600 border border-neuro-600 rounded-lg shadow-md text-white font-medium text-lg md:text-xl hover:bg-neuro-700 hover:border-neuro-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer select-none flex items-center gap-2"
+                                className="group px-5 py-3 bg-neuro-600 border border-neuro-600 rounded-full shadow-md text-white font-medium text-lg md:text-xl hover:bg-neuro-700 hover:border-neuro-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer select-none flex items-center gap-2"
                             >
                                 {collaborator.name}
                                 <i className="fa-solid fa-arrow-up-right-from-square text-sm opacity-60 group-hover:opacity-100 transition-opacity"></i>

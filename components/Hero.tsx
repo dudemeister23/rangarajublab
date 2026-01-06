@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-12 text-center text-white">
-        <div className="animate-fade-in-up w-fit max-w-4xl mx-auto bg-slate-900/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
+        <div className="animate-fade-in-up w-fit max-w-4xl mx-auto bg-slate-900/20 backdrop-blur-sm rounded-[2.5rem] p-8 md:p-12 border border-white/10 shadow-2xl">
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight drop-shadow-md">
             Cracking <br />
@@ -40,19 +40,19 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#research"
-              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
+              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
               Explore Research <i className="fa-solid fa-microscope text-sm"></i>
             </a>
             <a
               href="#team"
-              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
+              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
               Meet the Team <i className="fa-solid fa-users text-sm"></i>
             </a>
             <a
               href="#publications"
-              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
+              className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
               View Publications <i className="fa-solid fa-book-open text-sm"></i>
             </a>

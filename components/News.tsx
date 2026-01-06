@@ -22,13 +22,13 @@ const News: React.FC = () => {
                         <article
                             key={item.id}
                             onClick={() => setSelectedNews(item.id)}
-                            className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-neuro-200 hover:scale-[1.03] group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(25%-1.125rem)]"
+                            className="bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.03] group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(25%-1.125rem)]"
                         >
                             <div className="aspect-[4/3] overflow-hidden bg-slate-100">
                                 <img
                                     src={item.image}
                                     alt={item.title}
-                                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-full object-contain"
                                     loading="lazy"
                                 />
                             </div>
@@ -57,13 +57,13 @@ const News: React.FC = () => {
                                 <article
                                     key={item.id}
                                     onClick={() => setSelectedNews(item.id)}
-                                    className="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-neuro-200 hover:scale-[1.03] group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(25%-1.125rem)]"
+                                    className="bg-white rounded-3xl border-2 border-slate-200 overflow-hidden shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.03] group w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(25%-1.125rem)]"
                                 >
                                     <div className="aspect-[4/3] overflow-hidden bg-slate-100">
                                         <img
                                             src={item.image}
                                             alt={item.title}
-                                            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                                            className="w-full h-full object-contain"
                                             loading="lazy"
                                         />
                                     </div>
@@ -91,9 +91,9 @@ const News: React.FC = () => {
                     <div className="mt-12 flex justify-center">
                         <button
                             onClick={() => setIsExpanded(!isExpanded)}
-                            className="w-full py-4 bg-neuro-600 text-white rounded-xl hover:bg-neuro-700 hover:scale-[1.01] shadow-md hover:shadow-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 group"
+                            className="w-full py-4 bg-neuro-600 text-white rounded-full hover:bg-neuro-700 hover:scale-[1.01] shadow-md hover:shadow-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 group"
                         >
-                            <span className="text-lg">{isExpanded ? 'View Less' : 'View More News & Events'}</span>
+                            <span className="text-lg">{isExpanded ? 'View Less' : `View More News & Events (${NEWS_ITEMS.length - 12})`}</span>
                             <i className={`fa-solid ${isExpanded ? 'fa-chevron-up' : 'fa-chevron-down'} group-hover:translate-y-0.5 transition-transform`}></i>
                         </button>
                     </div>
@@ -143,7 +143,7 @@ const News: React.FC = () => {
                         {/* Modal Content */}
                         <div className="p-6 md:p-8 max-h-[50vh] overflow-y-auto">
                             {activeNews.audioUrl && (
-                                <div className="mb-6 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                                <div className="mb-6 p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                     <div className="flex items-center gap-3 mb-3">
                                         <div className="w-8 h-8 bg-neuro-100 rounded-full flex items-center justify-center text-neuro-600">
                                             <i className="fa-solid fa-volume-high text-sm"></i>
@@ -168,7 +168,7 @@ const News: React.FC = () => {
                                         href={activeNews.externalLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-neuro-600 hover:bg-neuro-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-neuro-600 hover:bg-neuro-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                                     >
                                         Read Full Story
                                         <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>

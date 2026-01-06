@@ -11,7 +11,7 @@ const Media: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
                     {MEDIA_ITEMS.map((item) => (
-                        <div key={item.id} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100">
+                        <div key={item.id} className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100">
                             <div className="aspect-video w-full bg-black relative">
                                 <iframe
                                     src={`https://www.youtube.com/embed/${item.youtubeId}`}

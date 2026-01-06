@@ -71,7 +71,7 @@ const Mentoring: React.FC = () => {
 
                         <div className="flex-grow flex flex-col justify-between gap-6">
                             {/* Point 1 */}
-                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
+                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
                                 <div className="flex-shrink-0">
                                     <i className="fa-solid fa-rocket text-neuro-600 text-3xl"></i>
                                 </div>
@@ -81,7 +81,7 @@ const Mentoring: React.FC = () => {
                             </div>
 
                             {/* Point 2 */}
-                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
+                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
                                 <div className="flex-shrink-0">
                                     <i className="fa-solid fa-seedling text-neuro-600 text-3xl"></i>
                                 </div>
@@ -91,7 +91,7 @@ const Mentoring: React.FC = () => {
                             </div>
 
                             {/* Point 3 */}
-                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
+                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
                                 <div className="flex-shrink-0">
                                     <i className="fa-solid fa-user-shield text-neuro-600 text-3xl"></i>
                                 </div>
@@ -101,7 +101,7 @@ const Mentoring: React.FC = () => {
                             </div>
 
                             {/* Point 4 */}
-                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
+                            <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
                                 <div className="flex-shrink-0">
                                     <i className="fa-solid fa-handshake-simple text-neuro-600 text-3xl"></i>
                                 </div>
@@ -118,7 +118,7 @@ const Mentoring: React.FC = () => {
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Team Expectations</h2>
                         </div>
 
-                        <div className="bg-slate-50/50 rounded-2xl p-8 border border-slate-100 flex-grow flex items-center justify-center min-h-[760px]">
+                        <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 flex-grow flex items-center justify-center min-h-[760px]">
                             <div className="flex flex-col gap-3 w-full max-w-lg mx-auto">
                                 {EXPECTATIONS.map((item, index) => (
                                     <div

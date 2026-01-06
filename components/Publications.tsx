@@ -31,12 +31,8 @@ const Publications: React.FC = () => {
         {/* Preprints Section */}
         <div className="mb-20">
           <div className="relative flex justify-center items-center mb-12 border-b border-slate-200 pb-4">
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mt-1">Preprints</h3>
-            <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2">
-              <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-2.5 bg-neuro-600 text-white text-sm font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
-                View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
-              </a>
-            </div>
+            <h3 className="text-3xl md:text-5xl font-bold text-slate-900 mt-1">Preprints</h3>
+
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
@@ -46,18 +42,18 @@ const Publications: React.FC = () => {
                 href={preprint.link}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-neuro-200 hover:shadow-xl transition-all duration-300 flex gap-6 group w-full md:w-[calc(33.333%-1.5rem)] text-left"
+                className="bg-white p-8 rounded-3xl border-2 border-slate-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex gap-6 group w-full md:w-[calc(33.333%-1.5rem)] text-left relative"
               >
                 {/* Left column: Logo + Button */}
                 <div className="flex flex-col gap-3 flex-shrink-0">
-                  <div className="w-20 h-20 bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-slate-50 rounded-2xl p-2 border border-slate-100 flex items-center justify-center">
                     <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
                   </div>
                   <div
-                    className="flex flex-col items-center justify-center w-20 h-14 bg-neuro-600 text-white text-[10px] font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-center leading-tight cursor-pointer"
+                    className="flex flex-col items-center justify-center w-20 h-14 bg-neuro-600 text-white text-[10px] font-bold rounded-2xl shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-center leading-tight cursor-pointer"
                   >
                     <span>Read</span>
-                    <span>Article <i className="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></span>
+                    <span>Article</span>
                   </div>
                 </div>
                 {/* Right column: Title + Citation */}
@@ -69,15 +65,18 @@ const Publications: React.FC = () => {
                     {preprint.citation}
                   </p>
                 </div>
+                <div className="absolute bottom-6 left-6 transition-colors duration-300 pointer-events-none">
+                  <i className="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-neuro-600 text-2xl"></i>
+                </div>
               </a>
             ))}
           </div>
         </div>
 
         <div className="relative flex justify-center items-center mb-12 border-b border-slate-200 pb-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">Publications</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2">Publications</h2>
           <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2">
-            <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-2.5 bg-neuro-600 text-white text-sm font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+            <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-2.5 bg-neuro-600 text-white text-sm font-bold rounded-full shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
               View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
             </a>
           </div>
@@ -85,22 +84,27 @@ const Publications: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PUBLICATIONS.map((pub) => (
-            <article key={pub.id} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:border-neuro-200 transition-all duration-300 group flex flex-col h-full" itemScope itemType="https://schema.org/ScholarlyArticle">
+            <a
+              key={pub.id}
+              href={pub.link}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-white p-6 rounded-3xl shadow-sm border-2 border-slate-200 hover:scale-[1.02] transition-all duration-300 group flex flex-col h-full relative"
+              itemScope
+              itemType="https://schema.org/ScholarlyArticle"
+            >
               <meta itemProp="datePublished" content={pub.year.toString()} />
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 {/* Magazine Cover / Figure Preview */}
-                <a
-                  href={pub.link}
-                  target="_blank"
-                  rel="noreferrer"
+                <div
                   className="w-full sm:w-48 flex-shrink-0 block mx-auto sm:mx-0"
                 >
-                  <div className="relative aspect-[3/4] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 shadow-sm group-hover:shadow-lg transition-all duration-500">
+                  <div className="relative aspect-[3/4] bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm group-hover:shadow-lg transition-all duration-500">
                     {pub.coverImage ? (
                       <img
                         src={pub.coverImage}
                         alt={`Journal cover for ${pub.title}`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover"
                         loading="lazy"
                         itemProp="image"
                       />
@@ -110,24 +114,22 @@ const Publications: React.FC = () => {
                       </div>
                     )}
                     <div className="absolute bottom-3 left-3">
-                      <span className="inline-block px-3 py-1 bg-neuro-600 text-white text-xs font-bold rounded-lg shadow-lg">
+                      <span className="inline-block px-3 py-1 bg-neuro-600 text-white text-xs font-bold rounded-full shadow-lg">
                         {pub.year}
                       </span>
                     </div>
-                    <div className="absolute inset-0 bg-neuro-900/0 group-hover:bg-neuro-900/10 transition-colors duration-300 flex items-center justify-center">
-                      <i className="fa-solid fa-arrow-up-right-from-square text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-2xl"></i>
-                    </div>
+
                   </div>
-                </a>
+                </div>
 
                 {/* Publication Details */}
                 <div className="flex-grow flex flex-col sm:h-64">
                   <div className="flex-1 min-h-0">
-                    <a href={pub.link} target="_blank" rel="noreferrer" className="block group/link">
+                    <div className="block group/link">
                       <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors" itemProp="headline">
                         {pub.title}
                       </h3>
-                    </a>
+                    </div>
                     <div className={`text-slate-600 mb-4 ${getCitationClass(pub.citation)}`} itemProp="description">
                       {formatCitation(pub.citation)}
                     </div>
@@ -135,30 +137,31 @@ const Publications: React.FC = () => {
 
                   {pub.link && pub.link !== '#' && (
                     <div className="flex flex-wrap gap-3 mt-auto pt-4">
-                      <a
-                        href={pub.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center px-4 py-2 bg-neuro-600 text-white text-xs font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group/btn"
+                      <div
+                        className="inline-flex items-center px-4 py-2 bg-neuro-600 text-white text-xs font-bold rounded-full shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group/btn"
                       >
                         Read Article
-                        <i className="fa-solid fa-arrow-up-right-from-square ml-2 text-[10px] transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"></i>
-                      </a>
+
+                      </div>
                     </div>
                   )}
                 </div>
               </div>
-            </article>
+
+              <div className="absolute bottom-6 right-6 transition-colors duration-300 pointer-events-none">
+                <i className="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-neuro-600 text-2xl"></i>
+              </div>
+            </a>
           ))}
         </div>
 
         <div className="mt-8 md:hidden text-center">
-          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-3 bg-neuro-600 text-white font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+          <a href="https://scholar.google.com/citations?hl=en&user=uudWngwAAAAJ" target="_blank" rel="noreferrer" className="inline-flex items-center px-6 py-3 bg-neuro-600 text-white font-bold rounded-full shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
             View Google Scholar <i className="fa-solid fa-arrow-up-right-from-square ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
           </a>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

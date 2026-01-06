@@ -3,18 +3,18 @@ import { DR_RANGARAJU_PHOTO } from '../constants';
 
 const Bio: React.FC = () => {
   return (
-    <section id="bio" className="py-20 bg-white">
-      <div className="container mx-auto px-6 md:px-12">
+    <section className="pt-52 pb-20 bg-white">
+      <div id="bio" className="container mx-auto px-6 md:px-12 scroll-mt-48">
         <div className="flex flex-col lg:flex-row gap-12 items-center justify-center">
 
           {/* Image Column */}
-          <div className="w-full lg:w-1/3">
+          <div className="w-full lg:w-[37%]">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-neuro-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+
               <img
                 src={DR_RANGARAJU_PHOTO}
                 alt="Dr. Vidhya Rangaraju"
-                className="relative rounded-2xl shadow-xl w-full object-cover aspect-[3/4]"
+                className="relative rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-2xl transition-shadow duration-300 w-full object-cover aspect-[3/4]"
               />
 
             </div>
@@ -32,7 +32,7 @@ const Bio: React.FC = () => {
                   <a
                     href="/Rangaraju_CV_2026.pdf"
                     download
-                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-lg text-sm font-bold transition-colors flex items-center gap-2 h-fit whitespace-nowrap"
+                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-full text-sm font-bold transition-all duration-300 hover:scale-110 flex items-center gap-2 h-fit whitespace-nowrap"
                   >
                     <i className="fa-solid fa-file-pdf"></i>
                     CV
@@ -40,7 +40,7 @@ const Bio: React.FC = () => {
                   <a
                     href="/Rangaraju_Biosketch_2026.pdf"
                     download
-                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-lg text-sm font-bold transition-colors flex items-center gap-2 h-fit whitespace-nowrap"
+                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-full text-sm font-bold transition-all duration-300 hover:scale-110 flex items-center gap-2 h-fit whitespace-nowrap"
                   >
                     <i className="fa-solid fa-file-pdf"></i>
                     Biosketch
@@ -67,7 +67,7 @@ const Bio: React.FC = () => {
                 {/* Top Item - Centered across 2 columns */}
                 <div className="col-span-1 md:col-span-2 lg:col-span-1 2xl:col-span-2 flex justify-center">
                   <span
-                    className="w-full md:w-[calc(50%-0.5rem)] lg:w-full 2xl:w-[calc(50%-0.5rem)] min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
+                    className="w-full md:w-[calc(50%-0.5rem)] lg:w-full 2xl:w-[calc(50%-0.5rem)] min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,148,136,0.6)] text-center flex flex-col justify-center items-center leading-tight cursor-default"
                   >
                     <span className="block whitespace-nowrap">NIH Director’s</span>
                     <span className="block whitespace-nowrap">New Innovator Award</span>
@@ -85,7 +85,7 @@ const Bio: React.FC = () => {
                 ].map((lines, index) => (
                   <span
                     key={index}
-                    className="w-full min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 text-center flex flex-col justify-center items-center leading-tight"
+                    className="w-full min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,148,136,0.6)] text-center flex flex-col justify-center items-center leading-tight cursor-default"
                   >
                     {lines.map((line, i) => (
                       <span key={i} className="block whitespace-nowrap">{line}</span>
