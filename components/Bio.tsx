@@ -63,11 +63,11 @@ const Bio: React.FC = () => {
 
 
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-4 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-3 mt-8">
                 {/* Top Item - Centered across 2 columns */}
                 <div className="col-span-1 md:col-span-2 lg:col-span-1 2xl:col-span-2 flex justify-center">
                   <span
-                    className="w-full md:w-[calc(50%-0.5rem)] lg:w-full 2xl:w-[calc(50%-0.5rem)] min-h-[52px] h-auto px-4 py-3 bg-neuro-100 text-neuro-700 text-sm md:text-base font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
+                    className="w-full md:w-[calc(50%-0.375rem)] lg:w-full 2xl:w-[calc(50%-0.375rem)] min-h-[40px] h-auto px-3 py-2 bg-neuro-100 text-neuro-700 text-xs md:text-sm font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
                   >
                     <span className="block whitespace-nowrap">NIH Director’s</span>
                     <span className="block whitespace-nowrap">New Innovator Award</span>
@@ -85,7 +85,7 @@ const Bio: React.FC = () => {
                 ].map((lines, index) => (
                   <span
                     key={index}
-                    className="w-full min-h-[52px] h-auto px-4 py-3 bg-neuro-100 text-neuro-700 text-sm md:text-base font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
+                    className="w-full min-h-[40px] h-auto px-3 py-2 bg-neuro-100 text-neuro-700 text-xs md:text-sm font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
                   >
                     {lines.map((line, i) => (
                       <span key={i} className="block whitespace-nowrap">{line}</span>
