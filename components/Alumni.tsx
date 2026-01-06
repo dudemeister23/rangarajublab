@@ -49,42 +49,56 @@ const Alumni: React.FC = () => {
                                                     )}
                                                 </div>
 
-                                                {/* Award Icon Overlay */}
-                                                {hasAwards && (
-                                                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-neuro-600 rounded-full flex items-center justify-center shadow-md z-10">
-                                                        <i className="fa-solid fa-trophy text-[10px] text-white"></i>
-                                                    </div>
-                                                )}
+                                                {/* Unified Icons Container - Bottom Center */}
+                                                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1 z-20">
+                                                    {/* Email Icon */}
+                                                    {member.email && (
+                                                        <a
+                                                            href={`mailto:${member.email}`}
+                                                            className="w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
+                                                            title={`Email ${member.name}`}
+                                                            onClick={(e) => e.stopPropagation()}
+                                                        >
+                                                            <i className="fa-solid fa-envelope text-xs"></i>
+                                                        </a>
+                                                    )}
+
+                                                    {/* Award Icon Button */}
+                                                    {hasAwards && (
+                                                        <button
+                                                            className="w-7 h-7 rounded-full bg-neuro-600 text-white flex items-center justify-center shadow-lg hover:scale-110 hover:bg-neuro-700 transition-all duration-200"
+                                                            title="View Awards & Honors"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setSelectedAlumni(member);
+                                                            }}
+                                                        >
+                                                            <i className="fa-solid fa-trophy text-xs"></i>
+                                                        </button>
+                                                    )}
+                                                </div>
                                             </div>
+
                                             <div className="flex flex-col justify-center flex-grow py-1 min-w-0">
                                                 <h5 className="text-xl font-bold text-slate-900 group-hover:text-neuro-700 transition-colors leading-tight mb-1.5 truncate">{member.name}</h5>
                                                 <div className="space-y-1.5">
                                                     {member.labRole && (
                                                         <div className="flex items-center gap-2">
-                                                            <div className="w-4 h-4 rounded-full bg-neuro-100 flex items-center justify-center flex-shrink-0">
-                                                                <i className="fa-solid fa-flask text-[8px] text-neuro-600"></i>
+                                                            <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0">
+                                                                <i className="fa-solid fa-flask text-[8px] text-slate-500"></i>
                                                             </div>
-                                                            <p className="text-[11px] text-neuro-600 font-bold uppercase tracking-wider leading-none truncate">{member.labRole}</p>
+                                                            <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider leading-none truncate">{member.labRole}</p>
                                                         </div>
                                                     )}
                                                     {member.details && (
                                                         <div className="flex items-center gap-2">
-                                                            <div className="w-4 h-4 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0">
-                                                                <i className="fa-solid fa-location-dot text-[8px] text-slate-500"></i>
+                                                            <div className="w-4 h-4 rounded-full bg-neuro-100 flex items-center justify-center flex-shrink-0">
+                                                                <i className="fa-solid fa-location-dot text-[8px] text-neuro-600"></i>
                                                             </div>
-                                                            <p className="text-xs text-slate-600 font-medium leading-tight truncate">{member.details}</p>
+                                                            <p className="text-xs text-neuro-600 font-bold leading-tight truncate">{member.details}</p>
                                                         </div>
                                                     )}
-                                                    {member.email && (
-                                                        <div className="flex items-center gap-2">
-                                                            <div className="w-4 h-4 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0">
-                                                                <i className="fa-solid fa-envelope text-[8px] text-slate-500"></i>
-                                                            </div>
-                                                            <a href={`mailto:${member.email}`} className="text-xs text-slate-600 font-medium leading-tight hover:text-neuro-600 transition-colors truncate block">
-                                                                {member.email}
-                                                            </a>
-                                                        </div>
-                                                    )}
+
                                                 </div>
                                             </div>
                                         </div>

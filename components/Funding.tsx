@@ -128,9 +128,10 @@ const Funding: React.FC = () => {
                                 href={collaborator.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm text-slate-700 font-medium text-lg md:text-xl hover:border-neuro-200 hover:text-neuro-700 hover:shadow-md transition-all duration-300 cursor-pointer select-none"
+                                className="group px-5 py-3 bg-white border border-slate-200 rounded-lg shadow-sm text-neuro-700 font-medium text-lg md:text-xl hover:border-neuro-200 hover:shadow-md transition-all duration-300 cursor-pointer select-none flex items-center gap-2"
                             >
                                 {collaborator.name}
+                                <i className="fa-solid fa-arrow-up-right-from-square text-sm opacity-40 group-hover:opacity-100 transition-opacity"></i>
                             </a>
                         ))}
                     </div>

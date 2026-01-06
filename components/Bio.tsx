@@ -28,14 +28,24 @@ const Bio: React.FC = () => {
                 <a href="mailto:Vidhya.Rangaraju@mpfi.org" className="text-neuro-600 font-semibold hover:text-neuro-700 text-lg">
                   Vidhya.Rangaraju@mpfi.org
                 </a>
-                <a
-                  href="/Rangaraju_Biosketch_2026.pdf"
-                  download
-                  className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-lg text-sm font-bold transition-colors flex items-center gap-2 h-fit whitespace-nowrap"
-                >
-                  <i className="fa-solid fa-file-pdf"></i>
-                  Download Biosketch
-                </a>
+                <div className="flex gap-3">
+                  <a
+                    href="/Rangaraju_CV_2026.pdf"
+                    download
+                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-lg text-sm font-bold transition-colors flex items-center gap-2 h-fit whitespace-nowrap"
+                  >
+                    <i className="fa-solid fa-file-pdf"></i>
+                    CV
+                  </a>
+                  <a
+                    href="/Rangaraju_Biosketch_2026.pdf"
+                    download
+                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-lg text-sm font-bold transition-colors flex items-center gap-2 h-fit whitespace-nowrap"
+                  >
+                    <i className="fa-solid fa-file-pdf"></i>
+                    Biosketch
+                  </a>
+                </div>
               </div>
             </div>
 

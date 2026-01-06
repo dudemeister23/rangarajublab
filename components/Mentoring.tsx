@@ -28,7 +28,7 @@ const Mentoring: React.FC = () => {
         },
         {
             text: "Creativity and Productivity",
-            subtitle: "Strive for innovative solutions and maintain consistent progress in project milestones",
+            subtitle: "Strive for innovative solutions and maintain consistent progress in project milestones; value time by exhibiting proactive prioritization and intentional urgency",
             className: "bg-neuro-600 text-white border-neuro-600"
         },
         {

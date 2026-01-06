@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
 ];
 
 // Image paths - These point to the public/assets folder
-export const LAB_LOGO = 'assets/logo-brain-bulb.png';
+export const LAB_LOGO = 'assets/logo-final-transparent.png';
 export const MPFI_LOGO = 'assets/mpfi-logo.png';
 export const NIH_LOGO = 'assets/nih-logo.png';
 export const NIH_INNOVATOR_LOGO = 'assets/funding/nih-innovator-logo.png';

@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
         <div className="animate-fade-in-up w-fit max-w-4xl mx-auto bg-slate-900/20 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight drop-shadow-md">
-            Unlocking <br />
+            Cracking <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300 drop-shadow-none">
               Neuroenergetics
             </span>

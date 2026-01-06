@@ -278,7 +278,7 @@ const Team: React.FC = () => {
                                 The ideal candidate should have or is in the process of completing their PhD in Neuroscience or a related scientific discipline. A strong background in imaging, proteomics, ribosome profiling, or molecular and cell biology is preferred. Strong analytical and communication skills, as well as the ability to fit in well with a team, are required.
                               </p>
                               <p className="text-slate-600 mb-4 font-medium italic">
-                                Please also refer to the Mentorship Principles and Team Expectations section above.
+                                Please also refer to the Mentorship Philosophy and Team Expectations section above.
                               </p>
                             </div>
                           </div>
@@ -320,7 +320,7 @@ const Team: React.FC = () => {
                                 The ideal candidate should have or is in the process of completing their Bachelor's or Master's degree in Neuroscience or a related scientific discipline. A strong background in imaging, proteomics, ribosome profiling, or molecular and cell biology is preferred. Strong analytical and communication skills, as well as the ability to fit in well with a team, are required.
                               </p>
                               <p className="text-slate-600 mb-4 font-medium italic">
-                                Please also refer to the Mentorship Principles and Team Expectations section above.
+                                Please also refer to the Mentorship Philosophy and Team Expectations section above.
                               </p>
                             </div>
                           </div>
