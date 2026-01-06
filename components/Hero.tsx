@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
               Neuroenergetics
             </span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-medium drop-shadow">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-semibold drop-shadow">
             We investigate how neurons manage their complex energy landscapes to fuel biological processes, plasticity, and health.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

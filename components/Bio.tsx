@@ -14,7 +14,7 @@ const Bio: React.FC = () => {
               <img
                 src={DR_RANGARAJU_PHOTO}
                 alt="Dr. Vidhya Rangaraju"
-                className="relative rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-2xl transition-shadow duration-300 w-full object-cover aspect-[3/4]"
+                className="relative rounded-3xl shadow-[0_25px_50px_rgba(0,0,0,0.5)] transition-all duration-300 w-full object-cover aspect-[3/4]"
               />
 
             </div>
@@ -32,17 +32,17 @@ const Bio: React.FC = () => {
                   <a
                     href="/Rangaraju_CV_2026.pdf"
                     download
-                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-full text-sm font-bold transition-all duration-300 hover:scale-110 flex items-center gap-2 h-fit whitespace-nowrap"
+                    className="px-6 py-2.5 bg-neuro-600 hover:bg-neuro-500 text-white rounded-full text-sm font-semibold transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center gap-2 h-fit whitespace-nowrap"
                   >
-                    <i className="fa-solid fa-file-pdf"></i>
+                    <i className="fa-solid fa-download"></i>
                     CV
                   </a>
                   <a
                     href="/Rangaraju_Biosketch_2026.pdf"
                     download
-                    className="px-4 py-2 bg-neuro-100 text-neuro-700 hover:bg-neuro-200 rounded-full text-sm font-bold transition-all duration-300 hover:scale-110 flex items-center gap-2 h-fit whitespace-nowrap"
+                    className="px-6 py-2.5 bg-neuro-600 hover:bg-neuro-500 text-white rounded-full text-sm font-semibold transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center gap-2 h-fit whitespace-nowrap"
                   >
-                    <i className="fa-solid fa-file-pdf"></i>
+                    <i className="fa-solid fa-download"></i>
                     Biosketch
                   </a>
                 </div>
@@ -67,7 +67,7 @@ const Bio: React.FC = () => {
                 {/* Top Item - Centered across 2 columns */}
                 <div className="col-span-1 md:col-span-2 lg:col-span-1 2xl:col-span-2 flex justify-center">
                   <span
-                    className="w-full md:w-[calc(50%-0.5rem)] lg:w-full 2xl:w-[calc(50%-0.5rem)] min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,148,136,0.6)] text-center flex flex-col justify-center items-center leading-tight cursor-default"
+                    className="w-full md:w-[calc(50%-0.5rem)] lg:w-full 2xl:w-[calc(50%-0.5rem)] min-h-[52px] h-auto px-4 py-3 bg-neuro-100 text-neuro-700 text-sm md:text-base font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
                   >
                     <span className="block whitespace-nowrap">NIH Director’s</span>
                     <span className="block whitespace-nowrap">New Innovator Award</span>
@@ -85,7 +85,7 @@ const Bio: React.FC = () => {
                 ].map((lines, index) => (
                   <span
                     key={index}
-                    className="w-full min-h-[52px] h-auto px-2 py-1 bg-neuro-600 text-white text-xs md:text-sm font-bold rounded-[2rem] border border-neuro-600 transition-all duration-300 hover:shadow-[0_0_20px_rgba(13,148,136,0.6)] text-center flex flex-col justify-center items-center leading-tight cursor-default"
+                    className="w-full min-h-[52px] h-auto px-4 py-3 bg-neuro-100 text-neuro-700 text-sm md:text-base font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
                   >
                     {lines.map((line, i) => (
                       <span key={i} className="block whitespace-nowrap">{line}</span>
