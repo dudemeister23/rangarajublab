@@ -66,32 +66,59 @@ const Bio: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-3 mt-8">
                 {/* Top Item - Centered across 2 columns */}
                 <div className="col-span-1 md:col-span-2 lg:col-span-1 2xl:col-span-2 flex justify-center">
-                  <span
-                    className="w-full md:w-[calc(50%-0.375rem)] lg:w-full 2xl:w-[calc(50%-0.375rem)] min-h-[40px] h-auto px-3 py-2 bg-neuro-100 text-neuro-700 text-xs md:text-sm font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
+                  <a
+                    href="https://commonfund.nih.gov/newinnovator/fundedresearch"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full md:w-[calc(50%-0.375rem)] lg:w-full 2xl:w-[calc(50%-0.375rem)] min-h-[40px] h-auto px-4 py-2 bg-neuro-600 hover:bg-neuro-500 text-white text-xs md:text-sm font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 text-center flex flex-col justify-center items-center leading-tight"
                   >
                     <span className="block whitespace-nowrap">NIH Director’s</span>
-                    <span className="block whitespace-nowrap">New Innovator Award</span>
-                  </span>
+                    <span className="block whitespace-nowrap">New Innovator Award <i className="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></span>
+                  </a>
                 </div>
 
                 {/* Remaining Items */}
                 {[
-                  ["SfN Peter and Patricia Gruber", "International Research Award"],
-                  ["CZI Ben Barres", "Early Career Acceleration Award"],
-                  ["SfN Janett Rosenberg Trubatch", "Career Development Award"],
-                  ["Lindau Nobel", "Laureate Meeting Award"],
-                  ["Vincent du Vigneaud", "Award of Excellence"],
-                  ["MPIBR Scientific Discovery", "of the Year Award"]
-                ].map((lines, index) => (
-                  <span
-                    key={index}
-                    className="w-full min-h-[40px] h-auto px-3 py-2 bg-neuro-100 text-neuro-700 text-xs md:text-sm font-bold rounded-xl border border-neuro-100 transition-all duration-300 hover:bg-neuro-200 text-center flex flex-col justify-center items-center leading-tight cursor-default"
-                  >
-                    {lines.map((line, i) => (
-                      <span key={i} className="block whitespace-nowrap">{line}</span>
-                    ))}
-                  </span>
-                ))}
+                  { lines: ["SfN Peter and Patricia Gruber", "International Research Award"], link: "https://gruber.yale.edu/peter-and-patricia-gruber-international-research-award-neuroscience" },
+                  { lines: ["CZI Ben Barres", "Early Career Acceleration Award"], link: "https://chanzuckerberg.com/science/programs-resources/neurodegeneration-challenge/projects/" },
+                  { lines: ["SfN Janett Rosenberg Trubatch", "Career Development Award"], link: "https://www.sfn.org/initiatives/awards/2024-sfn-award-winners" },
+                  { lines: ["Lindau Nobel", "Laureate Meeting Award"] },
+                  { lines: ["Vincent du Vigneaud", "Award of Excellence"] },
+                  { lines: ["MPIBR Scientific Discovery", "of the Year Award"] }
+                ].map((item, index) => {
+                  const baseClasses = "w-full min-h-[40px] h-auto px-4 py-2 bg-neuro-600 text-white text-xs md:text-sm font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 text-center flex flex-col justify-center items-center leading-tight";
+                  const hoverClasses = "hover:bg-neuro-500 hover:shadow-neuro-600/40";
+
+                  if (item.link) {
+                    return (
+                      <a
+                        key={index}
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`${baseClasses} ${hoverClasses}`}
+                      >
+                        {item.lines.map((line, i) => (
+                          <span key={i} className="block whitespace-nowrap">
+                            {line}
+                            {i === item.lines.length - 1 && <i className="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>}
+                          </span>
+                        ))}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <span
+                      key={index}
+                      className={`${baseClasses} cursor-default`}
+                    >
+                      {item.lines.map((line, i) => (
+                        <span key={i} className="block whitespace-nowrap">{line}</span>
+                      ))}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>

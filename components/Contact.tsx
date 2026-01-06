@@ -79,6 +79,7 @@ const Contact: React.FC = () => {
               >
                 <i className="fa-solid fa-user-plus"></i>
                 Join Our Team
+                <i className="fa-solid fa-envelope"></i>
               </a>
               <p className="text-sm text-neuro-100 leading-relaxed">We are always looking for motivated Postdocs and PhD students interested in neuroenergetics.</p>
             </div>
