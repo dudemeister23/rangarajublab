@@ -41,24 +41,24 @@ const Publications: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-8">
             {PREPRINTS.map(preprint => (
-              <div
+              <a
                 key={preprint.id}
-                className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-neuro-200 hover:shadow-xl transition-all duration-300 flex gap-6 group w-full md:w-[calc(33.333%-1.5rem)]"
+                href={preprint.link}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-white p-8 rounded-2xl border border-slate-100 hover:border-neuro-200 hover:shadow-xl transition-all duration-300 flex gap-6 group w-full md:w-[calc(33.333%-1.5rem)] text-left"
               >
                 {/* Left column: Logo + Button */}
                 <div className="flex flex-col gap-3 flex-shrink-0">
                   <div className="w-20 h-20 bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
                     <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
                   </div>
-                  <a
-                    href={preprint.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex flex-col items-center justify-center w-20 h-14 bg-neuro-600 text-white text-[10px] font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-center leading-tight"
+                  <div
+                    className="flex flex-col items-center justify-center w-20 h-14 bg-neuro-600 text-white text-[10px] font-bold rounded-lg shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-center leading-tight cursor-pointer"
                   >
                     <span>Read</span>
                     <span>Article <i className="fa-solid fa-arrow-up-right-from-square text-[8px]"></i></span>
-                  </a>
+                  </div>
                 </div>
                 {/* Right column: Title + Citation */}
                 <div className="flex-grow min-w-0">
@@ -69,7 +69,7 @@ const Publications: React.FC = () => {
                     {preprint.citation}
                   </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

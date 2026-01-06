@@ -395,6 +395,7 @@ export const COLLABORATORS = [
   { name: 'Lu Lab, Indiana U', url: 'https://lulaboratory.com/' },
   { name: 'Puthanveettil Lab, UF Scripps', url: 'https://puthanveettil.scripps.ufl.edu/' },
   { name: 'Ryan Lab, Weill Cornell', url: 'https://sites.google.com/site/ryanlab1/Home' },
+  { name: 'Schreiter Lab, Janelia', url: 'https://www.janelia.org/lab/schreiter-lab' },
   { name: 'Sun Lab, Aarhus University', url: 'https://synaptic-logistics-lab.com/' },
   { name: 'ThermoFisher Scientific', url: 'https://www.thermofisher.com/us/en/home/electron-microscopy/products/transmission-electron-microscopes/techniques/life-sciences.html' },
   { name: 'Yasuda Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/yasuda-lab/' }
