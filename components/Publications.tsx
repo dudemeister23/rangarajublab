@@ -62,7 +62,7 @@ const Publications: React.FC = () => {
                     {preprint.title}
                   </h4>
                   <p className="text-sm text-slate-500 italic leading-relaxed">
-                    {preprint.citation}
+                    {formatCitation(preprint.citation)}
                   </p>
                 </div>
                 <div className="absolute bottom-6 left-6 transition-colors duration-300 pointer-events-none">
