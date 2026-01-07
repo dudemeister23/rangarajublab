@@ -80,11 +80,11 @@ const Bio: React.FC = () => {
                 {/* Remaining Items */}
                 {[
                   { lines: ["SfN Peter and Patricia Gruber", "International Research Award"], link: "https://gruber.yale.edu/peter-and-patricia-gruber-international-research-award-neuroscience" },
-                  { lines: ["CZI Ben Barres", "Early Career Acceleration Award"], link: "https://chanzuckerberg.com/science/programs-resources/neurodegeneration-challenge/projects/" },
-                  { lines: ["SfN Janett Rosenberg Trubatch", "Career Development Award"], link: "https://www.sfn.org/initiatives/awards/2024-sfn-award-winners" },
-                  { lines: ["Lindau Nobel", "Laureate Meeting Award"] },
-                  { lines: ["Vincent du Vigneaud", "Award of Excellence"] },
-                  { lines: ["MPIBR Scientific Discovery", "of the Year Award"] }
+                  { lines: ["CZI Ben Barres", "Early Career Acceleration Award"], link: "https://chanzuckerberg.com/science/programs-resources/neurodegeneration-challenge/projects/?award=ben-barres-cycle-2" },
+                  { lines: ["SfN Janett Rosenberg Trubatch", "Career Development Award"], link: "https://www.sfn.org/careers/awards/early-career/janett-rosenberg-trubatch-career-development-award" },
+                  { lines: ["Lindau Nobel", "Laureate Meeting Award"], link: "https://www.youtube.com/watch?v=zfkXhsmYmPk" },
+                  { lines: ["Vincent du Vigneaud", "Award of Excellence"], link: "https://news.weill.cornell.edu/news/2012/04/awards-and-honors-across-weill-cornell-medical-college-1" },
+                  { lines: ["MPIBR Scientific Discovery", "of the Year Award"], link: "https://brain.mpg.de/103075/activities" }
                 ].map((item, index) => {
                   const baseClasses = "w-full min-h-[40px] h-auto px-4 py-2 bg-neuro-600 text-white text-xs md:text-sm font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 text-center flex flex-col justify-center items-center leading-tight";
                   const hoverClasses = "hover:bg-neuro-500 hover:shadow-neuro-600/40";
