@@ -51,13 +51,13 @@ const Bio: React.FC = () => {
 
             <div className="prose prose-lg text-slate-600 leading-relaxed text-justify">
               <p className="mb-4">
-                Dr. Vidhya Rangaraju started her Research Group Leader position at the <strong>Max Planck Florida Institute for Neuroscience</strong> in January 2020. The overarching goal of the Rangaraju group is to investigate the energy use and supply of biological processes in neurons.
+                Dr. Vidhya Rangaraju started her Research Group Leader position at the <a href="https://mpfi.org" target="_blank" rel="noopener noreferrer" className="bio-link">Max Planck Florida Institute for Neuroscience</a> in January 2020. The overarching goal of the Rangaraju group is to investigate the energy use and supply of biological processes in neurons.
               </p>
               <p className="mb-4">
-                Prior to this appointment, Rangaraju was an EMBO and Marie Curie Postdoctoral Fellow in the group of Dr. Erin Schuman at the Max Planck Institute for Brain Research in Germany. During her postdoc, she uncovered the presence of local mitochondrial compartments of energy that fuel local translation during synaptic plasticity.
+                Prior to this appointment, Rangaraju was an <a href="https://www.embo.org/funding/fellowships-grants-and-career-support/postdoctoral-fellowships/" target="_blank" rel="noopener noreferrer" className="bio-link">EMBO</a> and <a href="https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships" target="_blank" rel="noopener noreferrer" className="bio-link">Marie Curie</a> Postdoctoral Fellow in the group of <a href="https://brain.mpg.de/schuman" target="_blank" rel="noopener noreferrer" className="bio-link">Dr. Erin Schuman</a> at the <a href="https://brain.mpg.de/home" target="_blank" rel="noopener noreferrer" className="bio-link">Max Planck Institute for Brain Research</a> in Germany. During her postdoc, she uncovered the presence of local mitochondrial compartments of energy that fuel local translation during synaptic plasticity.
               </p>
               <p className="mb-4">
-                Rangaraju completed her Ph.D. in the lab of Dr. Timothy Ryan at Weill Cornell Medicine in New York. There she developed a novel optical reporter of synaptic ATP to measure dynamic changes in ATP concentrations and elucidated the link between neuronal activity and ATP synthesis.
+                Rangaraju completed her Ph.D. in the lab of <a href="https://sites.google.com/site/ryanlab1/Home" target="_blank" rel="noopener noreferrer" className="bio-link">Dr. Timothy Ryan</a> at <a href="https://gradschool.weill.cornell.edu" target="_blank" rel="noopener noreferrer" className="bio-link">Weill Cornell Medicine</a> in New York. There she developed a novel optical reporter of synaptic ATP to measure dynamic changes in ATP concentrations and elucidated the link between neuronal activity and ATP synthesis.
               </p>
 
 

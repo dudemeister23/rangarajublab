@@ -137,6 +137,35 @@
     section {
       scroll-margin-top: 100px;
     }
+
+    @keyframes bio-glow {
+      0% {
+        text-shadow: 0 0 5px rgba(20, 184, 166, 0);
+      }
+
+      50% {
+        text-shadow: 0 0 15px rgba(20, 184, 166, 0.6), 0 0 25px rgba(20, 184, 166, 0.4);
+      }
+
+      100% {
+        text-shadow: 0 0 5px rgba(20, 184, 166, 0);
+      }
+    }
+
+    .bio-link {
+      color: #0d9488;
+      /* neuro-600 */
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .bio-link:hover {
+      color: #14b8a6;
+      /* neuro-500 */
+      animation: bio-glow 2s infinite ease-in-out;
+    }
   </style>
 </head>
 
