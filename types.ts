@@ -62,6 +62,7 @@ export interface AlumniMember {
   scale?: number;
   link?: string;
   awardIds?: string[]; // IDs of associated awards and honors
+  publicationIds?: string[]; // IDs of associated publications/preprints
   email?: string;
 }
 

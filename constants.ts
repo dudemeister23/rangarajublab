@@ -419,9 +419,9 @@ export const ALUMNI_DATA: AlumniGroup[] = [
       { id: 'al1', name: 'Suhas Sunke', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg', email: 'Suhas.Sunke@mpfi.org' },
       { id: 'al2', name: 'Aidan McDonald', labRole: 'Rotation Student', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%', email: 'aidanmcdonal2024@fau.edu' },
       { id: 'al3', name: 'Rasya Bhat', labRole: "Master's Student", details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2, email: 'rasya.bhat@student.uni-tuebingen.de' },
-      { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2, email: 'riya_sivakumar@fas.harvard.edu' },
+      { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2, publicationIds: ['pp5'], email: 'riya_sivakumar@fas.harvard.edu' },
       { id: 'al5', name: 'Danyu Luo', labRole: 'Postbaccalaureate', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%', email: 'Danyu.luo@northwestern.edu' },
-      { id: 'al7', name: 'Jacob LaMar', labRole: 'Postbaccalaureate', details: 'MS at FAU', image: 'assets/alumni/jacob_lamar.jpg' },
+      { id: 'al7', name: 'Jacob LaMar', labRole: 'Postbaccalaureate', details: 'MS at FAU', image: 'assets/alumni/jacob_lamar.jpg', publicationIds: ['pub3'] },
 
       { id: 'al9', name: 'Devahuti Bhuyan', labRole: 'Research Technician', details: 'PhD at U Alabama', image: 'assets/alumni/devahuti_bhuyan.jpg' },
       { id: 'al10', name: 'Sabrina Perez', labRole: 'Research Technician', details: 'Northrop Grumman', image: 'assets/alumni/sabrina_perez.jpg' },
@@ -432,9 +432,9 @@ export const ALUMNI_DATA: AlumniGroup[] = [
     category: "Undergraduate & High School Alumni",
     members: [
       { id: 'al12', name: 'Jean-Manuel Mena', labRole: 'Undergraduate Student', details: 'BS at Cornell', image: 'assets/alumni/jean_manuel_mena.jpg', email: 'jm2337@cornell.edu', scale: 1.2 },
-      { id: 'al13', name: 'Tejas Purimetla', labRole: 'Undergraduate Student', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg', awardIds: ['a18', 'a20', 'a19'], email: 'Tejas.Purimetla.MED@dartmouth.edu' },
+      { id: 'al13', name: 'Tejas Purimetla', labRole: 'Undergraduate Student', details: 'MD at Dartmouth', image: 'assets/alumni/tejas_purimetla.jpg', awardIds: ['a18', 'a20', 'a19'], publicationIds: ['pub4'], email: 'Tejas.Purimetla.MED@dartmouth.edu' },
       { id: 'al16', name: 'Mohan Peddada', labRole: 'Undergraduate Student', details: 'BS at Johns Hopkins', image: 'assets/alumni/mohan_peddada.jpg', email: 'mpeddad1@jhu.edu' },
-      { id: 'al18', name: 'Luca Pishos', labRole: 'High School Student', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg', email: 'lucapishos@ufl.edu' },
+      { id: 'al18', name: 'Luca Pishos', labRole: 'High School Student', details: 'BE at U Florida', image: 'assets/alumni/luca_pishos.jpg', publicationIds: ['pp1'], email: 'lucapishos@ufl.edu' },
       { id: 'al19', name: 'Gayatri Sathyanarayan', labRole: 'High School Student', details: 'BE at Cornell', image: 'assets/alumni/gayatri_sathyanarayan.jpg', email: 'gs778@cornell.edu' },
       { id: 'al20', name: 'Jake Zur', labRole: 'High School Student', details: 'BE at U Michigan', image: 'assets/alumni/jake_zur.jpg', scale: 1.2 }
     ]
@@ -442,8 +442,8 @@ export const ALUMNI_DATA: AlumniGroup[] = [
   {
     category: "Visiting Scientists",
     members: [
-      { id: 'al21', name: 'Sen Yang', labRole: 'PhD Student', details: 'Brown U', image: 'assets/alumni/sen_yang.jpg' },
-      { id: 'al22', name: 'Jenna Wingfield', labRole: 'Postdoctoral Fellow', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg', email: 'wingfield.j@ufl.edu' },
+      { id: 'al21', name: 'Sen Yang', labRole: 'PhD Student', details: 'Brown U', image: 'assets/alumni/sen_yang.jpg', publicationIds: ['pub3'] },
+      { id: 'al22', name: 'Jenna Wingfield', labRole: 'Postdoctoral Fellow', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg', publicationIds: ['pub2', 'pp2'], email: 'wingfield.j@ufl.edu' },
       { id: 'al23', name: 'Ken Kunugitani', labRole: 'MD PhD', details: 'Kyoto University', image: 'assets/alumni/ken_kunugitani.jpg' }
     ]
   }
