@@ -4,7 +4,7 @@ import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS 
 const Team: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [hoveredMemberId, setHoveredMemberId] = useState<string | null>(null);
-  const [lockedMemberId, setLockedMemberId] = useState<string | null>('t1');
+  const [lockedMemberId, setLockedMemberId] = useState<string | null>(null);
   const [lockedContentId, setLockedContentId] = useState<string>('t1');
   const [panelMode, setPanelMode] = useState<'publications' | 'awards' | 'contact' | 'job'>('contact');
 
@@ -12,6 +12,18 @@ const Team: React.FC = () => {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const minSwipeDistance = 50;
+
+  // Helper to bold specific author name (borrowed from Publications.tsx)
+  const formatCitation = (text: string) => {
+    const parts = text.split(/(Rangaraju, V\.|V\. Rangaraju)/g);
+    return (
+      <span>
+        {parts.map((part, i) =>
+          part.match(/(Rangaraju, V\.|V\. Rangaraju)/) ? <strong key={i} className="text-slate-900 font-bold underline decoration-neuro-500 decoration-2 underline-offset-2">{part}</strong> : part
+        )}
+      </span>
+    );
+  };
 
   // Auto-cycle pause state
   const [autoCyclePaused, setAutoCyclePaused] = useState(false);
@@ -583,6 +595,220 @@ const Team: React.FC = () => {
 
 
       </div>
+
+      {/* Mobile Modal for Team Members */}
+      {lockedMemberId && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm lg:hidden animate-in fade-in duration-200" onClick={() => setLockedMemberId(null)}>
+          <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden animate-in zoom-in-95 duration-200 max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
+
+            {/* Logic to determine what to show based on lockedContentId and panelMode */}
+            {(() => {
+              // 1. Handle Open Positions
+              if (lockedContentId.startsWith('placeholder')) {
+                const isPhD = lockedContentId === 'placeholder-2';
+                return (
+                  <div className="flex flex-col h-full">
+                    <div className="p-6 border-b border-neuro-100 flex items-center justify-between bg-neuro-50/50 flex-shrink-0">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-neuro-50 flex items-center justify-center border-2 border-dashed border-neuro-200">
+                          <i className={`fa-solid ${isPhD ? 'fa-graduation-cap' : 'fa-user-plus'} text-neuro-600`}></i>
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-slate-900 text-lg leading-tight">Open Position</h4>
+                          <p className="text-xs font-bold text-neuro-600 uppercase tracking-wider">{isPhD ? 'PhD Student' : 'Postdoctoral Fellow'}</p>
+                        </div>
+                      </div>
+                      <button onClick={() => setLockedMemberId(null)} className="w-8 h-8 rounded-full bg-white text-slate-400 hover:bg-slate-100 hover:text-slate-600 flex items-center justify-center transition-colors">
+                        <i className="fa-solid fa-xmark"></i>
+                      </button>
+                    </div>
+                    <div className="p-6 overflow-y-auto custom-scrollbar">
+                      <div className="prose prose-sm prose-slate max-w-none">
+                        <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
+                        {isPhD ? (
+                          <div className="bg-slate-50 p-4 rounded-3xl border border-slate-200 mb-6">
+                            <p className="text-sm text-slate-600 mb-2">We recruit PhD students through the MPFI IMPRS Program.</p>
+                            <a href="https://mpfi.org/training/imprs-sc/" target="_blank" rel="noreferrer" className="text-neuro-600 font-bold hover:underline block break-all">https://mpfi.org/training/imprs-sc/</a>
+                          </div>
+                        ) : (
+                          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
+                            <p className="text-sm text-slate-600 mb-2">Please send the following information to Dr. Vidhya Rangaraju:</p>
+                            <a href="mailto:Vidhya.Rangaraju@mpfi.org" className="text-neuro-600 font-bold hover:underline mb-4 block">Vidhya.Rangaraju@mpfi.org</a>
+                            <ul className="list-disc pl-5 space-y-1 text-sm text-slate-600">
+                              <li>CV</li>
+                              <li>Statement of research experience and future research interests (1-2 pages)</li>
+                              <li>Names and complete contact information of three references</li>
+                            </ul>
+                          </div>
+                        )}
+                        <p className="text-slate-600 mb-4">
+                          {isPhD
+                            ? "The PhD student will pursue our research questions and their independent ideas. We will employ state-of-the-art imaging, including ATP measurements, 2p glutamate uncaging, super-resolution and electron microscopy, advanced proteomics and translatomic methods, and develop novel molecular tools when required."
+                            : "The postdoctoral fellow will pursue our research questions and their independent ideas. We will employ state-of-the-art imaging, including ATP measurements, 2p glutamate uncaging, super-resolution and electron microscopy, advanced proteomics and translatomic methods, and develop novel molecular tools when required."}
+                        </p>
+                        <h5 className="font-bold text-slate-900 mt-6 mb-2">Qualifications</h5>
+                        <p className="text-slate-600 mb-4">
+                          {isPhD
+                            ? "The ideal candidate should have or is in the process of completing their Bachelor's or Master's degree in Neuroscience or a related scientific discipline. A strong background in imaging, proteomics, ribosome profiling, or molecular and cell biology is preferred. Strong analytical and communication skills, as well as the ability to fit in well with a team, are required."
+                            : "The ideal candidate should have or is in the process of completing their PhD in Neuroscience or a related scientific discipline. A strong background in imaging, proteomics, ribosome profiling, or molecular and cell biology is preferred. Strong analytical and communication skills, as well as the ability to fit in well with a team, are required."}
+                        </p>
+                        <p className="text-slate-600 mb-4 font-medium italic">Please also refer to the Mentoring Philosophy and Team Expectations section above.</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              // 2. Handle Regular Members
+              const member = TEAM_MEMBERS.find(m => m.id === lockedContentId);
+              if (!member) return null;
+
+              const hasAwards = member.awardIds && member.awardIds.length > 0;
+              const hasPublications = member.publicationIds && member.publicationIds.length > 0;
+              const hasBoth = hasAwards && hasPublications;
+
+              return (
+                <div className="flex flex-col h-full">
+                  {/* Header */}
+                  <div className="p-6 border-b border-neuro-100 flex items-center justify-between bg-neuro-50/50 flex-shrink-0">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                        <img src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}`} alt={member.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 text-lg leading-tight">{member.name}</h4>
+                        <p className="text-xs font-bold text-neuro-600 uppercase tracking-wider">
+                          {panelMode === 'awards' ? 'Awards & Honors' : panelMode === 'publications' ? 'Publications' : 'Contact'}
+                        </p>
+                      </div>
+                    </div>
+                    <button onClick={() => setLockedMemberId(null)} className="w-8 h-8 rounded-full bg-white text-slate-400 hover:bg-slate-100 hover:text-slate-600 flex items-center justify-center transition-colors">
+                      <i className="fa-solid fa-xmark"></i>
+                    </button>
+                  </div>
+
+                  {/* View Switcher */}
+                  {hasBoth && panelMode !== 'contact' && (
+                    <div className="px-6 pt-4 flex-shrink-0">
+                      <div className="flex gap-2 p-1 bg-neuro-50 rounded-xl">
+                        <button
+                          onClick={() => setPanelMode('awards')}
+                          className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold transition-all ${panelMode === 'awards' ? 'bg-white text-neuro-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                        >
+                          <i className="fa-solid fa-trophy mr-2"></i> Awards
+                        </button>
+                        <button
+                          onClick={() => setPanelMode('publications')}
+                          className={`flex-1 py-2 px-4 rounded-lg text-sm font-bold transition-all ${panelMode === 'publications' ? 'bg-white text-neuro-700 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                        >
+                          <i className="fa-solid fa-book-open mr-2"></i> Publications
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Content */}
+                  <div className="p-6 overflow-y-auto custom-scrollbar flex-grow">
+                    {panelMode === 'contact' && (
+                      <div className="flex flex-col items-center justify-center h-full text-center">
+                        <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-4 border-slate-100 shadow-sm">
+                          <img src={member.image || ''} alt={member.name} className="w-full h-full object-cover" />
+                        </div>
+                        <h4 className="font-bold text-xl text-slate-900 mb-2">{member.name}</h4>
+                        <p className="text-neuro-600 font-medium mb-6">{member.role}</p>
+                        {member.email && (
+                          <a href={`mailto:${member.email}`} className="group flex items-center gap-3 px-6 py-3 bg-slate-50 border border-slate-200 rounded-full hover:border-neuro-300 hover:shadow-md transition-all">
+                            <div className="w-10 h-10 rounded-full bg-neuro-100 text-neuro-600 flex items-center justify-center">
+                              <i className="fa-solid fa-envelope"></i>
+                            </div>
+                            <div className="text-left">
+                              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Contact</p>
+                              <p className="text-sm font-semibold text-slate-700">{member.email}</p>
+                            </div>
+                          </a>
+                        )}
+
+                        {/* Links to switch if available */}
+                        <div className="flex gap-3 mt-8">
+                          {hasPublications && (
+                            <button onClick={() => setPanelMode('publications')} className="flex items-center gap-2 px-4 py-2 bg-neuro-50 text-neuro-700 rounded-full text-sm font-bold hover:bg-neuro-100 transition-colors">
+                              <i className="fa-solid fa-book-open"></i> Publications
+                            </button>
+                          )}
+                          {hasAwards && (
+                            <button onClick={() => setPanelMode('awards')} className="flex items-center gap-2 px-4 py-2 bg-neuro-50 text-neuro-700 rounded-full text-sm font-bold hover:bg-neuro-100 transition-colors">
+                              <i className="fa-solid fa-trophy"></i> Awards
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {panelMode === 'awards' && (
+                      <div className="space-y-3">
+                        {member.awardIds?.map(aid => AWARDS.find(a => a.id === aid)).filter(Boolean).map((award, idx) => (
+                          <div key={idx} className="bg-white p-4 rounded-2xl border border-neuro-100 hover:border-neuro-300 hover:shadow-md transition-all">
+                            <div className="flex gap-3 items-center">
+                              <div className="w-10 h-10 bg-neuro-100 rounded-full flex-shrink-0 flex items-center justify-center">
+                                {award?.type === 'honor' ? (
+                                  <img src="assets/icons/laurel-wreath.png" alt="Honor" className="w-6 h-6 object-contain opacity-80" />
+                                ) : (
+                                  <i className="fa-solid fa-trophy text-neuro-600"></i>
+                                )}
+                              </div>
+                              <div>
+                                <span className="text-[10px] font-bold text-neuro-500 uppercase">
+                                  {award?.date}{award?.endDate ? ` – ${award.endDate}` : ''}
+                                </span>
+                                <h5 className="text-sm font-bold text-slate-800 leading-tight mb-1">{award?.title}</h5>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                        {(!member.awardIds || member.awardIds.length === 0) && (
+                          <p className="text-center text-slate-400 text-sm py-4">No awards listed.</p>
+                        )}
+                      </div>
+                    )}
+
+                    {panelMode === 'publications' && (
+                      <div className="space-y-4">
+                        {member.publicationIds?.map(pid => [...PUBLICATIONS, ...PREPRINTS].find(p => p.id === pid)).filter(Boolean).map((pub, idx) => (
+                          <a
+                            key={idx}
+                            href={pub?.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="block bg-white p-4 rounded-2xl border border-slate-200 hover:border-neuro-300 hover:shadow-md transition-all group/pub"
+                          >
+                            <div className="flex gap-3 items-center">
+                              {pub?.coverImage && (
+                                <div className="w-12 h-16 bg-slate-100 rounded-lg flex-shrink-0 overflow-hidden border border-slate-100 p-1">
+                                  <img src={pub.coverImage} className="w-full h-full object-contain" alt="" />
+                                </div>
+                              )}
+                              <div>
+                                <span className="text-[10px] font-bold text-neuro-500 uppercase">{pub?.year}</span>
+                                <h5 className="text-sm font-bold text-slate-800 leading-tight mb-1 group-hover/pub:text-neuro-700">{pub?.title}</h5>
+                                <p className="text-[10px] text-slate-500 line-clamp-2 leading-snug">
+                                  {pub?.citation ? formatCitation(pub.citation) : ''}
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        ))}
+                        {(!member.publicationIds || member.publicationIds.length === 0) && (
+                          <p className="text-center text-slate-400 text-sm py-4">No publications listed.</p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
