@@ -607,7 +607,7 @@ const Team: React.FC = () => {
               if (lockedContentId.startsWith('placeholder')) {
                 const isPhD = lockedContentId === 'placeholder-2';
                 return (
-                  <div className="flex flex-col h-full">
+                  <div className="flex flex-col overflow-hidden" style={{ maxHeight: 'calc(85vh - 2rem)' }}>
                     <div className="p-6 border-b border-neuro-100 flex items-center justify-between bg-neuro-50/50 flex-shrink-0">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-neuro-50 flex items-center justify-center border-2 border-dashed border-neuro-200">
@@ -622,7 +622,7 @@ const Team: React.FC = () => {
                         <i className="fa-solid fa-xmark"></i>
                       </button>
                     </div>
-                    <div className="p-6 overflow-y-auto custom-scrollbar flex-grow min-h-0">
+                    <div className="p-6 overflow-y-scroll flex-1 overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
                       <div className="prose prose-sm prose-slate max-w-none">
                         <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
                         {isPhD ? (
