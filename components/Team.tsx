@@ -622,7 +622,7 @@ const Team: React.FC = () => {
                         <i className="fa-solid fa-xmark"></i>
                       </button>
                     </div>
-                    <div className="p-6 overflow-y-auto custom-scrollbar">
+                    <div className="p-6 overflow-y-auto custom-scrollbar flex-grow min-h-0">
                       <div className="prose prose-sm prose-slate max-w-none">
                         <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
                         {isPhD ? (
