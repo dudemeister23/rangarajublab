@@ -126,24 +126,26 @@ const Team: React.FC = () => {
       document.body.style.overflow = 'hidden';
     } else {
       const scrollY = document.body.style.top;
+      const scrollPosition = scrollY ? parseInt(scrollY, 10) * -1 : 0;
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.overflow = '';
       if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'instant' });
       }
     }
     return () => {
       const scrollY = document.body.style.top;
+      const scrollPosition = scrollY ? parseInt(scrollY, 10) * -1 : 0;
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
       document.body.style.overflow = '';
       if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        window.scrollTo({ top: scrollPosition, left: 0, behavior: 'instant' });
       }
     };
   }, [lockedMemberId]);
