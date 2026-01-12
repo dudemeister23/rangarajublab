@@ -115,15 +115,36 @@ const Team: React.FC = () => {
   // Logic: If hovering a member with publications, show them.
   // Otherwise, show the last locked member who had publications.
 
-  // Lock body scroll when modal is open
+  // Lock body scroll when modal is open (iOS-compatible approach)
   useEffect(() => {
     if (lockedMemberId) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     };
   }, [lockedMemberId]);
 
@@ -612,7 +633,7 @@ const Team: React.FC = () => {
       {/* Mobile Modal for Team Members */}
       {lockedMemberId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm lg:hidden animate-in fade-in duration-200" onClick={() => setLockedMemberId(null)}>
-          <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden animate-in zoom-in-95 duration-200 max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
+          <div className="bg-white rounded-3xl shadow-2xl max-w-lg w-full animate-in zoom-in-95 duration-200 max-h-[85vh] flex flex-col overflow-hidden" onClick={e => e.stopPropagation()}>
 
             {/* Logic to determine what to show based on lockedContentId and panelMode */}
             {(() => {
@@ -681,7 +702,7 @@ const Team: React.FC = () => {
               const hasBoth = hasAwards && hasPublications;
 
               return (
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full max-h-[85vh] overflow-hidden">
                   {/* Header */}
                   <div className="p-6 border-b border-neuro-100 flex items-center justify-between bg-neuro-50/50 flex-shrink-0">
                     <div className="flex items-center gap-4">
@@ -721,7 +742,7 @@ const Team: React.FC = () => {
                   )}
 
                   {/* Content */}
-                  <div className="p-6 overflow-y-auto custom-scrollbar flex-grow min-h-0 overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
+                  <div className="p-6 overflow-y-auto custom-scrollbar flex-1 min-h-0 overscroll-contain touch-pan-y" style={{ WebkitOverflowScrolling: 'touch' }}>
                     {panelMode === 'contact' && (
                       <div className="flex flex-col items-center justify-center h-full text-center">
                         <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-4 border-slate-100 shadow-sm">
