@@ -114,6 +114,19 @@ const Team: React.FC = () => {
   // Determine which member to display in the panel
   // Logic: If hovering a member with publications, show them.
   // Otherwise, show the last locked member who had publications.
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (lockedMemberId) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [lockedMemberId]);
+
   const memberToDisplayId = lockedContentId;
 
   return (
