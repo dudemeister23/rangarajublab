@@ -622,7 +622,7 @@ const Team: React.FC = () => {
                         <i className="fa-solid fa-xmark"></i>
                       </button>
                     </div>
-                    <div className="p-6 overflow-y-scroll flex-1 overscroll-contain visible-scrollbar" style={{ WebkitOverflowScrolling: 'touch' }}>
+                    <div className="p-6 overflow-y-scroll flex-1 overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
                       <div className="prose prose-sm prose-slate max-w-none">
                         <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
                         {isPhD ? (
@@ -668,7 +668,7 @@ const Team: React.FC = () => {
               const hasBoth = hasAwards && hasPublications;
 
               return (
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full min-h-0">
                   {/* Header */}
                   <div className="p-6 border-b border-neuro-100 flex items-center justify-between bg-neuro-50/50 flex-shrink-0">
                     <div className="flex items-center gap-4">
@@ -708,7 +708,7 @@ const Team: React.FC = () => {
                   )}
 
                   {/* Content */}
-                  <div className="p-6 overflow-y-auto custom-scrollbar flex-grow">
+                  <div className="p-6 overflow-y-scroll flex-grow min-h-0 overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
                     {panelMode === 'contact' && (
                       <div className="flex flex-col items-center justify-center h-full text-center">
                         <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-4 border-slate-100 shadow-sm">
