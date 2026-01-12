@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
             />
           </div>
           <div className="flex flex-col items-start border-l border-slate-800 pl-5 text-left">
-            <span className="text-white font-bold font-serif tracking-tight text-xl">The Rangaraju Lab</span>
+            <span className="text-white font-bold font-sans tracking-tight text-xl">The Rangaraju Lab</span>
             <span className="text-xs uppercase tracking-[0.2em] text-neuro-500 font-semibold">Neuroenergetics</span>
           </div>
         </div>
