@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
               className="h-16 w-auto object-contain drop-shadow-sm"
             />
           </div>
-          <span className={`text-[32px] font-bold font-serif tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
+          <span className={`text-[32px] font-bold font-serif tracking-tight transition-colors ${isScrolled ? 'text-slate-900' : 'text-white'}`} style={{ fontFamily: '"Libre Baskerville", serif' }}>
             Rangaraju Lab
           </span>
         </a>
