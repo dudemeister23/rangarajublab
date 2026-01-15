@@ -145,20 +145,21 @@ const Team: React.FC = () => {
     setHoveredMemberId(id);
   };
 
-  // Determine which member to display in the panel
-  // Logic: If hovering a member with publications, show them.
   // Otherwise, show the last locked member who had publications.
 
-  // Lock body scroll when modal is open (iOS-compatible approach)
+  // Lock body scroll when modal is open (iOS-compatible approach) - ONLY on mobile
   useEffect(() => {
-    if (lockedMemberId) {
+    // Only apply scroll lock on mobile (below lg breakpoint where modal is visible)
+    const isMobile = window.innerWidth < 1024;
+
+    if (lockedMemberId && isMobile) {
       const scrollY = window.scrollY;
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
       document.body.style.left = '0';
       document.body.style.right = '0';
       document.body.style.overflow = 'hidden';
-    } else {
+    } else if (!lockedMemberId) {
       const scrollY = document.body.style.top;
       const scrollPosition = scrollY ? parseInt(scrollY, 10) * -1 : 0;
       document.body.style.position = '';
