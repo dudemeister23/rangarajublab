@@ -91,6 +91,20 @@ const Team: React.FC = () => {
     return pi ? [pi, ...sortedOthers] : sortedOthers;
   }, []);
 
+  // Helper function to get image scale class for team member photos
+  const getImageScale = (memberId: string) => {
+    switch (memberId) {
+      case 't1': return 'scale-[1.45] translate-y-3';
+      case 't2': return 'scale-[1.1]';
+      case 't3': return 'scale-[1.1]';
+      case 't6': return 'scale-[1.1]';
+      case 't8': return 'scale-[1.1]';
+      case 't9': return 'scale-[1.1]';
+      case 't10': return 'scale-[1.15]';
+      default: return '';
+    }
+  };
+
   const hasPublications = (id: string) => {
     const member = TEAM_MEMBERS.find(m => m.id === id);
     return member?.publicationIds && member.publicationIds.length > 0;
@@ -220,14 +234,7 @@ const Team: React.FC = () => {
                           <img
                             src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0fdfa&color=0d9488&size=256`}
                             alt={member.name}
-                            className={`w-full h-full object-cover ${member.id === 't1' ? 'scale-[1.45] translate-y-3' :
-                                member.id === 't2' ? 'scale-[1.1]' :
-                                  member.id === 't3' ? 'scale-[1.1]' :
-                                    member.id === 't6' ? 'scale-[1.1]' :
-                                      member.id === 't8' ? 'scale-[1.1]' :
-                                        member.id === 't9' ? 'scale-[1.1]' :
-                                          member.id === 't10' ? 'scale-[1.15]' : ''
-                              }`}
+                            className={`w-full h-full object-cover ${getImageScale(member.id)}`}
                           />
                         </div>
                       </div>
@@ -410,7 +417,7 @@ const Team: React.FC = () => {
                       return (
                         <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col items-center justify-center text-center p-8">
                           <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-slate-100 shadow-sm">
-                            <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                            <img src={member.image} alt={member.name} className={`w-full h-full object-cover ${getImageScale(member.id)}`} />
                           </div>
                           <h4 className="font-bold text-2xl text-slate-900 mb-2">{member.name}</h4>
                           <p className="text-neuro-600 font-medium mb-8">{member.role}</p>
