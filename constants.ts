@@ -73,11 +73,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't2', name: 'Debalina Acharyya', role: 'Postdoctoral Fellow', image: 'assets/team/debalina-acharyya.jpg', email: 'debalina.acharyya@mpfi.org', joinedYear: '2024' },
   { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'], awardIds: ['a1', 'a6', 'a8', 'a9', 'a11', 'a16', 'a17'], email: 'ilika.ghosh@mpfi.org', joinedYear: '2020' },
   { id: 't6', name: 'Juan Patarroyo', role: 'Lab Manager', image: 'assets/team/juan-patarroyo.jpg', email: 'juan.patarroyo@mpfi.org', joinedYear: '2025' },
-  { id: 't7', name: 'Monil Shah', role: 'PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
+  { id: 't7', name: 'Monil Shah', role: 'IMPRS PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org', joinedYear: '2024' },
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
-  { id: 't3', name: 'Ojasee Bapat', role: 'PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
+  { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
   { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pp3', 'pp4', 'pp5', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
+  { id: 't10', name: 'Chelsea Mapp', role: 'IMPRS Rotation Student', image: 'assets/team/chelsea-mapp.jpg', email: 'chelsea.mapp@mpfi.org', joinedYear: '2025' },
 ];
 
 export const AWARDS: Award[] = [

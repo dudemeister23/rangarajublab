@@ -71,6 +71,26 @@ const Team: React.FC = () => {
 
   const activeMemberId = hoveredMemberId || lockedMemberId;
 
+  // Sort team members by surname (last name), with Dr. Vidhya Rangaraju always first
+  const sortedTeamMembers = React.useMemo(() => {
+    const getSurname = (name: string) => {
+      const parts = name.trim().split(' ');
+      return parts[parts.length - 1].toLowerCase();
+    };
+
+    // Separate PI (t1) from other members
+    const pi = TEAM_MEMBERS.find(m => m.id === 't1');
+    const otherMembers = TEAM_MEMBERS.filter(m => m.id !== 't1');
+
+    // Sort other members by surname
+    const sortedOthers = [...otherMembers].sort((a, b) => {
+      return getSurname(a.name).localeCompare(getSurname(b.name));
+    });
+
+    // Return PI first, then sorted members
+    return pi ? [pi, ...sortedOthers] : sortedOthers;
+  }, []);
+
   const hasPublications = (id: string) => {
     const member = TEAM_MEMBERS.find(m => m.id === id);
     return member?.publicationIds && member.publicationIds.length > 0;
@@ -162,7 +182,7 @@ const Team: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 max-w-7xl mx-auto items-stretch">
           {/* Team Grid */}
           <div className="lg:col-span-8 flex flex-wrap justify-center gap-x-6 gap-y-12 content-start">
-            {[...TEAM_MEMBERS,
+            {[...sortedTeamMembers,
             { id: 'placeholder-1', name: 'Open Position', role: 'Postdoctoral Fellow', image: null },
             { id: 'placeholder-2', name: 'Open Position', role: 'PhD Student', image: null }
             ].map((member) => {
@@ -200,7 +220,14 @@ const Team: React.FC = () => {
                           <img
                             src={member.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=f0fdfa&color=0d9488&size=256`}
                             alt={member.name}
-                            className={`w-full h-full object-cover ${member.id === 't1' ? 'scale-[1.35] translate-y-3' : ''}`}
+                            className={`w-full h-full object-cover ${member.id === 't1' ? 'scale-[1.45] translate-y-3' :
+                                member.id === 't2' ? 'scale-[1.1]' :
+                                  member.id === 't3' ? 'scale-[1.1]' :
+                                    member.id === 't6' ? 'scale-[1.1]' :
+                                      member.id === 't8' ? 'scale-[1.1]' :
+                                        member.id === 't9' ? 'scale-[1.1]' :
+                                          member.id === 't10' ? 'scale-[1.15]' : ''
+                              }`}
                           />
                         </div>
                       </div>
