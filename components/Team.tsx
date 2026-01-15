@@ -202,7 +202,8 @@ const Team: React.FC = () => {
             { id: 'placeholder-2', name: 'Open Position', role: 'PhD Student', image: null }
             ].map((member) => {
               const isPlaceholder = member.id.startsWith('placeholder');
-              const isActive = activeMemberId === member.id;
+              // Show as active if: this member's content is displayed OR this member is being hovered
+              const isActive = member.id === lockedContentId || member.id === hoveredMemberId;
               const isLocked = lockedMemberId === member.id;
 
               return (
