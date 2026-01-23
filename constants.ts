@@ -453,7 +453,7 @@ export const ALUMNI_DATA: AlumniGroup[] = [
 export const MEDIA_ITEMS: MediaItem[] = [
   {
     id: 'm1',
-    title: 'ALS-linked protein VAP stabilizes mitochondria to support memory formation',
+    title: 'SfN 2024 Celebration of Women in Neuroscience',
     youtubeId: 'To1CNYl39kY'
   },
   {
@@ -463,7 +463,7 @@ export const MEDIA_ITEMS: MediaItem[] = [
   },
   {
     id: 'm3',
-    title: 'Research Highlight: Mitochondria and Memory',
+    title: 'ALS-linked protein VAP stabilizes mitochondria to support memory formation',
     youtubeId: 'X5cndm5inOU'
   },
   {
