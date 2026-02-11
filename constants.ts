@@ -77,7 +77,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org', joinedYear: '2024' },
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
   { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
-  { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pp3', 'pp4', 'pp5', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
+  { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pub0', 'pp3', 'pp4', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
   { id: 't10', name: 'Chelsea Mapp', role: 'IMPRS Rotation Student', image: 'assets/team/chelsea-mapp.jpg', email: 'chelsea.mapp@mpfi.org', joinedYear: '2025' },
 ];
 
@@ -104,6 +104,14 @@ export const AWARDS: Award[] = [
 ];
 
 export const PUBLICATIONS: Publication[] = [
+  {
+    id: 'pub0',
+    year: 2026,
+    title: 'Mitochondrial Ca2+ efflux controls neuronal metabolism and long-term memory across species',
+    citation: 'Amrapali Vishwanath, A., Comyn, T., Mira, R. G., Brossier, C., Pascual-Caro, C., Faour, M., Boumendil, K., Chintaluri, C., Ramon-Duaso, C., Fan, R., Ghosh, K., Farrants, H., Berwick, J.-P., Sivakumar, R., Lopez-Manzaneda, M., Schreiter, E. R., Preat, T., Vogels, T. P., Rangaraju, V., Busquets-Garcia, A., Plaçais, P.-Y., Pavlowsky, A., & de Juan-Sanz, J. (2026). Mitochondrial Ca2+ efflux controls neuronal metabolism and long-term memory across species. Nature Metabolism.',
+    link: 'https://doi.org/10.1038/s42255-026-01451-w',
+    coverImage: 'assets/publications/pub0-cover.jpg'
+  },
   {
     id: 'pub1',
     year: 2024,
@@ -220,14 +228,7 @@ export const PREPRINTS: Publication[] = [
     link: 'https://elifesciences.org/reviewed-preprints/107845/',
     coverImage: 'assets/preprints/elife-logo.png'
   },
-  {
-    id: 'pp5',
-    year: 2024,
-    title: 'Mitochondrial Ca2+ efflux controls neuronal metabolism and long-term memory across species',
-    citation: 'Vishwanath, A. A., Comyn, T., Chintaluri, C., Ramon-Duaso, C., Fan, R., Sivakumar, R., Lopez-Manzaneda, M., Preat, T., Vogels, T. P., Rangaraju, V., Busquets-Garcia, A., Placais, P.-Y., Pavlowsky, A., & Juan-Sanz, J. de. (2024). bioRxiv.',
-    link: 'https://doi.org/10.1101/2024.02.01.578153',
-    coverImage: 'assets/preprints/biorxiv-logo.jpg'
-  }
+
 ];
 
 export const CONTACT_INFO = {
@@ -420,7 +421,7 @@ export const ALUMNI_DATA: AlumniGroup[] = [
       { id: 'al1', name: 'Suhas Sunke', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg', email: 'Suhas.Sunke@mpfi.org' },
       { id: 'al2', name: 'Aidan McDonald', labRole: 'Rotation Student', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%', email: 'aidanmcdonal2024@fau.edu' },
       { id: 'al3', name: 'Rasya Bhat', labRole: "Master's Student", details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2, email: 'rasya.bhat@student.uni-tuebingen.de' },
-      { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2, publicationIds: ['pp5'], email: 'riya_sivakumar@fas.harvard.edu' },
+      { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2, publicationIds: ['pub0'], email: 'riya_sivakumar@fas.harvard.edu' },
       { id: 'al5', name: 'Danyu Luo', labRole: 'Postbaccalaureate', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%', email: 'Danyu.luo@northwestern.edu' },
       { id: 'al7', name: 'Jacob LaMar', labRole: 'Postbaccalaureate', details: 'MS at FAU', image: 'assets/alumni/jacob_lamar.jpg', publicationIds: ['pub3'] },
 

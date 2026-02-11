@@ -35,38 +35,36 @@ const Publications: React.FC = () => {
 
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {PREPRINTS.map(preprint => (
               <a
                 key={preprint.id}
                 href={preprint.link}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white p-8 rounded-3xl border-2 border-slate-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex gap-6 group w-full md:w-[calc(33.333%-1.5rem)] text-left relative"
+                className="bg-white p-8 rounded-3xl border-2 border-slate-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col group text-left"
               >
-                {/* Left column: Logo + Button */}
-                <div className="flex flex-col gap-3 flex-shrink-0">
-                  <div className="w-20 h-20 bg-slate-50 rounded-2xl p-2 border border-slate-100 flex items-center justify-center">
-                    <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="w-full h-full object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
-                  </div>
-                  <div
-                    className="flex flex-col items-center justify-center w-20 h-14 bg-neuro-600 text-white text-[10px] font-bold rounded-2xl shadow-neuro-200 shadow-lg hover:bg-neuro-700 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-center leading-tight cursor-pointer"
-                  >
-                    <span>Read</span>
-                    <span>Article</span>
-                  </div>
+                {/* Top: Logo */}
+                <div className="flex items-center gap-3 mb-5">
+                  <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="h-10 w-auto object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
+                  <span className="text-xs font-semibold text-slate-900 uppercase tracking-wide ml-auto">{preprint.year}</span>
                 </div>
-                {/* Right column: Title + Citation */}
-                <div className="flex-grow min-w-0">
-                  <h4 className="text-lg font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors">
+                {/* Middle: Title + Citation */}
+                <div className="flex-grow min-h-0 overflow-hidden">
+                  <h4 className="text-base font-bold text-slate-800 leading-snug mb-3 group-hover:text-neuro-600 transition-colors">
                     {preprint.title}
                   </h4>
                   <p className="text-sm text-slate-500 italic leading-relaxed">
                     {formatCitation(preprint.citation)}
                   </p>
                 </div>
-                <div className="absolute bottom-6 left-6 transition-colors duration-300 pointer-events-none">
-                  <i className="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-neuro-600 text-2xl"></i>
+                {/* Bottom: Button */}
+                <div className="mt-4 pt-3 border-t border-slate-100">
+                  <div
+                    className="inline-flex items-center px-4 py-2 bg-neuro-600 text-white text-xs font-bold rounded-full shadow-neuro-200 shadow-lg group-hover:bg-neuro-700 group-hover:shadow-xl transition-all duration-300 cursor-pointer"
+                  >
+                    Read Article
+                  </div>
                 </div>
               </a>
             ))}
@@ -148,9 +146,7 @@ const Publications: React.FC = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-6 right-6 transition-colors duration-300 pointer-events-none">
-                <i className="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-neuro-600 text-2xl"></i>
-              </div>
+
             </a>
           ))}
         </div>
