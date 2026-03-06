@@ -396,6 +396,7 @@ export const COLLABORATORS = [
   { name: 'Inagaki Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/inagaki-lab/' },
   { name: 'Kaasik Lab, U Tartu', url: 'https://biomeditsiin.ut.ee/en/content/laboratory-mitochondrial-medicine' },
   { name: 'Lippincott-Schwarz Lab, Janelia', url: 'https://www.janelia.org/lab/lippincott-schwartz-lab' },
+  { name: 'Loomba, Janelia', url: 'https://www.janelia.org/people/sahil-loomba' },
   { name: 'Lu Lab, Indiana U', url: 'https://lulaboratory.com/' },
   { name: 'Puthanveettil Lab, UF Scripps', url: 'https://puthanveettil.scripps.ufl.edu/' },
   { name: 'Ryan Lab, Weill Cornell', url: 'https://sites.google.com/site/ryanlab1/Home' },
