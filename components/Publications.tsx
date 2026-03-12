@@ -81,13 +81,15 @@ const Publications: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {PUBLICATIONS.map((pub) => (
+          {PUBLICATIONS.map((pub, index) => {
+            const isLastOdd = PUBLICATIONS.length % 2 !== 0 && index === PUBLICATIONS.length - 1;
+            return (
             <a
               key={pub.id}
               href={pub.link}
               target="_blank"
               rel="noreferrer"
-              className="bg-white p-6 rounded-3xl shadow-sm border-2 border-slate-200 hover:scale-[1.02] transition-all duration-300 group flex flex-col h-full relative"
+              className={`bg-white p-6 rounded-3xl shadow-sm border-2 border-slate-200 hover:scale-[1.02] transition-all duration-300 group flex flex-col h-full relative ${isLastOdd ? 'lg:col-span-2 lg:max-w-[calc(50%-1rem)] lg:mx-auto' : ''}`}
               itemScope
               itemType="https://schema.org/ScholarlyArticle"
             >
@@ -148,7 +150,8 @@ const Publications: React.FC = () => {
 
 
             </a>
-          ))}
+          );
+          })}
         </div>
 
         <div className="mt-8 md:hidden text-center">
