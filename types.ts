@@ -74,6 +74,7 @@ export interface AlumniGroup {
 export interface MediaItem {
   id: string;
   title: string;
-  youtubeId: string;
+  youtubeId?: string;
+  embedUrl?: string;
   thumbnail?: string;
 }

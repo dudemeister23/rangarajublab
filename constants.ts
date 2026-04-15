@@ -244,6 +244,15 @@ export const CONTACT_INFO = {
 };
 export const NEWS_ITEMS: NewsItem[] = [
   {
+    id: 'n17',
+    title: 'MPFI Researcher Joins Panel on Memory and Brain Health',
+    date: 'April 10, 2026',
+    image: 'assets/news/memory-brain-health-panel.jpg',
+    category: 'Event',
+    externalLink: 'https://www.mpfi.org/mpfi-researcher-joins-panel-on-memory-and-brain-health/',
+    content: 'Vidhya Rangaraju, PhD, Research Group Leader at the Max Planck Florida Institute for Neuroscience (MPFI), joined a panel of neuroscientists from Columbia University and Mount Sinai for "Memory & the Mind: What Science Tells Us About Brain Health." The program is a service of South Florida PBS and is available to view online and on local television throughout April.\n\nThe town hall covers what science currently understands about memory, cognitive aging, and brain resilience, and what people can do at any age to support brain function. Dr. Rangaraju was joined on the panel by Daphna Shohamy, PhD, Director and CEO of the Zuckerman Mind Brain Behavior Institute at Columbia University, and Paul Kenny, PhD, Director of The Friedman Brain Institute at the Icahn School of Medicine at Mount Sinai. The program was hosted by Pam Giganti.\n\nDuring the discussion, Dr. Rangaraju explained the role synapses play in forming and storing memories, describing the tiny mitochondria stationed near synaptic junctions as biological power plants that fuel the memory formation process. She also addressed the science of sleep — characterizing the brain\'s nighttime shift from "recording mode" to "filing mode" — and the connection between physical exercise, mitochondrial activity, and long-term brain health. On neuroplasticity, she noted that the brain\'s capacity to remain both stable and adaptable continues well into older age, supported by the same lifestyle choices that keep mitochondria healthy.\n\nThe program is available to stream anytime at allhealthtv.com/townhall, and airs throughout April on the Health Channel, WPBT (South Florida PBS, Miami/Fort Lauderdale), and WXEL (South Florida PBS, West Palm Beach).'
+  },
+  {
     id: 'n16',
     title: 'Preprint Featured on preLights: "Synapses drive local mitochondrial ATP synthesis to fuel plasticity"',
     date: 'May 2, 2025',
@@ -453,6 +462,11 @@ export const ALUMNI_DATA: AlumniGroup[] = [
 ];
 
 export const MEDIA_ITEMS: MediaItem[] = [
+  {
+    id: 'm5',
+    title: 'Memory & the Mind: What Science Tells Us About Brain Health (South Florida PBS Town Hall)',
+    embedUrl: 'https://cdn.jwplayer.com/players/ZY6jpc32-WvNph5Xr.html'
+  },
   {
     id: 'm1',
     title: 'SfN 2024 Celebration of Women in Neuroscience',

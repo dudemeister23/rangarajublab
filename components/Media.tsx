@@ -14,7 +14,7 @@ const Media: React.FC = () => {
                         <div key={item.id} className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100">
                             <div className="aspect-video w-full bg-black relative">
                                 <iframe
-                                    src={`https://www.youtube.com/embed/${item.youtubeId}`}
+                                    src={item.embedUrl ?? `https://www.youtube.com/embed/${item.youtubeId}`}
                                     title={item.title}
                                     className="absolute inset-0 w-full h-full"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
