@@ -75,6 +75,6 @@ export interface MediaItem {
   id: string;
   title: string;
   youtubeId?: string;
-  embedUrl?: string;
-  thumbnail?: string;
+  videoUrl?: string;
+  poster?: string;
 }

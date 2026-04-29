@@ -463,9 +463,15 @@ export const ALUMNI_DATA: AlumniGroup[] = [
 
 export const MEDIA_ITEMS: MediaItem[] = [
   {
+    id: 'm6',
+    title: 'The Resilient Brain (South Florida PBS Documentary)',
+    videoUrl: 'https://cdn.jwplayer.com/videos/qtz4zQIL-7gP2QH6x.mp4#t=2089',
+    poster: 'assets/media/resilient-brain-poster.jpg'
+  },
+  {
     id: 'm5',
     title: 'Memory & the Mind: What Science Tells Us About Brain Health (South Florida PBS Town Hall)',
-    embedUrl: 'https://cdn.jwplayer.com/players/ZY6jpc32-WvNph5Xr.html'
+    videoUrl: 'https://cdn.jwplayer.com/videos/Bnkvis7Y-7gP2QH6x.mp4'
   },
   {
     id: 'm1',
