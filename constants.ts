@@ -471,7 +471,8 @@ export const MEDIA_ITEMS: MediaItem[] = [
   {
     id: 'm5',
     title: 'Memory & the Mind: What Science Tells Us About Brain Health (South Florida PBS Town Hall)',
-    videoUrl: 'https://cdn.jwplayer.com/videos/Bnkvis7Y-7gP2QH6x.mp4'
+    videoUrl: 'https://cdn.jwplayer.com/videos/Bnkvis7Y-7gP2QH6x.mp4',
+    poster: 'assets/media/memory-and-the-mind-poster.jpg'
   },
   {
     id: 'm1',
