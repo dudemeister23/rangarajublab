@@ -50,6 +50,7 @@ export interface NewsItem {
   category?: string;
   audioUrl?: string;
   externalLink?: string;
+  pdfUrl?: string;
 }
 
 export interface AlumniMember {

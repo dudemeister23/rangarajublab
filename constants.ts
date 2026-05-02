@@ -244,6 +244,16 @@ export const CONTACT_INFO = {
 };
 export const NEWS_ITEMS: NewsItem[] = [
   {
+    id: 'n18',
+    title: 'South Florida PBS Health Channel Debuts New Brain Health Specials on Memory and Resilience',
+    date: 'May 1, 2026',
+    image: 'assets/media/resilient-brain-poster.jpg',
+    category: 'Press Release',
+    externalLink: 'https://allhealthtv.com',
+    pdfUrl: 'assets/news/south-florida-pbs-press-release-may-2026.pdf',
+    content: 'The South Florida PBS Health Channel is bringing the conversation around brain health and mental well-being to the forefront with two powerful programs: The Resilient Brain and Memory & the Mind: What Science Tells Us About Brain Health Town Hall. Together, these specials explore the science of the brain while offering meaningful insight into how mental health is shaped, supported, and strengthened throughout life.\n\nThe Resilient Brain is a compelling documentary that dives into the extraordinary adaptability of the human brain. Through the voices of scientists, patients, and families, the film reveals how the brain responds to trauma, neurological disease, and life\'s most complex challenges — from veterans recovering from traumatic brain injuries to children with rare neurological conditions and older adults navigating Parkinson\'s and Alzheimer\'s — highlighting resilience as both a biological and emotional force.\n\nComplementing the documentary, Memory & the Mind: What Science Tells Us About Brain Health Town Hall brings together leading experts for an engaging and informative discussion on memory, cognitive aging, and brain resilience. Hosted by Pam Giganti, the town hall features:\n\n• Daphna Shohamy, PhD – Director & CEO, Zuckerman Institute, Columbia University\n• Paul Kenny, PhD – Director, The Friedman Brain Institute, Mount Sinai Health System, NY\n• Vidhya Rangaraju, PhD – Research Group Leader, Rangaraju Lab, Max Planck Florida Institute for Neuroscience\n\nDuring the discussion, experts emphasize the unprecedented pace of discovery in brain science. "We by far know more now than we ever did before, and it\'s a time of rapid expansion of knowledge and an enormous amount of discovery," says Dr. Shohamy.\n\nThe town hall also focuses on actionable steps people can take to support their brain and mental health. "It\'s hard to overstate the positive impact of exercise on brain function," notes Dr. Paul Kenny, while Dr. Vidhya Rangaraju highlights the critical role of rest: "Sleep is very important. It\'s important to consolidate memories, clear waste, and recharge the mitochondria so that brain cells can be healthy."\n\nAs mental health continues to be a national priority, these programs provide viewers with both knowledge and empowerment, connecting cutting-edge neuroscience with everyday actions that support emotional and cognitive well-being.\n\nStream The Resilient Brain and Memory & the Mind: What Science Tells Us About Brain Health Town Hall at AllHealthTV.com.'
+  },
+  {
     id: 'n17',
     title: 'MPFI Researcher Joins Panel on Memory and Brain Health',
     date: 'April 10, 2026',

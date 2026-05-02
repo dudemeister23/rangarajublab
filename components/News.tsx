@@ -117,7 +117,6 @@ const News: React.FC = () => {
                                 alt={activeNews.title}
                                 className="w-full max-h-80 object-contain"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <button
                                 onClick={closeModal}
                                 className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-slate-600 hover:bg-white hover:text-slate-900 transition-colors shadow-lg"
@@ -125,19 +124,47 @@ const News: React.FC = () => {
                             >
                                 <i className="fa-solid fa-xmark text-lg"></i>
                             </button>
-                            <div className="absolute bottom-6 left-6 right-6">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <span className="px-3 py-1 bg-neuro-600 text-white text-xs font-bold rounded-full">
-                                        {activeNews.category || 'News'}
-                                    </span>
-                                    <time dateTime={new Date(activeNews.date).toISOString().split('T')[0]} className="text-white/80 text-sm font-medium">
-                                        {activeNews.date}
-                                    </time>
-                                </div>
-                                <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
-                                    {activeNews.title}
-                                </h2>
+                        </div>
+
+                        {/* Modal Title Header */}
+                        <div className="px-6 md:px-8 pt-6 pb-5 border-b border-slate-100">
+                            <div className="flex items-center gap-3 mb-3">
+                                <span className="px-3 py-1 bg-neuro-600 text-white text-xs font-bold rounded-full">
+                                    {activeNews.category || 'News'}
+                                </span>
+                                <time dateTime={new Date(activeNews.date).toISOString().split('T')[0]} className="text-slate-500 text-sm font-medium">
+                                    {activeNews.date}
+                                </time>
                             </div>
+                            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+                                {activeNews.title}
+                            </h2>
+                            {(activeNews.externalLink || activeNews.pdfUrl) && (
+                                <div className="mt-5 flex flex-wrap gap-3">
+                                    {activeNews.externalLink && (
+                                        <a
+                                            href={activeNews.externalLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-neuro-600 hover:bg-neuro-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                                        >
+                                            Read Full Story
+                                            <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                        </a>
+                                    )}
+                                    {activeNews.pdfUrl && (
+                                        <a
+                                            href={activeNews.pdfUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-neuro-600 font-bold rounded-full border-2 border-neuro-600 transition-all duration-300 shadow-sm hover:shadow-md"
+                                        >
+                                            Download Press Release (PDF)
+                                            <i className="fa-solid fa-file-pdf text-sm"></i>
+                                        </a>
+                                    )}
+                                </div>
+                            )}
                         </div>
 
                         {/* Modal Content */}
@@ -161,20 +188,6 @@ const News: React.FC = () => {
                                     {activeNews.content}
                                 </p>
                             </div>
-
-                            {activeNews.externalLink && (
-                                <div className="mt-8">
-                                    <a
-                                        href={activeNews.externalLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 px-6 py-3 bg-neuro-600 hover:bg-neuro-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
-                                    >
-                                        Read Full Story
-                                        <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                                    </a>
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>
