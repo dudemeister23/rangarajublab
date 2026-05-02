@@ -168,7 +168,7 @@ const News: React.FC = () => {
                         </div>
 
                         {/* Modal Content */}
-                        <div className="p-6 md:p-8 max-h-[50vh] overflow-y-auto">
+                        <div className="p-6 md:p-8 max-h-[50vh] overflow-y-auto overscroll-contain">
                             {activeNews.audioUrl && (
                                 <div className="mb-6 p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                     <div className="flex items-center gap-3 mb-3">
