@@ -30,8 +30,33 @@ const Hero: React.FC = () => {
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight drop-shadow-md">
             Cracking <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neuro-100 to-teal-300 drop-shadow-none">
-              Neuroenergetics
+            <span className="inline-block leading-none align-baseline">
+              <span className="sr-only">Neuroenergetics</span>
+              <svg
+                viewBox="0 0 1100 160"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                style={{ height: '1em', width: 'auto' }}
+              >
+                <defs>
+                  <linearGradient id="neuroenergetics-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#ccfbf1" />
+                    <stop offset="100%" stopColor="#5eead4" />
+                  </linearGradient>
+                </defs>
+                <text
+                  x="550"
+                  y="128"
+                  textAnchor="middle"
+                  fill="url(#neuroenergetics-gradient)"
+                  fontFamily="Inter, sans-serif"
+                  fontWeight="700"
+                  fontSize="140"
+                  letterSpacing="-3"
+                >
+                  Neuroenergetics
+                </text>
+              </svg>
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-semibold drop-shadow">
