@@ -3,8 +3,8 @@ import { DR_RANGARAJU_PHOTO } from '../constants';
 
 const Bio: React.FC = () => {
   return (
-    <section className="pt-52 pb-20 bg-white">
-      <div id="bio" className="container mx-auto px-6 md:px-12 scroll-mt-48">
+    <section className="pt-[6.5rem] pb-20 bg-white">
+      <div id="bio" className="container mx-auto px-6 md:px-12 scroll-mt-32">
         <div className="flex flex-col lg:flex-row gap-12 items-center justify-center">
 
           {/* Image Column */}

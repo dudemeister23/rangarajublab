@@ -8,23 +8,16 @@ const SpotifyIcon: React.FC<{ className?: string }> = ({ className }) => (
     </svg>
 );
 
-const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => {
+const MediaCard: React.FC<{ item: MediaItem; className?: string }> = ({ item, className = '' }) => {
     const [played, setPlayed] = useState(false);
-    const useFacade = !!(item.youtubeId && item.poster && !played);
+    const useVideoFacade = !!(item.videoUrl && item.poster && !played);
+    const useYoutubeFacade = !!(item.youtubeId && item.poster && !played);
+    const useFacade = useVideoFacade || useYoutubeFacade;
 
     return (
-        <div className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100">
-            <div className="aspect-video w-full bg-black relative">
-                {item.videoUrl ? (
-                    <video
-                        controls
-                        poster={item.poster}
-                        preload={item.poster ? 'none' : 'metadata'}
-                        className="absolute inset-0 w-full h-full"
-                    >
-                        <source src={item.videoUrl} type="video/mp4" />
-                    </video>
-                ) : useFacade ? (
+        <div className={`group h-full bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col ${className}`}>
+            <div className="aspect-video w-full bg-black relative flex-shrink-0">
+                {useFacade ? (
                     <button
                         type="button"
                         onClick={() => setPlayed(true)}
@@ -38,13 +31,23 @@ const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => {
                             loading="lazy"
                         />
                         <span className="absolute inset-0 flex items-center justify-center">
-                            <span className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/60 group-hover/play:bg-black/80 transition-colors backdrop-blur-sm shadow-lg">
-                                <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" className="w-7 h-7 md:w-9 md:h-9 ml-1">
+                            <span className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-black/60 group-hover/play:bg-black/80 transition-colors backdrop-blur-sm shadow-lg">
+                                <svg viewBox="0 0 24 24" fill="white" aria-hidden="true" className="w-6 h-6 md:w-7 md:h-7 ml-1">
                                     <path d="M8 5v14l11-7z" />
                                 </svg>
                             </span>
                         </span>
                     </button>
+                ) : item.videoUrl ? (
+                    <video
+                        controls
+                        autoPlay={played}
+                        poster={item.poster}
+                        preload={item.poster ? 'none' : 'metadata'}
+                        className="absolute inset-0 w-full h-full"
+                    >
+                        <source src={item.videoUrl} type="video/mp4" />
+                    </video>
                 ) : (
                     <iframe
                         src={`https://www.youtube.com/embed/${item.youtubeId}${played ? '?autoplay=1' : ''}`}
@@ -54,22 +57,22 @@ const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => {
                         allowFullScreen
                     ></iframe>
                 )}
-            </div>
-            <div className="p-6">
-                <h3 className="text-lg md:text-xl font-bold text-slate-900 group-hover:text-neuro-600 transition-colors leading-tight">
-                    {item.title}
-                </h3>
-                {item.spotifyUrl && (
+                {item.spotifyUrl && !played && (
                     <a
                         href={item.spotifyUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-white text-sm font-semibold transition-colors"
+                        className="absolute bottom-3 left-3 z-20 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-white text-xs font-semibold transition-colors shadow-lg"
                     >
-                        <SpotifyIcon className="w-4 h-4" />
+                        <SpotifyIcon className="w-3.5 h-3.5" />
                         Listen on Spotify
                     </a>
                 )}
+            </div>
+            <div className="p-5 flex flex-col">
+                <h3 className="text-base lg:text-lg font-bold text-slate-900 group-hover:text-neuro-600 transition-colors leading-tight">
+                    {item.title}
+                </h3>
             </div>
         </div>
     );
@@ -83,10 +86,12 @@ const Media: React.FC = () => {
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2">Media</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-                    {MEDIA_ITEMS.map((item) => (
-                        <MediaCard key={item.id} item={item} />
-                    ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    {MEDIA_ITEMS.map((item, index) => {
+                        const centerLastCard = MEDIA_ITEMS.length % 3 === 1 && index === MEDIA_ITEMS.length - 1;
+
+                        return <MediaCard key={item.id} item={item} className={centerLastCard ? 'lg:col-start-2' : ''} />;
+                    })}
                 </div>
             </div>
         </section>

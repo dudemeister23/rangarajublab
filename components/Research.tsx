@@ -7,7 +7,7 @@ const Research: React.FC = () => {
 
   return (
     <section id="research" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-6 md:px-12 mt-20">
+      <div className="container mx-auto px-6 md:px-12 mt-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Research Projects</h2>
           <p className="text-slate-600 text-lg">

@@ -247,7 +247,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     id: 'n18',
     title: 'Dr. Rangaraju Featured in South Florida PBS Brain Health Specials',
     date: 'May 1, 2026',
-    image: 'assets/news/resilient-brain-title-card.jpg',
+    image: 'assets/news/resilient-brain-lab-thumbnail.jpg',
     category: 'Press Release',
     externalLink: 'https://allhealthtv.com',
     pdfUrl: 'assets/news/south-florida-pbs-press-release-may-2026.pdf',
