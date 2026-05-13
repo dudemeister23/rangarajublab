@@ -35,8 +35,8 @@ const Alumni: React.FC = () => {
                                 <div className="h-px bg-neuro-100 flex-grow"></div>
                             </div>
 
-                            {/* 4-Column Grid */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {/* Wrapped rows; orphan trailing row is centered */}
+                            <div className="flex flex-wrap justify-center gap-6">
                                 {group.members.map((member) => {
                                     const hasAwards = member.awardIds && member.awardIds.length > 0;
                                     const hasPublications = member.publicationIds && member.publicationIds.length > 0;
@@ -54,7 +54,7 @@ const Alumni: React.FC = () => {
                                                     setSelectedAlumni(member);
                                                 }
                                             }}
-                                            className={`group p-5 bg-white border border-slate-100 rounded-3xl hover:border-neuro-200 hover:shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-300 flex gap-5 ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
+                                            className={`group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] p-5 bg-white border border-slate-100 rounded-3xl hover:border-neuro-200 hover:shadow-[0_4px_20px_rgb(0,0,0,0.03)] transition-all duration-300 flex gap-5 ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
                                         >
                                             <div className="relative w-24 h-24 flex-shrink-0">
                                                 <div className="w-full h-full rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-neuro-50 group-hover:text-neuro-500 transition-colors overflow-hidden border border-slate-100 shadow-sm">

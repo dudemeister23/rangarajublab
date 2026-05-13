@@ -78,7 +78,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
   { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
   { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pub0', 'pp3', 'pp4', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
-  { id: 't10', name: 'Chelsea Mapp', role: 'IMPRS Rotation Student', image: 'assets/team/chelsea-mapp.jpg', email: 'chelsea.mapp@mpfi.org', joinedYear: '2025' },
 ];
 
 export const AWARDS: Award[] = [
@@ -440,6 +439,7 @@ export const ALUMNI_DATA: AlumniGroup[] = [
     members: [
       { id: 'al1', name: 'Suhas Sunke', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg', email: 'Suhas.Sunke@mpfi.org' },
       { id: 'al2', name: 'Aidan McDonald', labRole: 'Rotation Student', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%', email: 'aidanmcdonal2024@fau.edu' },
+      { id: 'al24', name: 'Chelsea Mapp', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/chelsea_mapp.jpg', email: 'chelsea.mapp@mpfi.org' },
       { id: 'al3', name: 'Rasya Bhat', labRole: "Master's Student", details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2, email: 'rasya.bhat@student.uni-tuebingen.de' },
       { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2, publicationIds: ['pub0'], email: 'riya_sivakumar@fas.harvard.edu' },
       { id: 'al5', name: 'Danyu Luo', labRole: 'Postbaccalaureate', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%', email: 'Danyu.luo@northwestern.edu' },
