@@ -73,7 +73,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't2', name: 'Debalina Acharyya', role: 'Postdoctoral Fellow', image: 'assets/team/debalina-acharyya.jpg', email: 'debalina.acharyya@mpfi.org', joinedYear: '2024' },
   { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'], awardIds: ['a1', 'a6', 'a8', 'a9', 'a11', 'a16', 'a17'], email: 'ilika.ghosh@mpfi.org', joinedYear: '2020' },
   { id: 't6', name: 'Juan Patarroyo', role: 'Lab Manager', image: 'assets/team/juan-patarroyo.jpg', email: 'juan.patarroyo@mpfi.org', joinedYear: '2025' },
-  { id: 't7', name: 'Monil Shah', role: 'IMPRS PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
+  { id: 't7', name: 'Monil Shah', role: 'IMPRS PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a21', 'a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org', joinedYear: '2024' },
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
   { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
@@ -81,6 +81,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
 ];
 
 export const AWARDS: Award[] = [
+  { id: 'a21', title: 'Best Talk and Selected Speaker, NeuroCollective Symposium - MPFI, UF Scripps, FAU', recipient: 'Monil Shah', date: '05/2026', type: 'award' },
   { id: 'a1', title: 'Minisymposia Speaker, Travel Grant Awardee, Elevator Pitch 2nd Place at American Society for Cell Biology 2025', recipient: 'Ilika Ghosh', date: '12/2025', type: 'award' },
   { id: 'a2', title: 'Poster Presenter, CZI Imaging the Future', recipient: 'Monil Shah', date: '09/2025', type: 'honor' },
   { id: 'a3', title: 'Invited Speaker, ThermoFisher Beyond the Beam Seminar Series on Electron Tomography', recipient: 'Monil Shah', date: '10/2024', type: 'honor' },
