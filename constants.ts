@@ -76,7 +76,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't7', name: 'Monil Shah', role: 'IMPRS PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a21', 'a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org', joinedYear: '2024' },
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
-  { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pp2', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
+  { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pub-circsamm50', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
   { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pub0', 'pp3', 'pp4', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
 ];
 
@@ -104,6 +104,14 @@ export const AWARDS: Award[] = [
 ];
 
 export const PUBLICATIONS: Publication[] = [
+  {
+    id: 'pub-circsamm50',
+    year: 2026,
+    title: 'Activity-regulated circSamm50 modulates mitochondrial dynamics and spine structural plasticity',
+    citation: 'Chanda, K., Bapat, O., Wingfield, J. L., Avchalumov, Y., Kazantzis, M., Carter, J. P., Sharma, N., Davis, R., Yuan, J. X.-J., Rangaraju, V., & Puthanveettil, S. (2026). Activity-regulated circSamm50 modulates mitochondrial dynamics and spine structural plasticity. Cell Reports, 45, 117378.',
+    link: 'https://doi.org/10.1016/j.celrep.2026.117378',
+    coverImage: 'assets/publications/pub-circsamm50-cover.jpg'
+  },
   {
     id: 'pub0',
     year: 2026,
@@ -203,14 +211,6 @@ export const PREPRINTS: Publication[] = [
     citation: 'Shah, M., Ghosh, I., Pishos, L., Villani, V., Pancani, T., Yasuda, R., Sun, C., Kamasawa, N., & Rangaraju, V. (2025). bioRxiv.',
     link: 'https://doi.org/10.1101/2025.08.27.672715',
     coverImage: 'assets/preprints/biorxiv-logo.jpg'
-  },
-  {
-    id: 'pp2',
-    year: 2025,
-    title: 'Activity-Regulated circSamm50 Modulates Mitochondrial Dynamics and Spine Structural Plasticity',
-    citation: 'Chanda, K., Bapat, O., Wingfield, J., Avchalumov, Y., Kazantzis, M., Carter, J., Sharma, N., Davis, R. L., Yuan, J. X.-J., Rangaraju, V., & Puthanveettil, S. (2025). SSRN.',
-    link: 'https://doi.org/10.2139/ssrn.5396301',
-    coverImage: 'assets/preprints/ssrn-logo.png'
   },
   {
     id: 'pp3',
@@ -466,7 +466,7 @@ export const ALUMNI_DATA: AlumniGroup[] = [
     category: "Visiting Scientists",
     members: [
       { id: 'al21', name: 'Sen Yang', labRole: 'PhD Student', details: 'Brown U', image: 'assets/alumni/sen_yang.jpg', publicationIds: ['pub3'] },
-      { id: 'al22', name: 'Jenna Wingfield', labRole: 'Postdoctoral Fellow', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg', publicationIds: ['pub2', 'pp2'], email: 'wingfield.j@ufl.edu' },
+      { id: 'al22', name: 'Jenna Wingfield', labRole: 'Postdoctoral Fellow', details: 'UF Scripps', image: 'assets/alumni/jenna_wingfield.jpg', publicationIds: ['pub2', 'pub-circsamm50'], email: 'wingfield.j@ufl.edu' },
       { id: 'al23', name: 'Ken Kunugitani', labRole: 'MD PhD', details: 'Kyoto University', image: 'assets/alumni/ken_kunugitani.jpg' }
     ]
   }
