@@ -35,14 +35,14 @@ const Publications: React.FC = () => {
 
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
             {PREPRINTS.map(preprint => (
               <a
                 key={preprint.id}
                 href={preprint.link}
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white p-8 rounded-3xl border-2 border-slate-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col group text-left"
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white p-8 rounded-3xl border-2 border-slate-200 hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col group text-left"
               >
                 {/* Top: Logo */}
                 <div className="flex items-center gap-3 mb-5">
