@@ -22,7 +22,7 @@ const Funding: React.FC = () => {
                             <img
                                 src={MPFI_LOGO}
                                 alt="Max Planck Florida Institute"
-                                className="h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                                className="funding-logo h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                                 onError={(e) => {
                                     (e.target as HTMLImageElement).src = 'https://mpfi.org/wp-content/themes/mpfi-child-2023/assets/img/logo.svg';
                                 }}
@@ -39,7 +39,7 @@ const Funding: React.FC = () => {
                             <img
                                 src={NIH_LOGO}
                                 alt="National Institutes of Health"
-                                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                                className="funding-logo h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                             />
                         </a>
 
@@ -53,7 +53,7 @@ const Funding: React.FC = () => {
                             <img
                                 src={CZI_LOGO}
                                 alt="Chan Zuckerberg Initiative"
-                                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                                className="funding-logo h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                             />
                         </a>
 
@@ -67,7 +67,7 @@ const Funding: React.FC = () => {
                             <img
                                 src={NIH_INNOVATOR_LOGO}
                                 alt="NIH Director's New Innovator Award"
-                                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                                className="funding-logo h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                             />
                         </a>
 
@@ -81,7 +81,7 @@ const Funding: React.FC = () => {
                             <img
                                 src={DESANTIS_LOGO}
                                 alt="Carl Angus DeSantis Foundation"
-                                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                                className="funding-logo h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                             />
                         </a>
 
@@ -95,7 +95,7 @@ const Funding: React.FC = () => {
                             <img
                                 src={GRUBER_LOGO}
                                 alt="Gruber Foundation"
-                                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                                className="funding-logo h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                             />
                         </a>
 

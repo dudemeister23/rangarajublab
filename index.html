@@ -170,6 +170,12 @@
       /* neuro-500 */
       animation: bio-glow 2s infinite ease-in-out;
     }
+
+    /* Keep transparent funding logos legible when Dark Reader darkens the page. */
+    html[data-darkreader-scheme="dark"] .funding-logo {
+      filter: invert(1) hue-rotate(180deg);
+      mix-blend-mode: lighten;
+    }
   </style>
 </head>
 
