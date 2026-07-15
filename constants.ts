@@ -412,6 +412,7 @@ export const COLLABORATORS = [
   { name: 'de Juan-Sanz Lab, Paris Brain Inst.', url: 'https://dejuansanzlab.org/' },
   { name: 'EM core, MPFI', url: 'https://mpfi.org/science/scientific-cores/imaging-center-2/about-2/electron-microscopy/' },
   { name: 'Hacisuleyman Lab, UF Scripps', url: 'https://wertheim.scripps.ufl.edu/research/faculty/hacisuleyman/' },
+  { name: 'Hutment Lab, TIFR', url: 'https://www.hutmentlab.com/' },
   { name: 'Inagaki Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/inagaki-lab/' },
   { name: 'Kaasik Lab, U Tartu', url: 'https://biomeditsiin.ut.ee/en/content/laboratory-mitochondrial-medicine' },
   { name: 'Lippincott-Schwarz Lab, Janelia', url: 'https://www.janelia.org/lab/lippincott-schwartz-lab' },
