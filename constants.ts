@@ -75,7 +75,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't6', name: 'Juan Patarroyo', role: 'Lab Manager', image: 'assets/team/juan-patarroyo.jpg', email: 'juan.patarroyo@mpfi.org', joinedYear: '2025' },
   { id: 't7', name: 'Monil Shah', role: 'IMPRS PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a21', 'a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org', joinedYear: '2024' },
-  { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
+  { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', publicationIds: ['pp1'], email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
   { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pub-circsamm50', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
   { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pub0', 'pp3', 'pp4', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
 ];
@@ -206,10 +206,10 @@ export const PUBLICATIONS: Publication[] = [
 export const PREPRINTS: Publication[] = [
   {
     id: 'pp1',
-    year: 2025,
+    year: 2026,
     title: 'Mitochondria structurally remodel near synapses to fuel the sustained energy demands of plasticity',
-    citation: 'Shah, M., Ghosh, I., Pishos, L., Villani, V., Pancani, T., Yasuda, R., Sun, C., Kamasawa, N., & Rangaraju, V. (2025). bioRxiv.',
-    link: 'https://doi.org/10.1101/2025.08.27.672715',
+    citation: 'Shah, M., Ghosh, I., Shree Ramesh, N., Pishos, L., Pancani, T., Villani, V., Yasuda, R., Sun, C., Kamasawa, N., & Rangaraju, V. (2026). bioRxiv.',
+    link: 'https://www.biorxiv.org/content/10.1101/2025.08.27.672715v2',
     coverImage: 'assets/preprints/biorxiv-logo.jpg'
   },
   {
