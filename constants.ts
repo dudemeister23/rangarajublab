@@ -250,7 +250,7 @@ export const NEWS_ITEMS: NewsItem[] = [
     image: 'assets/news/transmitter-mitochondria-brain.png',
     category: 'Feature',
     externalLink: 'https://www.thetransmitter.org/mitochondria/the-fast-expanding-repertoire-of-mitochondria-in-the-brain/',
-    content: 'A new feature in The Transmitter, “The fast-expanding repertoire of mitochondria in the brain,” examines growing evidence that mitochondria do much more than produce energy. These organelles also help synapses communicate, support memory formation, and may even shape behavior.\n\nDr. Vidhya Rangaraju contributes perspective from the lab’s research, explaining why energy-hungry synapses need nearby mitochondrial power plants. The article highlights her work showing that dendritic mitochondria can form stable local structures near synapses, where they support protein translation during synaptic remodeling.\n\nRead the full article by Giorgia Guglielmi at The Transmitter. Image courtesy of The Transmitter.'
+    content: 'A new feature in The Transmitter, “The fast-expanding repertoire of mitochondria in the brain,” examines growing evidence that mitochondria do much more than produce energy. These organelles also help synapses communicate, support memory formation, and may even shape behavior.\n\nDr. Vidhya Rangaraju contributes perspective from the lab’s research, explaining why energy-hungry synapses need nearby mitochondrial power plants. The article highlights her work showing that dendritic mitochondria can form stable local structures near synapses, where they support protein synthesis during synaptic remodeling.\n\nRead the full article by Giorgia Guglielmi at The Transmitter. Image courtesy of The Transmitter.'
   },
   {
     id: 'n18',
