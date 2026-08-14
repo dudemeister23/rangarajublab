@@ -4,7 +4,6 @@ import React from 'react';
 
 const Mentoring: React.FC = () => {
     const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
-    const [isExpanded, setIsExpanded] = React.useState(false);
 
     const EXPECTATIONS = [
         {
@@ -60,44 +59,9 @@ const Mentoring: React.FC = () => {
     ];
 
     return (
-        <section id="mentoring" className="border-b border-slate-200 bg-white">
+        <section id="mentoring" className="py-16 bg-white">
             <div className="container mx-auto px-6 md:px-12">
-                <button
-                    type="button"
-                    onClick={() => setIsExpanded((expanded) => !expanded)}
-                    aria-expanded={isExpanded}
-                    aria-controls="mentoring-details"
-                    className="group flex w-full items-center justify-between gap-6 py-8 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-neuro-300"
-                >
-                    <div className="flex items-center gap-5">
-                        <span className="hidden h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-neuro-50 text-neuro-600 transition-colors group-hover:bg-neuro-100 sm:flex">
-                            <i className="fa-solid fa-handshake-simple text-xl" aria-hidden="true"></i>
-                        </span>
-                        <div>
-                            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl md:text-3xl">
-                                Mentoring Philosophy &amp; Team Expectations
-                            </h2>
-                            <p className="mt-1 text-sm font-medium text-slate-500 md:text-base">
-                                {isExpanded ? 'Hide how we mentor and work together' : 'Explore how we mentor and work together'}
-                            </p>
-                        </div>
-                    </div>
-
-                    <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-all group-hover:border-neuro-200 group-hover:text-neuro-600">
-                        <i
-                            className={`fa-solid fa-chevron-down transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                            aria-hidden="true"
-                        ></i>
-                    </span>
-                </button>
-
-                <div
-                    id="mentoring-details"
-                    aria-hidden={!isExpanded}
-                    className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
-                >
-                    <div className="overflow-hidden">
-                        <div className="grid grid-cols-1 gap-12 pb-16 pt-4 lg:grid-cols-2 lg:gap-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
                     {/* Left Column: Mentoring Philosophy */}
                     <div className="flex flex-col h-full">
                         <div className="text-center mb-8">
@@ -158,8 +122,11 @@ const Mentoring: React.FC = () => {
                                 {EXPECTATIONS.map((item, index) => (
                                     <div
                                         key={index}
+                                        tabIndex={0}
                                         onMouseEnter={() => setHoveredIndex(index)}
-                                        className={`px-6 py-3 rounded-3xl text-lg font-bold border shadow-sm cursor-default transition-all duration-300 text-center w-full ${item.className} ${hoveredIndex === index ? 'shadow-xl scale-[1.02] z-10' : 'hover:scale-100'}`}
+                                        onFocus={() => setHoveredIndex(index)}
+                                        aria-expanded={hoveredIndex === index}
+                                        className={`px-6 py-3 rounded-3xl text-lg font-bold border shadow-sm cursor-default outline-none transition-shadow duration-300 text-center w-full focus-visible:ring-4 focus-visible:ring-neuro-200 ${item.className} ${hoveredIndex === index ? 'shadow-xl z-10' : ''}`}
                                     >
                                         <div className="leading-tight">{item.text}</div>
                                         <div
@@ -175,8 +142,6 @@ const Mentoring: React.FC = () => {
                                 ))}
                             </div>
                         </div>
-                    </div>
-                </div>
                     </div>
                 </div>
             </div>
