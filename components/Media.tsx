@@ -79,6 +79,10 @@ const MediaCard: React.FC<{ item: MediaItem; className?: string }> = ({ item, cl
 };
 
 const Media: React.FC = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const initialMediaCount = 6;
+    const displayedItems = isExpanded ? MEDIA_ITEMS : MEDIA_ITEMS.slice(0, initialMediaCount);
+
     return (
         <section id="media" className="py-20 bg-slate-50">
             <div className="container mx-auto px-6 md:px-12">
@@ -87,12 +91,29 @@ const Media: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    {MEDIA_ITEMS.map((item, index) => {
-                        const centerLastCard = MEDIA_ITEMS.length % 3 === 1 && index === MEDIA_ITEMS.length - 1;
+                    {displayedItems.map((item, index) => {
+                        const centerLastCard = displayedItems.length % 3 === 1 && index === displayedItems.length - 1;
 
                         return <MediaCard key={item.id} item={item} className={centerLastCard ? 'lg:col-start-2' : ''} />;
                     })}
                 </div>
+
+                {MEDIA_ITEMS.length > initialMediaCount && (
+                    <div className="mt-12 flex justify-center">
+                        <button
+                            type="button"
+                            onClick={() => setIsExpanded((expanded) => !expanded)}
+                            aria-expanded={isExpanded}
+                            className="inline-flex items-center gap-3 rounded-full bg-neuro-600 px-7 py-3.5 font-semibold text-white shadow-md transition-all duration-300 hover:bg-neuro-500 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-neuro-300"
+                        >
+                            <span>{isExpanded ? 'View Less Media' : `View More Media (${MEDIA_ITEMS.length - initialMediaCount})`}</span>
+                            <i
+                                className={`fa-solid fa-chevron-down text-sm transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                                aria-hidden="true"
+                            ></i>
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );
