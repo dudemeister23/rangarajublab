@@ -513,11 +513,6 @@ export const MEDIA_ITEMS: MediaItem[] = [
     youtubeId: 'j3irri5LIQc'
   },
   {
-    id: 'm3',
-    title: 'ALS-linked protein VAP stabilizes mitochondria to support memory formation',
-    youtubeId: 'X5cndm5inOU'
-  },
-  {
     id: 'm4',
     title: 'Molecular Adaptations of Brain Energy',
     youtubeId: 'vMN_A8uzlMo'
