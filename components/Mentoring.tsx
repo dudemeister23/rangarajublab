@@ -4,6 +4,7 @@ import React from 'react';
 
 const Mentoring: React.FC = () => {
     const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
+    const [isExpanded, setIsExpanded] = React.useState(false);
 
     const EXPECTATIONS = [
         {
@@ -59,15 +60,34 @@ const Mentoring: React.FC = () => {
     ];
 
     return (
-        <section id="mentoring" className="py-16 bg-white">
+        <section id="mentoring" className="border-b border-slate-200 bg-white">
             <div className="container mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                <button
+                    type="button"
+                    onClick={() => setIsExpanded((expanded) => !expanded)}
+                    aria-expanded={isExpanded}
+                    aria-controls="mentoring-details"
+                    className="relative grid w-full grid-cols-1 gap-2 py-10 pr-14 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-neuro-300 lg:grid-cols-2 lg:gap-20"
+                >
+                    <span className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Mentoring Philosophy</span>
+                    <span className="text-2xl font-bold text-slate-900 sm:text-3xl md:text-4xl">Team Expectations</span>
+                    <span className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600">
+                        <i
+                            className={`fa-solid fa-chevron-down transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                            aria-hidden="true"
+                        ></i>
+                    </span>
+                </button>
+
+                <div
+                    id="mentoring-details"
+                    aria-hidden={!isExpanded}
+                    className={`grid transition-[grid-template-rows,opacity] duration-500 ease-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                >
+                    <div className="overflow-hidden">
+                        <div className="grid grid-cols-1 gap-12 pb-16 lg:grid-cols-2 lg:gap-20">
                     {/* Left Column: Mentoring Philosophy */}
                     <div className="flex flex-col h-full">
-                        <div className="text-center mb-8">
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Mentoring Philosophy</h2>
-                        </div>
-
                         <div className="flex-grow flex flex-col justify-between gap-6">
                             {/* Point 1 */}
                             <div className="flex gap-5 items-center p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:shadow-md transition-shadow duration-300">
@@ -113,10 +133,6 @@ const Mentoring: React.FC = () => {
 
                     {/* Right Column: Lab Expectations */}
                     <div className="flex flex-col h-full">
-                        <div className="text-center mb-8">
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Team Expectations</h2>
-                        </div>
-
                         <div className="bg-slate-50/50 rounded-3xl p-8 border border-slate-100 flex-grow flex items-center justify-center min-h-[760px]">
                             <div className="flex flex-col gap-3 w-full max-w-lg mx-auto">
                                 {EXPECTATIONS.map((item, index) => (
@@ -142,6 +158,8 @@ const Mentoring: React.FC = () => {
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
