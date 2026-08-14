@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
               Explore Research <i className="fa-solid fa-microscope text-sm"></i>
             </a>
             <a
-              href="#team"
+              href="#trainee-voices"
               className="px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
               Meet the Team <i className="fa-solid fa-users text-sm"></i>
