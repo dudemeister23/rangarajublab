@@ -4,7 +4,7 @@ const TraineeVoices: React.FC = () => {
     const [isPlaying, setIsPlaying] = useState(false);
 
     const youtubeId = 'X5cndm5inOU';
-    const videoTitle = 'ALS-linked protein VAP stabilizes mitochondria to support memory formation';
+    const videoTitle = 'Being a PhD Student in the Rangaraju Lab';
     const traineePerspectiveStart = 91;
 
     return (
@@ -16,10 +16,10 @@ const TraineeVoices: React.FC = () => {
                 <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.35fr] lg:gap-16">
                     <div>
                         <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-neuro-300">
-                            Trainee perspective
+                            Voices from the lab
                         </p>
                         <h2 className="text-4xl font-bold leading-tight md:text-5xl">
-                            Life in the Rangaraju Lab
+                            Trainee Perspectives
                         </h2>
                         <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
                             Hear lab members describe the science they pursue, the mentorship they receive,

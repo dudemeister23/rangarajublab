@@ -24,8 +24,8 @@ const App: React.FC = () => {
         <Research />
         <News />
         <Media />
-        <Mentoring />
         <TraineeVoices />
+        <Mentoring />
         <Team />
         <Alumni />
         <Publications />
