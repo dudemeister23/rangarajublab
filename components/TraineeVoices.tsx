@@ -58,7 +58,7 @@ const TraineeVoices: React.FC = () => {
                                     className="group absolute inset-0 h-full w-full overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-neuro-300"
                                 >
                                     <img
-                                        src={`https://i.ytimg.com/vi/${youtubeId}/maxresdefault.jpg`}
+                                        src="assets/media/ojasee-trainee-perspective.jpg"
                                         alt=""
                                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                                     />
