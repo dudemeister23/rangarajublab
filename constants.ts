@@ -450,7 +450,7 @@ export const ALUMNI_DATA: AlumniGroup[] = [
     members: [
       { id: 'al1', name: 'Suhas Sunke', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/suhas_sunke.jpg', email: 'Suhas.Sunke@mpfi.org' },
       { id: 'al2', name: 'Aidan McDonald', labRole: 'Rotation Student', details: 'PhD at FAU', image: 'assets/alumni/aidan_mcdonald.jpg', objectPosition: 'center 10%', email: 'aidanmcdonal2024@fau.edu' },
-      { id: 'al24', name: 'Chelsea Mapp', labRole: 'Rotation Student', details: 'PhD at MPFI', image: 'assets/alumni/chelsea_mapp.jpg', email: 'chelsea.mapp@mpfi.org' },
+      { id: 'al24', name: 'Chelsea Mapp', labRole: 'Rotation Student', image: 'assets/alumni/chelsea_mapp.jpg', email: 'chelsea.mapp@mpfi.org' },
       { id: 'al3', name: 'Rasya Bhat', labRole: "Master's Student", details: 'MS at MPFI', image: 'assets/alumni/rasya_bhat.jpg', scale: 1.2, email: 'rasya.bhat@student.uni-tuebingen.de' },
       { id: 'al4', name: 'Riya Sivakumar', labRole: 'Postbaccalaureate', details: 'PhD at Harvard', image: 'assets/alumni/riya_sivakumar.jpg', objectPosition: 'center 2%', scale: 1.2, publicationIds: ['pub0'], email: 'riya_sivakumar@fas.harvard.edu' },
       { id: 'al5', name: 'Danyu Luo', labRole: 'Postbaccalaureate', details: 'PhD at Northwestern', image: 'assets/alumni/danyu_luo.jpg', objectPosition: 'center 10%', email: 'Danyu.luo@northwestern.edu' },
