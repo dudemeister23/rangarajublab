@@ -94,7 +94,7 @@ const Publications: React.FC = () => {
               itemType="https://schema.org/ScholarlyArticle"
             >
               <meta itemProp="datePublished" content={pub.year.toString()} />
-              <div className="flex flex-col sm:flex-row gap-6 items-start">
+              <div className="flex flex-1 flex-col sm:flex-row gap-6 items-start">
                 {/* Magazine Cover / Figure Preview */}
                 <div
                   className="w-full sm:w-48 flex-shrink-0 block mx-auto sm:mx-0"
@@ -123,7 +123,7 @@ const Publications: React.FC = () => {
                 </div>
 
                 {/* Publication Details */}
-                <div className="flex-grow flex flex-col sm:h-64">
+                <div className="flex-grow flex flex-col sm:min-h-64">
                   <div className="flex-1 min-h-0">
                     <div className="block group/link">
                       <h3 className="text-lg font-bold text-slate-900 mb-3 leading-snug group-hover/link:text-neuro-600 transition-colors" itemProp="headline">
