@@ -122,9 +122,9 @@ export const PUBLICATIONS: Publication[] = [
   },
   {
     id: 'pub1',
-    year: 2024,
+    year: 2025,
     title: 'Periodic ER-plasma membrane junctions support long-range Ca2+ signal integration in dendrites',
-    citation: 'Benedetti, L., Fan, R., Weigel, A. V., Moore, A. S., Houlihan, P. R., Kittisopikul, M., Park, G., Petruncio, A., Hubbard, P. M., Pang, S., Xu, C. S., Hess, H. F., Saalfeld, S., Rangaraju, V., Clapham, D. E., De Camilli, P., Ryan, T. A., & Lippincott-Schwartz, J. (2024). Periodic ER-plasma membrane junctions support long-range Ca2+ signal integration in dendrites. Cell.',
+    citation: 'Benedetti, L., Fan, R., Weigel, A. V., Moore, A. S., Houlihan, P. R., Kittisopikul, M., Park, G., Petruncio, A., Hubbard, P. M., Pang, S., Xu, C. S., Hess, H. F., Saalfeld, S., Rangaraju, V., Clapham, D. E., De Camilli, P., Ryan, T. A., & Lippincott-Schwartz, J. (2025). Periodic ER-plasma membrane junctions support long-range Ca2+ signal integration in dendrites. Cell.',
     link: 'https://doi.org/10.1016/j.cell.2024.11.029',
     coverImage: 'assets/publications/pub1-cover.jpg'
   },
