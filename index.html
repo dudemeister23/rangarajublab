@@ -160,21 +160,31 @@
       0% {
         transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
         opacity: 1;
+        z-index: 30;
+      }
+
+      44% {
+        transform: translate3d(65%, -4%, 0) scale(0.98) rotate(9deg);
+        opacity: 1;
+        z-index: 30;
       }
 
       45% {
         transform: translate3d(65%, -4%, 0) scale(0.98) rotate(9deg);
         opacity: 1;
+        z-index: 0;
       }
 
       72% {
         transform: translate3d(45%, 8%, 0) scale(0.9) rotate(5deg);
         opacity: 0.5;
+        z-index: 0;
       }
 
       100% {
         transform: translate3d(-34px, 108px, 0) scale(0.82) rotate(-5.5deg);
         opacity: 0;
+        z-index: 0;
       }
     }
 
