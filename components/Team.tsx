@@ -3,7 +3,7 @@ import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS 
 
 const Team: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [portraitPhotoIndexes, setPortraitPhotoIndexes] = useState<Record<number, boolean>>({});
+  const [photoAspectRatios, setPhotoAspectRatios] = useState<Record<number, number>>({});
   const [hoveredMemberId, setHoveredMemberId] = useState<string | null>(null);
   const [lockedMemberId, setLockedMemberId] = useState<string | null>(null);
   const [lockedContentId, setLockedContentId] = useState<string>('t1');
@@ -613,50 +613,60 @@ const Team: React.FC = () => {
 
 
             <div
-              className="relative overflow-hidden rounded-3xl shadow-2xl bg-slate-100 aspect-[4/3] md:aspect-[3/2] touch-pan-y"
+              className="relative aspect-[4/3] md:aspect-[3/2] touch-pan-y"
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
             >
               {/* Slides */}
               <div className="w-full h-full relative">
-                {TEAM_REEL.map((photo, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIdx ? 'opacity-100' : 'opacity-0'}`}
-                  >
-                    <img
-                      src={photo.url}
-                      alt={`Lab photo ${index + 1}`}
-                      className={`w-full h-full ${portraitPhotoIndexes[index] ? 'object-contain' : 'object-cover'}`}
-                      style={{ objectPosition: (photo as any).objectPosition || 'center' }}
-                      onLoad={(e) => {
-                        const image = e.currentTarget;
-                        const isPortrait = image.naturalHeight > image.naturalWidth;
-                        setPortraitPhotoIndexes((previous) => (
-                          previous[index] === isPortrait
-                            ? previous
-                            : { ...previous, [index]: isPortrait }
-                        ));
-                      }}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=2000';
-                      }}
-                    />
-                  </div>
-                ))}
+                {TEAM_REEL.map((photo, index) => {
+                  const aspectRatio = photoAspectRatios[index];
+                  const isPortrait = aspectRatio !== undefined && aspectRatio < 1;
+
+                  return (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 flex justify-center transition-opacity duration-1000 ease-in-out ${index === currentIdx ? 'opacity-100' : 'opacity-0'}`}
+                    >
+                      <div
+                        className={`h-full max-w-full overflow-hidden rounded-3xl shadow-2xl bg-slate-100 ${isPortrait ? '' : 'w-full'}`}
+                        style={isPortrait ? { aspectRatio } : undefined}
+                      >
+                        <img
+                          src={photo.url}
+                          alt={`Lab photo ${index + 1}`}
+                          className={`w-full h-full ${isPortrait ? 'object-contain' : 'object-cover'}`}
+                          style={{ objectPosition: (photo as any).objectPosition || 'center' }}
+                          onLoad={(e) => {
+                            const image = e.currentTarget;
+                            const loadedAspectRatio = image.naturalWidth / image.naturalHeight;
+                            setPhotoAspectRatios((previous) => (
+                              previous[index] === loadedAspectRatio
+                                ? previous
+                                : { ...previous, [index]: loadedAspectRatio }
+                            ));
+                          }}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=2000';
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white/40 transition-all z-10 opacity-0 group-hover:opacity-100"
+                className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-900/35 backdrop-blur-md text-white flex items-center justify-center hover:bg-slate-900/55 transition-all z-10 opacity-0 group-hover:opacity-100"
               >
                 <i className="fa-solid fa-chevron-left text-3xl"></i>
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-white/40 transition-all z-10 opacity-0 group-hover:opacity-100"
+                className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-900/35 backdrop-blur-md text-white flex items-center justify-center hover:bg-slate-900/55 transition-all z-10 opacity-0 group-hover:opacity-100"
               >
                 <i className="fa-solid fa-chevron-right text-3xl"></i>
               </button>
