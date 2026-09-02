@@ -156,6 +156,38 @@
       }
     }
 
+    @keyframes photo-to-back {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+
+      45% {
+        transform: translate3d(65%, -4%, 0) scale(0.98) rotate(9deg);
+        opacity: 1;
+      }
+
+      72% {
+        transform: translate3d(45%, 8%, 0) scale(0.9) rotate(5deg);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translate3d(-34px, 108px, 0) scale(0.82) rotate(-5.5deg);
+        opacity: 0;
+      }
+    }
+
+    .photo-card-to-back {
+      animation: photo-to-back 850ms cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .photo-card-to-back {
+        animation-duration: 1ms;
+      }
+    }
+
     .bio-link {
       color: #0d9488;
       /* neuro-600 */

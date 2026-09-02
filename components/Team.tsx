@@ -3,6 +3,7 @@ import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS 
 
 const Team: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [departingPhotoIndex, setDepartingPhotoIndex] = useState<number | null>(null);
   const [photoAspectRatios, setPhotoAspectRatios] = useState<Record<number, number>>({});
   const [hoveredMemberId, setHoveredMemberId] = useState<string | null>(null);
   const [lockedMemberId, setLockedMemberId] = useState<string | null>(null);
@@ -29,14 +30,19 @@ const Team: React.FC = () => {
   // Auto-cycle pause state
   const [autoCyclePaused, setAutoCyclePaused] = useState(false);
 
+  const cycleToSlide = (nextIndex: number, pauseAutoCycle = true) => {
+    if (departingPhotoIndex !== null || nextIndex === currentIdx) return;
+    if (pauseAutoCycle) setAutoCyclePaused(true);
+    setDepartingPhotoIndex(currentIdx);
+    setCurrentIdx(nextIndex);
+  };
+
   const nextSlide = () => {
-    setAutoCyclePaused(true);
-    setCurrentIdx((prev) => (prev === TEAM_REEL.length - 1 ? 0 : prev + 1));
+    cycleToSlide(currentIdx === TEAM_REEL.length - 1 ? 0 : currentIdx + 1);
   };
 
   const prevSlide = () => {
-    setAutoCyclePaused(true);
-    setCurrentIdx((prev) => (prev === 0 ? TEAM_REEL.length - 1 : prev - 1));
+    cycleToSlide(currentIdx === 0 ? TEAM_REEL.length - 1 : currentIdx - 1);
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -63,12 +69,13 @@ const Team: React.FC = () => {
 
   // Auto-cycle the photo reel every 6 seconds (unless paused by user interaction)
   useEffect(() => {
-    if (autoCyclePaused) return;
-    const interval = setInterval(() => {
-      setCurrentIdx((prev) => (prev === TEAM_REEL.length - 1 ? 0 : prev + 1));
+    if (autoCyclePaused || departingPhotoIndex !== null) return;
+    const timeout = setTimeout(() => {
+      setDepartingPhotoIndex(currentIdx);
+      setCurrentIdx(currentIdx === TEAM_REEL.length - 1 ? 0 : currentIdx + 1);
     }, 6000);
-    return () => clearInterval(interval);
-  }, [autoCyclePaused]);
+    return () => clearTimeout(timeout);
+  }, [autoCyclePaused, currentIdx, departingPhotoIndex]);
 
   const activeMemberId = hoveredMemberId || lockedMemberId;
 
@@ -624,6 +631,7 @@ const Team: React.FC = () => {
                   const aspectRatio = photoAspectRatios[index];
                   const isPortrait = aspectRatio !== undefined && aspectRatio < 1;
                   const stackPosition = (index - currentIdx + TEAM_REEL.length) % TEAM_REEL.length;
+                  const isDeparting = index === departingPhotoIndex;
                   const stackStyles = [
                     { transform: 'translate3d(0, 0, 0) scale(1) rotate(0deg)', opacity: 1 },
                     { transform: 'translate3d(34px, 28px, 0) scale(0.96) rotate(2.8deg)', opacity: 1 },
@@ -638,13 +646,16 @@ const Team: React.FC = () => {
                   return (
                     <div
                       key={index}
-                      className="absolute inset-0 flex justify-center transition-all duration-700 ease-out"
+                      className={`absolute inset-0 flex justify-center transition-all duration-700 ease-out ${isDeparting ? 'photo-card-to-back' : ''}`}
                       style={{
                         ...stackStyle,
-                        zIndex: TEAM_REEL.length - stackPosition,
+                        zIndex: isDeparting ? TEAM_REEL.length + 1 : TEAM_REEL.length - stackPosition,
                         pointerEvents: stackPosition === 0 ? 'auto' : 'none',
                       }}
                       aria-hidden={stackPosition > 3}
+                      onAnimationEnd={() => {
+                        if (isDeparting) setDepartingPhotoIndex(null);
+                      }}
                     >
                       <div
                         className={`h-full max-w-full overflow-hidden rounded-3xl bg-slate-100 ring-1 ring-black/5 ${stackPosition === 0 ? 'shadow-2xl' : 'shadow-xl'} ${isPortrait ? '' : 'w-full'}`}
@@ -693,7 +704,7 @@ const Team: React.FC = () => {
                 {TEAM_REEL.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => { setAutoCyclePaused(true); setCurrentIdx(index); }}
+                    onClick={() => cycleToSlide(index)}
                     className={`h-1.5 transition-all duration-300 rounded-full ${index === currentIdx ? 'w-8 bg-white' : 'w-2 bg-white/50'}`}
                   ></button>
                 ))}
