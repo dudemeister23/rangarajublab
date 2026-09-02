@@ -156,45 +156,53 @@
       }
     }
 
-    @keyframes photo-to-back {
+    @keyframes photo-to-back-motion {
       0% {
         transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
         opacity: 1;
-        z-index: 30;
       }
 
-      44% {
-        transform: translate3d(65%, -4%, 0) scale(0.98) rotate(9deg);
+      42% {
+        transform: translate3d(60%, -5%, 0) scale(0.98) rotate(8deg);
         opacity: 1;
-        z-index: 30;
       }
 
-      45% {
-        transform: translate3d(65%, -4%, 0) scale(0.98) rotate(9deg);
+      58% {
+        transform: translate3d(70%, 4%, 0) scale(0.95) rotate(10deg);
         opacity: 1;
-        z-index: 0;
       }
 
-      72% {
-        transform: translate3d(45%, 8%, 0) scale(0.9) rotate(5deg);
+      78% {
+        transform: translate3d(42%, 30px, 0) scale(0.88) rotate(5deg);
         opacity: 1;
-        z-index: 0;
       }
 
       100% {
         transform: translate3d(0, 72px, 0) scale(0.8) rotate(0deg);
         opacity: 1;
+      }
+    }
+
+    @keyframes photo-to-back-depth {
+      0% {
+        z-index: 30;
+      }
+
+      100% {
         z-index: 0;
       }
     }
 
     .photo-card-to-back {
-      animation: photo-to-back 850ms cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation:
+        photo-to-back-motion 900ms linear both,
+        photo-to-back-depth 1ms steps(1, end) 450ms both;
     }
 
     @media (prefers-reduced-motion: reduce) {
       .photo-card-to-back {
-        animation-duration: 1ms;
+        animation-duration: 1ms, 1ms;
+        animation-delay: 0ms, 0ms;
       }
     }
 

@@ -653,8 +653,10 @@ const Team: React.FC = () => {
                         pointerEvents: stackPosition === 0 ? 'auto' : 'none',
                       }}
                       aria-hidden={stackPosition > 3}
-                      onAnimationEnd={() => {
-                        if (isDeparting) setDepartingPhotoIndex(null);
+                      onAnimationEnd={(event) => {
+                        if (isDeparting && event.animationName === 'photo-to-back-motion') {
+                          setDepartingPhotoIndex(null);
+                        }
                       }}
                     >
                       <div
