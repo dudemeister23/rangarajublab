@@ -65,6 +65,7 @@ export const TEAM_REEL = [
   { url: 'assets/team-reel/photo6.jpg' },
   { url: 'assets/team-reel/photo8.jpg' },
   { url: 'assets/team-reel/photo9.jpg' },
+  { url: 'assets/team-reel/epic-universe-2026.jpeg', objectPosition: 'center bottom' },
 
 ];
 
