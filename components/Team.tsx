@@ -623,14 +623,31 @@ const Team: React.FC = () => {
                 {TEAM_REEL.map((photo, index) => {
                   const aspectRatio = photoAspectRatios[index];
                   const isPortrait = aspectRatio !== undefined && aspectRatio < 1;
+                  const stackPosition = (index - currentIdx + TEAM_REEL.length) % TEAM_REEL.length;
+                  const stackStyles = [
+                    { transform: 'translate3d(0, 0, 0) scale(1) rotate(0deg)', opacity: 1 },
+                    { transform: 'translate3d(34px, 28px, 0) scale(0.96) rotate(2.8deg)', opacity: 1 },
+                    { transform: 'translate3d(-30px, 60px, 0) scale(0.91) rotate(-4deg)', opacity: 1 },
+                    { transform: 'translate3d(44px, 96px, 0) scale(0.86) rotate(5.2deg)', opacity: 1 },
+                  ];
+                  const stackStyle = stackStyles[stackPosition] || {
+                    transform: 'translate3d(-34px, 108px, 0) scale(0.82) rotate(-5.5deg)',
+                    opacity: 0,
+                  };
 
                   return (
                     <div
                       key={index}
-                      className={`absolute inset-0 flex justify-center transition-opacity duration-1000 ease-in-out ${index === currentIdx ? 'opacity-100' : 'opacity-0'}`}
+                      className="absolute inset-0 flex justify-center transition-all duration-700 ease-out"
+                      style={{
+                        ...stackStyle,
+                        zIndex: TEAM_REEL.length - stackPosition,
+                        pointerEvents: stackPosition === 0 ? 'auto' : 'none',
+                      }}
+                      aria-hidden={stackPosition > 3}
                     >
                       <div
-                        className={`h-full max-w-full overflow-hidden rounded-3xl shadow-2xl bg-slate-100 ${isPortrait ? '' : 'w-full'}`}
+                        className={`h-full max-w-full overflow-hidden rounded-3xl bg-slate-100 ring-1 ring-black/5 ${stackPosition === 0 ? 'shadow-2xl' : 'shadow-xl'} ${isPortrait ? '' : 'w-full'}`}
                         style={isPortrait ? { aspectRatio } : undefined}
                       >
                         <img
