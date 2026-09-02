@@ -3,6 +3,7 @@ import { TEAM_MEMBERS, TEAM_REEL, PUBLICATIONS, PREPRINTS, CONTACT_INFO, AWARDS 
 
 const Team: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [portraitPhotoIndexes, setPortraitPhotoIndexes] = useState<Record<number, boolean>>({});
   const [hoveredMemberId, setHoveredMemberId] = useState<string | null>(null);
   const [lockedMemberId, setLockedMemberId] = useState<string | null>(null);
   const [lockedContentId, setLockedContentId] = useState<string>('t1');
@@ -627,8 +628,17 @@ const Team: React.FC = () => {
                     <img
                       src={photo.url}
                       alt={`Lab photo ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className={`w-full h-full ${portraitPhotoIndexes[index] ? 'object-contain' : 'object-cover'}`}
                       style={{ objectPosition: (photo as any).objectPosition || 'center' }}
+                      onLoad={(e) => {
+                        const image = e.currentTarget;
+                        const isPortrait = image.naturalHeight > image.naturalWidth;
+                        setPortraitPhotoIndexes((previous) => (
+                          previous[index] === isPortrait
+                            ? previous
+                            : { ...previous, [index]: isPortrait }
+                        ));
+                      }}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&q=80&w=2000';
                       }}
