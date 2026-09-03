@@ -38,11 +38,11 @@ const Team: React.FC = () => {
   };
 
   const nextSlide = () => {
-    cycleToSlide(currentIdx === TEAM_REEL.length - 1 ? 0 : currentIdx + 1);
+    cycleToSlide(currentIdx === TEAM_REEL.length - 1 ? 0 : currentIdx + 1, false);
   };
 
   const prevSlide = () => {
-    cycleToSlide(currentIdx === 0 ? TEAM_REEL.length - 1 : currentIdx - 1);
+    cycleToSlide(currentIdx === 0 ? TEAM_REEL.length - 1 : currentIdx - 1, false);
   };
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -616,8 +616,16 @@ const Team: React.FC = () => {
             <p className="text-slate-500 mt-2">Connecting science, innovation, and community</p>
           </div>
 
-          <div className="relative group max-w-5xl mx-auto">
+          <div className="relative group max-w-6xl mx-auto px-12 sm:px-16 md:px-24">
 
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Show previous lab photo"
+              className="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 w-10 h-10 md:w-16 md:h-16 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-neuro-500/40 transition-colors z-20"
+            >
+              <i className="fa-solid fa-chevron-left text-lg md:text-3xl" aria-hidden="true"></i>
+            </button>
 
             <div
               className="relative aspect-[4/3] md:aspect-[3/2] touch-pan-y"
@@ -687,20 +695,6 @@ const Team: React.FC = () => {
                 })}
               </div>
 
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-900/35 backdrop-blur-md text-white flex items-center justify-center hover:bg-slate-900/55 transition-all z-10 opacity-0 group-hover:opacity-100"
-              >
-                <i className="fa-solid fa-chevron-left text-3xl"></i>
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-6 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-slate-900/35 backdrop-blur-md text-white flex items-center justify-center hover:bg-slate-900/55 transition-all z-10 opacity-0 group-hover:opacity-100"
-              >
-                <i className="fa-solid fa-chevron-right text-3xl"></i>
-              </button>
-
               {/* Indicators */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                 {TEAM_REEL.map((_, index) => (
@@ -712,6 +706,15 @@ const Team: React.FC = () => {
                 ))}
               </div>
             </div>
+
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Show next lab photo"
+              className="absolute right-0 md:right-2 top-1/2 -translate-y-1/2 w-10 h-10 md:w-16 md:h-16 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-neuro-500/40 transition-colors z-20"
+            >
+              <i className="fa-solid fa-chevron-right text-lg md:text-3xl" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
 
