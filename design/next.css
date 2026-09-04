@@ -60,3 +60,11 @@
 
 /* Keep the rotating photo stack clear of the following section divider. */
 .design-next main > section#alumni:not(#home):not(#research){border-top:0}
+
+/* Ease the first content surface into the scientific background. */
+.design-next main > section:has(> #bio):not(#home):not(#research){
+  border-top:0;
+  border-top-left-radius:clamp(32px,5vw,64px);
+  border-top-right-radius:clamp(32px,5vw,64px);
+  corner-shape:squircle;
+}
