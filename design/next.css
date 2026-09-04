@@ -70,6 +70,12 @@
 }
 
 /* Use available widescreen space while keeping text and contact rows contained. */
+.design-next main > section#contact:not(#home):not(#research){
+  border-bottom-left-radius:clamp(32px,5vw,64px);
+  border-bottom-right-radius:clamp(32px,5vw,64px);
+  corner-shape:squircle;
+}
+.design-next>footer{background:transparent;border-top:0;margin-top:48px}
 .design-next main>section>.container{max-width:none}
 .design-next main .max-w-7xl{max-width:none}
 .design-next .team-layout,.design-next .team-members,.design-next .team-details{min-width:0}
@@ -91,3 +97,4 @@
   .design-next .team-members{grid-template-columns:repeat(4,minmax(0,1fr))}
   .design-next .team-layout{gap:48px}
 }
+.design-next>footer,.design-next>footer .text-slate-500{color:#9ab5b0}
