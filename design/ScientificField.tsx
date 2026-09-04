@@ -70,7 +70,6 @@ export default function ScientificField() {
     let pointer = { x: -1000, y: -1000 }, eased = { x: 0, y: 0 };
     let visible = !document.hidden;
     let frozenKey = '';
-    let scrollPhase = 0;
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -103,8 +102,6 @@ export default function ScientificField() {
       const mobile = width < 760;
       const size = mobile ? 95 : Math.min(width * .135, 215);
       const offset = mobile ? 0 : width * .075;
-      if (interactive) scrollPhase = window.scrollY * .00015;
-      const scroll = scrollPhase;
       // Dendritic shafts descend from above, with short necks and rounded spine
       // heads. Red puncta echo the original fluorescence image, not live data.
       const roots = mobile ? [.08, .92] : [.06, .20, .80, .94];
@@ -151,7 +148,7 @@ export default function ScientificField() {
       for (let side = 0; side < 2; side++) {
         const centerX = side === 0 ? offset : width - offset;
         const centerY = height * (side === 0 ? .48 : .57);
-        const angle = time * (side === 0 ? 1 : -.8) + eased.x * .75 + scroll + side * 1.8;
+        const angle = time * (side === 0 ? 1 : -.8) + eased.x * .75 + side * 1.8;
         const tilt = (side === 0 ? -.25 : .3) + eased.y * .15;
         const cos = Math.cos(angle), sin = Math.sin(angle);
         const plotted = geometry.map((point, index) => {

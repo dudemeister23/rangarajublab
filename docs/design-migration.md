@@ -125,3 +125,9 @@ Fabian authorized displaying the design preview selector on the normal public
 homepage. Both versions now show Current / New. DEFAULT_DESIGN remains classic,
 so a plain URL always opens the current site. Choosing New only changes the URL
 for that visitor; it does not change the public default.
+
+## Rotation independent of scrolling
+
+Removed scroll position from the mitochondrial angle calculation. Rotation now
+uses only elapsed animation time and the existing pointer response. Spine growth
+still follows page scroll progress. Build, TypeScript, and browser checks passed.
