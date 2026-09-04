@@ -21,14 +21,14 @@ claims or simulated scientific data were introduced.
 
 ## Review URLs
 
-- `/`: current design, always, regardless of previous previews.
+- `/`: current design, always, regardless of previous previews, with the Current / New selector visible.
 - `/?design=next`: new design with a Current / New switch.
 - `/?design=classic`: current design with the same switch for comparison.
 - Unknown design values fall back to the configured default.
 
 The switch preserves other query parameters and the current section anchor.
 There is no cookie or local-storage preference that could change the ordinary
-visitor experience. Preview links are unlisted, publicly accessible, and marked
+visitor experience. The new design is accessible through the public selector and marked
 noindex; they are not authentication or a private staging environment.
 
 ## Content contract
@@ -117,3 +117,11 @@ scroll position. Live document height is recalculated to include expanded
 sections. Browser checks verified 0.0000 at top, intermediate values in both
 directions, 1.0000 at bottom, and 0.0000 on returning to top in reduced-motion
 mode. No scene controls were added.
+
+
+## Public selector
+
+Fabian authorized displaying the design preview selector on the normal public
+homepage. Both versions now show Current / New. DEFAULT_DESIGN remains classic,
+so a plain URL always opens the current site. Choosing New only changes the URL
+for that visitor; it does not change the public default.

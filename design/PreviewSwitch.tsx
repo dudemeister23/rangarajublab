@@ -2,8 +2,6 @@ import React from 'react';
 import { designHref, DesignVersion } from './version';
 
 export default function PreviewSwitch({ version }: { version: DesignVersion }) {
-  const explicit = new URLSearchParams(window.location.search).get('design');
-  if (explicit !== 'next' && explicit !== 'classic') return null;
   return (
     <aside className="design-switch" aria-label="Website design preview">
       <span>Design preview</span>
