@@ -657,6 +657,7 @@ const Team: React.FC = () => {
                       className={`absolute inset-0 flex justify-center transition-all duration-700 ease-out ${isDeparting ? 'photo-card-to-back' : ''}`}
                       style={{
                         ...stackStyle,
+                        filter: `brightness(${stackPosition === 0 || isDeparting ? 1 : 0.65})`,
                         zIndex: isDeparting ? TEAM_REEL.length + 1 : TEAM_REEL.length - stackPosition,
                         pointerEvents: stackPosition === 0 ? 'auto' : 'none',
                       }}
