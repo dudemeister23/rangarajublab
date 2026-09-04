@@ -14,6 +14,7 @@ import Funding from './components/Funding';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NextHero from './design/NextHero';
+import ScientificField from './design/ScientificField';
 import NextResearch from './design/NextResearch';
 import PreviewSwitch from './design/PreviewSwitch';
 import { resolveDesign } from './design/version';
@@ -23,6 +24,7 @@ const App: React.FC = () => {
   const version = resolveDesign(window.location.search);
   return (
     <div className={`min-h-screen bg-slate-50 flex flex-col font-sans ${version === 'next' ? 'design-next' : ''}`}>
+      {version === 'next' && <ScientificField />}
       <Navbar />
       <main className="flex-grow">
         {version === 'next' ? <NextHero /> : <Hero />}

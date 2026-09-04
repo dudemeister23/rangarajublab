@@ -63,3 +63,22 @@ navigation. Ensure shared content changes appear in both presentations.
 Browser review of the first pass covered desktop and 390px mobile layouts.
 Existing Tailwind CDN and third-party embeds remain part of the original site;
 production CSS bundling and a full accessibility audit remain future work.
+
+
+## Persistent scientific environment, September 4 refinement
+
+The first visual pass was too conservative. The preview now uses a fixed canvas
+with two illustrative mitochondrial envelopes and inner-membrane folds. The
+forms stay at the viewport edges while the shared content scrolls through a
+dark central column. Pointer proximity displaces the points locally; pointer
+position and scrolling change orientation. Pause stops automatic and pointer
+motion; Rotate forms provides a keyboard-accessible discrete adjustment.
+Reduced-motion preference starts the field paused. Rendering stops while the
+page is hidden, is capped near 30 fps, and uses fewer points on narrow screens.
+The old image-pan slider was removed. The original public presentation and
+shared content contract remain unchanged.
+
+Validation: production build and TypeScript check; desktop and 390px mobile
+inspection; fixed canvas position during scroll; pause/resume and rotate controls;
+reduced-motion emulation; research tabs and version selection. The geometry is
+stylized, not a reconstruction from microscopy or experimental data.
