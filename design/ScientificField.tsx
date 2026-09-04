@@ -12,14 +12,25 @@ function mitochondrialGeometry(): Point[] {
       points.push({ x: Math.sin(v) * Math.cos(u) * .64, y: Math.cos(v) * 1.7, z: Math.sin(v) * Math.sin(u) * .64, fold: false });
     }
   }
-  for (let fold = 0; fold < 12; fold++) {
-    const y = -1.35 + fold * .245;
-    const radius = .57 * Math.sqrt(1 - (y / 1.7) ** 2);
-    for (let i = 0; i < 35; i++) {
-      const u = i / 34 * Math.PI * 2;
-      for (let j = 0; j < 9; j++) {
-        const depth = j / 8;
-        points.push({ x: Math.cos(u) * radius * (.25 + .75 * depth), y: y + Math.sin(u * 2 + fold * .4) * .11 + depth * .055, z: Math.sin(u) * radius, fold: true });
+  // A warped continuous folded surface replaces the repeated horizontal discs.
+  // This is a visual approximation of a labyrinth, not an ultrastructural model.
+  const step = .042;
+  for (let x = -.58; x <= .58; x += step) {
+    for (let y = -1.56; y <= 1.56; y += step) {
+      for (let z = -.58; z <= .58; z += step) {
+        if ((x * x + z * z) / (.58 * .58) + y * y / (1.56 * 1.56) > 1) continue;
+        const u = x * 7.2 + .7 * Math.sin(y * 2.8 + z * 3);
+        const v = y * 5.4 + .6 * Math.sin(z * 5 + x * 3);
+        const w = z * 7.8 + .55 * Math.cos(y * 3.2 - x * 4);
+        const membrane = Math.sin(u) * Math.cos(v) + Math.sin(v) * Math.cos(w) + Math.sin(w) * Math.cos(u);
+        if (Math.abs(membrane - .12 * Math.sin(y * 4)) < .16) {
+          points.push({
+            x: x + .006 * Math.sin(y * 37 + z * 51),
+            y: y + .006 * Math.sin(z * 43 + x * 47),
+            z: z + .006 * Math.sin(x * 41 + y * 53),
+            fold: true,
+          });
+        }
       }
     }
   }
@@ -27,6 +38,24 @@ function mitochondrialGeometry(): Point[] {
 }
 
 const geometry = mitochondrialGeometry();
+// Connect nearby membrane samples in 3D, preserving the voids between folds.
+const membraneEdges: [number, number][] = [];
+const buckets = new Map<string, number[]>();
+geometry.forEach((point, index) => {
+  if (!point.fold) return;
+  const cell = [point.x, point.y, point.z].map(value => Math.floor(value / .075));
+  const neighbors: { index: number; distance: number }[] = [];
+  for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) for (let dz = -1; dz <= 1; dz++) {
+    for (const other of buckets.get(`${cell[0] + dx},${cell[1] + dy},${cell[2] + dz}`) || []) {
+      const p = geometry[other];
+      const distance = Math.hypot(point.x - p.x, point.y - p.y, point.z - p.z);
+      if (distance < .076) neighbors.push({ index: other, distance });
+    }
+  }
+  neighbors.sort((a, b) => a.distance - b.distance).slice(0, 3).forEach(other => membraneEdges.push([index, other.index]));
+  const key = cell.join(',');
+  buckets.set(key, [...(buckets.get(key) || []), index]);
+});
 
 export default function ScientificField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -119,7 +148,7 @@ export default function ScientificField() {
         const angle = time * (side === 0 ? 1 : -.8) + eased.x * .75 + scroll + side * 1.8;
         const tilt = (side === 0 ? -.25 : .3) + eased.y * .15;
         const cos = Math.cos(angle), sin = Math.sin(angle);
-        const plotted = geometry.filter((_, index) => !mobile || index % 3 === 0).map(point => {
+        const plotted = geometry.map((point, index) => {
           const x = point.x * cos + point.z * sin;
           const z = point.z * cos - point.x * sin;
           const perspective = 3.8 / (3.8 - z);
@@ -129,9 +158,17 @@ export default function ScientificField() {
           const distance = Math.hypot(dx, dy);
           const influence = interactive ? Math.max(0, 1 - distance / 150) : 0;
           if (distance > 0) { px += dx / distance * influence * 24; py += dy / distance * influence * 24; }
-          return { px, py, z, fold: point.fold, influence };
-        }).sort((a, b) => a.z - b.z);
+          return { px, py, z, fold: point.fold, influence, index };
+        });
+        ctx.beginPath();
+        for (let edge = 0; edge < membraneEdges.length; edge += mobile ? 3 : 1) {
+          const [a, b] = membraneEdges[edge];
+          ctx.moveTo(plotted[a].px, plotted[a].py); ctx.lineTo(plotted[b].px, plotted[b].py);
+        }
+        ctx.strokeStyle = 'rgba(231,175,82,.42)'; ctx.lineWidth = .7; ctx.stroke();
+        plotted.sort((a, b) => a.z - b.z);
         for (const point of plotted) {
+          if (mobile && point.index % 3 !== 0) continue;
           const depth = (point.z + .7) / 1.4;
           ctx.fillStyle = point.fold ? `rgba(248,192,91,${.18 + depth * .55 + point.influence * .25})` : `rgba(74,224,206,${.12 + depth * .55 + point.influence * .3})`;
           ctx.beginPath(); ctx.arc(point.px, point.py, (point.fold ? .9 : .7) + depth * .5 + point.influence, 0, Math.PI * 2); ctx.fill();

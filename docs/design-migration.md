@@ -94,3 +94,14 @@ removed at Fabian's request. Reduced motion is now read directly from the OS
 preference and shows fully grown, static geometry. The design comparison switch
 remains available on preview URLs. Desktop and mobile visual checks passed,
 with no scene controls or horizontal overflow on the 390px view.
+
+## Labyrinthine cristae refinement
+
+Replaced the twelve evenly spaced disc-like folds with a continuous warped
+implicit surface, clipped within the mitochondrial envelope. Nearby samples
+connect in 3D to make the folded membrane readable and retain irregular voids.
+This is a stylized labyrinth approximation, not a biological reconstruction or
+claim that all cristae share this topology. Architectural reference consulted:
+https://pmc.ncbi.nlm.nih.gov/articles/PMC2829299/ (electron tomography describes
+lamellar and tubular cristae and narrow crista junctions). Desktop visual review,
+390px overflow check, build, and TypeScript validation passed.
