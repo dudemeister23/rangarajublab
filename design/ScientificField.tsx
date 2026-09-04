@@ -120,7 +120,7 @@ export default function ScientificField() {
           if (sample === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
         }
         ctx.strokeStyle = 'rgba(30,159,156,.18)'; ctx.lineWidth = mobile ? 8 : 13; ctx.stroke();
-        ctx.strokeStyle = 'rgba(100,224,214,.55)'; ctx.lineWidth = 1.5; ctx.stroke();
+        ctx.strokeStyle = 'rgba(26,126,118,.55)'; ctx.lineWidth = 1.5; ctx.stroke();
         for (let spine = 1; spine < 19; spine++) {
           const t = spine / 19;
           if (t > growth) continue;
@@ -131,9 +131,9 @@ export default function ScientificField() {
           const headX = p.x + direction * neck, headY = p.y - 7 - Math.sin(spine) * 5;
           ctx.beginPath(); ctx.moveTo(p.x, p.y);
           ctx.quadraticCurveTo(p.x + direction * neck * .5, p.y + 3, headX, headY);
-          ctx.strokeStyle = 'rgba(87,205,199,.65)'; ctx.lineWidth = 2; ctx.stroke();
+          ctx.strokeStyle = 'rgba(23,128,116,.65)'; ctx.lineWidth = 2; ctx.stroke();
           ctx.beginPath(); ctx.ellipse(headX, headY, 4.5 + response * 2, 3, direction * .5, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(111,231,216,.72)'; ctx.fill();
+          ctx.fillStyle = 'rgba(33,139,123,.72)'; ctx.fill();
           const redX = spine % 3 === 0 ? p.x + 3 : headX;
           const radius = (spine % 3 === 0 ? 12 : 8) + response * 5;
           const glow = ctx.createRadialGradient(redX, headY, 0, redX, headY, radius);
@@ -168,12 +168,12 @@ export default function ScientificField() {
           const [a, b] = membraneEdges[edge];
           ctx.moveTo(plotted[a].px, plotted[a].py); ctx.lineTo(plotted[b].px, plotted[b].py);
         }
-        ctx.strokeStyle = 'rgba(231,175,82,.42)'; ctx.lineWidth = .7; ctx.stroke();
+        ctx.strokeStyle = 'rgba(139,117,74,.35)'; ctx.lineWidth = .7; ctx.stroke();
         plotted.sort((a, b) => a.z - b.z);
         for (const point of plotted) {
           if (mobile && point.index % 3 !== 0) continue;
           const depth = (point.z + .7) / 1.4;
-          ctx.fillStyle = point.fold ? `rgba(248,192,91,${.18 + depth * .55 + point.influence * .25})` : `rgba(74,224,206,${.12 + depth * .55 + point.influence * .3})`;
+          ctx.fillStyle = point.fold ? `rgba(140,113,67,${.18 + depth * .55 + point.influence * .25})` : `rgba(27,119,118,${.12 + depth * .55 + point.influence * .3})`;
           ctx.beginPath(); ctx.arc(point.px, point.py, (point.fold ? .9 : .7) + depth * .5 + point.influence, 0, Math.PI * 2); ctx.fill();
         }
       }

@@ -20,39 +20,39 @@
 @media(prefers-reduced-motion:reduce){html:has(.design-next){scroll-behavior:auto}.design-next *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* Persistent scientific space surrounds the independently scrolling content. */
-.design-next{background:#030d11;isolation:isolate;--ink:#e6f1ef;--accent:#63decc}
-.scientific-field{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 0% 45%,#0d343b70,transparent 40%),radial-gradient(ellipse at 100% 65%,#22363270,transparent 38%),#030d11}
+.design-next{background:#edf3f5;isolation:isolate;--ink:#17353b;--accent:#08776d}
+.scientific-field{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 0% 45%,#d8e9e980,transparent 40%),radial-gradient(ellipse at 100% 65%,#e4e9e380,transparent 38%),#edf3f5}
 .scientific-field canvas{display:block;width:100%;height:100%}
 .design-next main{width:min(2400px,80%);margin:0 auto;position:relative}
 .design-next .next-hero{background:transparent;overflow:visible;min-height:740px;height:100svh;text-align:center}
 .design-next .next-hero-copy{padding:145px 10px 130px}
 .design-next .next-hero h1{font-size:clamp(64px,7.4vw,112px);font-weight:400;letter-spacing:-.06em}
-.design-next .next-intro{max-width:590px;margin:0 auto;color:#bdd5d2;font-weight:400}
+.design-next .next-intro{max-width:590px;margin:0 auto;color:#4b6269;font-weight:400}
 .design-next .next-actions{justify-content:center;gap:24px}
-.design-next .next-eyebrow{color:#8ba9a7;letter-spacing:.2em}
-.design-next main>section:not(#home),.design-next main>div{background:#0b1b20f5;border-top:1px solid #294044;border-left:1px solid #1c3639;border-right:1px solid #1c3639}
+.design-next .next-eyebrow{color:#536e73;letter-spacing:.2em}
+.design-next main>section:not(#home),.design-next main>div{background:#fffffffa;border-top:1px solid #dce6e8;border-left:1px solid #e1e9eb;border-right:1px solid #e1e9eb}
 .design-next main>section:not(#home){padding-left:0;padding-right:0}
 .design-next main>section>.container{padding-left:36px;padding-right:36px}
 .design-next .next-research{padding:70px 36px!important}
-.design-next main :is(.bg-white,.bg-slate-50,.bg-slate-100){background-color:#10272d}
-.design-next main :is(.text-slate-900,.text-slate-800,.text-slate-700){color:#e3efec}
-.design-next main :is(.text-slate-600,.text-slate-500){color:#aec5c0}
-.design-next main :is(.text-neuro-600,.text-neuro-700){color:#68ddca}
-.design-next main :is(.border-slate-100,.border-slate-200,.border-slate-300){border-color:#2c474b}
-.design-next main .bg-neuro-50{background-color:#153e3d}
-.design-next .next-research header>p:last-child,.design-next .next-research-panel p{color:#b8ceca}
-.design-next .next-research h2,.design-next .next-research-panel h3{color:#e3efec}
-.design-next .next-research-tabs{border-color:#375453;gap:16px}
-.design-next .next-research-tabs button{color:#9dbbb6;font-size:14px}
-.design-next .next-research-tabs button[aria-selected=true]{color:#77e4d1;border-color:#77e4d1}
-.design-next .next-research-panel a{color:#77e4d1}
+.design-next main :is(.bg-white,.bg-slate-50,.bg-slate-100){background-color:#f5f8f9}
+.design-next main :is(.text-slate-900,.text-slate-800,.text-slate-700){color:#19383e}
+.design-next main :is(.text-slate-600,.text-slate-500){color:#52666d}
+.design-next main :is(.text-neuro-600,.text-neuro-700){color:#08766a}
+.design-next main :is(.border-slate-100,.border-slate-200,.border-slate-300){border-color:#d6e2e5}
+.design-next main .bg-neuro-50{background-color:#e7f3f0}
+.design-next .next-research header>p:last-child,.design-next .next-research-panel p{color:#4c6369}
+.design-next .next-research h2,.design-next .next-research-panel h3{color:#19383e}
+.design-next .next-research-tabs{border-color:#c6d8dc;gap:16px}
+.design-next .next-research-tabs button{color:#536970;font-size:14px}
+.design-next .next-research-tabs button[aria-selected=true]{color:#08766a;border-color:#08766a}
+.design-next .next-research-panel a{color:#08766a}
 .design-next .next-research-panel:not([hidden]){gap:30px;grid-template-columns:1fr}
 .design-next .next-research-panel img{max-height:430px;aspect-ratio:auto}
 .design-next footer{position:relative;max-width:2400px;width:80%;margin:auto;padding-bottom:105px}
-.design-next nav{background:#051318ed!important;border-bottom:1px solid #234043;backdrop-filter:blur(14px)}
-.design-next nav :is(a,a>span,button i){color:#d9e9e6!important}
+.design-next nav{background:#ffffffed!important;border-bottom:1px solid #d6e2e5;backdrop-filter:blur(14px)}
+.design-next nav :is(a,a>span,button i){color:#223d44!important}
 @media(min-width:1101px) and (max-width:1400px){.design-next main .lg\:grid-cols-4{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:1100px){.design-next main{width:80%}.design-next footer{width:80%}.design-next main>section>.container{padding-left:24px;padding-right:24px}.design-next main .md\:grid-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}.design-next nav .md\:hidden{background:#0b2026}}
+@media(max-width:1100px){.design-next main{width:80%}.design-next footer{width:80%}.design-next main>section>.container{padding-left:24px;padding-right:24px}.design-next main .md\:grid-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}.design-next nav .md\:hidden{background:#fff}}
 @media(max-width:760px){.design-next main,.design-next footer{width:90%}.design-next .next-hero{min-height:750px}.design-next .next-hero h1{font-size:clamp(48px,12vw,80px)}.design-next .next-hero-copy{padding:130px 12px 130px}.design-next .next-intro{font-size:17px}.design-next .next-eyebrow{font-size:11px}.design-next .next-actions{gap:16px}.design-next .next-research{padding:50px 20px!important}.design-next .next-research-panel h3{font-size:25px}.design-next main>section>.container{padding-left:18px;padding-right:18px}.scientific-field{opacity:.85}}
 .design-next .next-hero-copy{padding-bottom:90px}
 .design-next .funding-logo{background:#fff;border-radius:6px;padding:6px}
@@ -97,7 +97,7 @@
   .design-next .team-members{grid-template-columns:repeat(4,minmax(0,1fr))}
   .design-next .team-layout{gap:48px}
 }
-.design-next>footer,.design-next>footer .text-slate-500{color:#9ab5b0}
+.design-next>footer,.design-next>footer .text-slate-500{color:#506970}
 
 /* Reveal the next surface on arrival without clipping enlarged hero text. */
 .design-next .next-hero{height:auto;min-height:calc(100svh - 88px)}
@@ -108,3 +108,30 @@
   .design-next .next-hero-copy{padding:120px 12px 40px}
   .design-next .next-hero h1{font-size:clamp(44px,min(12vw,10svh),80px)}
 }
+
+/* Daylight reading palette; scientific forms remain in the margins. */
+.design-next .next-hero{color:#17353b}
+.design-next .next-hero h1 em{color:#08766a}
+.design-next .next-actions a{color:#245b61;border-color:#9fbabe}
+.design-next .next-actions a:hover{color:#075d55;border-color:#075d55}
+.design-next .scientific-field canvas{opacity:.42}
+.design-next .design-switch{background:#fffffff5;color:#38545c;border-color:#c4d5d9;box-shadow:0 3px 14px #16383d12}
+.design-next .design-switch a[aria-current]{background:#e0efeb;color:#075d55}
+.design-next>footer .text-white{color:#233e45}
+.design-next>footer .text-neuro-500{color:#08766a}
+.design-next>footer .border-slate-800{border-color:#c4d5d9}
+.design-next #trainee-voices{color:#19383e}
+.design-next #trainee-voices>div[aria-hidden]{display:none}
+.design-next #trainee-voices .text-slate-300,.design-next #trainee-voices .text-slate-400{color:#536970}
+.design-next #trainee-voices .text-neuro-300{color:#08766a}
+.design-next #trainee-voices p.text-white{color:#19383e}
+.design-next #trainee-voices .shadow-2xl{box-shadow:0 4px 20px #17353b12}
+.design-next #contact .bg-slate-900{background:#f0f6f7;box-shadow:0 4px 24px #17353b0d}
+.design-next #contact .bg-slate-800{background:#e2ecee}
+.design-next #contact :is(h2,h4).text-white,.design-next #contact a.bg-slate-800{color:#19383e}
+.design-next #contact .text-slate-400{color:#4e646b}
+.design-next #contact .bg-neuro-900{background:#e2f0eb}
+.design-next #contact .text-neuro-100{color:#365e58}
+.design-next .team-member .text-\[11px\],.design-next .team-member .text-\[12px\]{font-size:14px}
+.design-next #bio .bio-link{color:#08766a}
+.design-next #bio .bio-link:hover{animation:none;text-decoration:underline}

@@ -142,3 +142,16 @@ contain contact rows with reduced padding and wrapping email text. The PI email
 and download row can wrap as well. Original-design styling remains unchanged.
 Browser checks at 3840, 1920, 1280, and 390 CSS pixels confirmed no horizontal
 page overflow; desktop contact rows and team grids remained within their boxes.
+
+## Daylight reading direction
+
+Fabian clarified that grant reviewers and prospective lab members are the core
+readers; the space-inspired dark presentation was too dominant. The preview now
+uses white content surfaces, a pale blue-gray background, dark blue-gray text,
+and restrained teal accents. Membrane and spine geometry is muted to 42% canvas
+opacity with darker, less luminous pigments. Trainee and contact sections were
+adapted to light backgrounds, footer text remains readable over the background,
+and team role/year labels are at least 14px. Existing scroll growth, independent
+rotation, pointer response, rounded transitions, and visible version selector
+remain. The original design stays the public default. Build, TypeScript, desktop
+visual inspection, and 390px mobile overflow/readability checks passed.
