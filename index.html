@@ -12,6 +12,11 @@
     content="neuroenergetics, mitochondria, neurons, synaptic plasticity, Max Planck Florida, Vidhya Rangaraju, neuroscience research, brain energy, ATP, neurodegenerative disease, MPFI, neuroenergetics lab" />
   <meta name="author" content="Dr. Vidhya Rangaraju" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <script>
+    if (new URLSearchParams(window.location.search).has('design')) {
+      document.querySelector('meta[name="robots"]').content = 'noindex, follow';
+    }
+  </script>
   <link rel="canonical" href="https://rangarajulab.org" />
   <link rel="icon" type="image/png" href="/favicon-48.png" />
   <link rel="apple-touch-icon" href="/logo-192.png" />

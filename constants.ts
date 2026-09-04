@@ -525,3 +525,20 @@ export const MEDIA_ITEMS: MediaItem[] = [
     youtubeId: 'vMN_A8uzlMo'
   }
 ];
+
+// Shared editorial copy for both website presentations.
+export const HOME_COPY = {
+  lead: 'Cracking',
+  subject: 'Brain',
+  discipline: 'Energetics',
+  description: 'We investigate how neurons manage their complex energy landscapes to fuel biological processes, plasticity, and health.',
+  actions: [
+    { label: 'Explore Research', href: '#research', icon: 'fa-microscope' },
+    { label: 'Meet the Team', href: '#trainee-voices', icon: 'fa-users' },
+    { label: 'View Publications', href: '#publications', icon: 'fa-book-open' },
+  ],
+};
+export const RESEARCH_COPY = {
+  title: 'Research Projects',
+  description: 'The Neuroenergetics Lab is interested in how neurons manage their energy landscapes. Mitochondria represent a hugely underexplored organellar system in neurons with consequences for human health.',
+};

@@ -13,15 +13,21 @@ import Publications from './components/Publications';
 import Funding from './components/Funding';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import NextHero from './design/NextHero';
+import NextResearch from './design/NextResearch';
+import PreviewSwitch from './design/PreviewSwitch';
+import { resolveDesign } from './design/version';
+import './design/next.css';
 
 const App: React.FC = () => {
+  const version = resolveDesign(window.location.search);
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className={`min-h-screen bg-slate-50 flex flex-col font-sans ${version === 'next' ? 'design-next' : ''}`}>
       <Navbar />
       <main className="flex-grow">
-        <Hero />
+        {version === 'next' ? <NextHero /> : <Hero />}
         <Bio />
-        <Research />
+        {version === 'next' ? <NextResearch /> : <Research />}
         <News />
         <Media />
         <TraineeVoices />
@@ -33,6 +39,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      <PreviewSwitch version={version} />
     </div>
   );
 };

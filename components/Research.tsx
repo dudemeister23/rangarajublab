@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PROJECTS } from '../constants';
+import { PROJECTS, RESEARCH_COPY } from '../constants';
 
 const Research: React.FC = () => {
   const [activeProjectId, setActiveProjectId] = useState<string | null>('p1');
@@ -9,10 +9,9 @@ const Research: React.FC = () => {
     <section id="research" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6 md:px-12 mt-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Research Projects</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">{RESEARCH_COPY.title}</h2>
           <p className="text-slate-600 text-lg">
-            The Neuroenergetics Lab is interested in how neurons manage their energy landscapes.
-            Mitochondria represent a hugely underexplored organellar system in neurons with consequences for human health.
+            {RESEARCH_COPY.description}
           </p>
         </div>
 

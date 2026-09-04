@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HERO_BACKGROUND } from '../constants';
+import { HERO_BACKGROUND, HOME_COPY } from '../constants';
 
 const Hero: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,9 +34,9 @@ const Hero: React.FC = () => {
 
           <div className="relative z-10">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight drop-shadow-md">
-            <span className="text-[0.88em]">Cracking</span> <br />
+            <span className="text-[0.88em]">{HOME_COPY.lead}</span> <br />
             <span className="inline-block leading-none align-baseline">
-              <span className="sr-only">Brain Energetics</span>
+              <span className="sr-only">{HOME_COPY.subject} {HOME_COPY.discipline}</span>
               <svg
                 viewBox="0 0 1100 160"
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,33 +52,33 @@ const Hero: React.FC = () => {
                   fontSize="140"
                   letterSpacing="-3"
                 >
-                  <tspan fill="#f6b91a">Brain</tspan>
-                  <tspan fill="#159b91"> Energetics</tspan>
+                  <tspan fill="#f6b91a">{HOME_COPY.subject}</tspan>
+                  <tspan fill="#159b91">{' '}{HOME_COPY.discipline}</tspan>
                 </text>
               </svg>
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-100 mb-10 leading-relaxed font-semibold drop-shadow">
-            We investigate how neurons manage their complex energy landscapes to fuel biological processes, plasticity, and health.
+            {HOME_COPY.description}
           </p>
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center">
             <a
-              href="#research"
+              href={HOME_COPY.actions[0].href}
               className="w-full sm:w-[220px] px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
-              Explore Research <i className="fa-solid fa-microscope text-sm"></i>
+              {HOME_COPY.actions[0].label} <i className="fa-solid fa-microscope text-sm"></i>
             </a>
             <a
-              href="#trainee-voices"
+              href={HOME_COPY.actions[1].href}
               className="w-full sm:w-[220px] px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
-              Meet the Team <i className="fa-solid fa-users text-sm"></i>
+              {HOME_COPY.actions[1].label} <i className="fa-solid fa-users text-sm"></i>
             </a>
             <a
-              href="#publications"
+              href={HOME_COPY.actions[2].href}
               className="w-full sm:w-[220px] px-8 py-3.5 bg-neuro-600 hover:bg-neuro-500 text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 flex items-center justify-center gap-2"
             >
-              View Publications <i className="fa-solid fa-book-open text-sm"></i>
+              {HOME_COPY.actions[2].label} <i className="fa-solid fa-book-open text-sm"></i>
             </a>
           </div>
           </div>
