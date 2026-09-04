@@ -57,3 +57,6 @@
 .design-next .next-hero-copy{padding-bottom:90px}
 .design-next .funding-logo{background:#fff;border-radius:6px;padding:6px}
 .design-next #alumni h4{white-space:normal;overflow-wrap:anywhere}
+
+/* Keep the rotating photo stack clear of the following section divider. */
+.design-next main > section#alumni:not(#home):not(#research){border-top:0}
