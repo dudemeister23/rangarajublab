@@ -11,7 +11,6 @@ export default function NextHero() {
         <div className="next-actions">
           {HOME_COPY.actions.map(action => <a key={action.href} href={action.href}>{action.label}<span aria-hidden="true"> ↗</span></a>)}
         </div>
-        <p className="field-invitation">Move your pointer through the forms. Scroll to explore the lab.<span aria-hidden="true"> ↓</span></p>
       </div>
     </section>
   );

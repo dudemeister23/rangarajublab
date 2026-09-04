@@ -82,3 +82,15 @@ Validation: production build and TypeScript check; desktop and 390px mobile
 inspection; fixed canvas position during scroll; pause/resume and rotate controls;
 reduced-motion emulation; research tabs and version selection. The geometry is
 stylized, not a reconstruction from microscopy or experimental data.
+
+## Implicit interaction and descending spines
+
+The next refinement adds a short initial downward growth reveal of dendritic
+shafts and spine heads, with soft red fluorescence-like puncta inspired by the
+original hero image. These are illustrative geometry and colors, not extracted
+microscopy measurements. Pointer proximity extends nearby spine necks subtly.
+Visible background controls, geometry labels, and interaction instructions were
+removed at Fabian's request. Reduced motion is now read directly from the OS
+preference and shows fully grown, static geometry. The design comparison switch
+remains available on preview URLs. Desktop and mobile visual checks passed,
+with no scene controls or horizontal overflow on the 390px view.

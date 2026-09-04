@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 type Point = { x: number; y: number; z: number; fold: boolean };
 
@@ -30,10 +30,6 @@ const geometry = mitochondrialGeometry();
 
 export default function ScientificField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [paused, setPaused] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  const rotation = useRef(0);
-  const pausedRef = useRef(paused);
-  useEffect(() => { pausedRef.current = paused; }, [paused]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,14 +50,14 @@ export default function ScientificField() {
     };
     const move = (event: PointerEvent) => { pointer = { x: event.clientX, y: event.clientY }; };
     const leave = () => { pointer = { x: -1000, y: -1000 }; };
-    const onMotion = () => setPaused(reduced.matches);
+    const onMotion = () => { frozenKey = ''; };
     const draw = (now: number) => {
       if (!visible) return;
       frame = requestAnimationFrame(draw);
       if (now - previous < 30) return;
       const dt = Math.min(now - previous, 50); previous = now;
-      const frozen = pausedRef.current;
-      const key = `${width}:${height}:${rotation.current}`;
+      const frozen = reduced.matches;
+      const key = `${width}:${height}`;
       if (frozen && frozenKey === key) return;
       frozenKey = frozen ? key : '';
       if (!frozen) time += dt * .00012;
@@ -74,10 +70,53 @@ export default function ScientificField() {
       const offset = mobile ? 0 : width * .075;
       if (interactive) scrollPhase = window.scrollY * .00015;
       const scroll = scrollPhase;
+      // Dendritic shafts descend from above, with short necks and rounded spine
+      // heads. Red puncta echo the original fluorescence image, not live data.
+      const growth = frozen ? 1 : Math.min(1, time / .38);
+      const roots = mobile ? [.08, .92] : [.06, .20, .80, .94];
+      roots.forEach((root, branch) => {
+        const sign = root < .5 ? 1 : -1;
+        const length = height * (branch % 2 === 0 ? .66 : .43);
+        const position = (t: number) => ({
+          x: width * root + Math.sin(t * 5 + branch) * (mobile ? 14 : 30) + sign * t * (mobile ? 2 : -35) + eased.x * 14 * t,
+          y: -25 + t * length,
+        });
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.beginPath();
+        for (let sample = 0; sample <= 90; sample++) {
+          const t = sample / 90 * growth, p = position(t);
+          if (sample === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+        }
+        ctx.strokeStyle = 'rgba(30,159,156,.18)'; ctx.lineWidth = mobile ? 8 : 13; ctx.stroke();
+        ctx.strokeStyle = 'rgba(100,224,214,.55)'; ctx.lineWidth = 1.5; ctx.stroke();
+        for (let spine = 1; spine < 19; spine++) {
+          const t = spine / 19;
+          if (t > growth) continue;
+          const p = position(t), direction = spine % 2 === 0 ? 1 : -1;
+          const distance = Math.hypot(p.x - pointer.x, p.y - pointer.y);
+          const response = interactive ? Math.max(0, 1 - distance / 120) : 0;
+          const neck = (mobile ? 10 : 17) + Math.sin(spine * 4 + branch) * 6 + response * 10;
+          const headX = p.x + direction * neck, headY = p.y - 7 - Math.sin(spine) * 5;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y);
+          ctx.quadraticCurveTo(p.x + direction * neck * .5, p.y + 3, headX, headY);
+          ctx.strokeStyle = 'rgba(87,205,199,.65)'; ctx.lineWidth = 2; ctx.stroke();
+          ctx.beginPath(); ctx.ellipse(headX, headY, 4.5 + response * 2, 3, direction * .5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(111,231,216,.72)'; ctx.fill();
+          const redX = spine % 3 === 0 ? p.x + 3 : headX;
+          const radius = (spine % 3 === 0 ? 12 : 8) + response * 5;
+          const glow = ctx.createRadialGradient(redX, headY, 0, redX, headY, radius);
+          glow.addColorStop(0, 'rgba(255,99,81,.94)');
+          glow.addColorStop(.22, 'rgba(247,40,48,.8)');
+          glow.addColorStop(.55, 'rgba(217,16,40,.33)');
+          glow.addColorStop(1, 'rgba(189,4,24,0)');
+          ctx.fillStyle = glow; ctx.beginPath();
+          ctx.ellipse(redX, headY, radius, radius * .75, spine * .8, 0, Math.PI * 2); ctx.fill();
+        }
+      });
       for (let side = 0; side < 2; side++) {
         const centerX = side === 0 ? offset : width - offset;
         const centerY = height * (side === 0 ? .48 : .57);
-        const angle = time * (side === 0 ? 1 : -.8) + rotation.current + eased.x * .75 + scroll + side * 1.8;
+        const angle = time * (side === 0 ? 1 : -.8) + eased.x * .75 + scroll + side * 1.8;
         const tilt = (side === 0 ? -.25 : .3) + eased.y * .15;
         const cos = Math.cos(angle), sin = Math.sin(angle);
         const plotted = geometry.filter((_, index) => !mobile || index % 3 === 0).map(point => {
@@ -118,12 +157,5 @@ export default function ScientificField() {
     };
   }, []);
 
-  return <>
-    <div className="scientific-field" aria-hidden="true"><canvas ref={canvasRef} /></div>
-    <div className="field-controls" aria-label="Scientific background controls">
-      <span>Mitochondrial architecture<small>Illustrative geometry</small></span>
-      <button onClick={() => setPaused(value => !value)} aria-pressed={paused}>{paused ? 'Resume motion' : 'Pause motion'}</button>
-      <button onClick={() => { rotation.current += Math.PI / 4; }}>Rotate forms</button>
-    </div>
-  </>;
+  return <div className="scientific-field" aria-hidden="true"><canvas ref={canvasRef} /></div>;
 }

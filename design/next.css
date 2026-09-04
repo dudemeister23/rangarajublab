@@ -30,11 +30,6 @@
 .design-next .next-intro{max-width:590px;margin:0 auto;color:#bdd5d2;font-weight:400}
 .design-next .next-actions{justify-content:center;gap:24px}
 .design-next .next-eyebrow{color:#8ba9a7;letter-spacing:.2em}
-.field-invitation{position:absolute;bottom:65px;left:0;width:100%;font-size:13px;letter-spacing:.025em;color:#93b2b0}
-.field-invitation span{display:block;margin-top:12px;font-size:22px}
-.field-controls{position:fixed;bottom:18px;left:18px;z-index:55;display:flex;gap:8px;align-items:center;color:#c2d5d2;font-size:12px;background:#07171ce8;border:1px solid #294547;border-radius:10px;padding:9px 12px}
-.field-controls>span{display:block;margin-right:8px}.field-controls small{display:block;color:#829e9b;font-size:11px;margin-top:2px}
-.field-controls button{padding:8px;border:1px solid #46625e;border-radius:5px;font-size:12px}.field-controls button:hover{background:#173a3b;color:#fff}
 .design-next main>section:not(#home),.design-next main>div{background:#0b1b20f5;border-top:1px solid #294044;border-left:1px solid #1c3639;border-right:1px solid #1c3639}
 .design-next main>section:not(#home){padding-left:0;padding-right:0}
 .design-next main>section>.container{padding-left:36px;padding-right:36px}
@@ -57,10 +52,8 @@
 .design-next nav{background:#051318ed!important;border-bottom:1px solid #234043;backdrop-filter:blur(14px)}
 .design-next nav :is(a,a>span,button i){color:#d9e9e6!important}
 @media(min-width:1101px) and (max-width:1400px){.design-next main .lg\:grid-cols-4{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:1100px){.design-next main{width:80%}.design-next footer{width:80%}.design-next main>section>.container{padding-left:24px;padding-right:24px}.design-next main .md\:grid-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}.design-next nav .md\:hidden{background:#0b2026}.field-controls>span{display:none}}
-@media(max-width:760px){.design-next main,.design-next footer{width:90%}.design-next .next-hero{min-height:750px}.design-next .next-hero h1{font-size:clamp(48px,12vw,80px)}.design-next .next-hero-copy{padding:130px 12px 130px}.design-next .next-intro{font-size:17px}.design-next .next-eyebrow{font-size:11px}.design-next .next-actions{gap:16px}.design-next .next-research{padding:50px 20px!important}.field-invitation{font-size:12px;padding:0 20px;bottom:80px}.field-controls{left:8px;bottom:66px;padding:4px}.field-controls button{font-size:11px;padding:6px}.design-next .next-research-panel h3{font-size:25px}.design-next main>section>.container{padding-left:18px;padding-right:18px}.scientific-field{opacity:.85}}
-
-.design-next .field-invitation{position:static;margin:32px auto 0;max-width:460px;width:auto;padding:0;line-height:1.5}
+@media(max-width:1100px){.design-next main{width:80%}.design-next footer{width:80%}.design-next main>section>.container{padding-left:24px;padding-right:24px}.design-next main .md\:grid-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}.design-next nav .md\:hidden{background:#0b2026}}
+@media(max-width:760px){.design-next main,.design-next footer{width:90%}.design-next .next-hero{min-height:750px}.design-next .next-hero h1{font-size:clamp(48px,12vw,80px)}.design-next .next-hero-copy{padding:130px 12px 130px}.design-next .next-intro{font-size:17px}.design-next .next-eyebrow{font-size:11px}.design-next .next-actions{gap:16px}.design-next .next-research{padding:50px 20px!important}.design-next .next-research-panel h3{font-size:25px}.design-next main>section>.container{padding-left:18px;padding-right:18px}.scientific-field{opacity:.85}}
 .design-next .next-hero-copy{padding-bottom:90px}
 .design-next .funding-logo{background:#fff;border-radius:6px;padding:6px}
 .design-next #alumni h4{white-space:normal;overflow-wrap:anywhere}
