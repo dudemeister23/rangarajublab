@@ -85,12 +85,9 @@ export default function ScientificField() {
       if (now - previous < 30) return;
       const dt = Math.min(now - previous, 50); previous = now;
       const frozen = reduced.matches;
-      // Use the current document height so expanded sections and loaded media
-      // remain part of the journey. The same position produces the same growth
-      // in either direction, independent of elapsed time or scroll speed.
-      const scrollRange = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const growth = scrollRange > 0 ? Math.max(0, Math.min(1, window.scrollY / scrollRange)) : 0;
-      const key = `${width}:${height}:${growth}`;
+      // Branch geometry stays fully extended; only punctum brightness reacts.
+      const growth = 1;
+      const key = `${width}:${height}:${pointer.x}:${pointer.y}`;
       if (frozen && frozenKey === key) return;
       frozenKey = frozen ? key : '';
       if (!frozen) time += dt * .00012;
@@ -107,10 +104,9 @@ export default function ScientificField() {
       const roots = mobile ? [.08, .92] : [.06, .20, .80, .94];
       roots.forEach((root, branch) => {
         const sign = root < .5 ? 1 : -1;
-        if (growth === 0) return;
         const length = Math.max(0, height - 110) * (branch % 2 === 0 ? 1 : .86);
         const position = (t: number) => ({
-          x: width * root + Math.sin(t * 5 + branch) * (mobile ? 14 : 30) + sign * t * (mobile ? 2 : -35) + eased.x * 14 * t,
+          x: width * root + Math.sin(t * 5 + branch) * (mobile ? 14 : 30) + sign * t * (mobile ? 2 : -35),
           y: 90 + t * length,
         });
         ctx.lineCap = 'round'; ctx.lineJoin = 'round';
@@ -123,23 +119,22 @@ export default function ScientificField() {
         ctx.strokeStyle = 'rgba(26,126,118,.55)'; ctx.lineWidth = 1.5; ctx.stroke();
         for (let spine = 1; spine < 19; spine++) {
           const t = spine / 19;
-          if (t > growth) continue;
           const p = position(t), direction = spine % 2 === 0 ? 1 : -1;
-          const distance = Math.hypot(p.x - pointer.x, p.y - pointer.y);
-          const response = interactive ? Math.max(0, 1 - distance / 120) : 0;
-          const neck = (mobile ? 10 : 17) + Math.sin(spine * 4 + branch) * 6 + response * 10;
+          const neck = (mobile ? 10 : 17) + Math.sin(spine * 4 + branch) * 6;
           const headX = p.x + direction * neck, headY = p.y - 7 - Math.sin(spine) * 5;
           ctx.beginPath(); ctx.moveTo(p.x, p.y);
           ctx.quadraticCurveTo(p.x + direction * neck * .5, p.y + 3, headX, headY);
           ctx.strokeStyle = 'rgba(23,128,116,.65)'; ctx.lineWidth = 2; ctx.stroke();
-          ctx.beginPath(); ctx.ellipse(headX, headY, 4.5 + response * 2, 3, direction * .5, 0, Math.PI * 2);
+          ctx.beginPath(); ctx.ellipse(headX, headY, 4.5, 3, direction * .5, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(33,139,123,.72)'; ctx.fill();
           const redX = spine % 3 === 0 ? p.x + 3 : headX;
-          const radius = (spine % 3 === 0 ? 12 : 8) + response * 5;
+          const distance = Math.hypot(redX - pointer.x, headY - pointer.y);
+          const response = Math.max(0, 1 - distance / 120);
+          const radius = spine % 3 === 0 ? 12 : 8;
           const glow = ctx.createRadialGradient(redX, headY, 0, redX, headY, radius);
-          glow.addColorStop(0, 'rgba(255,99,81,.94)');
-          glow.addColorStop(.22, 'rgba(247,40,48,.8)');
-          glow.addColorStop(.55, 'rgba(217,16,40,.33)');
+          glow.addColorStop(0, `rgba(235,55,55,${.28 + response * .72})`);
+          glow.addColorStop(.22, `rgba(247,40,48,${.18 + response * .72})`);
+          glow.addColorStop(.55, `rgba(217,16,40,${.06 + response * .5})`);
           glow.addColorStop(1, 'rgba(189,4,24,0)');
           ctx.fillStyle = glow; ctx.beginPath();
           ctx.ellipse(redX, headY, radius, radius * .75, spine * .8, 0, Math.PI * 2); ctx.fill();

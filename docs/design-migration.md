@@ -155,3 +155,13 @@ and team role/year labels are at least 14px. Existing scroll growth, independent
 rotation, pointer response, rounded transitions, and visible version selector
 remain. The original design stays the public default. Build, TypeScript, desktop
 visual inspection, and 390px mobile overflow/readability checks passed.
+
+## Stationary spines with proximity illumination
+
+Removed scroll-driven spine extension and pointer-driven branch movement at
+Fabian's request. Spines are fully grown at every scroll position. Only red
+punctum brightness changes with cursor proximity; neck length, head size, and
+branch position remain fixed. Brightness feedback also works with reduced
+motion enabled, without introducing geometric motion. Mitochondrial behavior
+is unchanged. Build, TypeScript, and browser checks passed; rendered growth was
+1.0000 both at the top and after scrolling.
