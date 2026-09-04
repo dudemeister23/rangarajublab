@@ -131,3 +131,14 @@ for that visitor; it does not change the public default.
 Removed scroll position from the mitochondrial angle calculation. Rotation now
 uses only elapsed animation time and the existing pointer response. Spine growth
 still follows page scroll progress. Build, TypeScript, and browser checks passed.
+
+## Widescreen content and team contact fit
+
+The preview's main content and footer now use 80% of available width, capped at
+2400px rather than 1040px. Shared section containers and the team/alumni grids
+can use that space. Preview-only team layout styles reserve a minimum 300px
+for the detail panel, use three or four member columns as space permits, and
+contain contact rows with reduced padding and wrapping email text. The PI email
+and download row can wrap as well. Original-design styling remains unchanged.
+Browser checks at 3840, 1920, 1280, and 390 CSS pixels confirmed no horizontal
+page overflow; desktop contact rows and team grids remained within their boxes.

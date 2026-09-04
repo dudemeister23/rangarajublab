@@ -23,7 +23,7 @@
 .design-next{background:#030d11;isolation:isolate;--ink:#e6f1ef;--accent:#63decc}
 .scientific-field{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 0% 45%,#0d343b70,transparent 40%),radial-gradient(ellipse at 100% 65%,#22363270,transparent 38%),#030d11}
 .scientific-field canvas{display:block;width:100%;height:100%}
-.design-next main{width:min(1040px,74%);margin:0 auto;position:relative}
+.design-next main{width:min(2400px,80%);margin:0 auto;position:relative}
 .design-next .next-hero{background:transparent;overflow:visible;min-height:740px;height:100svh;text-align:center}
 .design-next .next-hero-copy{padding:145px 10px 130px}
 .design-next .next-hero h1{font-size:clamp(64px,7.4vw,112px);font-weight:400;letter-spacing:-.06em}
@@ -48,7 +48,7 @@
 .design-next .next-research-panel a{color:#77e4d1}
 .design-next .next-research-panel:not([hidden]){gap:30px;grid-template-columns:1fr}
 .design-next .next-research-panel img{max-height:430px;aspect-ratio:auto}
-.design-next footer{position:relative;max-width:1040px;width:74%;margin:auto;padding-bottom:105px}
+.design-next footer{position:relative;max-width:2400px;width:80%;margin:auto;padding-bottom:105px}
 .design-next nav{background:#051318ed!important;border-bottom:1px solid #234043;backdrop-filter:blur(14px)}
 .design-next nav :is(a,a>span,button i){color:#d9e9e6!important}
 @media(min-width:1101px) and (max-width:1400px){.design-next main .lg\:grid-cols-4{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -67,4 +67,27 @@
   border-top-left-radius:clamp(32px,5vw,64px);
   border-top-right-radius:clamp(32px,5vw,64px);
   corner-shape:squircle;
+}
+
+/* Use available widescreen space while keeping text and contact rows contained. */
+.design-next main>section>.container{max-width:none}
+.design-next main .max-w-7xl{max-width:none}
+.design-next .team-layout,.design-next .team-members,.design-next .team-details{min-width:0}
+.design-next .team-contact{padding:clamp(0px,1vw,16px);min-width:0}
+.design-next .team-contact>a{width:100%;max-width:100%;min-width:0;padding:12px;border-radius:18px}
+.design-next .team-contact>a>div:first-child{flex-shrink:0}
+.design-next .team-contact>a>div:last-child{min-width:0;overflow-wrap:anywhere}
+.design-next #bio .sm\:flex-row{flex-wrap:wrap}
+.design-next #bio a[href^="mailto:"]{overflow-wrap:anywhere;min-width:0}
+@media(min-width:1024px){
+  .design-next .team-layout{grid-template-columns:minmax(0,1fr) minmax(300px,.42fr);gap:32px}
+  .design-next .team-members{grid-column:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+  .design-next .team-member{width:100%;min-width:0}
+  .design-next .team-member>div:first-child{width:100%;max-width:160px;height:auto;aspect-ratio:1}
+  .design-next .team-details{grid-column:auto;padding-left:0}
+  .design-next .team-details>div{padding-left:0}
+}
+@media(min-width:1600px){
+  .design-next .team-members{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .design-next .team-layout{gap:48px}
 }

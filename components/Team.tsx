@@ -202,9 +202,9 @@ const Team: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-2">The Team</h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 max-w-7xl mx-auto items-stretch">
+        <div className="team-layout grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 max-w-7xl mx-auto items-stretch">
           {/* Team Grid */}
-          <div className="lg:col-span-8 flex flex-wrap justify-center gap-x-6 gap-y-12 content-start">
+          <div className="team-members lg:col-span-8 flex flex-wrap justify-center gap-x-6 gap-y-12 content-start">
             {[...sortedTeamMembers,
             { id: 'placeholder-1', name: 'Open Position', role: 'Postdoctoral Fellow', image: null },
             { id: 'placeholder-2', name: 'Open Position', role: 'PhD Student', image: null }
@@ -217,7 +217,7 @@ const Team: React.FC = () => {
               return (
                 <div
                   key={member.id}
-                  className={`flex flex-col items-center text-center group relative cursor-pointer w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]`}
+                  className={`team-member flex flex-col items-center text-center group relative cursor-pointer w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]`}
                   onMouseEnter={() => handleMouseEnter(member.id)}
                   onMouseLeave={() => setHoveredMemberId(null)}
                   onClick={() => {
@@ -326,7 +326,7 @@ const Team: React.FC = () => {
             })}
           </div>
           {/* Publications/Awards Panel - Always rendered to prevent layout shifts */}
-          <div className="hidden lg:block lg:col-span-4 relative pl-4">
+          <div className="team-details hidden lg:block lg:col-span-4 relative pl-4">
             <div className="absolute inset-0 pl-4">
               <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 h-full shadow-inner relative overflow-hidden">
                 {memberToDisplayId ? (
@@ -425,7 +425,7 @@ const Team: React.FC = () => {
                     // Show Contact Panel
                     if (panelMode === 'contact' && member?.email) {
                       return (
-                        <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col items-center justify-center text-center p-8">
+                        <div className="team-contact animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col items-center justify-center text-center p-8">
                           <div className="w-24 h-24 rounded-full overflow-hidden mb-6 border-4 border-slate-100 shadow-sm">
                             <img src={member.image} alt={member.name} className={`w-full h-full object-cover ${getImageScale(member.id)}`} />
                           </div>
