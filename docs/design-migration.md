@@ -105,3 +105,15 @@ claim that all cristae share this topology. Architectural reference consulted:
 https://pmc.ncbi.nlm.nih.gov/articles/PMC2829299/ (electron tomography describes
 lamellar and tubular cristae and narrow crista junctions). Desktop visual review,
 390px overflow check, build, and TypeScript validation passed.
+
+## Scroll-driven growth
+
+Spine extension now uses the clamped scroll position divided by the current
+scrollable document height. At the top growth is zero; at the bottom it is one.
+Scrolling upward retraces the same growth curve. The full shafts extend nearly
+to the viewport bottom. Elapsed time no longer affects growth. Reduced-motion
+mode keeps automatic motion disabled but still updates growth directly with
+scroll position. Live document height is recalculated to include expanded
+sections. Browser checks verified 0.0000 at top, intermediate values in both
+directions, 1.0000 at bottom, and 0.0000 on returning to top in reduced-motion
+mode. No scene controls were added.

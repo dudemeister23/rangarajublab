@@ -86,7 +86,12 @@ export default function ScientificField() {
       if (now - previous < 30) return;
       const dt = Math.min(now - previous, 50); previous = now;
       const frozen = reduced.matches;
-      const key = `${width}:${height}`;
+      // Use the current document height so expanded sections and loaded media
+      // remain part of the journey. The same position produces the same growth
+      // in either direction, independent of elapsed time or scroll speed.
+      const scrollRange = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const growth = scrollRange > 0 ? Math.max(0, Math.min(1, window.scrollY / scrollRange)) : 0;
+      const key = `${width}:${height}:${growth}`;
       if (frozen && frozenKey === key) return;
       frozenKey = frozen ? key : '';
       if (!frozen) time += dt * .00012;
@@ -94,6 +99,7 @@ export default function ScientificField() {
       if (!frozen) eased.x += ((interactive && pointer.x >= 0 ? pointer.x / width - .5 : 0) - eased.x) * .07;
       if (!frozen) eased.y += ((interactive && pointer.y >= 0 ? pointer.y / height - .5 : 0) - eased.y) * .07;
       ctx.clearRect(0, 0, width, height);
+      canvas.dataset.growth = growth.toFixed(4);
       const mobile = width < 760;
       const size = mobile ? 95 : Math.min(width * .135, 215);
       const offset = mobile ? 0 : width * .075;
@@ -101,14 +107,14 @@ export default function ScientificField() {
       const scroll = scrollPhase;
       // Dendritic shafts descend from above, with short necks and rounded spine
       // heads. Red puncta echo the original fluorescence image, not live data.
-      const growth = frozen ? 1 : Math.min(1, time / .38);
       const roots = mobile ? [.08, .92] : [.06, .20, .80, .94];
       roots.forEach((root, branch) => {
         const sign = root < .5 ? 1 : -1;
-        const length = height * (branch % 2 === 0 ? .66 : .43);
+        if (growth === 0) return;
+        const length = Math.max(0, height - 110) * (branch % 2 === 0 ? 1 : .86);
         const position = (t: number) => ({
           x: width * root + Math.sin(t * 5 + branch) * (mobile ? 14 : 30) + sign * t * (mobile ? 2 : -35) + eased.x * 14 * t,
-          y: -25 + t * length,
+          y: 90 + t * length,
         });
         ctx.lineCap = 'round'; ctx.lineJoin = 'round';
         ctx.beginPath();
