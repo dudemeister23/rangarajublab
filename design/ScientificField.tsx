@@ -130,11 +130,15 @@ export default function ScientificField() {
           const redX = spine % 3 === 0 ? p.x + 3 : headX;
           const distance = Math.hypot(redX - pointer.x, headY - pointer.y);
           const response = Math.max(0, 1 - distance / 120);
+          // Slow, staggered brightness cycles keep the resting field alive.
+          // Reduced motion retains a steady glow and proximity feedback.
+          const twinkle = frozen ? .5 : .5 + .5 * Math.sin(time * (5.2 + (spine % 4) * .35) + spine * 2.399 + branch * 1.7);
+          const restingGlow = .2 + twinkle * .22;
           const radius = spine % 3 === 0 ? 12 : 8;
           const glow = ctx.createRadialGradient(redX, headY, 0, redX, headY, radius);
-          glow.addColorStop(0, `rgba(235,55,55,${.28 + response * .72})`);
-          glow.addColorStop(.22, `rgba(247,40,48,${.18 + response * .72})`);
-          glow.addColorStop(.55, `rgba(217,16,40,${.06 + response * .5})`);
+          glow.addColorStop(0, `rgba(235,55,55,${restingGlow + response * (1 - restingGlow)})`);
+          glow.addColorStop(.22, `rgba(247,40,48,${restingGlow * .65 + response * .62})`);
+          glow.addColorStop(.55, `rgba(217,16,40,${restingGlow * .25 + response * .45})`);
           glow.addColorStop(1, 'rgba(189,4,24,0)');
           ctx.fillStyle = glow; ctx.beginPath();
           ctx.ellipse(redX, headY, radius, radius * .75, spine * .8, 0, Math.PI * 2); ctx.fill();

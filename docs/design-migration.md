@@ -165,3 +165,10 @@ branch position remain fixed. Brightness feedback also works with reduced
 motion enabled, without introducing geometric motion. Mitochondrial behavior
 is unchanged. Build, TypeScript, and browser checks passed; rendered growth was
 1.0000 both at the top and after scrolling.
+
+## Slow idle twinkle, September 5
+
+Red puncta now have staggered sinusoidal brightness cycles of roughly 8 to 10
+seconds, beneath the existing stronger proximity glow. Spines remain stationary
+and fully extended. Reduced-motion mode uses steady idle brightness. Build,
+TypeScript, and browser rendering checks passed.
