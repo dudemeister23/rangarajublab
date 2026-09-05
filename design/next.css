@@ -46,8 +46,10 @@
 .design-next .next-research-tabs button{color:#536970;font-size:14px}
 .design-next .next-research-tabs button[aria-selected=true]{color:#08766a;border-color:#08766a}
 .design-next .next-research-panel a{color:#08766a}
-.design-next .next-research-panel:not([hidden]){gap:30px;grid-template-columns:1fr}
-.design-next .next-research-panel img{max-height:430px;aspect-ratio:auto}
+.design-next .next-research-panel:not([hidden]){gap:40px;grid-template-columns:minmax(0,1fr);align-items:start}
+.design-next .next-research-panel img{width:auto;height:auto;max-width:100%;max-height:560px;aspect-ratio:auto;background:transparent;justify-self:center;align-self:start}
+.design-next .next-research-panel>div{min-width:0;max-width:65ch}
+@media(min-width:1000px){.design-next .next-research-panel:not([hidden]){grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 .design-next footer{position:relative;max-width:2400px;width:80%;margin:auto;padding-bottom:105px}
 .design-next nav{background:#ffffffed!important;border-bottom:1px solid #d6e2e5;backdrop-filter:blur(14px)}
 .design-next nav :is(a,a>span,button i){color:#223d44!important}
