@@ -1,7 +1,7 @@
 export type DesignVersion = 'classic' | 'next';
 
 // Change only at final migration. Plain URLs never inherit a preview preference.
-export const DEFAULT_DESIGN: DesignVersion = 'classic';
+export const DEFAULT_DESIGN: DesignVersion = 'next';
 
 export function resolveDesign(search: string): DesignVersion {
   const requested = new URLSearchParams(search).get('design');

@@ -87,7 +87,7 @@ export default function ScientificField({ dark }: { dark: boolean }) {
       if (now - previous < 30) return;
       const dt = Math.min(now - previous, 50); previous = now;
       const frozen = reduced.matches;
-      const isDark = darkRef.current;
+      const isDark = darkRef.current || document.documentElement.getAttribute('data-darkreader-scheme') === 'dark';
       // Branch geometry stays fully extended; only punctum brightness reacts.
       const growth = 1;
       const key = `${width}:${height}:${pointer.x}:${pointer.y}:${isDark}`;

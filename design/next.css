@@ -175,3 +175,7 @@
 .design-next.theme-dark .design-switch,.theme-dark .theme-toggle{background:#0f2026f5;color:#dce9e6;border-color:#496369}
 .design-next.theme-dark .design-switch a[aria-current]{background:#e0efeb;color:#075d55}
 @media(max-width:600px){.theme-toggle{bottom:72px;left:12px;padding:10px 15px}}
+
+/* Native dark mode owns its colors; only the light theme accepts adaptation. */
+html[data-native-theme="dark"][data-darkreader-scheme="dark"] .funding-logo{filter:none;mix-blend-mode:normal}
+html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .scientific-field canvas{opacity:1}

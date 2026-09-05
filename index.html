@@ -4,7 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="dark" />
+  <script>
+    // Match design/version.ts: New is the default, Current is explicit.
+    // Run before styles and app loading to avoid a light flash and double-darkening.
+    const initialParams = new URLSearchParams(window.location.search);
+    const nativeDark = initialParams.get('design') !== 'classic' && initialParams.get('theme') !== 'light';
+    document.documentElement.dataset.nativeTheme = nativeDark ? 'dark' : 'light';
+    document.documentElement.style.colorScheme = nativeDark ? 'dark' : 'light';
+    document.querySelector('meta[name="color-scheme"]').content = nativeDark ? 'dark' : 'light';
+    if (nativeDark) {
+      const lock = document.createElement('meta');
+      lock.name = 'darkreader-lock';
+      document.head.appendChild(lock);
+    }
+  </script>
+  <style>
+    html[data-native-theme="dark"], html[data-native-theme="dark"] body { background-color: #030d11; color: #e6f1ef; }
+    html[data-native-theme="light"] { background-color: #edf3f5; color-scheme: light; }
+  </style>
   <title>Rangaraju Lab | Neuroenergetics Research at Max Planck Florida</title>
   <meta name="description"
     content="Explore how neurons fuel brain function. The Rangaraju Lab at Max Planck Florida studies mitochondria, synaptic energy, and neurodegeneration. Led by Dr. Vidhya Rangaraju." />

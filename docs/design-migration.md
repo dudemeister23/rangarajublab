@@ -191,3 +191,22 @@ Idle brightness now ranges from 20% to 100%, with the same core and halo profile
 as proximity illumination. Cursor proximity raises the current brightness toward
 100% regardless of the idle cycle. Slow timing and staggered phases are unchanged.
 Build, TypeScript, and browser visual checks passed.
+
+
+## New + Dark public default and extension compatibility, September 5
+
+DEFAULT_DESIGN is now next. Plain URLs open New + Dark; design=classic retains
+the original site and theme=light selects Light. The early head script sets the
+actual color-scheme and adds the documented darkreader-lock only for native
+Dark. Light and Current do not carry the lock. Theme switching now reloads the
+same URL/section so extensions reevaluate the document; it replaces the former
+in-place theme behavior. No extension settings are changed. Funding-logo inverse
+correction is disabled in native Dark, and canvas pigments follow Dark Reader's
+dark adaptation when Light is selected.
+
+Tested with Dark Reader 4.9.130's actual rendering library in a temporary local
+fixture: native Dark had a lock and no Dark Reader theme; Light had no lock and
+Dark Reader activated; returning to Dark restored the lock and no adaptation.
+The fixture was removed before build/publication. This is not a test of every
+browser extension or extension mode. Documentation:
+https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#disabling-dark-reader-on-your-site

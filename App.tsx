@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Bio from './components/Bio';
@@ -21,13 +21,13 @@ import { resolveDesign } from './design/version';
 import './design/next.css';
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState(() => new URLSearchParams(window.location.search).get('theme') === 'light' ? 'light' : 'dark');
+  const theme = new URLSearchParams(window.location.search).get('theme') === 'light' ? 'light' : 'dark';
   const changeTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     const url = new URL(window.location.href);
     url.searchParams.set('theme', next);
-    window.history.replaceState(null, '', url);
-    setTheme(next);
+    // A new document lets extensions reevaluate the dark-theme opt-out.
+    window.location.assign(url.href);
   };
   const version = resolveDesign(window.location.search);
   return (
