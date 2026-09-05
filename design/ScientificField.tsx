@@ -57,7 +57,9 @@ geometry.forEach((point, index) => {
   buckets.set(key, [...(buckets.get(key) || []), index]);
 });
 
-export default function ScientificField() {
+export default function ScientificField({ dark }: { dark: boolean }) {
+  const darkRef = useRef(dark);
+  useEffect(() => { darkRef.current = dark; }, [dark]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -85,9 +87,10 @@ export default function ScientificField() {
       if (now - previous < 30) return;
       const dt = Math.min(now - previous, 50); previous = now;
       const frozen = reduced.matches;
+      const isDark = darkRef.current;
       // Branch geometry stays fully extended; only punctum brightness reacts.
       const growth = 1;
-      const key = `${width}:${height}:${pointer.x}:${pointer.y}`;
+      const key = `${width}:${height}:${pointer.x}:${pointer.y}:${isDark}`;
       if (frozen && frozenKey === key) return;
       frozenKey = frozen ? key : '';
       if (!frozen) time += dt * .00012;
@@ -167,12 +170,12 @@ export default function ScientificField() {
           const [a, b] = membraneEdges[edge];
           ctx.moveTo(plotted[a].px, plotted[a].py); ctx.lineTo(plotted[b].px, plotted[b].py);
         }
-        ctx.strokeStyle = 'rgba(139,117,74,.35)'; ctx.lineWidth = .7; ctx.stroke();
+        ctx.strokeStyle = isDark ? 'rgba(231,175,82,.42)' : 'rgba(139,117,74,.35)'; ctx.lineWidth = .7; ctx.stroke();
         plotted.sort((a, b) => a.z - b.z);
         for (const point of plotted) {
           if (mobile && point.index % 3 !== 0) continue;
           const depth = (point.z + .7) / 1.4;
-          ctx.fillStyle = point.fold ? `rgba(140,113,67,${.18 + depth * .55 + point.influence * .25})` : `rgba(27,119,118,${.12 + depth * .55 + point.influence * .3})`;
+          ctx.fillStyle = point.fold ? `rgba(${isDark ? '248,192,91' : '140,113,67'},${.18 + depth * .55 + point.influence * .25})` : `rgba(${isDark ? '74,224,206' : '27,119,118'},${.12 + depth * .55 + point.influence * .3})`;
           ctx.beginPath(); ctx.arc(point.px, point.py, (point.fold ? .9 : .7) + depth * .5 + point.influence, 0, Math.PI * 2); ctx.fill();
         }
       }

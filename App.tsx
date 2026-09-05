@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Bio from './components/Bio';
@@ -21,10 +21,18 @@ import { resolveDesign } from './design/version';
 import './design/next.css';
 
 const App: React.FC = () => {
+  const [theme, setTheme] = useState(() => new URLSearchParams(window.location.search).get('theme') === 'light' ? 'light' : 'dark');
+  const changeTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    const url = new URL(window.location.href);
+    url.searchParams.set('theme', next);
+    window.history.replaceState(null, '', url);
+    setTheme(next);
+  };
   const version = resolveDesign(window.location.search);
   return (
-    <div className={`min-h-screen bg-slate-50 flex flex-col font-sans ${version === 'next' ? 'design-next' : ''}`}>
-      {version === 'next' && <ScientificField />}
+    <div className={`min-h-screen bg-slate-50 flex flex-col font-sans ${version === 'next' ? `design-next theme-${theme}` : ''}`}>
+      {version === 'next' && <ScientificField dark={theme === 'dark'} />}
       <Navbar />
       <main className="flex-grow">
         {version === 'next' ? <NextHero /> : <Hero />}
@@ -41,6 +49,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      {version === 'next' && <button className="theme-toggle" onClick={changeTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>{theme === 'dark' ? '☀ Light' : '☾ Dark'}</button>}
       <PreviewSwitch version={version} />
     </div>
   );

@@ -172,3 +172,15 @@ Red puncta now have staggered sinusoidal brightness cycles of roughly 8 to 10
 seconds, beneath the existing stronger proximity glow. Spines remain stationary
 and fully extended. Reduced-motion mode uses steady idle brightness. Build,
 TypeScript, and browser rendering checks passed.
+
+## Light/dark choice with dark default
+
+The New design now defaults to Dark. A bottom-left button switches to Light or
+Dark in place, retaining the current section and component state. The selected
+theme is recorded in the URL as theme=light or theme=dark, so refresh and version
+comparison preserve an explicit choice. Plain new-design URLs default to Dark;
+plain site URLs still default to Current. The Current design has no theme toggle.
+Canvas membrane colors and opacity change with the theme without restarting its
+animation. Static spines, idle twinkle, and proximity feedback remain intact.
+Build, TypeScript, both toggle directions, refresh, and classic-default checks
+passed.
