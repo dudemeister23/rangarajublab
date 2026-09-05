@@ -184,3 +184,10 @@ Canvas membrane colors and opacity change with the theme without restarting its
 animation. Static spines, idle twinkle, and proximity feedback remain intact.
 Build, TypeScript, both toggle directions, refresh, and classic-default checks
 passed.
+
+## Full-strength idle twinkle
+
+Idle brightness now ranges from 20% to 100%, with the same core and halo profile
+as proximity illumination. Cursor proximity raises the current brightness toward
+100% regardless of the idle cycle. Slow timing and staggered phases are unchanged.
+Build, TypeScript, and browser visual checks passed.
