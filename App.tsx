@@ -21,7 +21,7 @@ import { resolveDesign } from './design/version';
 import './design/next.css';
 
 const App: React.FC = () => {
-  const theme = new URLSearchParams(window.location.search).get('theme') === 'light' ? 'light' : 'dark';
+  const theme = new URLSearchParams(window.location.search).get('theme') === 'dark' ? 'dark' : 'light';
   const changeTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     const url = new URL(window.location.href);

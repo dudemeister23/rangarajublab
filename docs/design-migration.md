@@ -210,3 +210,18 @@ Dark Reader activated; returning to Dark restored the lock and no adaptation.
 The fixture was removed before build/publication. This is not a test of every
 browser extension or extension mode. Documentation:
 https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#disabling-dark-reader-on-your-site
+
+## Light default and illustration clarity, September 14, 2026
+
+Plain URLs now open the New design in Light. Explicit `theme=dark` still selects
+Dark, and the early head script matches the React default to avoid a theme flash.
+The light illustration no longer has a 42% canvas-opacity washout; its existing
+light-background pigments render at full canvas opacity. The existing mobile
+field-opacity adjustment remains. Geometry, motion, and dark-mode colors are
+unchanged. Rasya's alumni entry also adds Research Assistant at CHINTA beneath
+MS at MPFI, with multiline details displayed without truncation.
+
+Production build and desktop/mobile browser checks passed, including both theme
+switch directions and the default URL. The optional local TypeScript check
+stalled and was stopped without a result. Publication to main was authorized
+on September 14, 2026.

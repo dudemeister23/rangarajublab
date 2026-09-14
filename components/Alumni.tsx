@@ -135,7 +135,7 @@ const Alumni: React.FC = () => {
                                                             <div className="w-4 h-4 rounded-full bg-neuro-100 flex items-center justify-center flex-shrink-0">
                                                                 <i className="fa-solid fa-location-dot text-[8px] text-neuro-600"></i>
                                                             </div>
-                                                            <p className="text-xs text-neuro-600 font-bold leading-tight truncate">{member.details}</p>
+                                                            <p className="text-xs text-neuro-600 font-bold leading-tight whitespace-pre-line">{member.details}</p>
                                                         </div>
                                                     )}
 

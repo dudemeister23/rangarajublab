@@ -116,7 +116,8 @@
 .design-next .next-hero h1 em{color:#08766a}
 .design-next .next-actions a{color:#245b61;border-color:#9fbabe}
 .design-next .next-actions a:hover{color:#075d55;border-color:#075d55}
-.design-next .scientific-field canvas{opacity:.42}
+/* Keep the illustration legible on the light background. */
+.design-next .scientific-field canvas{opacity:1}
 .design-next .design-switch{background:#fffffff5;color:#38545c;border-color:#c4d5d9;box-shadow:0 3px 14px #16383d12}
 .design-next .design-switch a[aria-current]{background:#e0efeb;color:#075d55}
 .design-next>footer .text-white{color:#233e45}
