@@ -182,3 +182,26 @@
 /* Native dark mode owns its colors; only the light theme accepts adaptation. */
 html[data-native-theme="dark"][data-darkreader-scheme="dark"] .funding-logo{filter:none;mix-blend-mode:normal}
 html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .scientific-field canvas{opacity:1}
+
+/* Restore the Current hero's Inter weight, tracking, colors, and text shadows. */
+.design-next .next-hero h1{font-family:Inter,sans-serif;font-weight:700;letter-spacing:-.025em}
+.design-next .next-hero h1>span{font-size:.88em;letter-spacing:inherit}
+.design-next .next-hero h1 .next-hero-subject{font-weight:inherit;color:#f6b91a}
+.design-next .next-hero h1 em{color:#159b91}
+.design-next .next-intro{font-weight:600}
+
+/* Preserve source logo colors on opaque light plates in native Dark. */
+.design-next.theme-dark :is(.funding-logo,.preprint-source-logo){
+  background:#fff;
+  mix-blend-mode:normal;
+  filter:none;
+  opacity:1;
+  border-radius:6px;
+}
+.design-next.theme-dark .preprint-source-logo{padding:6px;box-sizing:content-box;max-width:calc(100% - 54px)}
+
+/* Reserve side gutters for the scientific field alongside scrolling content. */
+@media(min-width:761px){
+  .design-next main{width:min(2400px,70%)}
+  .design-next footer{width:70%}
+}

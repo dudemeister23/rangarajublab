@@ -46,7 +46,7 @@ const Publications: React.FC = () => {
               >
                 {/* Top: Logo */}
                 <div className="flex items-center gap-3 mb-5">
-                  <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="h-10 w-auto object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
+                  <img src={preprint.coverImage} alt={`${preprint.title} preprint source`} className="preprint-source-logo h-10 w-auto object-contain mix-blend-multiply opacity-80 group-hover:opacity-100 transition-opacity" loading="lazy" />
                   <span className="text-xs font-semibold text-slate-900 uppercase tracking-wide ml-auto">{preprint.year}</span>
                 </div>
                 {/* Middle: Title + Citation */}

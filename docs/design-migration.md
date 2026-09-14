@@ -225,3 +225,14 @@ Production build and desktop/mobile browser checks passed, including both theme
 switch directions and the default URL. The optional local TypeScript check
 stalled and was stopped without a result. Publication to main was authorized
 on September 14, 2026.
+
+## Dark default restored and logo visibility, September 14, 2026
+
+Dark is again the default for New in both React and the early head script;
+explicit theme=light and design=classic remain available. Preprint source logos
+now have a dedicated class. In native Dark, these and funding logos render in
+normal blend mode at full opacity, without inversion, over opaque white plates.
+This prevents dark lettering and brand colors from multiplying into the dark
+page background. BioRxiv, eLife, and all six image-based funder logos were
+visually verified in the browser. Build and whitespace checks passed. These
+changes remain local pending publication.

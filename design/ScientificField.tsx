@@ -1,60 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 
-type Point = { x: number; y: number; z: number; fold: boolean };
+import { mitochondrialGeometry } from './mitochondrialGeometry';
 
-// Stylized mitochondrial envelope and folded inner membrane, not measured data.
-function mitochondrialGeometry(): Point[] {
-  const points: Point[] = [];
-  for (let row = 0; row <= 62; row++) {
-    const v = Math.PI * row / 62;
-    for (let column = 0; column < 48; column++) {
-      const u = 2 * Math.PI * column / 48;
-      points.push({ x: Math.sin(v) * Math.cos(u) * .64, y: Math.cos(v) * 1.7, z: Math.sin(v) * Math.sin(u) * .64, fold: false });
-    }
-  }
-  // A warped continuous folded surface replaces the repeated horizontal discs.
-  // This is a visual approximation of a labyrinth, not an ultrastructural model.
-  const step = .042;
-  for (let x = -.58; x <= .58; x += step) {
-    for (let y = -1.56; y <= 1.56; y += step) {
-      for (let z = -.58; z <= .58; z += step) {
-        if ((x * x + z * z) / (.58 * .58) + y * y / (1.56 * 1.56) > 1) continue;
-        const u = x * 7.2 + .7 * Math.sin(y * 2.8 + z * 3);
-        const v = y * 5.4 + .6 * Math.sin(z * 5 + x * 3);
-        const w = z * 7.8 + .55 * Math.cos(y * 3.2 - x * 4);
-        const membrane = Math.sin(u) * Math.cos(v) + Math.sin(v) * Math.cos(w) + Math.sin(w) * Math.cos(u);
-        if (Math.abs(membrane - .12 * Math.sin(y * 4)) < .16) {
-          points.push({
-            x: x + .006 * Math.sin(y * 37 + z * 51),
-            y: y + .006 * Math.sin(z * 43 + x * 47),
-            z: z + .006 * Math.sin(x * 41 + y * 53),
-            fold: true,
-          });
-        }
-      }
-    }
-  }
-  return points;
-}
-
-const geometry = mitochondrialGeometry();
-// Connect nearby membrane samples in 3D, preserving the voids between folds.
-const membraneEdges: [number, number][] = [];
-const buckets = new Map<string, number[]>();
-geometry.forEach((point, index) => {
-  if (!point.fold) return;
-  const cell = [point.x, point.y, point.z].map(value => Math.floor(value / .075));
-  const neighbors: { index: number; distance: number }[] = [];
-  for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) for (let dz = -1; dz <= 1; dz++) {
-    for (const other of buckets.get(`${cell[0] + dx},${cell[1] + dy},${cell[2] + dz}`) || []) {
-      const p = geometry[other];
-      const distance = Math.hypot(point.x - p.x, point.y - p.y, point.z - p.z);
-      if (distance < .076) neighbors.push({ index: other, distance });
-    }
-  }
-  neighbors.sort((a, b) => a.distance - b.distance).slice(0, 3).forEach(other => membraneEdges.push([index, other.index]));
-  const key = cell.join(',');
-  buckets.set(key, [...(buckets.get(key) || []), index]);
+const mitochondria = [0, 1].map(variant => {
+  const geometry = mitochondrialGeometry(variant);
+  const membraneVertices = new Set(geometry.faces.flat());
+  // Exclude unused vertices inside perforations when sampling the mesh as dots.
+  const points = geometry.points.filter((point, index) => !point.fold || membraneVertices.has(index));
+  // Stable sampling avoids visible rows from a regular every-third stride.
+  return points.filter((_, index) => ((Math.imul(index + 1, 2654435761) >>> 0) % 100) < 34);
 });
 
 export default function ScientificField({ dark }: { dark: boolean }) {
@@ -69,9 +23,12 @@ export default function ScientificField({ dark }: { dark: boolean }) {
     if (!ctx) return;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     let width = 0, height = 0, frame = 0, time = 0, previous = 0;
-    let pointer = { x: -1000, y: -1000 }, eased = { x: 0, y: 0 };
+    let pointer = { x: -1000, y: -1000 };
     let visible = !document.hidden;
     let frozenKey = '';
+    // Reuse coordinate storage; no particle objects or sorting during animation.
+    const batches = Array.from({ length: 12 }, () => new Float32Array(Math.max(...mitochondria.map(points => points.length)) * 3));
+    const counts = new Uint32Array(12);
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -84,7 +41,7 @@ export default function ScientificField({ dark }: { dark: boolean }) {
     const draw = (now: number) => {
       if (!visible) return;
       frame = requestAnimationFrame(draw);
-      if (now - previous < 30) return;
+      if (now - previous < 15) return;
       const dt = Math.min(now - previous, 50); previous = now;
       const frozen = reduced.matches;
       const isDark = darkRef.current || document.documentElement.getAttribute('data-darkreader-scheme') === 'dark';
@@ -95,23 +52,26 @@ export default function ScientificField({ dark }: { dark: boolean }) {
       frozenKey = frozen ? key : '';
       if (!frozen) time += dt * .00012;
       const interactive = !frozen && !reduced.matches;
-      if (!frozen) eased.x += ((interactive && pointer.x >= 0 ? pointer.x / width - .5 : 0) - eased.x) * .07;
-      if (!frozen) eased.y += ((interactive && pointer.y >= 0 ? pointer.y / height - .5 : 0) - eased.y) * .07;
       ctx.clearRect(0, 0, width, height);
       canvas.dataset.growth = growth.toFixed(4);
       const mobile = width < 760;
-      const size = mobile ? 95 : Math.min(width * .135, 215);
-      const offset = mobile ? 0 : width * .075;
       // Dendritic shafts descend from above, with short necks and rounded spine
       // heads. Red puncta echo the original fluorescence image, not live data.
-      const roots = mobile ? [.08, .92] : [.06, .20, .80, .94];
-      roots.forEach((root, branch) => {
-        const sign = root < .5 ? 1 : -1;
+      const roots = mobile ? [.08, .92] : [.012, .138, .862, .988];
+      const dendritePosition = (branch: number, t: number) => {
+        const root = roots[branch], sign = root < .5 ? 1 : -1;
         const length = Math.max(0, height - 110) * (branch % 2 === 0 ? 1 : .86);
-        const position = (t: number) => ({
-          x: width * root + Math.sin(t * 5 + branch) * (mobile ? 14 : 30) + sign * t * (mobile ? 2 : -35),
+        return {
+          x: width * root + Math.sin(t * 5 + branch) * (mobile ? 14 : Math.min(12, width * .007)) + sign * t * (mobile ? 2 : 0),
           y: 90 + t * length,
-        });
+        };
+      };
+      const dendriteXAt = (branch: number, y: number) => {
+        const length = Math.max(1, height - 110) * (branch % 2 === 0 ? 1 : .86);
+        return dendritePosition(branch, Math.max(0, Math.min(1, (y - 90) / length))).x;
+      };
+      roots.forEach((_, branch) => {
+        const position = (t: number) => dendritePosition(branch, t);
         ctx.lineCap = 'round'; ctx.lineJoin = 'round';
         ctx.beginPath();
         for (let sample = 0; sample <= 90; sample++) {
@@ -149,35 +109,75 @@ export default function ScientificField({ dark }: { dark: boolean }) {
         }
       });
       for (let side = 0; side < 2; side++) {
-        const centerX = side === 0 ? offset : width - offset;
-        const centerY = height * (side === 0 ? .48 : .57);
-        const angle = time * (side === 0 ? 1 : -.8) + eased.x * .75 + side * 1.8;
-        const tilt = (side === 0 ? -.25 : .3) + eased.y * .15;
+        const centerY = height * .52;
+        const firstBranch = side * 2;
+        const laneMidpoint = (y: number) =>
+          (dendriteXAt(firstBranch, y) + dendriteXAt(firstBranch + 1, y)) / 2;
+        // Desktop placement follows each pair of actual dendritic shafts.
+        // Mobile has only one shaft per side, so retain its edge composition.
+        let size = mobile ? 95 : Math.min(width * .135, 215);
+        if (!mobile) {
+          const gaps = [.2, .35, .5, .65, .8].map(fraction =>
+            dendriteXAt(firstBranch + 1, height * fraction) - dendriteXAt(firstBranch, height * fraction));
+          size = Math.min(size, Math.max(24, (Math.min(...gaps) - 24) / 1.4));
+        }
+        const centerX = mobile ? (side === 0 ? -24 : width + 24) : laneMidpoint(centerY);
+        // Rotation is time-driven only; pointer movement affects local dots.
+        const angle = time * (2 / 3) * (side === 0 ? 1 : -.8) + side * 1.8;
+        const laneTilt = mobile ? (side === 0 ? -.25 : .3)
+          : -Math.atan2(laneMidpoint(centerY + 60) - laneMidpoint(centerY - 60), 120);
+        const tilt = laneTilt;
         const cos = Math.cos(angle), sin = Math.sin(angle);
-        const plotted = geometry.map((point, index) => {
+        const geometry = mitochondria[side];
+        const tiltCos = Math.cos(tilt), tiltSin = Math.sin(tilt);
+        counts.fill(0);
+        // The gap depends on screen height, not on individual particles.
+        const lane = new Float32Array(height + 1);
+        if (!mobile) for (let y = 0; y <= height; y++) lane[y] = laneMidpoint(y);
+        for (let index = 0; index < geometry.length; index += mobile ? 2 : 1) {
+          const point = geometry[index];
           const x = point.x * cos + point.z * sin;
           const z = point.z * cos - point.x * sin;
           const perspective = 3.8 / (3.8 - z);
-          let px = centerX + (x * Math.cos(tilt) - point.y * Math.sin(tilt)) * size * perspective;
-          let py = centerY + (point.y * Math.cos(tilt) + x * Math.sin(tilt)) * size * perspective;
+          let py = centerY + (point.y * tiltCos + x * tiltSin) * size * perspective;
+          if (py < -20 || py > height + 20) continue;
+          let px = (mobile ? centerX : lane[Math.max(0, Math.min(height, Math.round(py)))])
+            + x * tiltCos * size * perspective;
+          let influence = 0;
           const dx = px - pointer.x, dy = py - pointer.y;
-          const distance = Math.hypot(dx, dy);
-          const influence = interactive ? Math.max(0, 1 - distance / 150) : 0;
-          if (distance > 0) { px += dx / distance * influence * 24; py += dy / distance * influence * 24; }
-          return { px, py, z, fold: point.fold, influence, index };
-        });
-        ctx.beginPath();
-        for (let edge = 0; edge < membraneEdges.length; edge += mobile ? 3 : 1) {
-          const [a, b] = membraneEdges[edge];
-          ctx.moveTo(plotted[a].px, plotted[a].py); ctx.lineTo(plotted[b].px, plotted[b].py);
+          if (interactive && Math.abs(dx) < 150 && Math.abs(dy) < 150) {
+            const squared = dx * dx + dy * dy;
+            if (squared > 0 && squared < 22500) {
+              const distance = Math.sqrt(squared);
+              influence = 1 - distance / 150;
+              px += dx / distance * influence * 18;
+              py += dy / distance * influence * 18;
+            }
+          }
+          const depth = Math.max(0, Math.min(1, (z + .6) / 1.2));
+          const level = Math.min(5, Math.floor((depth + influence * .4) * 6));
+          const bucket = (point.fold ? 6 : 0) + level;
+          const offset = counts[bucket] * 3;
+          const batch = batches[bucket];
+          batch[offset] = px; batch[offset + 1] = py;
+          // Slightly larger dots compensate for the lower surface sampling.
+          batch[offset + 2] = ((point.fold ? .60 : .48) + depth * .40 + influence * .65) * 1.5;
+          counts[bucket]++;
         }
-        ctx.strokeStyle = isDark ? 'rgba(231,175,82,.42)' : 'rgba(139,117,74,.35)'; ctx.lineWidth = .7; ctx.stroke();
-        plotted.sort((a, b) => a.z - b.z);
-        for (const point of plotted) {
-          if (mobile && point.index % 3 !== 0) continue;
-          const depth = (point.z + .7) / 1.4;
-          ctx.fillStyle = point.fold ? `rgba(${isDark ? '248,192,91' : '140,113,67'},${.18 + depth * .55 + point.influence * .25})` : `rgba(${isDark ? '74,224,206' : '27,119,118'},${.12 + depth * .55 + point.influence * .3})`;
-          ctx.beginPath(); ctx.arc(point.px, point.py, (point.fold ? .9 : .7) + depth * .5 + point.influence, 0, Math.PI * 2); ctx.fill();
+        // Twelve fills replace thousands of per-particle state changes/fills.
+        for (let bucket = 0; bucket < batches.length; bucket++) {
+          const fold = bucket >= 6, level = bucket % 6;
+          const pigment = fold ? (isDark ? '248,192,91' : '140,113,67')
+            : (isDark ? '74,224,206' : '27,119,118');
+          ctx.fillStyle = `rgba(${pigment},${(fold ? .24 : .18) + (level + .5) / 6 * .48})`;
+          ctx.beginPath();
+          const batch = batches[bucket];
+          for (let i = 0; i < counts[bucket] * 3; i += 3) {
+            const x = batch[i], y = batch[i + 1], radius = batch[i + 2];
+            ctx.moveTo(x + radius, y);
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+          }
+          ctx.fill();
         }
       }
     };
