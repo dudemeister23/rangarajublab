@@ -17,6 +17,8 @@ export const PROJECTS: Project[] = [
     title: 'Spatial Stabilization Mechanisms',
     description: 'Using APEX-based proximity labeling and advanced imaging to quantify mitochondria-actin interactions, we discovered novel mitochondrial actin interactors. Many of the identified proteins have implications in neurological and psychiatric disorders such as ALS and autism. We are currently investigating the mitochondrial stabilization mechanisms of these proteins to support long-term synaptic plasticity, fueling learning and memory, and their role in brain disorders, using rodent and human disease models.',
     image: 'assets/research/spatial-stabilization-v2.png',
+    imageWidth: 1024,
+    imageHeight: 934,
     linkUrl: 'https://doi.org/10.1038/s41467-023-44233-8'
   },
   {
@@ -24,6 +26,8 @@ export const PROJECTS: Project[] = [
     title: 'Local Mitochondrial ATP Production',
     description: 'We developed novel spine- and mitochondrial-ATP reporters to image ATP within single spines and mitochondria and showed that mitochondria generate ATP instantaneously and locally near dendritic spines to support synaptic plasticity. We are currently dissecting the molecular mechanisms driving mitochondrial ATP synthesis in response to plasticity and identifying novel spatiotemporal regulators of ATP synthesis.',
     image: 'assets/research/local-mitochondrial-atp.png',
+    imageWidth: 1024,
+    imageHeight: 530,
     linkUrl: 'https://doi.org/10.1101/2025.04.09.648032'
   },
   {
@@ -31,13 +35,17 @@ export const PROJECTS: Project[] = [
     title: 'Mitochondrial Structural Remodelling',
     description: 'We developed a correlative light and electron microscopy pipeline with deep-learning-based data analysis algorithms to quantify remodeling of mitochondrial inner structure, their ATP synthesis machinery, and their association with the endoplasmic reticulum and ribosomes near dendritic spines during neuronal plasticity. We are currently investigating the molecular mechanisms that drive mitochondrial structural remodeling near spines and their link to ATP production during neuronal plasticity.',
     image: 'assets/research/mitochondrial-remodeling.png',
+    imageWidth: 1024,
+    imageHeight: 876,
     linkUrl: 'https://doi.org/10.1101/2025.08.27.672715'
   },
   {
     id: 'p4',
     title: 'Mitochondrial Biogenesis',
     description: 'Investigating how neuronal compartments manage local mitochondrial biogenesis. We employ ribosome profiling, RNA sequencing, and metabolic labeling to identify locally translated mitochondrial transcripts.',
-    image: 'assets/research/mitochondrial-biogenesis.png'
+    image: 'assets/research/mitochondrial-biogenesis.png',
+    imageWidth: 983,
+    imageHeight: 1024
   }
 ];
 

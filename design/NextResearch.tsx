@@ -17,16 +17,18 @@ export default function NextResearch() {
               else if (event.key === 'Home') next = 0;
               else if (event.key === 'End') next = PROJECTS.length - 1;
               else return;
-              event.preventDefault(); setSelected(next); tabs.current[next]?.focus();
+              event.preventDefault(); setSelected(next); tabs.current[next]?.focus({ preventScroll: true });
             }}><span aria-hidden="true">0{index + 1}</span>{project.title}</button>
         ))}
       </div>
+      <div className="next-research-panels">
       {PROJECTS.map((project, index) => (
-        <div key={project.id} id={`panel-${project.id}`} role="tabpanel" aria-labelledby={`tab-${project.id}`} tabIndex={0} hidden={selected !== index} className="next-research-panel">
+        <div key={project.id} id={`panel-${project.id}`} role="tabpanel" aria-labelledby={`tab-${project.id}`} tabIndex={selected === index ? 0 : -1} aria-hidden={selected !== index} inert={selected !== index} hidden={selected !== index} className="next-research-panel">
           <div><h3>{project.title}</h3><p>{project.description}</p>{project.linkUrl && <a href={project.linkUrl} target="_blank" rel="noreferrer">Read the research <span aria-hidden="true">↗</span></a>}</div>
-          {project.image && <img src={project.image} alt={project.title} loading="lazy" />}
+          {project.image && <img src={project.image} alt={project.title} width={project.imageWidth} height={project.imageHeight} style={{ aspectRatio: project.imageWidth && project.imageHeight ? `${project.imageWidth} / ${project.imageHeight}` : undefined }} loading="eager" decoding="async" />}
         </div>
       ))}
+      </div>
     </section>
   );
 }

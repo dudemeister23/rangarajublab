@@ -3,6 +3,8 @@ export interface Project {
   title: string;
   description: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   linkUrl?: string;
 }
 

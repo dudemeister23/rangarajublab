@@ -236,3 +236,18 @@ This prevents dark lettering and brand colors from multiplying into the dark
 page background. BioRxiv, eLife, and all six image-based funder logos were
 visually verified in the browser. Build and whitespace checks passed. These
 changes remain local pending publication.
+
+## Stable research tabs on first load, September 14, 2026
+
+Research images now declare verified native dimensions and an explicit reserved
+aspect ratio; CSS no longer lets their boxes collapse before decoding. The four
+panels share one grid row, with inactive panels invisible, inert, and hidden from
+assistive technology while retaining their layout contribution. Images load
+eagerly, and keyboard focus moves without scrolling. This stabilizes both image
+arrival and changes between panels with different amounts of text.
+
+With cache disabled and all research image requests blocked, every tab retained
+a 560.93px panel area and scrollY 2425 in the test viewport. After unblocking and
+reloading, all four images loaded into exactly the same reserved heights and
+the panel area stayed 560.93px. Keyboard ArrowRight correctly selected/focused
+the next tab. Network test overrides were restored. Changes remain local.
