@@ -157,3 +157,173 @@ reduced-motion behavior are unchanged. Build and browser rendering checks pass.
 
 Publication of the final implementation was authorized on September 14, 2026.
 Earlier local/pending notes above describe intermediate review states.
+
+## Enclosing dendritic mesh, September 17, 2026
+
+First local review version based on the two PNGs supplied by Fabian:
+`design/references/2026-09-17/Microns dendrite mesh.png` and
+`design/references/2026-09-17/Microns dendrite mito mesh.png`.
+The message screenshot supplies context for combining spines and mitochondria;
+it does not authorize publication. The source PNGs remain outside public assets
+and are not included in the website bundle.
+
+The separate thin dendrites on each side are replaced by one translucent,
+triangulated shaft with irregular neck lengths and enlarged spine heads.
+Existing teal envelope and gold crista particles now sit inside the shaft.
+The shaft varies in caliber, and the mitochondrial projection follows its
+center and local width. Pointer displacement is bounded by the shaft silhouette.
+The vertical composition preserves the existing side gutters and typography.
+The wireframe stays stationary; mitochondrial particles retain slow independent
+rotation, local pointer response, and the red spine puncta retain their twinkle.
+Mobile spines are shortened and moved outward to keep the text clear.
+
+`design/dendriteGeometry.ts` creates original illustrative geometry from these
+visual references. No original 3D mesh, experimental dimensions, or hidden
+surfaces can be recovered from the PNGs. The new wireframe is not a traced
+reconstruction. Spine/shaft joins use overlapping surfaces, not watertight
+topology. Axial and transverse display scales adapt separately to the viewport;
+the composition is not a quantitative anatomical scale model.
+
+Static rear/front membrane layers are rasterized only on resize or theme
+changes. Particle batching remains in place. Reduced motion freezes rotation
+and idle twinkle while retaining proximity brightness feedback.
+
+Validation: production build and whitespace checks pass. A TypeScript check of
+the application sources passes using a temporary config excluding the nested
+`.claude` worktrees and build output; the unrestricted repository check stalled
+and was stopped. Browser review covered desktop Dark and Light, scrolling,
+390px mobile, pointer response, and zero recorded console errors. Two successive
+screenshots of the illustration were byte-identical under reduced-motion
+emulation; the emulation and viewport overrides were restored afterward.
+Changes remain local, uncommitted and unpublished, pending visual review.
+
+## Reference-derived point cloud, corrected direction, September 17
+
+Fabian rejected the first combination of the old site geometry with approximate
+spines and asked to treat the supplied images as primary. He explicitly selected
+recreating their shapes interactively. This supersedes the preceding local pass.
+
+The active renderer now uses projected point coordinates sampled directly from
+the paired PNGs. `scripts/sample_dendrite_reference.py` preserves the grayscale
+dendrite contours from the mesh-only image and obtains mitochondrial placement,
+including the small separate fragments, from the green segmentation in the
+combined image. It writes 32,226 mesh samples and 15,128 mitochondrial samples
+into `design/assets/dendrite-reference.bin` (284,124 bytes before compression).
+The original PNGs are retained as provenance but are not deployed as assets.
+The sampled derivative is included in the local website build.
+
+The original image plane is rotated into the established side margins and
+mirrored on the right. Scaling is uniform, so the supplied proportions and spine
+spacing remain intact. Gray dendrites and green mitochondria replace the old
+teal/gold procedural mitochondria and red puncta. The superseded helper is
+preserved in `docs/design-history/2026-09-17/` and is not imported or bundled.
+
+Pointer proximity gently displaces the sampled points. Outside that influence,
+coordinates return to the reference projection. There is no idle rotation or
+invented depth: the PNGs provide a single projected view, not a 3D reconstruction.
+True anatomical rotation would require the underlying mesh data. Reduced motion
+renders a static view. Mobile uses a narrow edge crop to protect the copy.
+
+Build, scoped application TypeScript, and whitespace checks passed. Browser
+review covered desktop Dark/Light, mobile at 390px without document overflow,
+and visible pointer displacement. This remains a local, unpublished review.
+
+## Slow rotation and scroll parallax, September 17
+
+At Fabian's request, the reference-derived forms now turn gently in the image
+plane, through approximately +/-3.15 degrees on a 90-second cycle, mirrored on
+the two sides. Dendrite and mitochondrial points share the same rigid transform,
+preserving their alignment. This is a rotational sway of the supplied projection,
+not a reconstructed 3D axial spin.
+
+Vertical position now follows page scroll progress: the illustration travels
+upward by 38% of the viewport height across a full downward page scroll and
+retraces its position when scrolling upward. Current document height is read
+live, including expanded content. Rotation remains independent of scroll.
+Reduced motion disables rotation, parallax, and pointer displacement. Background
+animation remains paused while the tab is hidden.
+
+Production build, scoped application TypeScript, and whitespace checks passed.
+Browser verification observed about 68px of background travel for 2448px of page
+scroll and return travel on upward scrolling. Rotation advanced independently;
+reduced-motion emulation reported zero rotation and zero parallax. The preview
+remains local and unpublished.
+
+## Asymmetric sculptural interpretation, September 17
+
+Fabian clarified that the references should be a starting point for a creative,
+less repetitive composition and specifically rejected the mirrored left/right
+appearance. The active renderer now uses two original, deterministic 3D forms
+from `design/organicFieldGeometry.ts`. The earlier image-derived renderer is
+preserved in `docs/design-history/2026-09-17/reference-projection-ScientificField.tsx.txt`.
+The source PNGs and sampled binary remain preserved but are not imported by the
+active renderer or included in the current production build.
+
+The left structure is broader, more curved, and has five unevenly placed spines;
+the right has its own narrower profile, six different spine attachments, lower
+placement, and smaller transverse scale. Each has a distinct set of unequal
+mitochondrial compartments with translucent green surface particles and locally
+winding internal folds. Sparse mesh edges and depth-shaded particles retain the
+source renderings' visual character without copying their silhouettes. These
+are artistic 3D models, not recovered specimen geometry or quantitative anatomy.
+Spine joins are overlapping illustrative surfaces rather than watertight meshes.
+
+The two structures rotate independently around their long axes, approximately
+one revolution per 7.5 and 9.5 minutes in opposite directions, with small distinct
+tilts. Their full-page scroll travel is 38% and 27% of viewport height. These
+changes supersede the mirrored 2D sway. Pointer interaction, reduced-motion
+handling, hidden-tab suspension, and narrow-screen text protection remain.
+
+Verification: finite coordinates and valid edge indices for both forms (32,512
+and 34,764 particles); production build, scoped TypeScript, and whitespace checks;
+desktop Dark/Light, scrolling, mobile layout at 390px without horizontal document
+overflow, and no recorded browser errors. Changes remain local and unpublished.
+
+## Smooth scroll following and visible rotation, September 17
+
+Removed the 22ms render gate, which skipped alternate frames on a 60Hz display.
+The illustration now renders on each animation frame. Scroll following uses a
+75ms exponential response, independent of frame rate, to absorb discrete wheel
+steps and ease reversals before settling at the target position. Pointer easing
+is also time-based. Existing asymmetric scroll travel distances remain intact.
+
+Axial rotation increased to 0.065 and 0.053 radians/second, approximately 97 and
+119 seconds per revolution. Browser timing measured 0.06485 radians/second on
+the left. Downward and upward scroll checks reached their expected offsets; one
+upward check was within 0.02px of its target while settling. Temporary canvas
+instrumentation measured 6.70ms average draw work before and 7.46ms afterward
+at a 1348x1224 viewport. These are local draw timings, not total frame timings or
+a guaranteed device frame rate. Instrumentation was removed after measurement.
+
+Production build, scoped TypeScript, and whitespace checks pass. The revision
+remains local and unpublished.
+
+## Continuous lower shaft and elongated lower-left mitochondrion, September 17
+
+Fabian identified a short, blob-like lower-left mitochondrion and a dendrite
+that faded to an exposed end near the bottom of the page. The lower-left
+compartment now extends from axial position 4.25 to 11.7 instead of 5.25,
+retaining local radius changes and newly sampled internal folds throughout.
+Both dendritic shafts extend from -9 to 12 with the previous sampling density.
+The axial opacity fade was removed, so the shafts continue through the viewport
+boundary without thinning into darkness. Existing rotation and scroll easing
+are unchanged.
+
+Verified the Contact/footer view at maximum page scroll in the browser: the
+lower-left mitochondrion is elongated and both shafts continue below the screen.
+A numerical coverage check passed for 1,440 combinations of desktop/mobile
+viewport, rotation time, and top/bottom scroll position; shaft endpoints stayed
+outside the visible vertical range. Geometry remained finite with valid edges.
+Production build, scoped TypeScript, and whitespace checks pass. Local only.
+
+## Rotation reduced by 55%, September 17
+
+At Fabian's request, both axial rotation rates are now 45% of their previous
+values: left 0.02925 radians/second and right 0.02385 radians/second. Scroll easing,
+parallax, geometry, and pointer interaction are unchanged. Local only.
+
+Publication of the final sculptural implementation and 55% rotation reduction
+was authorized by Fabian on September 17, 2026. Source images, the superseded
+sampled binary, sampling utility, and intermediate renderer snapshots are retained
+locally as working references; the published implementation uses only
+`ScientificField.tsx` and `organicFieldGeometry.ts`.
