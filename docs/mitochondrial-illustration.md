@@ -327,3 +327,17 @@ was authorized by Fabian on September 17, 2026. Source images, the superseded
 sampled binary, sampling utility, and intermediate renderer snapshots are retained
 locally as working references; the published implementation uses only
 `ScientificField.tsx` and `organicFieldGeometry.ts`.
+
+## Subtle luminescence, September 17
+
+The Dark presentation now uses brighter mint-gray dendritic particles and mesh
+edges, brighter green mitochondrial envelopes, and pale lime internal highlights.
+A single blurred layer at one-third viewport resolution adds a restrained halo
+with screen compositing at 35% opacity. Crisp particles remain in the primary
+layer, and the glow canvas is reused between frames. Light-theme pigments and
+motion are unchanged. Production build, scoped TypeScript, whitespace checks,
+and a browser visual check passed with no recorded console errors. This revision
+is local and has not been published.
+
+Fabian authorized publication of the luminescence adjustment on September 17,
+2026. The preceding local-only note records the review state before approval.
