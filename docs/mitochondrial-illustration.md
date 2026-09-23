@@ -341,3 +341,14 @@ is local and has not been published.
 
 Fabian authorized publication of the luminescence adjustment on September 17,
 2026. The preceding local-only note records the review state before approval.
+
+## Continuous mitochondria in the new design, September 22, 2026
+
+At Fabian's request, the three separate mitochondrial compartments within each
+rotating side dendrite now form one continuous body per side. Each body spans
+the full range formerly covered by its compartments, and the internal folds
+are sampled across that range. The dendrite geometry, spine placements, colors,
+rotation, scroll response, and pointer behavior remain as before. This is an
+illustrative form without a calibrated micrometer scale; the stated possible
+length of 120 micrometers is context for the design, not a measured dimension
+of the rendering. Fabian authorized publication on September 22, 2026.

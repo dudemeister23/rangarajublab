@@ -64,43 +64,40 @@ export function organicFieldGeometry(variant: number): FieldGeometry {
     }, 0, true);
   }
 
-  // Unequal mitochondrial compartments replace the copied continuous green fill.
+  // One continuous mitochondrion spans the existing compartments on each side.
   // Porous surface and winding internal strands make the volume readable.
-  const compartments = variant ? [[-6.8, -2.7], [-1.9, 1.1], [2.25, 6.7]] : [[-6.8, -.75], [-.25, 3.45], [4.25, 11.7]];
-  for (let part = 0; part < compartments.length; part++) {
-    const [start, end] = compartments[part];
-    const center = (y: number) => {
-      const c = axis(y);
-      return { x: c.x + .10 * Math.sin(y * 1.5 + phase), z: c.z + .08 * Math.cos(y * 1.8) };
-    };
-    const radius = (y: number) => {
-      const t = (y - start) / (end - start);
-      const cap = Math.pow(Math.max(.001, Math.sin(Math.PI * t)), .25);
-      return caliber(y) * (.61 + .09 * Math.sin(y * 3.1 + phase)) * cap;
-    };
-    surface(Math.ceil((end - start) * 28), 26, (t, a) => {
-      const y = start + t * (end - start), c = center(y), r = radius(y);
-      return { x: c.x + r * Math.cos(a), y, z: c.z + r * Math.sin(a) * .83 };
-    }, 1);
-    const folds = Math.ceil((end - start) * 12);
-    for (let fold = 0; fold < folds; fold++) {
-      const y0 = start + (end - start) * (.04 + random() * .88);
-      const span = .12 + random() * .34;
-      const a0 = random() * Math.PI * 2;
-      const turnSpan = 1.3 + random() * 2.4;
-      const reach = .30 + random() * .40;
-      surface(16, 6, (t, a) => {
-        const y = Math.min(end - .01, y0 + span * t), c = center(y);
-        const turn = a0 + t * turnSpan;
-        const r = radius(y) * reach * (.78 + .22 * Math.sin(t * Math.PI));
-        const tube = .018 + .012 * Math.sin(t * Math.PI);
-        return {
-          x: c.x + r * Math.cos(turn) + tube * Math.cos(a),
-          y: y + tube * Math.sin(a),
-          z: c.z + r * Math.sin(turn) + tube * Math.sin(a) * .65,
-        };
-      }, 2);
-    }
+  const [start, end] = variant ? [-6.8, 6.7] : [-6.8, 11.7];
+  const center = (y: number) => {
+    const c = axis(y);
+    return { x: c.x + .10 * Math.sin(y * 1.5 + phase), z: c.z + .08 * Math.cos(y * 1.8) };
+  };
+  const radius = (y: number) => {
+    const t = (y - start) / (end - start);
+    const cap = Math.pow(Math.max(.001, Math.sin(Math.PI * t)), .25);
+    return caliber(y) * (.61 + .09 * Math.sin(y * 3.1 + phase)) * cap;
+  };
+  surface(Math.ceil((end - start) * 28), 26, (t, a) => {
+    const y = start + t * (end - start), c = center(y), r = radius(y);
+    return { x: c.x + r * Math.cos(a), y, z: c.z + r * Math.sin(a) * .83 };
+  }, 1);
+  const folds = Math.ceil((end - start) * 12);
+  for (let fold = 0; fold < folds; fold++) {
+    const y0 = start + (end - start) * (.04 + random() * .88);
+    const span = .12 + random() * .34;
+    const a0 = random() * Math.PI * 2;
+    const turnSpan = 1.3 + random() * 2.4;
+    const reach = .30 + random() * .40;
+    surface(16, 6, (t, a) => {
+      const y = Math.min(end - .01, y0 + span * t), c = center(y);
+      const turn = a0 + t * turnSpan;
+      const r = radius(y) * reach * (.78 + .22 * Math.sin(t * Math.PI));
+      const tube = .018 + .012 * Math.sin(t * Math.PI);
+      return {
+        x: c.x + r * Math.cos(turn) + tube * Math.cos(a),
+        y: y + tube * Math.sin(a),
+        z: c.z + r * Math.sin(turn) + tube * Math.sin(a) * .65,
+      };
+    }, 2);
   }
   return { points, edges };
 }
