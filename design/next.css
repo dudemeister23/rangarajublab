@@ -210,3 +210,15 @@ html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .sci
 .next-research-panels{display:grid}
 .next-research-panels>.next-research-panel{grid-area:1 / 1;min-width:0}
 .next-research-panels>.next-research-panel[hidden]{display:grid;visibility:hidden;pointer-events:none}
+
+/* Hold the hero copy in place while the reading surface rises over it. */
+.design-next nav{padding-top:20px!important;padding-bottom:20px!important}
+.design-next main>.next-hero{position:sticky;top:0;z-index:0}
+.design-next main>:not(#home){position:relative;z-index:1}
+.design-next main>section:not(#home),.design-next main>div{background-color:#fff}
+.design-next.theme-dark main>section:not(#home),.design-next.theme-dark main>div{background-color:#0b1b20}
+
+/* Reveal the footer beneath Contact as the page reaches its end. */
+.design-next main{z-index:1}
+.design-next>footer{position:sticky;bottom:0;z-index:0}
+.design-next>footer[data-reveal="false"]{visibility:hidden}

@@ -63,17 +63,17 @@ const Bio: React.FC = () => {
 
 
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-3 mt-8">
-                {/* Top Item - Centered across 2 columns */}
-                <div className="col-span-1 md:col-span-2 lg:col-span-1 2xl:col-span-2 flex justify-center">
+              <div className="grid gap-3 mt-8" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 18rem), 1fr))' }}>
+                {/* Top item stays centered across the available columns. */}
+                <div className="col-span-full flex justify-center">
                   <a
                     href="https://commonfund.nih.gov/newinnovator/fundedresearch"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full md:w-[calc(50%-0.375rem)] lg:w-full 2xl:w-[calc(50%-0.375rem)] min-h-[40px] h-auto px-4 py-2 bg-neuro-600 hover:bg-neuro-500 text-white text-xs md:text-sm font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 text-center flex flex-col justify-center items-center leading-tight"
+                    className="w-full max-w-[25rem] min-w-0 min-h-[40px] h-auto px-4 py-2 bg-neuro-600 hover:bg-neuro-500 text-white text-xs md:text-sm font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 hover:shadow-neuro-600/40 text-center flex flex-col justify-center items-center leading-tight"
                   >
-                    <span className="block whitespace-nowrap">NIH Director’s</span>
-                    <span className="block whitespace-nowrap">New Innovator Award <i className="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></span>
+                    <span className="block max-w-full whitespace-normal [overflow-wrap:anywhere]">NIH Director’s</span>
+                    <span className="block max-w-full whitespace-normal [overflow-wrap:anywhere]">New Innovator Award <i className="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i></span>
                   </a>
                 </div>
 
@@ -86,7 +86,7 @@ const Bio: React.FC = () => {
                   { lines: ["Vincent du Vigneaud", "Award of Excellence"], link: "https://news.weill.cornell.edu/news/2012/04/awards-and-honors-across-weill-cornell-medical-college-1" },
                   { lines: ["MPIBR Scientific Discovery", "of the Year Award"], link: "https://brain.mpg.de/103075/activities" }
                 ].map((item, index) => {
-                  const baseClasses = "w-full min-h-[40px] h-auto px-4 py-2 bg-neuro-600 text-white text-xs md:text-sm font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 text-center flex flex-col justify-center items-center leading-tight";
+                  const baseClasses = "w-full min-w-0 min-h-[40px] h-auto px-4 py-2 bg-neuro-600 text-white text-xs md:text-sm font-semibold rounded-full transition-all duration-300 shadow-lg shadow-neuro-900/20 text-center flex flex-col justify-center items-center leading-tight";
                   const hoverClasses = "hover:bg-neuro-500 hover:shadow-neuro-600/40";
 
                   if (item.link) {
@@ -99,7 +99,7 @@ const Bio: React.FC = () => {
                         className={`${baseClasses} ${hoverClasses}`}
                       >
                         {item.lines.map((line, i) => (
-                          <span key={i} className="block whitespace-nowrap">
+                          <span key={i} className="block max-w-full whitespace-normal [overflow-wrap:anywhere]">
                             {line}
                             {i === item.lines.length - 1 && <i className="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>}
                           </span>
@@ -114,7 +114,7 @@ const Bio: React.FC = () => {
                       className={`${baseClasses} cursor-default`}
                     >
                       {item.lines.map((line, i) => (
-                        <span key={i} className="block whitespace-nowrap">{line}</span>
+                        <span key={i} className="block max-w-full whitespace-normal [overflow-wrap:anywhere]">{line}</span>
                       ))}
                     </span>
                   );

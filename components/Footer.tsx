@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LAB_LOGO } from '../constants';
 
-const Footer: React.FC = () => {
+const Footer: React.FC<{ pinnedReveal?: boolean }> = ({ pinnedReveal = false }) => {
+  const [nearEnd, setNearEnd] = useState(false);
+
+  useEffect(() => {
+    if (!pinnedReveal) return;
+    const update = () => {
+      const remaining = document.documentElement.scrollHeight - window.innerHeight - window.scrollY;
+      setNearEnd(remaining <= window.innerHeight);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, [pinnedReveal]);
+
   return (
-    <footer className="bg-slate-950 text-slate-500 py-8 border-t border-slate-900">
+    <footer className="bg-slate-950 text-slate-500 py-8 border-t border-slate-900" data-reveal={pinnedReveal ? nearEnd : undefined}>
       <div className="container mx-auto px-6 md:px-12">
         {/* Lab Brand */}
         <div className="flex items-center justify-center gap-6">

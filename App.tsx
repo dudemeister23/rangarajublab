@@ -48,7 +48,7 @@ const App: React.FC = () => {
         <Funding />
         <Contact />
       </main>
-      <Footer />
+      <Footer pinnedReveal={version === 'next'} />
       {version === 'next' && <button className="theme-toggle" onClick={changeTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>{theme === 'dark' ? '☀ Light' : '☾ Dark'}</button>}
       <PreviewSwitch version={version} />
     </div>
