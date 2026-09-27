@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p3',
     title: 'Mitochondrial Structural Remodelling',
-    description: 'We developed a correlative light and electron microscopy pipeline with deep-learning-based data analysis algorithms to quantify remodeling of mitochondrial inner structure, their ATP synthesis machinery, and their association with the endoplasmic reticulum and ribosomes near dendritic spines during neuronal plasticity. We are currently investigating the molecular mechanisms that drive mitochondrial structural remodeling near spines and their link to ATP production during neuronal plasticity.',
+    description: 'We developed a correlative light and electron microscopy pipeline with deep-learning-based data analysis algorithms to quantify remodeling of mitochondrial inner structure, their ATP synthesis machinery, and their association with the endoplasmic reticulum and ribosomes near dendritic spines during neuronal plasticity. We found that this remodeling depends on PKA activity inside the mitochondria and on phosphorylation of MIC60, and that it sustains, rather than initiates, the local rise in ATP that fuels plasticity.',
     image: 'assets/research/mitochondrial-remodeling-v2.png',
     imageWidth: 1600,
     imageHeight: 960,
