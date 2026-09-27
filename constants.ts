@@ -34,9 +34,9 @@ export const PROJECTS: Project[] = [
     id: 'p3',
     title: 'Mitochondrial Structural Remodelling',
     description: 'We developed a correlative light and electron microscopy pipeline with deep-learning-based data analysis algorithms to quantify remodeling of mitochondrial inner structure, their ATP synthesis machinery, and their association with the endoplasmic reticulum and ribosomes near dendritic spines during neuronal plasticity. We are currently investigating the molecular mechanisms that drive mitochondrial structural remodeling near spines and their link to ATP production during neuronal plasticity.',
-    image: 'assets/research/mitochondrial-remodeling.png',
-    imageWidth: 1024,
-    imageHeight: 876,
+    image: 'assets/research/mitochondrial-remodeling-v2.png',
+    imageWidth: 1600,
+    imageHeight: 960,
     linkUrl: 'https://doi.org/10.1101/2025.08.27.672715'
   },
   {
@@ -217,9 +217,9 @@ export const PREPRINTS: Publication[] = [
   {
     id: 'pp1',
     year: 2026,
-    title: 'Mitochondria structurally remodel near synapses to fuel the sustained energy demands of plasticity',
-    citation: 'Shah, M., Ghosh, I., Shree Ramesh, N., Pishos, L., Pancani, T., Villani, V., Yasuda, R., Sun, C., Kamasawa, N., & Rangaraju, V. (2026). bioRxiv.',
-    link: 'https://www.biorxiv.org/content/10.1101/2025.08.27.672715v2',
+    title: 'Mitochondria remodel near synapses to boost metabolic capacity and fuel plasticity',
+    citation: 'Shah, M., Ghosh, I., Shree Ramesh, N., Pishos, L., Pancani, T., Villani, V., Yasuda, R., Loomba, S., Sun, C., Kamasawa, N., & Rangaraju, V. (2026). bioRxiv.',
+    link: 'https://www.biorxiv.org/content/10.1101/2025.08.27.672715v3',
     coverImage: 'assets/preprints/biorxiv-logo.jpg'
   },
   {
