@@ -107,23 +107,27 @@ const News: React.FC = () => {
                     onClick={closeModal}
                 >
                     <div
-                        className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl animate-in zoom-in-95 slide-in-from-bottom-4 duration-300"
+                        className="bg-white rounded-3xl max-w-3xl w-full max-h-[90dvh] overflow-y-auto overscroll-contain shadow-2xl animate-in zoom-in-95 slide-in-from-bottom-4 duration-300"
                         onClick={(e) => e.stopPropagation()}
                     >
+                        {/* Close button stays visible while the whole panel scrolls */}
+                        <div className="sticky top-0 z-10 h-0 flex justify-end">
+                            <button
+                                onClick={closeModal}
+                                className="mt-4 mr-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-slate-600 hover:bg-white hover:text-slate-900 transition-colors shadow-lg"
+                                aria-label="Close modal"
+                            >
+                                <i className="fa-solid fa-xmark text-lg"></i>
+                            </button>
+                        </div>
+
                         {/* Modal Header Image */}
-                        <div className="relative bg-slate-900">
+                        <div className="bg-slate-900">
                             <img
                                 src={activeNews.image}
                                 alt={activeNews.title}
                                 className="w-full max-h-80 object-contain"
                             />
-                            <button
-                                onClick={closeModal}
-                                className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-slate-600 hover:bg-white hover:text-slate-900 transition-colors shadow-lg"
-                                aria-label="Close modal"
-                            >
-                                <i className="fa-solid fa-xmark text-lg"></i>
-                            </button>
                         </div>
 
                         {/* Modal Title Header */}
@@ -168,7 +172,7 @@ const News: React.FC = () => {
                         </div>
 
                         {/* Modal Content */}
-                        <div className="p-6 md:p-8 max-h-[50vh] overflow-y-auto overscroll-contain">
+                        <div className="p-6 md:p-8">
                             {activeNews.audioUrl && (
                                 <div className="mb-6 p-4 bg-slate-50 rounded-2xl border border-slate-100">
                                     <div className="flex items-center gap-3 mb-3">
