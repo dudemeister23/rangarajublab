@@ -509,7 +509,8 @@ export const MEDIA_ITEMS: MediaItem[] = [
   {
     id: 'm6',
     title: 'The Resilient Brain, South Florida PBS Documentary',
-    videoUrl: 'https://cdn.jwplayer.com/videos/qtz4zQIL-7gP2QH6x.mp4#t=2089',
+    youtubeId: 'sFomH0PDKFY',
+    youtubeStart: 2089,
     poster: 'assets/media/resilient-brain-poster.jpg'
   },
   {

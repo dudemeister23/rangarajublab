@@ -13,6 +13,10 @@ const MediaCard: React.FC<{ item: MediaItem; className?: string }> = ({ item, cl
     const useVideoFacade = !!(item.videoUrl && item.poster && !played);
     const useYoutubeFacade = !!(item.youtubeId && item.poster && !played);
     const useFacade = useVideoFacade || useYoutubeFacade;
+    const youtubeParams = new URLSearchParams();
+    if (played) youtubeParams.set('autoplay', '1');
+    if (item.youtubeStart) youtubeParams.set('start', String(item.youtubeStart));
+    const youtubeQuery = youtubeParams.toString();
 
     return (
         <div className={`group h-full bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col ${className}`}>
@@ -50,7 +54,7 @@ const MediaCard: React.FC<{ item: MediaItem; className?: string }> = ({ item, cl
                     </video>
                 ) : (
                     <iframe
-                        src={`https://www.youtube.com/embed/${item.youtubeId}${played ? '?autoplay=1' : ''}`}
+                        src={`https://www.youtube.com/embed/${item.youtubeId}${youtubeQuery ? `?${youtubeQuery}` : ''}`}
                         title={item.title}
                         className="absolute inset-0 w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

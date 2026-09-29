@@ -78,6 +78,7 @@ export interface MediaItem {
   id: string;
   title: string;
   youtubeId?: string;
+  youtubeStart?: number;
   videoUrl?: string;
   poster?: string;
   spotifyUrl?: string;
