@@ -1,0 +1,34 @@
+/* Original hero micrograph behind the whole page. Static: nothing here changes
+   while scrolling except the on/off switch in HeroBackdrop. */
+.design-next{--backdrop-ground:#030d11}
+.design-next.theme-light{--backdrop-ground:#edf3f5}
+.design-next.theme-signal{--backdrop-ground:#000}
+
+/* Fades in below the nav and toward the side gutters, and runs solid to the
+   bottom edge so the image continues under the panel rising from the fold. */
+.design-next .hero-backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s linear 0s;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 5%,#000 42%),linear-gradient(90deg,transparent 15%,#000 35%,#000 65%,transparent 85%);
+  -webkit-mask-composite:source-in;
+          mask-image:linear-gradient(to bottom,transparent 5%,#000 42%),linear-gradient(90deg,transparent 15%,#000 35%,#000 65%,transparent 85%);
+          mask-composite:intersect}
+.design-next .hero-backdrop[data-visible="false"]{opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s}
+.design-next .hero-backdrop img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 100%;opacity:.92}
+.design-next.theme-light .hero-backdrop img{opacity:.9}
+
+/* Quiet ground behind the title, drawn in the same layer rather than as a
+   second full-width layer inside the hero. */
+.design-next .hero-backdrop::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse min(620px,46vw) 470px at 50% 48%,var(--backdrop-ground) 0%,color-mix(in srgb,var(--backdrop-ground) 80%,transparent) 42%,color-mix(in srgb,var(--backdrop-ground) 35%,transparent) 60%,transparent 72%)}
+
+/* Soft shade under the footer text where the micrograph shows again. */
+.design-next:has(> .hero-backdrop)>footer{background:radial-gradient(ellipse 58% 80% at 50% 40%,color-mix(in srgb,var(--backdrop-ground) 90%,transparent) 0%,color-mix(in srgb,var(--backdrop-ground) 70%,transparent) 45%,transparent 76%)}
+
+@media(max-width:760px){
+  .design-next .hero-backdrop{
+    -webkit-mask-image:linear-gradient(to bottom,transparent 6%,#000 45%),linear-gradient(90deg,transparent 3%,#000 14%,#000 86%,transparent 97%);
+            mask-image:linear-gradient(to bottom,transparent 6%,#000 45%),linear-gradient(90deg,transparent 3%,#000 14%,#000 86%,transparent 97%)}
+  .design-next .hero-backdrop img{object-position:42% 100%}
+  .design-next .hero-backdrop::after{background:radial-gradient(ellipse 72vw 340px at 50% 44%,var(--backdrop-ground) 0%,color-mix(in srgb,var(--backdrop-ground) 78%,transparent) 45%,color-mix(in srgb,var(--backdrop-ground) 30%,transparent) 64%,transparent 76%)}
+  .design-next:has(> .hero-backdrop)>footer{background:radial-gradient(ellipse 75% 80% at 50% 40%,color-mix(in srgb,var(--backdrop-ground) 90%,transparent) 0%,color-mix(in srgb,var(--backdrop-ground) 70%,transparent) 50%,transparent 80%)}
+}

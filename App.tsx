@@ -15,6 +15,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NextHero from './design/NextHero';
 import ScientificField from './design/ScientificField';
+import HeroBackdrop from './design/HeroBackdrop';
 import NextResearch from './design/NextResearch';
 import ThemeSwitch from './design/ThemeSwitch';
 import { resolveDesign, resolveTheme } from './design/version';
@@ -26,6 +27,7 @@ const App: React.FC = () => {
   return (
     <div className={`min-h-screen bg-slate-50 flex flex-col font-sans ${version === 'next' ? `design-next theme-${theme}` : ''}`}>
       {version === 'next' && <ScientificField theme={theme} />}
+      {version === 'next' && <HeroBackdrop theme={theme} />}
       <Navbar />
       <main className="flex-grow">
         {version === 'next' ? <NextHero /> : <Hero />}

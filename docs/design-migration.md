@@ -287,3 +287,35 @@ Light switching with the section anchor retained, no design selector, and
 Classic available only in development. Screenshots came from a background
 Chrome window with the canvas loop shimmed for capture; live animation in a
 foreground window was not observed. Changes remain local and uncommitted.
+
+## Original micrograph as a fixed backdrop, September 30, 2026
+
+Fabian asked to bring the original hero image, the dendrites with lit spines,
+back into the center of the new design. The chosen version combines two
+prototypes: the image dissolves in behind the title and runs down to the
+bottom edge, under the panel that rises from the fold.
+
+- The image is a fixed layer (`design/HeroBackdrop.tsx`,
+  `design/hero-backdrop.css`) between the scientific field and the page. It
+  never moves.
+- The title keeps the existing sticky hero: it holds in place until the first
+  panel covers it and does not return.
+- The footer reveal is unchanged. When Contact lifts off the footer, the
+  micrograph is still behind it, with a soft shade under the footer text.
+- The layer switches off while the reading surface fully covers the viewport.
+  A slow repaint during a fast scroll then shows the page color instead of the
+  bright image.
+
+Images: `public/assets/hero-micrograph/{dark,light,signal}.webp`, derived from
+`public/assets/hero-bg.png`. Black is keyed to transparency (alpha from the
+brighter of the red channel and the mean of green and blue, black level 14).
+Dark keeps the original colors. Light redraws cyan as #0a7068 and red as
+#be2c26. Signal turns cyan white and keeps the red at #e22020, in line with the
+Signal rule that only what the original image lit red stays red.
+
+Validation: vite build to a scratch directory and tsc --noEmit. Browser checks
+at 1440 by 900 and 390 by 844 in Dark, Light, and Signal covered the top, the
+first panel covering the title, mid-page (layer off), Contact lifting, and the
+end of the page; hero links, content, and the footer link receive clicks; no
+horizontal overflow. A scripted full-page scroll in both directions held the
+same frame times as the site without the layer.
