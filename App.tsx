@@ -16,23 +16,16 @@ import Footer from './components/Footer';
 import NextHero from './design/NextHero';
 import ScientificField from './design/ScientificField';
 import NextResearch from './design/NextResearch';
-import PreviewSwitch from './design/PreviewSwitch';
-import { resolveDesign } from './design/version';
+import ThemeSwitch from './design/ThemeSwitch';
+import { resolveDesign, resolveTheme } from './design/version';
 import './design/next.css';
 
 const App: React.FC = () => {
-  const theme = new URLSearchParams(window.location.search).get('theme') === 'light' ? 'light' : 'dark';
-  const changeTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    const url = new URL(window.location.href);
-    url.searchParams.set('theme', next);
-    // A new document lets extensions reevaluate the dark-theme opt-out.
-    window.location.assign(url.href);
-  };
+  const theme = resolveTheme(window.location.search);
   const version = resolveDesign(window.location.search);
   return (
     <div className={`min-h-screen bg-slate-50 flex flex-col font-sans ${version === 'next' ? `design-next theme-${theme}` : ''}`}>
-      {version === 'next' && <ScientificField dark={theme === 'dark'} />}
+      {version === 'next' && <ScientificField theme={theme} />}
       <Navbar />
       <main className="flex-grow">
         {version === 'next' ? <NextHero /> : <Hero />}
@@ -49,8 +42,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer pinnedReveal={version === 'next'} />
-      {version === 'next' && <button className="theme-toggle" onClick={changeTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>{theme === 'dark' ? '☀ Light' : '☾ Dark'}</button>}
-      <PreviewSwitch version={version} />
+      {version === 'next' && <ThemeSwitch theme={theme} />}
     </div>
   );
 };

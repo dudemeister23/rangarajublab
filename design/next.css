@@ -1,5 +1,3 @@
-.design-switch{position:fixed;bottom:18px;right:18px;z-index:60;display:flex;align-items:center;gap:6px;padding:6px;border:1px solid #64748b;border-radius:999px;background:#0f172a;color:#fff;box-shadow:0 4px 20px #0003;font:14px Inter,sans-serif}
-.design-switch span{padding:0 10px}.design-switch a{padding:8px 13px;border-radius:999px}.design-switch a[aria-current]{background:#fff;color:#0f172a}.design-switch a:focus-visible{outline:3px solid #2dd4bf;outline-offset:2px}
 .design-next{--ink:#112b2b;--accent:#08776d;--paper:#fff;background:var(--paper);color:var(--ink)}
 .design-next :is(a,button,input):focus-visible{outline:3px solid #0d9488;outline-offset:5px}
 .design-next nav{font-size:14px}.design-next nav img{height:46px}.design-next nav a>span{font-size:24px}.design-next nav .space-x-6{gap:18px}.design-next nav .space-x-6>a{margin-left:0;font-size:14px}
@@ -16,7 +14,7 @@
 .design-next main>section:not(#home):not(#research){border-top:1px solid #dde8e5}.design-next main>section h2{letter-spacing:-.035em}.design-next main>section .rounded-3xl{border-radius:12px}.design-next main>section .shadow-xl{box-shadow:0 4px 20px #112b2b08}
 @media(min-width:1600px){.next-hero-image{object-fit:cover;min-height:110%;top:-5%}}
 @media(max-width:1100px){.design-next nav .hidden.md\:flex{display:none}.design-next nav .md\:hidden{display:block}.next-hero{min-height:720px}.next-research-panel{gap:30px}.next-research-tabs{gap:14px}}
-@media(max-width:600px){.next-hero{min-height:800px}.next-hero-copy{padding-top:140px}.next-hero h1{font-size:clamp(52px,13vw,78px)}.next-hero-shade{background:linear-gradient(90deg,#021213e8,#02121375)}.next-actions{gap:18px}.next-actions a{font-size:14px}.next-image-control{bottom:85px;left:6vw;right:auto}.next-research{padding:65px 6vw}.next-research-tabs{grid-template-columns:1fr 1fr;gap:10px 22px}.next-research-panel{grid-template-columns:1fr;gap:28px}.next-research-panel h3{font-size:26px}.design-switch{bottom:12px;right:12px;font-size:13px}}
+@media(max-width:600px){.next-hero{min-height:800px}.next-hero-copy{padding-top:140px}.next-hero h1{font-size:clamp(52px,13vw,78px)}.next-hero-shade{background:linear-gradient(90deg,#021213e8,#02121375)}.next-actions{gap:18px}.next-actions a{font-size:14px}.next-image-control{bottom:85px;left:6vw;right:auto}.next-research{padding:65px 6vw}.next-research-tabs{grid-template-columns:1fr 1fr;gap:10px 22px}.next-research-panel{grid-template-columns:1fr;gap:28px}.next-research-panel h3{font-size:26px}}
 @media(prefers-reduced-motion:reduce){html:has(.design-next){scroll-behavior:auto}.design-next *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* Persistent scientific space surrounds the independently scrolling content. */
@@ -118,8 +116,6 @@
 .design-next .next-actions a:hover{color:#075d55;border-color:#075d55}
 /* Keep the illustration legible on the light background. */
 .design-next .scientific-field canvas{opacity:1}
-.design-next .design-switch{background:#fffffff5;color:#38545c;border-color:#c4d5d9;box-shadow:0 3px 14px #16383d12}
-.design-next .design-switch a[aria-current]{background:#e0efeb;color:#075d55}
 .design-next>footer .text-white{color:#233e45}
 .design-next>footer .text-neuro-500{color:#08766a}
 .design-next>footer .border-slate-800{border-color:#c4d5d9}
@@ -139,7 +135,11 @@
 .design-next #bio .bio-link{color:#08766a}
 .design-next #bio .bio-link:hover{animation:none;text-decoration:underline}
 
-.theme-toggle{position:fixed;left:18px;bottom:18px;z-index:60;padding:12px 18px;border-radius:999px;border:1px solid #c4d5d9;background:#fffffff5;color:#23474b;font:14px Inter,sans-serif;box-shadow:0 3px 14px #16383d12}
+.theme-switch{position:fixed;left:18px;bottom:18px;z-index:60;display:flex;gap:4px;padding:5px;border-radius:999px;border:1px solid #c4d5d9;background:#fffffff5;color:#23474b;font:14px Inter,sans-serif;box-shadow:0 3px 14px #16383d12}
+.theme-switch button{padding:8px 14px;border-radius:999px;color:inherit;white-space:nowrap}
+.theme-switch button:hover{background:#e9f2f0}
+.theme-switch button[aria-pressed=true]{background:#e0efeb;color:#075d55;font-weight:600}
+.theme-switch button:focus-visible{outline:3px solid #0d9488;outline-offset:2px}
 .design-next.theme-dark{background:#030d11;--ink:#e6f1ef;--accent:#63decc;color:#e6f1ef;color-scheme:dark}
 .theme-dark .scientific-field{background:radial-gradient(ellipse at 0% 45%,#0d343b70,transparent 40%),radial-gradient(ellipse at 100% 65%,#22363270,transparent 38%),#030d11}
 .design-next.theme-dark .scientific-field canvas{opacity:1}
@@ -175,9 +175,10 @@
 .design-next.theme-dark #contact .bg-neuro-900{background:#134e4a}
 .design-next.theme-dark #contact .text-neuro-100{color:#c8e8e0}
 .design-next.theme-dark #bio .bio-link{color:#68ddca}
-.design-next.theme-dark .design-switch,.theme-dark .theme-toggle{background:#0f2026f5;color:#dce9e6;border-color:#496369}
-.design-next.theme-dark .design-switch a[aria-current]{background:#e0efeb;color:#075d55}
-@media(max-width:600px){.theme-toggle{bottom:72px;left:12px;padding:10px 15px}}
+.theme-dark .theme-switch{background:#0f2026f5;color:#dce9e6;border-color:#496369}
+.theme-dark .theme-switch button:hover{background:#1b343b}
+.theme-dark .theme-switch button[aria-pressed=true]{background:#e0efeb;color:#075d55}
+@media(max-width:600px){.theme-switch{bottom:12px;left:12px;font-size:13px}.theme-switch button{padding:7px 11px}}
 
 /* Native dark mode owns its colors; only the light theme accepts adaptation. */
 html[data-native-theme="dark"][data-darkreader-scheme="dark"] .funding-logo{filter:none;mix-blend-mode:normal}
@@ -222,3 +223,62 @@ html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .sci
 .design-next main{z-index:1}
 .design-next>footer{position:sticky;bottom:0;z-index:0}
 .design-next>footer[data-reveal="false"]{visibility:hidden}
+
+/* Signal: a black microscope field, white reading paper, and red reserved for
+   what the original hero image lit up. Utility hues are remapped to neutral
+   gray in index.html; photographs and scientific figures keep their color. */
+.design-next.theme-signal{--ink:#0a0a0a;--accent:#000;--signal:#ff1717;--signal-ink:#e22020;background:#000;color:#0a0a0a}
+.theme-signal .scientific-field{background:#000}
+.design-next.theme-signal :is(a,button,input):focus-visible{outline-color:var(--signal-ink)}
+.design-next.theme-signal nav{background:#000000eb!important;border-color:#262626}
+.design-next.theme-signal nav :is(a,a>span,button i){color:#fff!important}
+.design-next.theme-signal nav .md\:hidden{background:#000}
+.design-next.theme-signal :is(nav,footer) img{filter:brightness(0) invert(1)}
+.design-next.theme-signal .next-hero{color:#fff}
+.design-next.theme-signal .next-hero .next-eyebrow{color:#a3a3a3}
+.design-next.theme-signal .next-hero h1 .next-hero-subject{color:#fff}
+.design-next.theme-signal .next-hero h1 em{color:var(--signal);text-shadow:0 0 32px #ff171740}
+.design-next.theme-signal .next-intro{color:#d4d4d4}
+.design-next.theme-signal .next-actions a{color:#fff;border-color:#737373}
+.design-next.theme-signal .next-actions a:hover{color:#fff;border-color:#fff}
+.design-next.theme-signal main>section:not(#home),.design-next.theme-signal main>div{background-color:#fff;border-color:#e5e5e5;color-scheme:light}
+.design-next.theme-signal main :is(.bg-white,.bg-slate-50,.bg-slate-100){background-color:#f5f5f5}
+.design-next.theme-signal main :is(.text-slate-900,.text-slate-800,.text-slate-700){color:#0a0a0a}
+.design-next.theme-signal main :is(.text-slate-600,.text-slate-500){color:#525252}
+.design-next.theme-signal main :is(.text-neuro-600,.text-neuro-700){color:#000}
+.design-next.theme-signal main :is(.border-slate-100,.border-slate-200,.border-slate-300){border-color:#e5e5e5}
+.design-next.theme-signal main .bg-neuro-50{background-color:#f0f0f0}
+.design-next.theme-signal .next-research .next-eyebrow{color:#525252}
+.design-next.theme-signal .next-research header>p:last-child,.design-next.theme-signal .next-research-panel p{color:#404040}
+.design-next.theme-signal .next-research h2,.design-next.theme-signal .next-research-panel h3{color:#000}
+.design-next.theme-signal .next-research-tabs{border-color:#d4d4d4}
+.design-next.theme-signal .next-research-tabs button{color:#525252}
+.design-next.theme-signal .next-research-tabs button:hover{color:#000}
+/* The selected project is the one interface element that is "lit". */
+.design-next.theme-signal .next-research-tabs button[aria-selected=true]{color:#000;border-color:var(--signal-ink)}
+.design-next.theme-signal .next-research-panel a{color:#000;border-color:#000}
+.design-next.theme-signal #bio .bio-link{color:#000;text-decoration:underline;text-decoration-color:#a3a3a3;text-underline-offset:3px}
+.design-next.theme-signal #bio .bio-link:hover{text-decoration-color:#000}
+.design-next.theme-signal #trainee-voices,.design-next.theme-signal #trainee-voices p.text-white{color:#0a0a0a}
+.design-next.theme-signal #trainee-voices :is(.text-slate-300,.text-slate-400){color:#525252}
+.design-next.theme-signal #trainee-voices .text-neuro-300{color:#000}
+.design-next.theme-signal #trainee-voices .shadow-2xl{box-shadow:0 4px 20px #0000000f}
+/* Contact inverts to a black plate on the white page. */
+.design-next.theme-signal #contact .bg-slate-900{background:#000;box-shadow:none}
+.design-next.theme-signal #contact .bg-slate-800{background:#1a1a1a}
+.design-next.theme-signal #contact :is(h2,h4).text-white,.design-next.theme-signal #contact a.bg-slate-800,.design-next.theme-signal #contact .text-neuro-500{color:#fff}
+.design-next.theme-signal #contact a.bg-slate-800:hover{background:#fff;color:#000}
+.design-next.theme-signal #contact .text-slate-400{color:#a3a3a3}
+.design-next.theme-signal #contact .bg-neuro-900{background:#0a0a0a;border-top:1px solid #262626}
+.design-next.theme-signal #contact .text-neuro-100{color:#d4d4d4}
+.design-next.theme-signal #contact a.bg-neuro-600{background:#fff;color:#000}
+.design-next.theme-signal #contact a.bg-neuro-600:hover{background:#e5e5e5}
+.design-next.theme-signal :is(.funding-logo,.preprint-source-logo){filter:grayscale(1)}
+.design-next.theme-signal .bg-\[\#1DB954\]{background:#000}
+.design-next.theme-signal .hover\:bg-\[\#1ed760\]:hover{background:#262626}
+.design-next.theme-signal>footer,.design-next.theme-signal>footer .text-slate-500{color:#a3a3a3}
+.design-next.theme-signal>footer :is(.text-white,.text-neuro-500){color:#fff}
+.design-next.theme-signal>footer .border-slate-800{border-color:#404040}
+.theme-signal .theme-switch{background:#000000f2;color:#fff;border-color:#404040;box-shadow:none}
+.theme-signal .theme-switch button:hover{background:#262626}
+.theme-signal .theme-switch button[aria-pressed=true]{background:#fff;color:#000}

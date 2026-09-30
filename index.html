@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <meta name="color-scheme" content="dark" />
   <script>
-    // Match design/version.ts: New is the default, Current is explicit.
+    // Match design/version.ts: one public design (Classic only in local
+    // development) and Dark / Light / Signal themes with Dark as the default.
     // Run before styles and app loading to avoid a theme flash and double-darkening.
     const initialParams = new URLSearchParams(window.location.search);
-    const nativeDark = initialParams.get('design') !== 'classic' && initialParams.get('theme') !== 'light';
-    document.documentElement.dataset.nativeTheme = nativeDark ? 'dark' : 'light';
-    document.documentElement.style.colorScheme = nativeDark ? 'dark' : 'light';
-    document.querySelector('meta[name="color-scheme"]').content = nativeDark ? 'dark' : 'light';
-    if (nativeDark) {
+    const classic = '%MODE%' === 'development' && initialParams.get('design') === 'classic';
+    const requestedTheme = initialParams.get('theme');
+    const nativeTheme = classic ? 'light' : requestedTheme === 'light' || requestedTheme === 'signal' ? requestedTheme : 'dark';
+    const scheme = nativeTheme === 'light' ? 'light' : 'dark';
+    document.documentElement.dataset.nativeTheme = nativeTheme;
+    document.documentElement.style.colorScheme = scheme;
+    document.querySelector('meta[name="color-scheme"]').content = scheme;
+    // Dark and Signal own their colors; only Light accepts extension adaptation.
+    if (nativeTheme !== 'light') {
       const lock = document.createElement('meta');
       lock.name = 'darkreader-lock';
       document.head.appendChild(lock);
@@ -22,6 +27,7 @@
   <style>
     html[data-native-theme="dark"], html[data-native-theme="dark"] body { background-color: #030d11; color: #e6f1ef; }
     html[data-native-theme="light"] { background-color: #edf3f5; color-scheme: light; }
+    html[data-native-theme="signal"], html[data-native-theme="signal"] body { background-color: #000; color: #fff; }
   </style>
   <title>Rangaraju Lab | Neuroenergetics Research at Max Planck Florida</title>
   <meta name="description"
@@ -154,6 +160,14 @@
           }
         }
       }
+    }
+    // Signal is strictly achromatic outside photographs: every utility hue
+    // resolves to neutral gray, and design/next.css adds the only red.
+    if (document.documentElement.dataset.nativeTheme === 'signal') {
+      const mono = { 50: '#fafafa', 100: '#f5f5f5', 200: '#e5e5e5', 300: '#d4d4d4', 400: '#a3a3a3', 500: '#737373', 600: '#525252', 700: '#404040', 800: '#262626', 900: '#171717', 950: '#0a0a0a' };
+      const colors = tailwind.config.theme.extend.colors;
+      for (const hue of ['slate', 'gray', 'zinc', 'stone', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose']) colors[hue] = mono;
+      colors.neuro = { 50: '#f5f5f5', 100: '#e5e5e5', 500: '#262626', 600: '#000', 700: '#000', 900: '#171717' };
     }
   </script>
   <style>

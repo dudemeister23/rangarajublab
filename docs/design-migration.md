@@ -251,3 +251,39 @@ a 560.93px panel area and scrollY 2425 in the test viewport. After unblocking an
 reloading, all four images loaded into exactly the same reserved heights and
 the panel area stayed 560.93px. Keyboard ArrowRight correctly selected/focused
 the next tab. Network test overrides were restored. Changes remain local.
+
+## Single public design and Signal theme, September 29, 2026
+
+Fabian retired the public Current / New choice. The design selector is removed,
+and production ignores `design=`, so every visitor gets New. Classic stays in
+the repository as a historical reference: `npm run dev` still honors
+`?design=classic`, and setting DEFAULT_DESIGN to classic in design/version.ts
+and deploying reverts the public site. The index.html head script follows the
+same rule through Vite's `%MODE%` replacement.
+
+The bottom-left control now offers Dark, Light, and Signal. Dark remains the
+default; `theme=` records an explicit choice, and switching still reloads the
+same URL and section. Signal is black and white outside photographs and
+scientific figures. Red is reserved for what the original hero image lit up:
+
+- Field: pure black. The dendrite shaft and spines render as white stipple.
+  The mitochondrial envelope and cristae render in the hero image's red
+  (sampled median #E22020, brightest #FF1717), and only the red receives bloom.
+- Page: white reading surfaces with black and neutral-gray text. The nav,
+  footer, and Contact plate are black, the lab logo is a white silhouette, and
+  funder and preprint logos are grayscale.
+- Red in the interface: the word Energetics in the hero, the selected research
+  tab's indicator, and keyboard focus rings. Hover states stay monochrome.
+- When Signal is active, index.html remaps every Tailwind hue, including slate
+  and neuro, to neutral gray, so existing or future utility colors cannot add
+  chroma. The Spotify badge is overridden to black.
+- Signal carries the darkreader-lock like Dark; only Light accepts extension
+  adaptation.
+
+Validation: vite build (to a scratch directory, leaving dist untouched) and
+tsc --noEmit passed. Browser checks covered every Signal section at desktop
+width and at 390px, pressed state and Dark Reader lock per theme, Signal to
+Light switching with the section anchor retained, no design selector, and
+Classic available only in development. Screenshots came from a background
+Chrome window with the canvas loop shimmed for capture; live animation in a
+foreground window was not observed. Changes remain local and uncommitted.
