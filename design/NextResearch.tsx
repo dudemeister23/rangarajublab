@@ -1,8 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { PROJECTS, RESEARCH_COPY } from '../constants';
 
+// The newest project opens first; the others appear on click.
+const DEFAULT_PROJECT = Math.max(0, PROJECTS.findIndex(project => project.id === 'p3'));
+
 export default function NextResearch() {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(DEFAULT_PROJECT);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   return (
     <section id="research" className="next-research">

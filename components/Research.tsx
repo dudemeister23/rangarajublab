@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PROJECTS, RESEARCH_COPY } from '../constants';
 
 const Research: React.FC = () => {
-  const [activeProjectId, setActiveProjectId] = useState<string | null>('p1');
+  const [activeProjectId, setActiveProjectId] = useState<string | null>('p3');
   const activeProject = PROJECTS.find(p => p.id === activeProjectId);
 
   return (

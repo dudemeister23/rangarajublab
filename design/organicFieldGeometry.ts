@@ -1,5 +1,8 @@
 // Original sculptural geometry inspired by the supplied dendrite renderings.
 // Deliberately distinct compositions, not a reconstruction of the specimen.
+// Materials: 0 dendrite, 1 mitochondrial envelope, 2 cristae, 3 the locally
+// remodeled stretch beneath one spine (Shah et al.): the organelle does not
+// remodel as a whole.
 export type FieldPoint = { x: number; y: number; z: number; material: number; light: number };
 export type FieldGeometry = { points: FieldPoint[]; edges: number[] };
 
@@ -47,6 +50,8 @@ export function organicFieldGeometry(variant: number): FieldGeometry {
   const spines = variant
     ? [[-5.3, 2.9, .75, -.3], [-3.6, .25, 1.35, .48], [-.65, 3.2, 1.6, -.65], [.8, 5.8, .62, .2], [3.4, 2.7, 1.1, .55], [5.5, .6, .8, -.3]]
     : [[-4.6, .05, 1.30, -.45], [-2.1, 2.8, .70, .28], [-.9, .35, 1.8, -.75], [2.3, 3.3, 1.15, .35], [4.25, -.35, .95, -.25]];
+  // The long-necked third spine marks where the mitochondrion remodels.
+  const [remodelY, remodelAngle] = spines[2];
   for (const [y0, a, length, lean] of spines) {
     const c = axis(y0), base = caliber(y0) * .82;
     const radialX = Math.cos(a), radialZ = Math.sin(a);
@@ -76,6 +81,7 @@ export function organicFieldGeometry(variant: number): FieldGeometry {
     const cap = Math.pow(Math.max(.001, Math.sin(Math.PI * t)), .25);
     return caliber(y) * (.61 + .09 * Math.sin(y * 3.1 + phase)) * cap;
   };
+  const mitochondrion = points.length;
   surface(Math.ceil((end - start) * 28), 26, (t, a) => {
     const y = start + t * (end - start), c = center(y), r = radius(y);
     return { x: c.x + r * Math.cos(a), y, z: c.z + r * Math.sin(a) * .83 };
@@ -98,6 +104,37 @@ export function organicFieldGeometry(variant: number): FieldGeometry {
         z: c.z + r * Math.sin(turn) + tube * Math.sin(a) * .65,
       };
     }, 2);
+  }
+
+  // Denser, more tightly curved cristae crowd the stretch beneath the spine.
+  for (let fold = 0; fold < 24; fold++) {
+    const y0 = remodelY - .15 + (random() + random() + random() - 1.5) * .45;
+    const span = .08 + random() * .22;
+    const turnSpan = 2.2 + random() * 2.6;
+    const a0 = remodelAngle - turnSpan / 2 + (random() - .5) * 2.4;
+    const reach = .28 + random() * .46;
+    surface(16, 6, (t, a) => {
+      const y = y0 + span * t, c = center(y);
+      const turn = a0 + t * turnSpan;
+      const r = radius(y) * reach * (.78 + .22 * Math.sin(t * Math.PI));
+      const tube = .016 + .012 * Math.sin(t * Math.PI);
+      return {
+        x: c.x + r * Math.cos(turn) + tube * Math.cos(a),
+        y: y + tube * Math.sin(a),
+        z: c.z + r * Math.sin(turn) + tube * Math.sin(a) * .65,
+      };
+    }, 3);
+  }
+  // Envelope and existing cristae shift to the remodeled material with a
+  // probability that fades along the organelle and away from the spine side.
+  for (let index = mitochondrion; index < points.length; index++) {
+    const point = points[index];
+    if (point.material === 3) continue;
+    const c = center(point.y);
+    const angle = Math.atan2((point.z - c.z) / .83, point.x - c.x);
+    const along = Math.exp(-Math.pow((point.y - remodelY) / .55, 2));
+    const facing = .35 + .65 * (1 + Math.cos(angle - remodelAngle)) / 2;
+    if (random() < along * facing) point.material = 3;
   }
   return { points, edges };
 }

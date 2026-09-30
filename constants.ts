@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p3',
     title: 'Mitochondrial Structural Remodelling',
-    description: 'We developed a correlative light and electron microscopy pipeline with deep-learning-based data analysis algorithms to quantify remodeling of mitochondrial inner structure, their ATP synthesis machinery, and their association with the endoplasmic reticulum and ribosomes near dendritic spines during neuronal plasticity. We found that this remodeling depends on PKA activity inside the mitochondria and on phosphorylation of MIC60, and that it sustains, rather than initiates, the local rise in ATP that fuels plasticity.',
+    description: 'A single dendritic mitochondrion can extend about 30 μm and span many spines, yet it does not remodel as a whole. Using a correlative light and electron microscopy pipeline with deep-learning-based analysis, we found that remodeling is local: the mitochondrial segment at the base of a spine enlarges during plasticity and gains cristae membrane, crista junctions, ATP synthase, and contacts with the endoplasmic reticulum and nearby ribosomes. This spine-specific remodeling depends on PKA activity inside the mitochondrion and on phosphorylation of MIC60, and it sustains, rather than initiates, the local rise in ATP that fuels plasticity.',
     image: 'assets/research/mitochondrial-remodeling-v2.png',
     imageWidth: 1600,
     imageHeight: 960,

@@ -23,9 +23,9 @@ export default function ScientificField({ theme }: { theme: Theme }) {
     let response = 0, targetResponse = 0, smoothProgress = 0;
     let visible = !document.hidden, lastKey = '';
     const maximum = Math.max(...forms.map(form => form.points.length));
-    const batches = Array.from({ length: 18 }, () => new Float32Array(maximum * 6));
+    const batches = Array.from({ length: 24 }, () => new Float32Array(maximum * 6));
     const projected = forms.map(form => new Float32Array(form.points.length * 3));
-    const counts = new Uint32Array(18);
+    const counts = new Uint32Array(24);
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -114,7 +114,7 @@ export default function ScientificField({ theme }: { theme: Theme }) {
           const bucket = point.material * 6 + Math.min(5, Math.floor(light * 6));
           const offset = counts[bucket]++ * 3;
           batches[bucket][offset] = x; batches[bucket][offset + 1] = y;
-          batches[bucket][offset + 2] = (point.material ? .72 : .56) + depth * .42 + influence * .28;
+          batches[bucket][offset + 2] = (point.material === 3 ? .76 : point.material ? .72 : .56) + depth * .42 + influence * .28;
         }
         // A few faint triangles provide a structural scaffold between particles.
         for (let layer = 0; layer < 2; layer++) {
@@ -131,15 +131,22 @@ export default function ScientificField({ theme }: { theme: Theme }) {
           ctx.stroke();
         }
       }
+      // The remodeled stretch breathes slowly so the eye finds it; reduced
+      // motion keeps it at a steady brightness.
+      const pulse = frozen ? 1 : 1 + .16 * Math.sin(elapsed * 1.1);
       const fillBucket = (target: CanvasRenderingContext2D, bucket: number) => {
         const material = Math.floor(bucket / 6), level = bucket % 6;
         // Signal keeps the membrane achromatic; only the mitochondrion carries
-        // the red of the original hero image's fluorescence.
-        const pigment = signal ? (material === 0 ? '236,236,236' : material === 1 ? '226,32,32' : '255,23,23')
+        // the red of the original hero image's fluorescence, running hot where
+        // it remodels. Other themes warm that stretch to the gold of ATP.
+        const pigment = signal ? (material === 0 ? '236,236,236' : material === 1 ? '226,32,32' : material === 2 ? '255,23,23' : '255,178,164')
           : material === 0 ? (isDark ? '178,226,219' : '43,96,103')
           : material === 1 ? (isDark ? '135,237,161' : '33,121,80')
-          : (isDark ? '214,255,177' : '77,133,59');
-        const opacity = signal
+          : material === 2 ? (isDark ? '214,255,177' : '77,133,59')
+          : (isDark ? '255,198,102' : '201,118,14');
+        const opacity = material === 3
+          ? Math.min(1, ((signal ? .22 : isDark ? .15 : .15) + level * (signal ? .14 : isDark ? .115 : .12)) * pulse)
+          : signal
           ? (material === 2 ? .24 : material ? .07 : .06) + level * (material === 2 ? .15 : material ? .085 : .075)
           : isDark
           ? (material ? .16 : .10) + level * (material ? .13 : .10)
@@ -153,13 +160,13 @@ export default function ScientificField({ theme }: { theme: Theme }) {
         }
         target.fill();
       };
-      for (let bucket = 0; bucket < 18; bucket++) fillBucket(ctx, bucket);
+      for (let bucket = 0; bucket < 24; bucket++) fillBucket(ctx, bucket);
       if (isDark && glowCtx) {
         glowCtx.clearRect(0, 0, glow.width, glow.height);
         if (signal) {
           // Bloom only the mitochondrial signal so the red reads as emitted light.
           glowCtx.setTransform(glow.width / width, 0, 0, glow.height / height, 0, 0);
-          for (let bucket = 6; bucket < 18; bucket++) fillBucket(glowCtx, bucket);
+          for (let bucket = 6; bucket < 24; bucket++) fillBucket(glowCtx, bucket);
           glowCtx.setTransform(1, 0, 0, 1, 0, 0);
         } else {
           glowCtx.drawImage(canvas, 0, 0, glow.width, glow.height);

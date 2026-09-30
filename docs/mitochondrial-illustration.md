@@ -352,3 +352,52 @@ rotation, scroll response, and pointer behavior remain as before. This is an
 illustrative form without a calibrated micrometer scale; the stated possible
 length of 120 micrometers is context for the design, not a measured dimension
 of the rendering. Fabian authorized publication on September 22, 2026.
+
+## Local remodeling beneath one spine, September 30, 2026
+
+Requested feedback: the illustration should show that only a subregion of the
+mitochondrion remodels near a spine, not the whole organelle. This follows the
+Figure 7 summary schematic of Shah et al. (bioRxiv v3), already used as the
+Structural Remodelling research image, where denser, more curved cristae and
+their associated changes are confined to the stretch beneath one spine.
+
+On each side, the long-necked third spine marks the remodeled stretch. Beneath
+its base, 24 additional tightly curved crista strands are added, and envelope
+and existing crista particles switch to a remodeled material with a probability
+that falls off along the organelle (Gaussian, 0.55 units) and away from the
+spine-facing side. The patch therefore turns with its spine as the form rotates,
+and the rest of each mitochondrion keeps its previous green appearance. All
+other geometry is generated exactly as before; the new random draws come after
+it.
+
+Color: warm ATP gold in Dark (255,198,102) and amber in Light (201,118,14). In
+Signal the patch stays within the permitted red family, running hot toward pale
+pink (255,178,164), and receives bloom with the other mitochondrial buckets. The
+patch brightness breathes by +/-16% on a period of about 5.7 seconds; reduced
+motion holds it steady. Rendering uses 24 batches instead of 18.
+
+This is an illustrative placement, not a measured extent: the length of the
+patch, crista count, and colors are artistic choices, and no specific molecular
+change (PKA, MIC60, ATP synthase, ER contacts, ribosomes) is depicted
+individually.
+
+Verification: production build, scoped application TypeScript, and whitespace
+checks pass. Browser review covered Dark, Light, and Signal on desktop, with no
+console errors. The review Chrome window was occluded, so animation frames were
+driven by a temporary in-page timer shim for inspection only; nothing in the
+source changed for that. Local and unpublished pending Fabian's authorization.
+
+The Research Projects section now opens on Mitochondrial Structural Remodelling
+(tab 03, the newest project) instead of Spatial Stabilization Mechanisms; the
+other tabs appear on click. Tab order and numbering are unchanged. The retained
+classic design opens the same project.
+
+Fabian clarified the same day that the feedback's "AI-generated snippet" meant
+the Structural Remodelling project text, and asked to keep the illustration
+change as well. The project description now leads with the local extent,
+following the v3 abstract (Europe PMC PPR1074821): a dendritic mitochondrion
+can extend about 30 um and span many spines, and remodeling is spine-specific
+within an individual mitochondrion, at the segment at the spine base. The
+abstract's 2 um figure defines the analysed juxtaspinal window, so the copy does
+not present it as the measured extent of remodeling. The PKA, MIC60, and
+"sustains rather than initiates" findings are retained.
