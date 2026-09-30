@@ -201,6 +201,12 @@ html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .sci
 }
 .design-next.theme-dark .preprint-source-logo{padding:6px;box-sizing:content-box;max-width:calc(100% - 54px)}
 
+/* Mint plates go dark teal in native Dark so the remapped teal text and icons on
+   them stay legible (it was 1.5:1); the dark laurel artwork flips light to match. */
+.design-next.theme-dark main .bg-neuro-100{background-color:#153e3d}
+.design-next.theme-dark main button.bg-neuro-100:hover{background-color:#1d4f4c}
+.design-next.theme-dark main img[src$="laurel-wreath.png"]{filter:invert(1) hue-rotate(180deg)}
+
 /* Reserve side gutters for the scientific field alongside scrolling content. */
 @media(min-width:761px){
   .design-next main{width:min(2400px,70%)}
