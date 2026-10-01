@@ -2,9 +2,8 @@ import React from 'react';
 import { Theme, THEMES } from './version';
 
 const LABELS: Record<Theme, [string, string]> = {
-  dark: ['☾', 'Dark'],
   light: ['☀', 'Light'],
-  signal: ['◐', 'Signal'],
+  dark: ['☾', 'Dark'],
 };
 
 export default function ThemeSwitch({ theme }: { theme: Theme }) {

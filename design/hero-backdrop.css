@@ -1,8 +1,6 @@
-/* Original hero micrograph behind the whole page. Static: nothing here changes
-   while scrolling except the on/off switch in HeroBackdrop. */
-.design-next{--backdrop-ground:#030d11}
-.design-next.theme-light{--backdrop-ground:#edf3f5}
-.design-next.theme-signal{--backdrop-ground:#000}
+/* Original hero micrograph behind the whole page, Light theme only. Static:
+   nothing here changes while scrolling except the on/off switch in HeroBackdrop. */
+.design-next{--backdrop-ground:#edf3f5}
 
 /* Fades in below the nav and toward the side gutters, and runs solid to the
    bottom edge so the image continues under the panel rising from the fold. */
@@ -13,8 +11,9 @@
           mask-image:linear-gradient(to bottom,transparent 5%,#000 42%),linear-gradient(90deg,transparent 15%,#000 35%,#000 65%,transparent 85%);
           mask-composite:intersect}
 .design-next .hero-backdrop[data-visible="false"]{opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s linear .25s}
-.design-next .hero-backdrop img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 100%;opacity:.92}
-.design-next.theme-light .hero-backdrop img{opacity:.9}
+.design-next .hero-backdrop img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 100%;opacity:.9}
+/* Dark Reader darkens Light; the ink-colored image is drawn for a light page. */
+html[data-darkreader-scheme="dark"] .design-next .hero-backdrop{display:none}
 
 /* Quiet ground behind the title, drawn in the same layer rather than as a
    second full-width layer inside the hero. */

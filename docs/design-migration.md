@@ -319,3 +319,20 @@ first panel covering the title, mid-page (layer off), Contact lifting, and the
 end of the page; hero links, content, and the footer link receive clicks; no
 horizontal overflow. A scripted full-page scroll in both directions held the
 same frame times as the site without the layer.
+
+## Light default, Signal retired, micrograph in Light only, September 30, 2026
+
+Fabian retired the Signal theme, made Light the default, and took the hero
+micrograph out of Dark.
+
+- Themes are Light and Dark, in that order in the switch. A plain URL opens
+  Light, matching the early head script in index.html; `theme=dark` selects
+  Dark, and old `theme=signal` links fall back to Light.
+- Signal's styles, its Tailwind hue remap in index.html, and its branches in
+  ScientificField are removed. Git history keeps them if it is ever revived.
+- The micrograph backdrop renders only in Light, so only
+  `public/assets/hero-micrograph/light.webp` remains. Dark shows the field
+  alone, as before the backdrop.
+- Dark keeps the darkreader-lock. Light accepts extension adaptation; when
+  Dark Reader darkens Light, the backdrop is hidden, since its ink colors are
+  drawn for a light page.

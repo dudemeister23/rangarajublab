@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import type { Theme } from './version';
 import './hero-backdrop.css';
 
-// The original hero micrograph as a fixed backdrop behind the whole page. It
+// The original hero micrograph as a fixed backdrop behind the whole page, in
+// the Light theme only. It
 // never moves: the title scrolls away with the hero as usual, the reading
 // surface slides over the image, and Contact lifts off the footer to show it
 // again. It is switched off while the content fully covers the viewport, so a
 // slow repaint during a fast scroll shows the page color, not the bright image.
-export default function HeroBackdrop({ theme }: { theme: Theme }) {
+export default function HeroBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function HeroBackdrop({ theme }: { theme: Theme }) {
 
   return (
     <div className="hero-backdrop" ref={ref} aria-hidden="true" data-visible="true">
-      <img src={`assets/hero-micrograph/${theme}.webp`} alt="" decoding="async" fetchPriority="high" />
+      <img src="assets/hero-micrograph/light.webp" alt="" decoding="async" fetchPriority="high" />
     </div>
   );
 }

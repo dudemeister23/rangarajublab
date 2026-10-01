@@ -27,7 +27,7 @@ const App: React.FC = () => {
   return (
     <div className={`min-h-screen bg-slate-50 flex flex-col font-sans ${version === 'next' ? `design-next theme-${theme}` : ''}`}>
       {version === 'next' && <ScientificField theme={theme} />}
-      {version === 'next' && <HeroBackdrop theme={theme} />}
+      {version === 'next' && theme === 'light' && <HeroBackdrop />}
       <Navbar />
       <main className="flex-grow">
         {version === 'next' ? <NextHero /> : <Hero />}

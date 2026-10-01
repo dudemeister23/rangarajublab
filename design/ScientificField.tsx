@@ -56,8 +56,7 @@ export default function ScientificField({ theme }: { theme: Theme }) {
       smoothProgress += (targetProgress - smoothProgress) * (1 - Math.exp(-dt / 75));
       if (Math.abs(targetProgress - smoothProgress) < .000002) smoothProgress = targetProgress;
       const progress = smoothProgress;
-      const signal = themeRef.current === 'signal';
-      const isDark = signal || themeRef.current === 'dark' || document.documentElement.getAttribute('data-darkreader-scheme') === 'dark';
+      const isDark = themeRef.current === 'dark' || document.documentElement.getAttribute('data-darkreader-scheme') === 'dark';
       const key = `${width}:${height}:${themeRef.current}:${isDark}:${frozen ? 'static' : `${elapsed}:${progress}:${pointer.x}:${pointer.y}:${response}`}`;
       if (lastKey === key) return;
       lastKey = key;
@@ -126,8 +125,7 @@ export default function ScientificField({ theme }: { theme: Theme }) {
             ctx.moveTo(projection[a], projection[a + 1]); ctx.lineTo(projection[b], projection[b + 1]);
           }
           ctx.lineWidth = .5;
-          ctx.strokeStyle = signal ? `rgba(255,255,255,${layer ? .13 : .035})`
-            : isDark ? `rgba(161,213,205,${layer ? .16 : .045})` : `rgba(38,95,100,${layer ? .16 : .055})`;
+          ctx.strokeStyle = isDark ? `rgba(161,213,205,${layer ? .16 : .045})` : `rgba(38,95,100,${layer ? .16 : .055})`;
           ctx.stroke();
         }
       }
@@ -136,18 +134,13 @@ export default function ScientificField({ theme }: { theme: Theme }) {
       const pulse = frozen ? 1 : 1 + .16 * Math.sin(elapsed * 1.1);
       const fillBucket = (target: CanvasRenderingContext2D, bucket: number) => {
         const material = Math.floor(bucket / 6), level = bucket % 6;
-        // Signal keeps the membrane achromatic; only the mitochondrion carries
-        // the red of the original hero image's fluorescence, running hot where
-        // it remodels. Other themes warm that stretch to the gold of ATP.
-        const pigment = signal ? (material === 0 ? '236,236,236' : material === 1 ? '226,32,32' : material === 2 ? '255,23,23' : '255,178,164')
-          : material === 0 ? (isDark ? '178,226,219' : '43,96,103')
+        // The remodelled stretch of the mitochondrion warms to the gold of ATP.
+        const pigment = material === 0 ? (isDark ? '178,226,219' : '43,96,103')
           : material === 1 ? (isDark ? '135,237,161' : '33,121,80')
           : material === 2 ? (isDark ? '214,255,177' : '77,133,59')
           : (isDark ? '255,198,102' : '201,118,14');
         const opacity = material === 3
-          ? Math.min(1, ((signal ? .22 : isDark ? .15 : .15) + level * (signal ? .14 : isDark ? .115 : .12)) * pulse)
-          : signal
-          ? (material === 2 ? .24 : material ? .07 : .06) + level * (material === 2 ? .15 : material ? .085 : .075)
+          ? Math.min(1, (.15 + level * (isDark ? .115 : .12)) * pulse)
           : isDark
           ? (material ? .16 : .10) + level * (material ? .13 : .10)
           : (material ? .14 : .08) + level * (material ? .125 : .086);
@@ -163,16 +156,9 @@ export default function ScientificField({ theme }: { theme: Theme }) {
       for (let bucket = 0; bucket < 24; bucket++) fillBucket(ctx, bucket);
       if (isDark && glowCtx) {
         glowCtx.clearRect(0, 0, glow.width, glow.height);
-        if (signal) {
-          // Bloom only the mitochondrial signal so the red reads as emitted light.
-          glowCtx.setTransform(glow.width / width, 0, 0, glow.height / height, 0, 0);
-          for (let bucket = 6; bucket < 24; bucket++) fillBucket(glowCtx, bucket);
-          glowCtx.setTransform(1, 0, 0, 1, 0, 0);
-        } else {
-          glowCtx.drawImage(canvas, 0, 0, glow.width, glow.height);
-        }
+        glowCtx.drawImage(canvas, 0, 0, glow.width, glow.height);
         ctx.globalCompositeOperation = 'screen';
-        ctx.globalAlpha = signal ? .65 : .35;
+        ctx.globalAlpha = .35;
         ctx.drawImage(glow, 0, 0, width, height);
       }
       ctx.restore();
