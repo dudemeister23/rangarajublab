@@ -378,3 +378,26 @@ tap. Team pop-up taps went from about 310 ms to 240 ms. Checked at 360, 375,
 390, and 430 px phones, 768 and 1024 px tablets, and 1440 px desktop, in Light
 and Dark, with no horizontal overflow. Publications remain a long single
 column on phones; that is a content-density question left for later.
+
+## Phone scroll stability, September 30, 2026
+
+Fabian saw two things on his phone after the phone pass went live: the side
+illustration flickered and stretched as a scroll began, and the hero title
+showed through the content now and then while scrolling down.
+
+- Stretch and flicker: phone browsers hide their toolbar as a scroll starts,
+  which makes the viewport taller. The fixed field followed that height, so
+  its drawing stretched, and every resize event reset the canvas for a
+  redraw. The field and the micrograph backdrop are now held at the large
+  viewport height (100lvh, with 100vh as fallback), and the field only resets
+  its canvas when its box really changes size.
+- Title showing through: the title stays pinned behind the rising panels, and
+  a phone that paints a panel late during a fast scroll exposed it. The title
+  is now hidden once the first panel is 200px past the top and shown again
+  before it uncovers. The micrograph backdrop uses the same threshold.
+
+Validation in headless Chrome at 390 by 844: the field and backdrop resolve
+to the full viewport height, five same-size resize events cause no canvas
+reset, and the title is hidden and restored at the expected scroll positions;
+visuals and throttled-phone performance are unchanged. Headless Chrome has no
+browser toolbar, so the toolbar behavior itself needs a check on a real phone.

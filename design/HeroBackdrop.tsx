@@ -20,9 +20,9 @@ export default function HeroBackdrop() {
       const contact = document.getElementById('contact');
       const firstTop = first ? first.getBoundingClientRect().top : 0;
       const contactBottom = contact ? contact.getBoundingClientRect().bottom : Infinity;
-      // Visible while the hero is still uncovered, and again shortly before
-      // Contact starts to lift off the footer.
-      const next = firstTop > 0 || contactBottom < window.innerHeight + 240 ? 'true' : 'false';
+      // Visible until the first panel is well past the top, and again shortly
+      // before Contact starts to lift off the footer.
+      const next = firstTop > -200 || contactBottom < window.innerHeight + 240 ? 'true' : 'false';
       if (next !== last) { layer.dataset.visible = next; last = next; }
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };

@@ -45,13 +45,19 @@ export default function ScientificField({ theme }: { theme: Theme }) {
       return list;
     };
     const resize = () => {
-      width = window.innerWidth; height = window.innerHeight;
+      // Size to the field box, which CSS holds at the large viewport height, so
+      // a phone toolbar showing or hiding during a scroll neither stretches the
+      // drawing nor clears it for a redraw.
+      const box = (canvas.parentElement ?? canvas).getBoundingClientRect();
+      const nextWidth = Math.round(box.width), nextHeight = Math.round(box.height);
+      if (nextWidth === width && nextHeight === height) return;
+      width = nextWidth; height = nextHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = width * dpr; canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       glow.width = Math.ceil(width / 3); glow.height = Math.ceil(height / 3);
       if (glowCtx) glowCtx.filter = 'blur(1.2px)';
-      smoothProgress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, document.documentElement.scrollHeight - height)));
+      smoothProgress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight)));
       lastKey = '';
     };
     const move = (event: PointerEvent) => {
@@ -70,7 +76,7 @@ export default function ScientificField({ theme }: { theme: Theme }) {
       if (Math.abs(targetResponse - response) < .002) response = targetResponse;
       const frozen = reduced.matches;
       if (!frozen) elapsed += dt / 1000;
-      const targetProgress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, document.documentElement.scrollHeight - height)));
+      const targetProgress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight)));
       // A short, frame-rate-independent response absorbs wheel/trackpad steps
       // while following reversals promptly and settling at the exact position.
       smoothProgress += (targetProgress - smoothProgress) * (1 - Math.exp(-dt / 75));

@@ -235,6 +235,13 @@ html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .sci
    theme control so its overlay covers the whole screen. */
 .design-next main:has(.fixed.inset-0),.design-next main>:not(#home):has(.fixed.inset-0){z-index:70}
 
+/* Hold the field at the large viewport height: a phone toolbar showing or
+   hiding during a scroll would otherwise resize it, stretching the drawing
+   and clearing it for a redraw. */
+.scientific-field{bottom:auto;height:100vh;height:100lvh}
+/* The pinned title is hidden once the first panel is well past it. */
+.design-next .next-hero[data-covered="true"] .next-hero-copy{visibility:hidden}
+
 /* Below 1200px the field sits in side bands that fade out softly instead of
    being cut by a hard clip; ScientificField skips the points the mask hides. */
 @media(max-width:1199.98px){

@@ -4,7 +4,9 @@
 
 /* Fades in below the nav and toward the side gutters, and runs solid to the
    bottom edge so the image continues under the panel rising from the fold. */
-.design-next .hero-backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;
+/* Held at the large viewport height so a phone toolbar showing or hiding
+   during a scroll does not rescale the image. */
+.design-next .hero-backdrop{position:fixed;inset:0 0 auto 0;height:100vh;height:100lvh;z-index:-1;pointer-events:none;
   opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s linear 0s;
   -webkit-mask-image:linear-gradient(to bottom,transparent 5%,#000 42%),linear-gradient(90deg,transparent 15%,#000 35%,#000 65%,transparent 85%);
   -webkit-mask-composite:source-in;
