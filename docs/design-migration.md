@@ -336,3 +336,45 @@ micrograph out of Dark.
 - Dark keeps the darkreader-lock. Light accepts extension adaptation; when
   Dark Reader darkens Light, the backdrop is hidden, since its ink colors are
   drawn for a light page.
+
+## Phone and tablet pass, September 30, 2026
+
+Fabian reported the side illustration cut off on phones and interaction that
+felt less smooth than on desktop. Measured on a 390 by 844 phone viewport with
+the CPU slowed fourfold (roughly a mid-range phone), the live site kept the
+main thread 100% busy at rest and 75% busy while scrolling, scrolled at about
+31 fps, and answered a research-tab tap in about 240 ms. The animated field
+caused nearly all of it: on phones it projected and drew about 50,000 points
+per frame and then showed a 21px strip of each form through a hard clip.
+
+Field, below 1200px only (desktop is unchanged):
+
+- The hard clip is replaced by a CSS mask that fades the side bands out
+  softly, so forms are no longer sliced along a straight edge. Points the mask
+  hides are skipped.
+- Point density follows the smaller forms: every stride-th point is drawn,
+  with the stride set so density matches the desktop forms.
+- Phones skip the faint scaffold lines, draw their one-to-two-pixel dots as
+  squares instead of arcs, and redraw at about 30 fps.
+
+Interface:
+
+- Where the nav collapses (1100px and below) the theme control is one icon
+  button for the other theme. On phones it sits in the header, so it no
+  longer covers text and buttons; on tablets it fits the side gutter.
+- The bio is left-aligned on phones instead of justified, and team members
+  show two-up instead of one long column.
+- Phones drop the backdrop blur on the nav and behind pop-ups, which
+  recomputed over the animating field every frame.
+- A section showing a pop-up (team, news, alumni) is lifted above the nav and
+  theme control so the overlay covers the whole screen. This also fixes the
+  news and alumni pop-ups on desktop, where the nav sat above the overlay.
+- On phones the micrograph's quiet ground under the hero copy is larger, so
+  its branches stay clear of the hero links.
+
+Result with the same throttled phone viewport: 23% main-thread use at rest,
+35% while scrolling, a steady 60 fps, and about 150 ms for the research-tab
+tap. Team pop-up taps went from about 310 ms to 240 ms. Checked at 360, 375,
+390, and 430 px phones, 768 and 1024 px tablets, and 1440 px desktop, in Light
+and Dark, with no horizontal overflow. Publications remain a long single
+column on phones; that is a content-density question left for later.

@@ -28,6 +28,6 @@ html[data-darkreader-scheme="dark"] .design-next .hero-backdrop{display:none}
     -webkit-mask-image:linear-gradient(to bottom,transparent 6%,#000 45%),linear-gradient(90deg,transparent 3%,#000 14%,#000 86%,transparent 97%);
             mask-image:linear-gradient(to bottom,transparent 6%,#000 45%),linear-gradient(90deg,transparent 3%,#000 14%,#000 86%,transparent 97%)}
   .design-next .hero-backdrop img{object-position:42% 100%}
-  .design-next .hero-backdrop::after{background:radial-gradient(ellipse 72vw 340px at 50% 44%,var(--backdrop-ground) 0%,color-mix(in srgb,var(--backdrop-ground) 78%,transparent) 45%,color-mix(in srgb,var(--backdrop-ground) 30%,transparent) 64%,transparent 76%)}
+  .design-next .hero-backdrop::after{background:radial-gradient(ellipse 82vw 440px at 50% 50%,var(--backdrop-ground) 0%,color-mix(in srgb,var(--backdrop-ground) 78%,transparent) 45%,color-mix(in srgb,var(--backdrop-ground) 30%,transparent) 64%,transparent 76%)}
   .design-next:has(> .hero-backdrop)>footer{background:radial-gradient(ellipse 75% 80% at 50% 40%,color-mix(in srgb,var(--backdrop-ground) 90%,transparent) 0%,color-mix(in srgb,var(--backdrop-ground) 70%,transparent) 50%,transparent 80%)}
 }

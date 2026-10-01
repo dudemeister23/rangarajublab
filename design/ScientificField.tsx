@@ -26,6 +26,24 @@ export default function ScientificField({ theme }: { theme: Theme }) {
     const batches = Array.from({ length: 24 }, () => new Float32Array(maximum * 6));
     const projected = forms.map(form => new Float32Array(form.points.length * 3));
     const counts = new Uint32Array(24);
+    // Narrow screens draw smaller forms, so every point at full count piles up
+    // far denser than on desktop. Keep every stride-th point (plus the points
+    // the scaffold edges need) to hold the desktop density.
+    const strided = new Map<string, Uint32Array>();
+    const indicesFor = (side: number, stride: number, scaffold: boolean) => {
+      const key = `${side}:${stride}:${scaffold}`;
+      let list = strided.get(key);
+      if (!list) {
+        const form = forms[side], need = new Uint8Array(form.points.length);
+        for (let i = 0; i < need.length; i += stride) need[i] = 1;
+        if (scaffold) for (const index of form.edges) need[index] = 1;
+        const picked: number[] = [];
+        for (let i = 0; i < need.length; i++) if (need[i]) picked.push(i);
+        list = Uint32Array.from(picked);
+        strided.set(key, list);
+      }
+      return list;
+    };
     const resize = () => {
       width = window.innerWidth; height = window.innerHeight;
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -44,6 +62,8 @@ export default function ScientificField({ theme }: { theme: Theme }) {
     const draw = (now: number) => {
       if (!visible) return;
       frame = requestAnimationFrame(draw);
+      // Phones redraw at about 30 fps: the forms turn slowly at the screen edges.
+      if (width < 760 && now - previous < 30) return;
       // Render on every display frame; a 22ms gate skipped alternate 60Hz frames.
       const dt = Math.max(0, Math.min(now - previous, 100)); previous = now;
       response += (targetResponse - response) * (1 - Math.exp(-dt / 110));
@@ -64,14 +84,16 @@ export default function ScientificField({ theme }: { theme: Theme }) {
       const mobile = width < 760;
       counts.fill(0);
       ctx.save();
-      if (width < 1200) {
-        const gutter = mobile ? .055 : .15;
-        ctx.beginPath(); ctx.rect(0, 0, width * gutter, height);
-        ctx.rect(width * (1 - gutter), 0, width * gutter, height); ctx.clip();
-      }
+      // Below 1200px the forms live in side bands that fade out softly (a CSS
+      // mask on the canvas) instead of a hard clip; points the mask hides are
+      // skipped.
+      const band = mobile ? .12 : width < 1200 ? .2 : 1;
       for (let side = 0; side < 2; side++) {
         const form = forms[side], projection = projected[side];
         const size = mobile ? 40 : Math.min(width * .067, 135) * (side ? .84 : 1);
+        const stride = width < 1200 ? Math.max(1, Math.floor((96 / size) ** 2)) : 1;
+        // The faint scaffold is invisible at phone scale, so phones skip it.
+        const indices = indicesFor(side, stride, !mobile);
         const origin = mobile ? (side ? width + 2 : -2) : width * (side ? .944 : .065);
         // Distinct real 3D forms turn at independent speeds and starting angles.
         const angle = side ? .63 - elapsed * .02385 : -.24 + elapsed * .02925;
@@ -86,8 +108,8 @@ export default function ScientificField({ theme }: { theme: Theme }) {
           canvas.dataset.parallax = parallax.toFixed(2);
           canvas.dataset.targetParallax = (frozen ? 0 : -targetProgress * height * .38).toFixed(2);
         }
-        for (let index = 0; index < form.points.length; index++) {
-          const point = form.points[index];
+        for (let k = 0; k < indices.length; k++) {
+          const index = indices[k], point = form.points[index];
           const rx = point.x * cos + point.z * sin;
           const rz = point.z * cos - point.x * sin;
           const perspective = 6 / (6 - rz * .28);
@@ -107,7 +129,8 @@ export default function ScientificField({ theme }: { theme: Theme }) {
           }
           const depth = Math.max(0, Math.min(1, (rz + .8) / 1.6));
           projection[index * 3] = x; projection[index * 3 + 1] = y; projection[index * 3 + 2] = depth;
-          if (x < -15 || x > width + 15 || y < -15 || y > height + 15 || (mobile && index % 2)) continue;
+          if (x < -15 || x > width + 15 || y < -15 || y > height + 15 || index % stride) continue;
+          if (band < 1 && x > width * band + 6 && x < width * (1 - band) - 6) continue;
           const light = depth * .62 + point.light * .25 + influence * .2;
           if (light < .06) continue;
           const bucket = point.material * 6 + Math.min(5, Math.floor(light * 6));
@@ -116,7 +139,7 @@ export default function ScientificField({ theme }: { theme: Theme }) {
           batches[bucket][offset + 2] = (point.material === 3 ? .76 : point.material ? .72 : .56) + depth * .42 + influence * .28;
         }
         // A few faint triangles provide a structural scaffold between particles.
-        for (let layer = 0; layer < 2; layer++) {
+        for (let layer = 0; layer < (mobile ? 0 : 2); layer++) {
           ctx.beginPath();
           for (let edge = 0; edge < form.edges.length; edge += 2) {
             const a = form.edges[edge] * 3, b = form.edges[edge + 1] * 3;
@@ -149,7 +172,9 @@ export default function ScientificField({ theme }: { theme: Theme }) {
         const batch = batches[bucket];
         for (let i = 0; i < counts[bucket] * 3; i += 3) {
           const x = batch[i], y = batch[i + 1], r = batch[i + 2];
-          target.moveTo(x + r, y); target.arc(x, y, r, 0, Math.PI * 2);
+          // Phone dots are a pixel or two across; a square reads the same and is cheaper.
+          if (mobile) target.rect(x - r, y - r, r * 2, r * 2);
+          else { target.moveTo(x + r, y); target.arc(x, y, r, 0, Math.PI * 2); }
         }
         target.fill();
       };

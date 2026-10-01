@@ -229,3 +229,39 @@ html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .sci
 .design-next main{z-index:1}
 .design-next>footer{position:sticky;bottom:0;z-index:0}
 .design-next>footer[data-reveal="false"]{visibility:hidden}
+
+/* Sections are their own layers so the reading surface can rise over the
+   hero; lift the one showing a pop-up (team, news, alumni) above the nav and
+   theme control so its overlay covers the whole screen. */
+.design-next main:has(.fixed.inset-0),.design-next main>:not(#home):has(.fixed.inset-0){z-index:70}
+
+/* Below 1200px the field sits in side bands that fade out softly instead of
+   being cut by a hard clip; ScientificField skips the points the mask hides. */
+@media(max-width:1199.98px){
+  .design-next .scientific-field canvas{
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 13%,transparent 20%,transparent 80%,#000 87%,#000 100%);
+            mask-image:linear-gradient(90deg,#000 0,#000 13%,transparent 20%,transparent 80%,#000 87%,#000 100%)}
+}
+/* Wherever the nav collapses, the theme control is one icon button for the
+   other theme; it fits the side gutter on tablets. */
+@media(max-width:1100px){
+  .theme-switch{padding:2px}
+  .theme-switch button{padding:7px 10px;line-height:1;font-size:16px}
+  .theme-switch button[aria-pressed=true]{display:none}
+  .theme-switch .theme-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
+@media(max-width:759.98px){
+  .design-next .scientific-field canvas{
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 4%,transparent 12%,transparent 88%,#000 96%,#000 100%);
+            mask-image:linear-gradient(90deg,#000 0,#000 4%,transparent 12%,transparent 88%,#000 96%,#000 100%)}
+  /* On phones it moves into the header, clear of the reading surface. */
+  .theme-switch{top:calc(env(safe-area-inset-top,0px) + 34px);bottom:auto;left:auto;right:64px;box-shadow:none}
+  /* A left edge reads better than justified text in a narrow column. */
+  .design-next #bio .text-justify{text-align:left}
+  /* Team members two-up rather than one long column. */
+  .design-next .team-member{width:calc(50% - .75rem)}
+  .design-next .team-member>div:first-child{width:100%;max-width:124px;height:auto;aspect-ratio:1}
+  /* Blur over the animating field is costly on phones; the bars are nearly opaque. */
+  .design-next nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .design-next .fixed.inset-0.backdrop-blur-sm{backdrop-filter:none;-webkit-backdrop-filter:none;background-color:rgb(15 23 42/.6)}
+}
