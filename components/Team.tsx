@@ -398,8 +398,8 @@ const Team: React.FC = () => {
                                 <p className="text-sm text-slate-600 mb-2">
                                   We recruit PhD students through the MPFI IMPRS Program.
                                 </p>
-                                <a href="https://mpfi.org/training/imprs-sc/" target="_blank" rel="noreferrer" className="text-neuro-600 font-bold hover:underline block break-all">
-                                  https://mpfi.org/training/imprs-sc/
+                                <a href="https://mpfi.org/training/imprs/" target="_blank" rel="noreferrer" className="text-neuro-600 font-bold hover:underline block break-all">
+                                  https://mpfi.org/training/imprs/
                                 </a>
                               </div>
 
@@ -754,7 +754,7 @@ const Team: React.FC = () => {
                         {isPhD ? (
                           <div className="bg-slate-50 p-4 rounded-3xl border border-slate-200 mb-6">
                             <p className="text-sm text-slate-600 mb-2">We recruit PhD students through the MPFI IMPRS Program.</p>
-                            <a href="https://mpfi.org/training/imprs-sc/" target="_blank" rel="noreferrer" className="text-neuro-600 font-bold hover:underline block break-all">https://mpfi.org/training/imprs-sc/</a>
+                            <a href="https://mpfi.org/training/imprs/" target="_blank" rel="noreferrer" className="text-neuro-600 font-bold hover:underline block break-all">https://mpfi.org/training/imprs/</a>
                           </div>
                         ) : (
                           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">

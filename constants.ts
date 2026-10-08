@@ -431,7 +431,7 @@ export const COLLABORATORS = [
   { name: 'CCET, UC Boulder', url: 'https://ccet.colorado.edu' },
   { name: 'de Juan-Sanz Lab, Paris Brain Inst.', url: 'https://dejuansanzlab.org/' },
   { name: 'EM core, MPFI', url: 'https://mpfi.org/our-science/scientific-cores/imaging-center/electron-microscopy/' },
-  { name: 'Hacisuleyman Lab, UF Scripps', url: 'https://wertheim.scripps.ufl.edu/research/faculty/hacisuleyman/' },
+  { name: 'Hacisuleyman Lab, UF Scripps', url: 'https://wertheim.scripps.ufl.edu/profile/hacisuleyman-ezgi/' },
   { name: 'Vaidya Lab, TIFR', url: 'https://www.hutmentlab.com/' },
   { name: 'Inagaki Lab, MPFI', url: 'https://www.mpfi.org/our-labs/inagaki-lab/' },
   { name: 'Kaasik Lab, U Tartu', url: 'https://biomeditsiin.ut.ee/en/content/laboratory-mitochondrial-medicine' },
