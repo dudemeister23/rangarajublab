@@ -24,7 +24,7 @@ const Funding: React.FC = () => {
                                 alt="Max Planck Florida Institute"
                                 className="funding-logo h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
                                 onError={(e) => {
-                                    (e.target as HTMLImageElement).src = 'https://mpfi.org/wp-content/themes/mpfi-child-2023/assets/img/logo.svg';
+                                    (e.target as HTMLImageElement).src = 'https://mpfi.org/wp-content/uploads/2025/02/MPFI-Logo-CMYK.png';
                                 }}
                             />
                         </a>

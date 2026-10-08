@@ -430,10 +430,10 @@ export const NEWS_ITEMS: NewsItem[] = [
 export const COLLABORATORS = [
   { name: 'CCET, UC Boulder', url: 'https://ccet.colorado.edu' },
   { name: 'de Juan-Sanz Lab, Paris Brain Inst.', url: 'https://dejuansanzlab.org/' },
-  { name: 'EM core, MPFI', url: 'https://mpfi.org/science/scientific-cores/imaging-center-2/about-2/electron-microscopy/' },
+  { name: 'EM core, MPFI', url: 'https://mpfi.org/our-science/scientific-cores/imaging-center/electron-microscopy/' },
   { name: 'Hacisuleyman Lab, UF Scripps', url: 'https://wertheim.scripps.ufl.edu/research/faculty/hacisuleyman/' },
   { name: 'Vaidya Lab, TIFR', url: 'https://www.hutmentlab.com/' },
-  { name: 'Inagaki Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/inagaki-lab/' },
+  { name: 'Inagaki Lab, MPFI', url: 'https://www.mpfi.org/our-labs/inagaki-lab/' },
   { name: 'Kaasik Lab, U Tartu', url: 'https://biomeditsiin.ut.ee/en/content/laboratory-mitochondrial-medicine' },
   { name: 'Lippincott-Schwarz Lab, Janelia', url: 'https://www.janelia.org/lab/lippincott-schwartz-lab' },
   { name: 'Loomba, Janelia', url: 'https://www.janelia.org/people/sahil-loomba' },
@@ -443,7 +443,7 @@ export const COLLABORATORS = [
   { name: 'Schreiter Lab, Janelia', url: 'https://www.janelia.org/lab/schreiter-lab' },
   { name: 'Sun Lab, Aarhus University', url: 'https://synaptic-logistics-lab.com/' },
   { name: 'ThermoFisher Scientific', url: 'https://www.thermofisher.com/us/en/home/electron-microscopy/products/transmission-electron-microscopes/techniques/life-sciences.html' },
-  { name: 'Yasuda Lab, MPFI', url: 'https://www.mpfi.org/science/our-labs/yasuda-lab/' }
+  { name: 'Yasuda Lab, MPFI', url: 'https://www.mpfi.org/our-labs/yasuda-lab/' }
 ];
 
 export const FUNDING_URLS = {
