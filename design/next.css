@@ -80,6 +80,11 @@
 .design-next main .max-w-7xl{max-width:none}
 .design-next .team-layout,.design-next .team-members,.design-next .team-details{min-width:0}
 .design-next .team-contact{padding:clamp(0px,1vw,16px);min-width:0}
+/* The open-position icon and label scale with their circle, so the label
+   stays inside it when the circle shrinks on phones. */
+.design-next .team-member div:has(>.fa-user-plus){container-type:inline-size}
+.design-next .team-member .fa-user-plus{font-size:39.5cqw;margin-bottom:5.25cqw}
+.design-next .team-member .fa-user-plus+span{font-size:11.85cqw}
 .design-next .team-contact>a{width:100%;max-width:100%;min-width:0;padding:12px;border-radius:18px}
 .design-next .team-contact>a>div:first-child{flex-shrink:0}
 .design-next .team-contact>a>div:last-child{min-width:0;overflow-wrap:anywhere}
@@ -232,8 +237,12 @@ html[data-native-theme="light"][data-darkreader-scheme="dark"] .design-next .sci
 
 /* Sections are their own layers so the reading surface can rise over the
    hero; lift the one showing a pop-up (team, news, alumni) above the nav and
-   theme control so its overlay covers the whole screen. */
-.design-next main:has(.fixed.inset-0),.design-next main>:not(#home):has(.fixed.inset-0){z-index:70}
+   theme control so its overlay covers the whole screen. The team pop-up is
+   hidden from 1024px up, where it must not lift the section over the nav. */
+.design-next main:has(.fixed.inset-0:not(.lg\:hidden)),.design-next main>:not(#home):has(.fixed.inset-0:not(.lg\:hidden)){z-index:70}
+@media(max-width:1023.98px){
+  .design-next main:has(.fixed.inset-0),.design-next main>:not(#home):has(.fixed.inset-0){z-index:70}
+}
 
 /* Hold the field at the large viewport height: a phone toolbar showing or
    hiding during a scroll would otherwise resize it, stretching the drawing
