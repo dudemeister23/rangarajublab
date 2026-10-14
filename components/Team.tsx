@@ -195,6 +195,36 @@ const Team: React.FC = () => {
 
   const memberToDisplayId = lockedContentId;
 
+  // Research Technician posting (MPFI careers, October 2026), shared by the desktop panel and the mobile modal
+  const researchTechnicianDetails = (
+    <div className="prose prose-sm prose-slate max-w-none">
+      <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
+      <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
+        <p className="text-sm text-slate-600 mb-2">
+          Please apply through the MPFI careers page:
+        </p>
+        <a href="https://www.mpfi.org/about-us/careers/career-opportunities/#open-positions-rangaraju/position-details/6ace0952752cde9666ddf450/" target="_blank" rel="noreferrer" className="text-neuro-600 font-bold hover:underline block">
+          View the full posting and apply
+        </a>
+      </div>
+
+      <p className="text-slate-600 mb-4">
+        The research technician will support our research using human induced pluripotent stem cells (iPSCs) and other cellular model systems, with routine cell culture, iPSC maintenance and differentiation, molecular and cellular biology experiments, and general laboratory support. This position is particularly suited for someone who enjoys hands-on laboratory work, works carefully and reliably, and has a strong interest in cell biology and stem cell research.
+      </p>
+
+      <h5 className="font-bold text-slate-900 mt-6 mb-2">Qualifications</h5>
+      <p className="text-slate-600 mb-4">
+        The ideal candidate should have a Bachelor's or Master's degree in Biology, Biotechnology, Biomedical Sciences, Neuroscience, or a related field, previous hands-on mammalian cell culture experience, and a strong understanding of sterile technique. Experience with human iPSC culture is highly desirable. A careful, reliable, and well-organized working style, the ability to follow protocols precisely and work independently after training, and good communication skills are required.
+      </p>
+      <p className="text-slate-600 mb-4">
+        Experience with rodent primary neuronal or glial cultures, iPSC differentiation, fluorescence imaging, or molecular biology techniques such as PCR, cloning, immunostaining, or Western blotting is a plus. Candidates with strong mammalian cell culture and molecular and cellular biology experience but limited direct iPSC experience are also encouraged to apply.
+      </p>
+      <p className="text-slate-600 mb-4 font-medium italic">
+        Please also refer to the Mentoring Philosophy and Team Expectations section above.
+      </p>
+    </div>
+  );
+
   return (
     <section id="team" className="pt-14 pb-12 bg-white">
       <div className="container mx-auto px-6 md:px-12">
@@ -207,7 +237,8 @@ const Team: React.FC = () => {
           <div className="team-members lg:col-span-8 flex flex-wrap justify-center gap-x-6 gap-y-12 content-start">
             {[...sortedTeamMembers,
             { id: 'placeholder-1', name: 'Open Position', role: 'Postdoctoral Fellow', image: null },
-            { id: 'placeholder-2', name: 'Open Position', role: 'PhD Student', image: null }
+            { id: 'placeholder-2', name: 'Open Position', role: 'PhD Student', image: null },
+            { id: 'placeholder-3', name: 'Open Position', role: 'Research Technician', image: null }
             ].map((member) => {
               const isPlaceholder = member.id.startsWith('placeholder');
               // Show as active if: this member's content is displayed OR this member is being hovered
@@ -415,6 +446,26 @@ const Team: React.FC = () => {
                                 Please also refer to the Mentoring Philosophy and Team Expectations section above.
                               </p>
                             </div>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    if (panelMode === 'job' && memberToDisplayId === 'placeholder-3') {
+                      return (
+                        <div className="animate-in fade-in slide-in-from-left-4 duration-300 h-full flex flex-col">
+                          <div className="flex-shrink-0 flex items-center gap-4 mb-6 pb-6 border-b border-slate-200">
+                            <div className="w-16 h-16 rounded-full bg-neuro-50 flex items-center justify-center border-2 border-dashed border-neuro-200">
+                              <i className="fa-solid fa-flask text-neuro-600 text-2xl"></i>
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-slate-900 text-lg">Open Position</h4>
+                              <p className="text-neuro-600 font-bold uppercase tracking-wider text-sm">Research Technician</p>
+                            </div>
+                          </div>
+
+                          <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar min-h-0">
+                            {researchTechnicianDetails}
                           </div>
                         </div>
                       );
@@ -732,16 +783,17 @@ const Team: React.FC = () => {
               // 1. Handle Open Positions
               if (lockedContentId.startsWith('placeholder')) {
                 const isPhD = lockedContentId === 'placeholder-2';
+                const isTechnician = lockedContentId === 'placeholder-3';
                 return (
                   <div className="flex flex-col overflow-hidden" style={{ maxHeight: 'calc(85vh - 2rem)' }}>
                     <div className="p-6 border-b border-neuro-100 flex items-center justify-between bg-neuro-50/50 flex-shrink-0">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-neuro-50 flex items-center justify-center border-2 border-dashed border-neuro-200">
-                          <i className={`fa-solid ${isPhD ? 'fa-graduation-cap' : 'fa-user-plus'} text-neuro-600`}></i>
+                          <i className={`fa-solid ${isPhD ? 'fa-graduation-cap' : isTechnician ? 'fa-flask' : 'fa-user-plus'} text-neuro-600`}></i>
                         </div>
                         <div>
                           <h4 className="font-bold text-slate-900 text-lg leading-tight">Open Position</h4>
-                          <p className="text-xs font-bold text-neuro-600 uppercase tracking-wider">{isPhD ? 'PhD Student' : 'Postdoctoral Fellow'}</p>
+                          <p className="text-xs font-bold text-neuro-600 uppercase tracking-wider">{isPhD ? 'PhD Student' : isTechnician ? 'Research Technician' : 'Postdoctoral Fellow'}</p>
                         </div>
                       </div>
                       <button onClick={() => setLockedMemberId(null)} className="w-8 h-8 rounded-full bg-white text-slate-400 hover:bg-slate-100 hover:text-slate-600 flex items-center justify-center transition-colors">
@@ -749,6 +801,7 @@ const Team: React.FC = () => {
                       </button>
                     </div>
                     <div className="p-6 overflow-y-scroll flex-1 overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
+                      {isTechnician ? researchTechnicianDetails : (
                       <div className="prose prose-sm prose-slate max-w-none">
                         <h5 className="font-bold text-slate-900 mb-3">How to Apply</h5>
                         {isPhD ? (
@@ -780,6 +833,7 @@ const Team: React.FC = () => {
                         </p>
                         <p className="text-slate-600 mb-4 font-medium italic">Please also refer to the Mentoring Philosophy and Team Expectations section above.</p>
                       </div>
+                      )}
                     </div>
                   </div>
                 );
