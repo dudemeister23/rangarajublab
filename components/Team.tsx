@@ -153,6 +153,26 @@ const Team: React.FC = () => {
     setHoveredMemberId(id);
   };
 
+  // Shareable links that open an open position, e.g. rangarajulab.org/#research-technician
+  useEffect(() => {
+    const positionLinks: Record<string, string> = {
+      'postdoctoral-fellow': 'placeholder-1',
+      'phd-student': 'placeholder-2',
+      'research-technician': 'placeholder-3',
+    };
+    const openLinkedPosition = () => {
+      const id = positionLinks[window.location.hash.slice(1)];
+      if (!id) return;
+      document.getElementById('team')?.scrollIntoView({ behavior: 'instant', block: 'start' });
+      setLockedMemberId(id);
+      setLockedContentId(id);
+      setPanelMode('job');
+    };
+    openLinkedPosition();
+    window.addEventListener('hashchange', openLinkedPosition);
+    return () => window.removeEventListener('hashchange', openLinkedPosition);
+  }, []);
+
   // Otherwise, show the last locked member who had publications.
 
   // Lock body scroll when modal is open (iOS-compatible approach) - ONLY on mobile
