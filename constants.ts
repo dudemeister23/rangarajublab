@@ -91,7 +91,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
 ];
 
 export const AWARDS: Award[] = [
-  { id: 'a23', title: 'Invited Speaker, MSN seminars 2027, Mount Sinai', recipient: 'Ilika Ghosh', date: '2027', type: 'honor' },
+  { id: 'a23', title: 'Invited Speaker, MSN seminars 2027, Mount Sinai', recipient: 'Ilika Ghosh', date: '01/2027', type: 'honor' },
   { id: 'a22', title: 'Invited Speaker, P-SPINE Fellow 2026, U Penn', recipient: 'Ilika Ghosh', date: '10/2026', type: 'honor' },
   { id: 'a21', title: 'Best Talk and Selected Speaker, NeuroCollective Symposium - MPFI, UF Scripps, FAU', recipient: 'Monil Shah', date: '05/2026', type: 'award' },
   { id: 'a1', title: 'Minisymposia Speaker, Travel Grant Awardee, Elevator Pitch 2nd Place at American Society for Cell Biology 2025', recipient: 'Ilika Ghosh', date: '12/2025', type: 'award' },
