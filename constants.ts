@@ -86,12 +86,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't7', name: 'Monil Shah', role: 'IMPRS PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a21', 'a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
   { id: 't9', name: 'Nimmy Varghese Thiruthanathil', role: 'Postdoctoral Fellow', image: 'assets/team/nimmy-varghese.jpg', email: 'nimmy.varghese@mpfi.org', joinedYear: '2024' },
   { id: 't8', name: 'Nitheyaa Shree Ramesh', role: 'Postdoctoral Fellow', image: 'assets/team/nitheyaa-shree.jpg', publicationIds: ['pp1'], email: 'nitheyaa.shreeramesh@mpfi.org', joinedYear: '2025' },
-  { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pub-circsamm50', 'pp3', 'pub4'], awardIds: ['a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
+  { id: 't3', name: 'Ojasee Bapat', role: 'IMPRS PhD Student', image: 'assets/team/ojasee-bapat.jpg', publicationIds: ['pub-circsamm50', 'pp3', 'pub4'], awardIds: ['a25', 'a5'], email: 'ojasee.bapat@mpfi.org', joinedYear: '2021' },
   { id: 't4', name: 'Ruolin Fan', role: 'Staff Scientist', image: 'assets/team/ruolin-fan.jpeg', publicationIds: ['pub0', 'pp3', 'pp4', 'pub1', 'pub4'], awardIds: ['a14'], email: 'ruolin.fan@mpfi.org', joinedYear: '2021' },
 ];
 
 export const AWARDS: Award[] = [
   { id: 'a23', title: 'Invited Speaker, MSN seminars 2027, Mount Sinai', recipient: 'Ilika Ghosh', date: '01/2027', type: 'honor' },
+  { id: 'a25', title: 'Best Poster Award, Selected Speaker, Multidimensional Analysis of Memory Mechanisms Retreat 2026', recipient: 'Ojasee Bapat', date: '10/2026', type: 'award' },
   { id: 'a22', title: 'Invited Speaker, P-SPINE Fellow 2026, U Penn', recipient: 'Ilika Ghosh', date: '10/2026', type: 'honor' },
   { id: 'a24', title: 'Selected Participant, CZI Faculty Application Bootcamp', recipient: 'Ilika Ghosh', date: '06/2026', type: 'honor' },
   { id: 'a21', title: 'Best Talk and Selected Speaker, NeuroCollective Symposium - MPFI, UF Scripps, FAU', recipient: 'Monil Shah', date: '05/2026', type: 'award' },
