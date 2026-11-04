@@ -143,7 +143,7 @@ const News: React.FC = () => {
                             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
                                 {activeNews.title}
                             </h2>
-                            {(activeNews.externalLink || activeNews.pdfUrl) && (
+                            {(activeNews.externalLink || activeNews.secondaryLink || activeNews.pdfUrl) && (
                                 <div className="mt-5 flex flex-wrap gap-3">
                                     {activeNews.externalLink && (
                                         <a
@@ -153,6 +153,17 @@ const News: React.FC = () => {
                                             className="inline-flex items-center gap-2 px-6 py-3 bg-neuro-600 hover:bg-neuro-700 text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                                         >
                                             Read Full Story
+                                            <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                                        </a>
+                                    )}
+                                    {activeNews.secondaryLink && (
+                                        <a
+                                            href={activeNews.secondaryLink.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-slate-50 text-neuro-600 font-bold rounded-full border-2 border-neuro-600 transition-all duration-300 shadow-sm hover:shadow-md"
+                                        >
+                                            {activeNews.secondaryLink.label}
                                             <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                                         </a>
                                     )}

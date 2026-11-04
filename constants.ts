@@ -81,6 +81,7 @@ export const TEAM_REEL = [
 export const TEAM_MEMBERS: TeamMember[] = [
   { id: 't1', name: 'Dr. Vidhya Rangaraju', role: 'Group Leader / PI', image: DR_RANGARAJU_PHOTO, email: 'Vidhya.Rangaraju@mpfi.org', joinedYear: '2020' },
   { id: 't2', name: 'Debalina Acharyya', role: 'Postdoctoral Fellow', image: 'assets/team/debalina-acharyya.jpg', email: 'debalina.acharyya@mpfi.org', joinedYear: '2024' },
+  { id: 't11', name: 'Tamara Arenas', role: 'IMPRS PhD Rotation Student', image: 'assets/team/tamara-arenas.jpg', email: 'tamara.arenas@mpfi.org', joinedYear: '2026' },
   { id: 't5', name: 'Ilika Ghosh', role: 'Postdoctoral Fellow', image: 'assets/team/ilika-ghosh.jpg', publicationIds: ['pp1', 'pp3', 'pub2'], awardIds: ['a23', 'a22', 'a24', 'a1', 'a6', 'a8', 'a9', 'a11', 'a16', 'a17'], email: 'ilika.ghosh@mpfi.org', joinedYear: '2020' },
   { id: 't6', name: 'Juan Patarroyo', role: 'Lab Manager', image: 'assets/team/juan-patarroyo.jpg', email: 'juan.patarroyo@mpfi.org', joinedYear: '2025' },
   { id: 't7', name: 'Monil Shah', role: 'IMPRS PhD Student', image: 'assets/team/monil-shah.jpeg', publicationIds: ['pp1', 'pp3', 'pub4'], awardIds: ['a21', 'a2', 'a3', 'a4', 'a5', 'a7', 'a9', 'a10', 'a12', 'a13'], email: 'monil.shah@mpfi.org', joinedYear: '2021' },
@@ -257,6 +258,19 @@ export const CONTACT_INFO = {
   ] as SocialLink[]
 };
 export const NEWS_ITEMS: NewsItem[] = [
+  {
+    id: 'n20',
+    title: 'Dr. Rangaraju Joins the $80 Million Simons Collaboration on Brain Energetics',
+    date: 'November 2, 2026',
+    image: 'assets/news/simons-brain-energetics-2026.jpg',
+    category: 'Award',
+    externalLink: 'https://www.mpfi.org/how-does-energy-shape-brain-function/',
+    secondaryLink: {
+      label: 'Simons Foundation Announcement',
+      url: 'https://www.simonsfoundation.org/news/simons-foundation-launches-collaboration-to-uncover-how-energy-shapes-brain-computation/'
+    },
+    content: 'Dr. Vidhya Rangaraju has been selected as one of 26 investigators in the Simons Collaboration on Brain Energetics (SCOBE), which the Simons Foundation launched on November 2, 2026. The 10-year, $80 million collaboration brings experimentalists and theorists from neuroscience, cell and molecular biology, and engineering together to ask how the brain generates and spends its energy, and how it copes when energy runs short.\n\nThe Rangaraju Lab will receive $3.2 million over the 10 years for work on how neurons produce and distribute the energy that synapses need to strengthen during learning and to maintain memories. With advanced imaging and molecular tools, the lab will measure how energy supply keeps pace with demand at single synapses, test whether the fuel available to a neuron changes how it prioritizes energy use, and examine how the brain adjusts its energy production and synaptic function to the metabolic demands of pregnancy and lactation.\n\n“The Simons Foundation’s investment brings long-awaited recognition to brain energetics, a fundamental yet underexplored dimension of brain function,” says Dr. Rangaraju. “I am excited to be part of a collaboration that brings together molecular biology, physiology, computation, and theory to uncover how energy shapes the brain’s ability to learn, remember, and adapt.”\n\nThe collaboration is organized around four themes: the energetics of single cells, energetics across brain circuits, neurovascular coupling, and adaptation to energy scarcity. Its investigators work in worms, flies, mice, and humans, with a strong emphasis on theory, computation, and open data.\n\nRead the full story from the Max Planck Florida Institute for Neuroscience and the Simons Foundation’s announcement. Illustration by Deena So Oteh for the Simons Foundation.'
+  },
   {
     id: 'n19',
     title: 'Dr. Rangaraju Discusses the Brain’s Local Power Plants in The Transmitter',

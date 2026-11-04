@@ -52,6 +52,7 @@ export interface NewsItem {
   category?: string;
   audioUrl?: string;
   externalLink?: string;
+  secondaryLink?: { label: string; url: string }; // A second source, shown as an outlined button
   pdfUrl?: string;
 }
 

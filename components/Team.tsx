@@ -102,7 +102,7 @@ const Team: React.FC = () => {
   // Helper function to get image scale class for team member photos
   const getImageScale = (memberId: string) => {
     switch (memberId) {
-      case 't1': return 'scale-[1.45] translate-y-3';
+      case 't1': return 'scale-[1.9] translate-y-[28%] -translate-x-[6%]';
       case 't2': return 'scale-[1.1]';
       case 't3': return 'scale-[1.1]';
       case 't6': return 'scale-[1.1]';
