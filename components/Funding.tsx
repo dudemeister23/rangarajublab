@@ -99,6 +99,13 @@ const Funding: React.FC = () => {
                             />
                         </a>
 
+                        {/* Simons Foundation: plain text only; the foundation's brand guidelines require prior approval for its logo */}
+                        <div className="h-24 px-6 flex items-center justify-center bg-white rounded-3xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
+                            <span className="text-lg font-bold text-slate-700 text-center leading-tight group-hover:text-neuro-700 transition-colors">
+                                Simons<br />Foundation
+                            </span>
+                        </div>
+
                         {/* Srybnik */}
                         <div className="h-24 px-6 flex items-center justify-center bg-white rounded-3xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
                             <span className="text-lg font-bold text-slate-700 text-center leading-tight group-hover:text-neuro-700 transition-colors">
