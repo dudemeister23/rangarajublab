@@ -57,6 +57,7 @@ export const NIH_INNOVATOR_LOGO = 'assets/funding/nih-innovator-logo.png';
 export const DESANTIS_LOGO = 'assets/funding/desantis-foundation-logo.png';
 export const GRUBER_LOGO = 'assets/funding/gruber-foundation-logo.png';
 export const CZI_LOGO = 'assets/czi-logo.png';
+export const SIMONS_LOGO = 'assets/funding/simons-foundation-logo.png'; // Use approved by the Simons Foundation, 2026-11-05
 export const LAB_TEAM_PHOTO = 'assets/lab-team-group.jpg';
 export const DR_RANGARAJU_PHOTO = 'assets/dr-vidhya-rangaraju.jpg';
 export const HERO_BACKGROUND = 'assets/hero-bg.png';
@@ -269,7 +270,7 @@ export const NEWS_ITEMS: NewsItem[] = [
       label: 'Simons Foundation Announcement',
       url: 'https://www.simonsfoundation.org/news/simons-foundation-launches-collaboration-to-uncover-how-energy-shapes-brain-computation/'
     },
-    content: 'Dr. Vidhya Rangaraju has been selected as one of 26 investigators in the Simons Collaboration on Brain Energetics (SCOBE), which the Simons Foundation launched on November 2, 2026. The 10-year, $80 million collaboration brings experimentalists and theorists from neuroscience, cell and molecular biology, and engineering together to ask how the brain generates and spends its energy, and how it copes when energy runs short.\n\nThe Rangaraju Lab will receive $3.2 million over the 10 years for work on how neurons produce and distribute the energy that synapses need to strengthen during learning and to maintain memories. With advanced imaging and molecular tools, the lab will measure how energy supply keeps pace with demand at single synapses, test whether the fuel available to a neuron changes how it prioritizes energy use, and examine how the brain adjusts its energy production and synaptic function to the metabolic demands of pregnancy and lactation.\n\n“The Simons Foundation’s investment brings long-awaited recognition to brain energetics, a fundamental yet underexplored dimension of brain function,” says Dr. Rangaraju. “I am excited to be part of a collaboration that brings together molecular biology, physiology, computation, and theory to uncover how energy shapes the brain’s ability to learn, remember, and adapt.”\n\nThe collaboration is organized around four themes: the energetics of single cells, energetics across brain circuits, neurovascular coupling, and adaptation to energy scarcity. Its investigators work in worms, flies, mice, and humans, with a strong emphasis on theory, computation, and open data.\n\nRead the full story from the Max Planck Florida Institute for Neuroscience and the Simons Foundation’s announcement. Photo courtesy of the Max Planck Florida Institute for Neuroscience.'
+    content: 'Dr. Vidhya Rangaraju has been selected as one of 26 investigators in the Simons Collaboration on Brain Energetics (SCOBE), which the Simons Foundation launched on November 2, 2026. The 10-year, $80 million collaboration brings experimentalists and theorists from neuroscience, cell and molecular biology, and engineering together to ask how the brain generates and spends its energy, and how it copes when energy runs short.\n\nThe Rangaraju Lab will receive $3.2 million over the 10 years for work on how neurons produce and distribute the energy that synapses need to strengthen during learning and to maintain memories. With advanced imaging and molecular tools, the lab will measure how energy supply keeps pace with demand at single synapses, test whether the fuel available to a neuron changes how it prioritizes energy use, and examine how the brain adjusts its energy production and synaptic function to the metabolic demands of pregnancy and lactation.\n\n“The Simons Foundation’s investment brings long-awaited recognition to brain energetics, a fundamental yet underexplored dimension of brain function,” says Dr. Rangaraju. “I am excited to be part of a collaboration that brings together molecular biology, physiology, computation, and theory to uncover how energy shapes the brain’s ability to learn, remember, and adapt.”\n\nThe collaboration is organized around four themes: the energetics of single cells, energetics across brain circuits, neurovascular coupling, and adaptation to energy scarcity. Its investigators work in worms, flies, mice, and humans, with a strong emphasis on theory, computation, and open data.\n\nRead the full story from the Max Planck Florida Institute for Neuroscience and the Simons Foundation’s announcement. Illustration: Deena So Oteh/Simons Foundation. Photo courtesy of the Max Planck Florida Institute for Neuroscience.'
   },
   {
     id: 'n19',
@@ -470,6 +471,7 @@ export const FUNDING_URLS = {
   NIH_INNOVATOR: 'https://commonfund.nih.gov/newinnovator',
   DESANTIS: 'https://carldesantis.org/',
   GRUBER: 'https://gruber.yale.edu',
+  SIMONS: 'https://www.simonsfoundation.org',
 };
 
 export const ALUMNI_DATA: AlumniGroup[] = [

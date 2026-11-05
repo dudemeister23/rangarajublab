@@ -1,5 +1,5 @@
 import React from 'react';
-import { MPFI_LOGO, NIH_LOGO, CZI_LOGO, NIH_INNOVATOR_LOGO, DESANTIS_LOGO, GRUBER_LOGO, COLLABORATORS, FUNDING_URLS } from '../constants';
+import { MPFI_LOGO, NIH_LOGO, CZI_LOGO, NIH_INNOVATOR_LOGO, DESANTIS_LOGO, GRUBER_LOGO, SIMONS_LOGO, COLLABORATORS, FUNDING_URLS } from '../constants';
 
 const Funding: React.FC = () => {
     return (
@@ -99,12 +99,19 @@ const Funding: React.FC = () => {
                             />
                         </a>
 
-                        {/* Simons Foundation: plain text only; the foundation's brand guidelines require prior approval for its logo */}
-                        <div className="h-24 px-6 flex items-center justify-center bg-white rounded-3xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
-                            <span className="text-lg font-bold text-slate-700 text-center leading-tight group-hover:text-neuro-700 transition-colors">
-                                Simons<br />Foundation
-                            </span>
-                        </div>
+                        {/* Simons Foundation: logo use approved by the foundation's communications team, 2026-11-05 */}
+                        <a
+                            href={FUNDING_URLS.SIMONS}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="group transition-all duration-300 hover:scale-105"
+                        >
+                            <img
+                                src={SIMONS_LOGO}
+                                alt="Simons Foundation"
+                                className="funding-logo h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity mix-blend-multiply"
+                            />
+                        </a>
 
                         {/* Srybnik */}
                         <div className="h-24 px-6 flex items-center justify-center bg-white rounded-3xl shadow-sm border border-slate-100 group transition-all duration-300 hover:shadow-md hover:scale-105 hover:border-neuro-200">
